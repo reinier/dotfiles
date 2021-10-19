@@ -29,7 +29,8 @@ enum td_keycodes {
   ALT_COLN,
   THE_THUMB,
   RIGHT_THUMB,
-  TO_BASE
+  TO_BASE,
+  HYP_ENT
 };
 
 typedef enum {
@@ -109,7 +110,10 @@ void thethumb_finished(qk_tap_dance_state_t *state, void *user_data);
 void thethumb_reset(qk_tap_dance_state_t *state, void *user_data);
 
 void rightthumb_finished(qk_tap_dance_state_t *state, void *user_data);
-void thethumb_reset(qk_tap_dance_state_t *state, void *user_data);
+void rightthumb_reset(qk_tap_dance_state_t *state, void *user_data);
+
+void hypent_finished(qk_tap_dance_state_t *state, void *user_data);
+void hypent_reset(qk_tap_dance_state_t *state, void *user_data);
 
 
 /* Return an integer that corresponds to what kind of tap dance should be executed.
@@ -557,13 +561,7 @@ void thethumb_reset(qk_tap_dance_state_t *state, void *user_data) {
 // https://www.reddit.com/r/olkb/comments/4izhrp/qmk_oneshot_question/
 // From the docs:
 // For one shot layers, you need to call set_oneshot_layer(LAYER, ONESHOT_START) on key down, and clear_oneshot_layer_state(ONESHOT_PRESSED) on key up. If you want to cancel the oneshot, call reset_oneshot_layer().
-
-// After adding THE RIGHT THUMB you can signal the computer about what layer you are on
-// https://balatero.com/writings/qmk/add-visual-layer-indicator-for-qmk-to-mac-os/
-// F15 = layer 0
-// F20 = layer 1
-// F21 = layer 2
-// Use modifiers on the K keys?
+// Use F keys for signalling the layer to the computer
 
 // THE THUMB
 
@@ -626,6 +624,35 @@ void tobase_reset(qk_tap_dance_state_t *state, void *user_data) {
   tobase_tap_state.state = TD_NONE;
 }
 
+// HYPER (F19) and Enter
+
+void hypent_finished(qk_tap_dance_state_t *state, void *user_data) {
+  td_state = cur_dance(state);
+  switch (td_state) {
+  case TD_SINGLE_TAP:
+    register_code16(KC_ENTER);
+    break;
+  case TD_SINGLE_HOLD:
+    register_code16(KC_F19);
+    break;
+  default:
+    break;
+  }
+}
+
+void hypent_reset(qk_tap_dance_state_t *state, void *user_data) {
+  switch (td_state) {
+  case TD_SINGLE_TAP:
+    unregister_code16(KC_ENTER);
+    break;
+  case TD_SINGLE_HOLD:
+    unregister_code16(KC_F19);
+    break;
+  default:
+    break;
+  }
+}
+
 // Define `ACTION_TAP_DANCE_FN_ADVANCED()` for each tapdance keycode, passing in `finished` and `reset` functions
 qk_tap_dance_action_t tap_dance_actions[] = {
   [DOT_EL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dotel_finished, dotel_reset),
@@ -641,6 +668,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   [THE_THUMB] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, thethumb_finished, thethumb_reset, 275),
   [RIGHT_THUMB] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, rightthumb_finished, rightthumb_reset, 275),
   [TO_BASE] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, tobase_finished, tobase_reset, 275),
+  [HYP_ENT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, hypent_finished, hypent_reset),
 };
 
 
@@ -705,7 +733,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_0_4_2 KC_SPACE
 #define KR_0_4_3 TD(THE_THUMB)
 
-#define KR_0_4_4 HYPR_T(KC_ENTER)
+#define KR_0_4_4 TD(HYP_ENT)
 #define KR_0_4_5 TD(RIGHT_THUMB)
 #define KR_0_4_6 KC_MEH
 
@@ -865,27 +893,27 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_4_1_1 KC_ESC
 #define KR_4_1_2 KC_NO
 #define KR_4_1_3 KC_NO
-#define KR_4_1_4 KC_MS_BTN2
+#define KR_4_1_4 KC_NO
 #define KR_4_1_5 KC_NO
 //
 #define KR_4_1_6 KC_MS_WH_DOWN
 #define KR_4_1_7 KC_MS_WH_RIGHT
 #define KR_4_1_8 KC_MS_UP
 #define KR_4_1_9 KC_MS_WH_LEFT
-#define KR_4_1_10 KC_NO
+#define KR_4_1_10 KC_BSPC
 
 
 #define KR_4_2_1 KC_LCTRL
 #define KR_4_2_2 KC_LALT
 #define KR_4_2_3 KC_LSHIFT
 #define KR_4_2_4 KC_LGUI
-#define KR_4_2_5 KC_MS_BTN1
+#define KR_4_2_5 KC_NO
 //
 #define KR_4_2_6 KC_MS_WH_UP
 #define KR_4_2_7 KC_MS_LEFT
 #define KR_4_2_8 KC_MS_DOWN
 #define KR_4_2_9 KC_MS_RIGHT
-#define KR_4_2_10 KC_RCTRL
+#define KR_4_2_10 KC_MS_BTN2
 
 
 #define KR_4_3_1 KC_NO
@@ -904,6 +932,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_4_4_2 KC_SPACE
 #define KR_4_4_3 KC_NO
 
-#define KR_4_4_4 HYPR_T(KC_ENTER)
+#define KR_4_4_4 KC_MS_BTN1
 #define KR_4_4_5 KC_NO
 #define KR_4_4_6 TD(TO_BASE)
