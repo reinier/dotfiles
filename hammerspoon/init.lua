@@ -88,7 +88,7 @@ config.applications = {
 	},
 	['com.apple.finder'] = {
 		bundleID = 'com.apple.finder',
-		hyper_key = 'f'
+		hyper_key = 'r'
 	},
 	['com.agiletortoise.Drafts-OSX'] = {
 		bundleID = 'com.agiletortoise.Drafts-OSX',
@@ -98,7 +98,7 @@ config.applications = {
 	},
 	['com.stairways.keyboardmaestro.engine'] = {
 		bundleID = 'com.stairways.keyboardmaestro.engine',
-		local_bindings = { 'a', 's' }
+		local_bindings = { 'a', 's', 't' }
 	},
 	['com.google.Chrome'] = {
 		bundleID = 'com.google.Chrome',
@@ -110,7 +110,7 @@ config.applications = {
 	},
 	['com.omnigroup.OmniFocus3.MacAppStore'] = {
 		bundleID = 'com.omnigroup.OmniFocus3.MacAppStore',
-		hyper_key = 't'
+		hyper_key = 'f'
 	},
 	
 }
