@@ -47,6 +47,62 @@ config.applications = {
 
 hyper.start(config)
 
+hyper:bind({}, 'o', function()
+	hs.hints.windowHints()
+end)
+
+local chrome = {}
+
+local as = hs.applescript
+
+local function tell(cmd)
+  local _cmd = 'tell application "Google Chrome" to ' .. cmd
+  local _ok, result = as.applescript(_cmd)
+  return result
+end
+
+function chrome.copyUrl()
+  local app = hs.application.applicationsForBundleID('com.google.Chrome')[1]
+  if app ~= nil then
+	local url = tell('tell window 1 to URL of active tab')
+	if url ~= 'chrome://newtab/' then
+	  hs.alert.show('Copied: '..url)
+	  -- hs.pasteboard.setContents(url)
+	end
+  end
+end
+
+hyper:bind({}, '.', function()
+	chrome.copyUrl()
+end)
+
+-- hyper:bind({}, '.', function()
+	-- local safariRunnig = hs.application.applicationsForBundleID("com.google.Chrome")[1]
+	-- log.i(hs.inspect(safariRunnig))
+	-- safariWindows = safariRunnig:visibleWindows()
+	-- log.i(hs.inspect(safariWindows))
+	-- safWindow = hs.axuielement.windowElement(safariRunnig:visibleWindows()[1])
+	-- local stat, data = hs.applescript('tell application "Safari" to get {URL, name} of current tab of window 1')
+	-- hs.eventtap.keyStrokes("[" .. data[2] .. "](" .. data[1] .. ")")
+-- end)
+-- log.i(hs.inspect(safariRunnig))
+-- safWindow = hs.axuielement.windowElement(safariRunnig:visibleWindows()[1])
+-- log.i(hs.inspect(safWindow))
+
+-- hyper:bind({}, '.', function()
+	-- local safari_running = hs.application.applicationsForBundleID("com.apple.Safari")
+	-- -- log.i(hs.inspect(safari_running))
+	-- local stat, data = hs.applescript('tell application "Safari" to get {URL, name} of current tab of window 1')
+	-- -- log.i(hs.inspect(stat))
+	-- if stat then
+	-- 	hs.eventtap.keyStrokes("[" .. data[2] .. "](" .. data[1] .. ")")
+	-- end
+	-- -- exithyperspacemode()
+	
+	
+	-- w:elementSearch({role='AXTextField'})[1]:attributeValue('AXValue')
+-- end)
+
 -- GRID (inspiration: https://medium.com/@jhkuperus/window-management-with-hammerspoon-personal-productivity-c77adc436888)
 hs.window.animationDuration=0.2
 local grid = require "hs.grid"
@@ -100,7 +156,6 @@ hyperspacemode:bind({}, 'space', function()
 	exithyperspacemode()
 end)
 
-
 hyperspacemode:bind('', 'j', function()
 	window = hs.window.focusedWindow()
 	grid.set(window, screenPositions.left)
@@ -144,6 +199,7 @@ hyperspacemode:bind({}, 'a', function()
 	hs.spotify.previous()
 	exithyperspacemode()
 end)
+
 
 -- https://github.com/levinine/hammerspoon-config/blob/f0ea4e358b62c67e436d97aa3b2e2516accccd58/audio-watcher.lua
 
