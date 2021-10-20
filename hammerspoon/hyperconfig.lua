@@ -7,7 +7,7 @@ config = {}
 config.applications = {
 	['com.runningwithcrayons.Alfred'] = {
 		bundleID = 'com.runningwithcrayons.Alfred',
-		local_bindings = { 'c', 'space' }
+		local_bindings = { 'c' }
 	},
 	['com.apple.finder'] = {
 		bundleID = 'com.apple.finder',
@@ -15,9 +15,7 @@ config.applications = {
 	},
 	['com.agiletortoise.Drafts-OSX'] = {
 		bundleID = 'com.agiletortoise.Drafts-OSX',
-		hyper_key = 'd',
-		tags = { '#review', '#writing', '#research' },
-		local_bindings = { 'x', ';' }
+		hyper_key = 'd'
 	},
 	['com.stairways.keyboardmaestro.engine'] = {
 		bundleID = 'com.stairways.keyboardmaestro.engine',
@@ -39,6 +37,11 @@ config.applications = {
 		bundleID = "com.agilebits.onepassword7",
 		name = "1Password",
 		hyper_key = "p",
+	},
+	["com.panic.nova"] = {
+		bundleID = "com.panic.nova",
+		name = "Nova",
+		hyper_key = "e",
 	},
 }
 
@@ -75,26 +78,118 @@ screenPositions.mid = {
 	w = 4, h = 3
 }
 
--- local log = hs.logger.new('mymodule','debug')
+local log = hs.logger.new('mymodule','debug')
 -- log.i(hs.inspect(screenPositions))
 
-hyper:bind({}, 'j', function()
+-- HYPER SPACE
+
+local hyperspacemode = hs.hotkey.modal.new()
+
+hyper:bind({}, 'space', nil, function()
+	hyperspacemode:enter()
+	layerbar:setTitle("HYPER SPACE")
+	hs.alert.show('HYPER SPACE')
+end)
+
+exithyperspacemode = function()
+	layerbar:setTitle("BASE")
+	hyperspacemode:exit()
+end
+
+hyperspacemode:bind({}, 'space', function()
+	exithyperspacemode()
+end)
+
+
+hyperspacemode:bind('', 'j', function()
 	window = hs.window.focusedWindow()
 	grid.set(window, screenPositions.left)
+	exithyperspacemode()
 end)
 
-hyper:bind({}, 'l', function()
+hyperspacemode:bind({}, 'l', function()
 	window = hs.window.focusedWindow()
 	grid.set(window, screenPositions.right)
+	exithyperspacemode()
 end)
 
-hyper:bind({}, 'i', function()
+hyperspacemode:bind({}, 'i', function()
 	window = hs.window.focusedWindow()
 	grid.set(window, screenPositions.full)
-
+  exithyperspacemode()
 end)
 
-hyper:bind({}, 'k', function()
+hyperspacemode:bind({}, 'k', function()
 	window = hs.window.focusedWindow()
 	grid.set(window, screenPositions.mid)
+	exithyperspacemode()
+end)
+
+hyperspacemode:bind({}, 's', function()
+	hs.spotify.displayCurrentTrack()
+	exithyperspacemode()
+end)
+
+hyperspacemode:bind({}, 'd', function()
+	hs.spotify.playpause()
+	exithyperspacemode()
+end)
+
+hyperspacemode:bind({}, 'f', function()
+	hs.spotify.next()
+	exithyperspacemode()
+end)
+
+hyperspacemode:bind({}, 'a', function()
+	hs.spotify.previous()
+	exithyperspacemode()
+end)
+
+-- https://github.com/levinine/hammerspoon-config/blob/f0ea4e358b62c67e436d97aa3b2e2516accccd58/audio-watcher.lua
+
+-- local current = hs.audiodevice.defaultOutputDevice()
+polybt = hs.audiodevice.findOutputByName('Poly BT600')
+cakewalk = hs.audiodevice.findOutputByName('External Headphones')
+
+-- Set audio to cake output
+hyperspacemode:bind({}, 'e', function()
+	-- External Headphones
+	cakewalk:setDefaultOutputDevice()
+	hs.alert.show('Output: Cakewalk')
+	exithyperspacemode()
+end)
+
+-- Set audio to poly output and input
+hyperspacemode:bind({}, 'r', function()
+	-- Poly BT600
+	polybt:setDefaultOutputDevice()
+	polybt:setDefaultInputDevice()
+	hs.alert.show('Output and input: Poly')
+	exithyperspacemode()
+end)
+
+-- Mute
+hyperspacemode:bind({}, 'x', function()
+	local current = hs.audiodevice.defaultOutputDevice()
+	current:setVolume(0)
+	hs.alert.show('Mute')
+	exithyperspacemode()
+end)
+
+-- Decrease volume
+hyperspacemode:bind({}, 'c', function()
+	local current = hs.audiodevice.defaultOutputDevice()
+	local currVolume = current:volume()
+	current:setVolume(currVolume - 10)
+	hs.alert.show('--')
+	-- exithyperspacemode()
+end)
+
+-- Increase volume
+hyperspacemode:bind({}, 'v', function()
+	local current = hs.audiodevice.defaultOutputDevice()
+	local currVolume = current:volume()
+	current:setVolume(currVolume + 10)
+	hs.alert.show('++')
+	-- exithyperspacemode()
 end)
