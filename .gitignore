@@ -1,2 +1,6 @@
+/private
 .DS_Store
+**/*.DS_Store
+**/.DS_Store
 karabiner/automatic_backups/*
+.cache
