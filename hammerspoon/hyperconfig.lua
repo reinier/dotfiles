@@ -51,7 +51,13 @@ hyper:bind({}, 'o', function()
 	hs.hints.windowHints()
 end)
 
+
+
+-- AREA 51
+
+
 local chrome = {}
+local saf = {}
 
 local as = hs.applescript
 
@@ -64,17 +70,28 @@ end
 function chrome.copyUrl()
   local app = hs.application.applicationsForBundleID('com.google.Chrome')[1]
   if app ~= nil then
-	local url = tell('tell window 1 to URL of active tab')
+		local url = tell('tell window 1 to URL of active tab')
 	if url ~= 'chrome://newtab/' then
 	  hs.alert.show('Copied: '..url)
-	  -- hs.pasteboard.setContents(url)
+	  hs.pasteboard.setContents(url)
 	end
   end
 end
 
-hyper:bind({}, '.', function()
-	chrome.copyUrl()
-end)
+function saf.copyUrl()
+	local app = hs.application.applicationsForBundleID("com.apple.Safari")[1]
+	if app ~= nil then
+		local stat, data = hs.applescript('tell application "Safari" to get {URL, name} of current tab of window 1')
+	if url ~= '' then
+		hs.alert.show('Copied: ' .. "[" .. data[2] .. "](" .. data[1] .. ")")
+		hs.pasteboard.setContents("[" .. data[2] .. "](" .. data[1] .. ")")
+	end
+	end
+end
+
+-- hyper:bind({}, '.', function()
+-- 	saf.copyUrl()
+-- end)
 
 -- hyper:bind({}, '.', function()
 	-- local safariRunnig = hs.application.applicationsForBundleID("com.google.Chrome")[1]
@@ -102,6 +119,11 @@ end)
 	
 	-- w:elementSearch({role='AXTextField'})[1]:attributeValue('AXValue')
 -- end)
+
+
+-- END AREA 51
+
+
 
 -- GRID (inspiration: https://medium.com/@jhkuperus/window-management-with-hammerspoon-personal-productivity-c77adc436888)
 hs.window.animationDuration=0.2
@@ -144,7 +166,7 @@ local hyperspacemode = hs.hotkey.modal.new()
 hyper:bind({}, 'space', nil, function()
 	hyperspacemode:enter()
 	layerbar:setTitle("HYPER SPACE")
-	hs.alert.show('HYPER SPACE')
+	-- hs.alert.show('HYPER SPACE')
 end)
 
 exithyperspacemode = function()
@@ -153,6 +175,11 @@ exithyperspacemode = function()
 end
 
 hyperspacemode:bind({}, 'space', function()
+	exithyperspacemode()
+end)
+
+hyperspacemode:bind({}, '.', function()
+	saf.copyUrl()
 	exithyperspacemode()
 end)
 
@@ -237,7 +264,7 @@ hyperspacemode:bind({}, 'c', function()
 	local current = hs.audiodevice.defaultOutputDevice()
 	local currVolume = current:volume()
 	current:setVolume(currVolume - 10)
-	hs.alert.show('--')
+	hs.alert.show('-- ' .. currVolume - 10)
 	-- exithyperspacemode()
 end)
 
@@ -246,6 +273,6 @@ hyperspacemode:bind({}, 'v', function()
 	local current = hs.audiodevice.defaultOutputDevice()
 	local currVolume = current:volume()
 	current:setVolume(currVolume + 10)
-	hs.alert.show('++')
+	hs.alert.show('++ ' .. currVolume + 10)
 	-- exithyperspacemode()
 end)

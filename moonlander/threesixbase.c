@@ -733,9 +733,9 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_0_4_2 KC_SPACE
 #define KR_0_4_3 TD(THE_THUMB)
 
-#define KR_0_4_4 TD(HYP_ENT)
-#define KR_0_4_5 TD(RIGHT_THUMB)
-#define KR_0_4_6 KC_MEH
+#define KR_0_4_4 TD(RIGHT_THUMB) // turn into char
+#define KR_0_4_5 KC_F19 // turn into hyper/to(0)
+#define KR_0_4_6 KC_ENTER //turn into Enter
 
 
 
@@ -834,9 +834,9 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_2_4_2 KC_SPACE
 #define KR_2_4_3 KC_NO
 
-#define KR_2_4_4 HYPR_T(KC_ENTER)
-#define KR_2_4_5 KC_NO
-#define KR_2_4_6 TD(TO_BASE)
+#define KR_2_4_4 KC_NO
+#define KR_2_4_5 TD(TO_BASE)
+#define KR_2_4_6 KC_ENTER
 
 // ##### Layer 3 Numpad
 
@@ -883,9 +883,9 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_3_4_2 KC_SPACE
 #define KR_3_4_3 KC_NO
 
-#define KR_3_4_4 HYPR_T(KC_ENTER)
-#define KR_3_4_5 KC_NO
-#define KR_3_4_6 TD(TO_BASE)
+#define KR_3_4_4 KC_NO
+#define KR_3_4_5 TD(TO_BASE)
+#define KR_3_4_6 KC_ENTER
 
 
 // ##### Layer 4 Mouse
@@ -933,5 +933,5 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_4_4_3 KC_NO
 
 #define KR_4_4_4 KC_MS_BTN1
-#define KR_4_4_5 KC_NO
-#define KR_4_4_6 TD(TO_BASE)
+#define KR_4_4_5 TD(TO_BASE)
+#define KR_4_4_6 KC_ENTER

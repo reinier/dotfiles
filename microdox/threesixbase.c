@@ -29,7 +29,8 @@ enum td_keycodes {
   ALT_COLN,
   THE_THUMB,
   RIGHT_THUMB,
-  TO_BASE
+  TO_BASE,
+  HYP_ENT
 };
 
 typedef enum {
@@ -109,7 +110,10 @@ void thethumb_finished(qk_tap_dance_state_t *state, void *user_data);
 void thethumb_reset(qk_tap_dance_state_t *state, void *user_data);
 
 void rightthumb_finished(qk_tap_dance_state_t *state, void *user_data);
-void thethumb_reset(qk_tap_dance_state_t *state, void *user_data);
+void rightthumb_reset(qk_tap_dance_state_t *state, void *user_data);
+
+void hypent_finished(qk_tap_dance_state_t *state, void *user_data);
+void hypent_reset(qk_tap_dance_state_t *state, void *user_data);
 
 
 /* Return an integer that corresponds to what kind of tap dance should be executed.
@@ -170,33 +174,33 @@ void dotel_finished(qk_tap_dance_state_t *state, void *user_data) {
   td_state = cur_dance(state);
   switch (td_state) {
   case TD_SINGLE_TAP: // .
-	register_code16(KC_DOT);
-	break;
+    register_code16(KC_DOT);
+    break;
   case TD_DOUBLE_TAP: // ..
-	tap_code16(KC_DOT);
-	register_code16(KC_DOT);  
-	break;
+    tap_code16(KC_DOT);
+    register_code16(KC_DOT);  
+    break;
   case TD_TRIPLE_TAP: // …
-	register_code16(LOPT(KC_SCLN));
-	break;
+    register_code16(LOPT(KC_SCLN));
+    break;
   default:
-	break;
+    break;
   }
 }
 
 void dotel_reset(qk_tap_dance_state_t *state, void *user_data) {
   switch (td_state) {
   case TD_SINGLE_TAP:
-	unregister_code16(KC_DOT);
-	break;
+    unregister_code16(KC_DOT);
+    break;
   case TD_DOUBLE_TAP:
-	unregister_code16(KC_DOT);
-	break;
+    unregister_code16(KC_DOT);
+    break;
   case TD_TRIPLE_TAP:
-	unregister_code16(LOPT(KC_SCLN));
-	break;
+    unregister_code16(LOPT(KC_SCLN));
+    break;
   default:
-	break;
+    break;
   }
 }
 
@@ -206,26 +210,26 @@ void eurdol_finished(qk_tap_dance_state_t *state, void *user_data) {
   td_state = cur_dance(state);
   switch (td_state) {
   case TD_SINGLE_TAP: // €
-	register_code16(LALT(KC_2));
-	break;
+    register_code16(LALT(KC_2));
+    break;
   case TD_DOUBLE_TAP: // $
-	register_code16(LSFT(KC_4));
-	break;
+    register_code16(LSFT(KC_4));
+    break;
   default:
-	break;
+    break;
   }
 }
 
 void eurdol_reset(qk_tap_dance_state_t *state, void *user_data) {
   switch (td_state) {
   case TD_SINGLE_TAP:
-	unregister_code16(LALT(KC_2));
-	break;
+    unregister_code16(LALT(KC_2));
+    break;
   case TD_DOUBLE_TAP:
-	unregister_code16(LSFT(KC_4));
-	break;
+    unregister_code16(LSFT(KC_4));
+    break;
   default:
-	break;
+    break;
   }
 }
 
@@ -235,26 +239,26 @@ void pipaste_finished(qk_tap_dance_state_t *state, void *user_data) {
   td_state = cur_dance(state);
   switch (td_state) {
   case TD_SINGLE_TAP: // |
-	register_code16(LSFT(KC_BSLASH));
-	break;
+    register_code16(LSFT(KC_BSLASH));
+    break;
   case TD_DOUBLE_TAP: // Paste and match style
-	register_code16(LSA(LGUI(KC_V)));
-	break;
+    register_code16(LSA(LGUI(KC_V)));
+    break;
   default:
-	break;
+    break;
   }
 }
 
 void pipaste_reset(qk_tap_dance_state_t *state, void *user_data) {
   switch (td_state) {
   case TD_SINGLE_TAP:
-	unregister_code16(LSFT(KC_BSLASH));
-	break;
+    unregister_code16(LSFT(KC_BSLASH));
+    break;
   case TD_DOUBLE_TAP:
-	unregister_code16(LSA(LGUI(KC_V)));
-	break;
+    unregister_code16(LSA(LGUI(KC_V)));
+    break;
   default:
-	break;
+    break;
   }
 }
 
@@ -264,26 +268,26 @@ void escfrc_finished(qk_tap_dance_state_t *state, void *user_data) {
   td_state = cur_dance(state);
   switch (td_state) {
   case TD_SINGLE_TAP: // Paste and match style
-	register_code16(KC_ESC);
-	break;
+    register_code16(KC_ESC);
+    break;
   case TD_DOUBLE_TAP: // |
-	register_code16(LAG(KC_ESC));
-	break;
+    register_code16(LAG(KC_ESC));
+    break;
   default:
-	break;
+    break;
   }
 }
 
 void escfrc_reset(qk_tap_dance_state_t *state, void *user_data) {
   switch (td_state) {
   case TD_SINGLE_TAP:
-	unregister_code16(KC_ESC);
-	break;
+    unregister_code16(KC_ESC);
+    break;
   case TD_DOUBLE_TAP:
-	unregister_code16(LAG(KC_ESC));
-	break;
+    unregister_code16(LAG(KC_ESC));
+    break;
   default:
-	break;
+    break;
   }
 }
 
@@ -293,26 +297,26 @@ void cmdexl_finished(qk_tap_dance_state_t *state, void *user_data) {
   td_state = cur_dance(state);
   switch (td_state) {
   case TD_SINGLE_TAP:
-	register_code16(KC_QUOT);
-	break;
+    register_code16(KC_QUOT);
+    break;
   case TD_SINGLE_HOLD:
-	register_code16(KC_LGUI);
-	break;
+    register_code16(KC_LGUI);
+    break;
   default:
-	break;
+    break;
   }
 }
 
 void cmdexl_reset(qk_tap_dance_state_t *state, void *user_data) {
   switch (td_state) {
   case TD_SINGLE_TAP:
-	unregister_code16(KC_QUOT);
-	break;
+    unregister_code16(KC_QUOT);
+    break;
   case TD_SINGLE_HOLD:
-	unregister_code16(KC_LGUI);
-	break;
+    unregister_code16(KC_LGUI);
+    break;
   default:
-	break;
+    break;
   }
 }
 
@@ -322,26 +326,26 @@ void altamp_finished(qk_tap_dance_state_t *state, void *user_data) {
   td_state = cur_dance(state);
   switch (td_state) {
   case TD_SINGLE_TAP:
-	register_code16(LSFT(KC_2));
-	break;
+    register_code16(LSFT(KC_2));
+    break;
   case TD_SINGLE_HOLD:
-	register_code16(KC_LALT);
-	break;
+    register_code16(KC_LALT);
+    break;
   default:
-	break;
+    break;
   }
 }
 
 void altamp_reset(qk_tap_dance_state_t *state, void *user_data) {
   switch (td_state) {
   case TD_SINGLE_TAP:
-	unregister_code16(LSFT(KC_2));
-	break;
+    unregister_code16(LSFT(KC_2));
+    break;
   case TD_SINGLE_HOLD:
-	unregister_code16(KC_LALT);
-	break;
+    unregister_code16(KC_LALT);
+    break;
   default:
-	break;
+    break;
   }
 }
 
@@ -352,26 +356,26 @@ void ctrlamp_finished(qk_tap_dance_state_t *state, void *user_data) {
   td_state = cur_dance(state);
   switch (td_state) {
   case TD_SINGLE_TAP:
-	register_code16(KC_AMPR);
-	break;
+    register_code16(KC_AMPR);
+    break;
   case TD_SINGLE_HOLD:
-	register_code16(KC_LCTRL);
-	break;
+    register_code16(KC_LCTRL);
+    break;
   default:
-	break;
+    break;
   }
 }
 
 void ctrlamp_reset(qk_tap_dance_state_t *state, void *user_data) {
   switch (td_state) {
   case TD_SINGLE_TAP:
-	unregister_code16(KC_AMPR);
-	break;
+    unregister_code16(KC_AMPR);
+    break;
   case TD_SINGLE_HOLD:
-	unregister_code16(KC_LCTRL);
-	break;
+    unregister_code16(KC_LCTRL);
+    break;
   default:
-	break;
+    break;
   }
 }
 
@@ -381,26 +385,26 @@ void cmdlprn_finished(qk_tap_dance_state_t *state, void *user_data) {
   td_state = cur_dance(state);
   switch (td_state) {
   case TD_SINGLE_TAP:
-	register_code16(KC_LPRN);
-	break;
+    register_code16(KC_LPRN);
+    break;
   case TD_SINGLE_HOLD:
-	register_code16(KC_RGUI);
-	break;
+    register_code16(KC_RGUI);
+    break;
   default:
-	break;
+    break;
   }
 }
 
 void cmdlprn_reset(qk_tap_dance_state_t *state, void *user_data) {
   switch (td_state) {
   case TD_SINGLE_TAP:
-	unregister_code16(KC_LPRN);
-	break;
+    unregister_code16(KC_LPRN);
+    break;
   case TD_SINGLE_HOLD:
-	unregister_code16(KC_RGUI);
-	break;
+    unregister_code16(KC_RGUI);
+    break;
   default:
-	break;
+    break;
   }
 }
 
@@ -410,26 +414,26 @@ void sftrprn_finished(qk_tap_dance_state_t *state, void *user_data) {
   td_state = cur_dance(state);
   switch (td_state) {
   case TD_SINGLE_TAP:
-	register_code16(KC_RPRN);
-	break;
+    register_code16(KC_RPRN);
+    break;
   case TD_SINGLE_HOLD:
-	register_code(KC_RALT);
-	break;
+    register_code(KC_RALT);
+    break;
   default:
-	break;
+    break;
   }
 }
 
 void sftrprn_reset(qk_tap_dance_state_t *state, void *user_data) {
   switch (td_state) {
   case TD_SINGLE_TAP:
-	unregister_code16(KC_RPRN);
-	break;
+    unregister_code16(KC_RPRN);
+    break;
   case TD_SINGLE_HOLD:
-	unregister_code(KC_RALT);
-	break;
+    unregister_code(KC_RALT);
+    break;
   default:
-	break;
+    break;
   }
 }
 
@@ -439,26 +443,26 @@ void altcoln_finished(qk_tap_dance_state_t *state, void *user_data) {
   td_state = cur_dance(state);
   switch (td_state) {
   case TD_SINGLE_TAP:
-	register_code16(KC_COLN);
-	break;
+    register_code16(KC_COLN);
+    break;
   case TD_SINGLE_HOLD:
-	register_code16(KC_RCTRL);
-	break;
+    register_code16(KC_RCTRL);
+    break;
   default:
-	break;
+    break;
   }
 }
 
 void altcoln_reset(qk_tap_dance_state_t *state, void *user_data) {
   switch (td_state) {
   case TD_SINGLE_TAP:
-	unregister_code16(KC_COLN);
-	break;
+    unregister_code16(KC_COLN);
+    break;
   case TD_SINGLE_HOLD:
-	unregister_code16(KC_RCTRL);
-	break;
+    unregister_code16(KC_RCTRL);
+    break;
   default:
-	break;
+    break;
   }
 }
 
@@ -469,82 +473,82 @@ void thethumb_finished(qk_tap_dance_state_t *state, void *user_data) {
   
   thethumb_tap_state.state = cur_dance(state);
   switch (thethumb_tap_state.state) {
-	case TD_SINGLE_TAP:
-	  // Check to see if the layer is already set
-	  if (layer_state_is(2)) {
-		// If already set, then switch it off
-		layer_off(2);
-		register_code16(LCTL(KC_F13));
-		unregister_code16(LCTL(KC_F13));
-	  } else {
-		// If not already set, then switch the layer on
-		layer_on(2);
-		register_code16(LCTL(KC_F15));
-		unregister_code16(LCTL(KC_F15));
-	  }
-	  break;
-	case TD_SINGLE_HOLD:
-	  layer_on(2);
-	  register_code16(LCTL(KC_F15));
-	  unregister_code16(LCTL(KC_F15));
-	  break;
-	case TD_DOUBLE_TAP:
-	  // Check to see if the layer is already set
-	  if (layer_state_is(3)) {
-		// If already set, then switch it off
-		layer_off(3);
-		register_code16(LCTL(KC_F13));
-		unregister_code16(LCTL(KC_F13));
-	  } else {
-		// If not already set, then switch the layer on
-		layer_on(3);
-		register_code16(LCTL(KC_F16));
-		unregister_code16(LCTL(KC_F16));
-	  }
-	  break;
-	case TD_DOUBLE_HOLD:
-	  layer_on(3);
-	  register_code16(LCTL(KC_F16));
-	  unregister_code16(LCTL(KC_F16));
-	  break;
-	case TD_TRIPLE_TAP:
-	// Check to see if the layer is already set
-	if (layer_state_is(4)) {
-	  // If already set, then switch it off
-	  layer_off(4);
-	  register_code16(LCTL(KC_F13));
-	  unregister_code16(LCTL(KC_F13));
-	} else {
-	  // If not already set, then switch the layer on
-	  layer_on(4);
-	  register_code16(LCTL(KC_F17));
-	  unregister_code16(LCTL(KC_F17));
-	}
-	break;
-	case TD_TRIPLE_HOLD:
-	  layer_on(4);
-	  register_code16(LCTL(KC_F17));
-	  unregister_code16(LCTL(KC_F17));
-	  break;
-	default:
-	  break;
+    case TD_SINGLE_TAP:
+      // Check to see if the layer is already set
+      if (layer_state_is(2)) {
+        // If already set, then switch it off
+        layer_off(2);
+        register_code16(LCTL(KC_F13));
+        unregister_code16(LCTL(KC_F13));
+      } else {
+        // If not already set, then switch the layer on
+        layer_on(2);
+        register_code16(LCTL(KC_F15));
+        unregister_code16(LCTL(KC_F15));
+      }
+      break;
+    case TD_SINGLE_HOLD:
+      layer_on(2);
+      register_code16(LCTL(KC_F15));
+      unregister_code16(LCTL(KC_F15));
+      break;
+    case TD_DOUBLE_TAP:
+      // Check to see if the layer is already set
+      if (layer_state_is(3)) {
+        // If already set, then switch it off
+        layer_off(3);
+        register_code16(LCTL(KC_F13));
+        unregister_code16(LCTL(KC_F13));
+      } else {
+        // If not already set, then switch the layer on
+        layer_on(3);
+        register_code16(LCTL(KC_F16));
+        unregister_code16(LCTL(KC_F16));
+      }
+      break;
+    case TD_DOUBLE_HOLD:
+      layer_on(3);
+      register_code16(LCTL(KC_F16));
+      unregister_code16(LCTL(KC_F16));
+      break;
+    case TD_TRIPLE_TAP:
+    // Check to see if the layer is already set
+    if (layer_state_is(4)) {
+      // If already set, then switch it off
+      layer_off(4);
+      register_code16(LCTL(KC_F13));
+      unregister_code16(LCTL(KC_F13));
+    } else {
+      // If not already set, then switch the layer on
+      layer_on(4);
+      register_code16(LCTL(KC_F17));
+      unregister_code16(LCTL(KC_F17));
+    }
+    break;
+    case TD_TRIPLE_HOLD:
+      layer_on(4);
+      register_code16(LCTL(KC_F17));
+      unregister_code16(LCTL(KC_F17));
+      break;
+    default:
+      break;
   }
 }
 
 void thethumb_reset(qk_tap_dance_state_t *state, void *user_data) {
   // If the key was held down and now is released then switch off the layer
   if (thethumb_tap_state.state == TD_SINGLE_HOLD) {
-	layer_off(2);
-	register_code16(LCTL(KC_F13));
-	unregister_code16(LCTL(KC_F13));
+    layer_off(2);
+    register_code16(LCTL(KC_F13));
+    unregister_code16(LCTL(KC_F13));
   } else if (thethumb_tap_state.state == TD_DOUBLE_HOLD) {
-	layer_off(3);
-	register_code16(LCTL(KC_F13));
-	unregister_code16(LCTL(KC_F13));
+    layer_off(3);
+    register_code16(LCTL(KC_F13));
+    unregister_code16(LCTL(KC_F13));
   } else if (thethumb_tap_state.state == TD_TRIPLE_HOLD) {
-	layer_off(4);
-	register_code16(LCTL(KC_F13));
-	unregister_code16(LCTL(KC_F13));
+    layer_off(4);
+    register_code16(LCTL(KC_F13));
+    unregister_code16(LCTL(KC_F13));
   }
   thethumb_tap_state.state = TD_NONE;
 }
@@ -557,13 +561,7 @@ void thethumb_reset(qk_tap_dance_state_t *state, void *user_data) {
 // https://www.reddit.com/r/olkb/comments/4izhrp/qmk_oneshot_question/
 // From the docs:
 // For one shot layers, you need to call set_oneshot_layer(LAYER, ONESHOT_START) on key down, and clear_oneshot_layer_state(ONESHOT_PRESSED) on key up. If you want to cancel the oneshot, call reset_oneshot_layer().
-
-// After adding THE RIGHT THUMB you can signal the computer about what layer you are on
-// https://balatero.com/writings/qmk/add-visual-layer-indicator-for-qmk-to-mac-os/
-// F15 = layer 0
-// F20 = layer 1
-// F21 = layer 2
-// Use modifiers on the K keys?
+// Use F keys for signalling the layer to the computer
 
 // THE THUMB
 
@@ -571,27 +569,27 @@ void thethumb_reset(qk_tap_dance_state_t *state, void *user_data) {
 void rightthumb_finished(qk_tap_dance_state_t *state, void *user_data) {
   rightthumb_tap_state.state = cur_dance(state);
   switch (rightthumb_tap_state.state) {
-	case TD_SINGLE_TAP:
-	  layer_on(1);
-	  set_oneshot_layer(1, ONESHOT_START);
-	  clear_oneshot_layer_state(ONESHOT_PRESSED);
-	  break;
-	case TD_SINGLE_HOLD:
-	  layer_on(1);
-	  register_code16(LCTL(KC_F14));
-	  unregister_code16(LCTL(KC_F14));
-	  break;
-	default:
-	  break;
+    case TD_SINGLE_TAP:
+      layer_on(1);
+      set_oneshot_layer(1, ONESHOT_START);
+      clear_oneshot_layer_state(ONESHOT_PRESSED);
+      break;
+    case TD_SINGLE_HOLD:
+      layer_on(1);
+      register_code16(LCTL(KC_F14));
+      unregister_code16(LCTL(KC_F14));
+      break;
+    default:
+      break;
   }
 }
 
 void rightthumb_reset(qk_tap_dance_state_t *state, void *user_data) {
   // If the key was held down and now is released then switch off the layer
   if (rightthumb_tap_state.state == TD_SINGLE_HOLD) {
-	layer_off(1);
-	register_code16(LCTL(KC_F13));
-	unregister_code16(LCTL(KC_F13));
+    layer_off(1);
+    register_code16(LCTL(KC_F13));
+    unregister_code16(LCTL(KC_F13));
   }
   rightthumb_tap_state.state = TD_NONE;
 }
@@ -599,12 +597,12 @@ void rightthumb_reset(qk_tap_dance_state_t *state, void *user_data) {
 // Sent layer key to computer when one shot layer change finished
 void oneshot_layer_changed_user(uint8_t layer) {
   if (layer == 1) {
-	register_code16(LCTL(KC_F14));
-	unregister_code16(LCTL(KC_F14));
+    register_code16(LCTL(KC_F14));
+    unregister_code16(LCTL(KC_F14));
   }
   if (!layer) {
-	register_code16(LCTL(KC_F13));
-	unregister_code16(LCTL(KC_F13));
+    register_code16(LCTL(KC_F13));
+    unregister_code16(LCTL(KC_F13));
   }
 }
 
@@ -612,18 +610,47 @@ void oneshot_layer_changed_user(uint8_t layer) {
 void tobase_finished(qk_tap_dance_state_t *state, void *user_data) {
   tobase_tap_state.state = cur_dance(state);
   switch (tobase_tap_state.state) {
-	case TD_SINGLE_TAP:
-	  layer_move(0);
-	  register_code16(LCTL(KC_F13));
-	  unregister_code16(LCTL(KC_F13));
-	  break;
-	default:
-	  break;
+    case TD_SINGLE_TAP:
+      layer_move(0);
+      register_code16(LCTL(KC_F13));
+      unregister_code16(LCTL(KC_F13));
+      break;
+    default:
+      break;
   }
 }
 
 void tobase_reset(qk_tap_dance_state_t *state, void *user_data) {
   tobase_tap_state.state = TD_NONE;
+}
+
+// HYPER (F19) and Enter
+
+void hypent_finished(qk_tap_dance_state_t *state, void *user_data) {
+  td_state = cur_dance(state);
+  switch (td_state) {
+  case TD_SINGLE_TAP:
+    register_code16(KC_ENTER);
+    break;
+  case TD_SINGLE_HOLD:
+    register_code16(KC_F19);
+    break;
+  default:
+    break;
+  }
+}
+
+void hypent_reset(qk_tap_dance_state_t *state, void *user_data) {
+  switch (td_state) {
+  case TD_SINGLE_TAP:
+    unregister_code16(KC_ENTER);
+    break;
+  case TD_SINGLE_HOLD:
+    unregister_code16(KC_F19);
+    break;
+  default:
+    break;
+  }
 }
 
 // Define `ACTION_TAP_DANCE_FN_ADVANCED()` for each tapdance keycode, passing in `finished` and `reset` functions
@@ -641,6 +668,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   [THE_THUMB] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, thethumb_finished, thethumb_reset, 275),
   [RIGHT_THUMB] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, rightthumb_finished, rightthumb_reset, 275),
   [TO_BASE] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, tobase_finished, tobase_reset, 275),
+  [HYP_ENT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, hypent_finished, hypent_reset),
 };
 
 
@@ -705,9 +733,9 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_0_4_2 KC_SPACE
 #define KR_0_4_3 TD(THE_THUMB)
 
-#define KR_0_4_4 HYPR_T(KC_ENTER)
-#define KR_0_4_5 TD(RIGHT_THUMB)
-#define KR_0_4_6 KC_MEH
+#define KR_0_4_4 TD(RIGHT_THUMB) // turn into char
+#define KR_0_4_5 KC_F19 // turn into hyper/to(0)
+#define KR_0_4_6 KC_ENTER //turn into Enter
 
 
 
@@ -806,9 +834,9 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_2_4_2 KC_SPACE
 #define KR_2_4_3 KC_NO
 
-#define KR_2_4_4 HYPR_T(KC_ENTER)
-#define KR_2_4_5 KC_NO
-#define KR_2_4_6 TD(TO_BASE)
+#define KR_2_4_4 KC_NO
+#define KR_2_4_5 TD(TO_BASE)
+#define KR_2_4_6 KC_ENTER
 
 // ##### Layer 3 Numpad
 
@@ -855,9 +883,9 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_3_4_2 KC_SPACE
 #define KR_3_4_3 KC_NO
 
-#define KR_3_4_4 HYPR_T(KC_ENTER)
-#define KR_3_4_5 KC_NO
-#define KR_3_4_6 TD(TO_BASE)
+#define KR_3_4_4 KC_NO
+#define KR_3_4_5 TD(TO_BASE)
+#define KR_3_4_6 KC_ENTER
 
 
 // ##### Layer 4 Mouse
@@ -865,27 +893,27 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_4_1_1 KC_ESC
 #define KR_4_1_2 KC_NO
 #define KR_4_1_3 KC_NO
-#define KR_4_1_4 KC_MS_BTN2
+#define KR_4_1_4 KC_NO
 #define KR_4_1_5 KC_NO
 //
 #define KR_4_1_6 KC_MS_WH_DOWN
 #define KR_4_1_7 KC_MS_WH_RIGHT
 #define KR_4_1_8 KC_MS_UP
 #define KR_4_1_9 KC_MS_WH_LEFT
-#define KR_4_1_10 KC_NO
+#define KR_4_1_10 KC_BSPC
 
 
 #define KR_4_2_1 KC_LCTRL
 #define KR_4_2_2 KC_LALT
 #define KR_4_2_3 KC_LSHIFT
 #define KR_4_2_4 KC_LGUI
-#define KR_4_2_5 KC_MS_BTN1
+#define KR_4_2_5 KC_NO
 //
 #define KR_4_2_6 KC_MS_WH_UP
 #define KR_4_2_7 KC_MS_LEFT
 #define KR_4_2_8 KC_MS_DOWN
 #define KR_4_2_9 KC_MS_RIGHT
-#define KR_4_2_10 KC_RCTRL
+#define KR_4_2_10 KC_MS_BTN2
 
 
 #define KR_4_3_1 KC_NO
@@ -904,6 +932,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_4_4_2 KC_SPACE
 #define KR_4_4_3 KC_NO
 
-#define KR_4_4_4 HYPR_T(KC_ENTER)
-#define KR_4_4_5 KC_NO
-#define KR_4_4_6 TD(TO_BASE)
+#define KR_4_4_4 KC_MS_BTN1
+#define KR_4_4_5 TD(TO_BASE)
+#define KR_4_4_6 KC_ENTER
