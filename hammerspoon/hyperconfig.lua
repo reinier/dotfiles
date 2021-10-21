@@ -19,7 +19,7 @@ config.applications = {
 	},
 	['com.stairways.keyboardmaestro.engine'] = {
 		bundleID = 'com.stairways.keyboardmaestro.engine',
-		local_bindings = { 'a', 's', 't', 'm' }
+		local_bindings = { 'a', 's', 't', 'm', 'k' }
 	},
 	['com.google.Chrome'] = {
 		bundleID = 'com.google.Chrome',
@@ -196,6 +196,7 @@ end)
 
 polybt = hs.audiodevice.findOutputByName('Poly BT600')
 cakewalk = hs.audiodevice.findOutputByName('External Headphones')
+airpodsmax = hs.audiodevice.findOutputByName('AirPods Max van Reinier')
 
 -- Set audio to cake output
 hyperspacemode:bind({}, 'e', function()
@@ -213,6 +214,16 @@ hyperspacemode:bind({}, 'r', function()
 	hs.alert.show('Output and input: Poly')
 	exithyperspacemode()
 end)
+
+-- AirPods Max van Reinier
+hyperspacemode:bind({}, 't', function()
+	airpodsmax:setDefaultOutputDevice()
+	airpodsmax:setDefaultInputDevice()
+	hs.alert.show('Output and input: Airpods Max')
+	exithyperspacemode()
+end)
+
+
 
 -- Mute
 hyperspacemode:bind({}, 'x', function()
