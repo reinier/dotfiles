@@ -53,7 +53,7 @@ end)
 
 
 
--- AREA 51
+-- Get the front most page title and url from Safari and Chrome
 
 
 local chrome = {}
@@ -89,43 +89,8 @@ function saf.copyUrl()
 	end
 end
 
--- hyper:bind({}, '.', function()
--- 	saf.copyUrl()
--- end)
-
--- hyper:bind({}, '.', function()
-	-- local safariRunnig = hs.application.applicationsForBundleID("com.google.Chrome")[1]
-	-- log.i(hs.inspect(safariRunnig))
-	-- safariWindows = safariRunnig:visibleWindows()
-	-- log.i(hs.inspect(safariWindows))
-	-- safWindow = hs.axuielement.windowElement(safariRunnig:visibleWindows()[1])
-	-- local stat, data = hs.applescript('tell application "Safari" to get {URL, name} of current tab of window 1')
-	-- hs.eventtap.keyStrokes("[" .. data[2] .. "](" .. data[1] .. ")")
--- end)
--- log.i(hs.inspect(safariRunnig))
--- safWindow = hs.axuielement.windowElement(safariRunnig:visibleWindows()[1])
--- log.i(hs.inspect(safWindow))
-
--- hyper:bind({}, '.', function()
-	-- local safari_running = hs.application.applicationsForBundleID("com.apple.Safari")
-	-- -- log.i(hs.inspect(safari_running))
-	-- local stat, data = hs.applescript('tell application "Safari" to get {URL, name} of current tab of window 1')
-	-- -- log.i(hs.inspect(stat))
-	-- if stat then
-	-- 	hs.eventtap.keyStrokes("[" .. data[2] .. "](" .. data[1] .. ")")
-	-- end
-	-- -- exithyperspacemode()
-	
-	
-	-- w:elementSearch({role='AXTextField'})[1]:attributeValue('AXValue')
--- end)
-
-
--- END AREA 51
-
-
-
 -- GRID (inspiration: https://medium.com/@jhkuperus/window-management-with-hammerspoon-personal-productivity-c77adc436888)
+
 hs.window.animationDuration=0.2
 local grid = require "hs.grid"
 
@@ -166,7 +131,6 @@ local hyperspacemode = hs.hotkey.modal.new()
 hyper:bind({}, 'space', nil, function()
 	hyperspacemode:enter()
 	layerbar:setTitle("HYPER SPACE")
-	-- hs.alert.show('HYPER SPACE')
 end)
 
 exithyperspacemode = function()
@@ -230,7 +194,6 @@ end)
 
 -- https://github.com/levinine/hammerspoon-config/blob/f0ea4e358b62c67e436d97aa3b2e2516accccd58/audio-watcher.lua
 
--- local current = hs.audiodevice.defaultOutputDevice()
 polybt = hs.audiodevice.findOutputByName('Poly BT600')
 cakewalk = hs.audiodevice.findOutputByName('External Headphones')
 
