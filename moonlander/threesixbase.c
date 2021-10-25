@@ -24,6 +24,7 @@ enum td_keycodes {
   THE_THUMB,
   RIGHT_THUMB,
   TO_BASE,
+  HYPER_SPACE
 };
 
 typedef enum {
@@ -87,6 +88,8 @@ void thethumb_reset(qk_tap_dance_state_t *state, void *user_data);
 void rightthumb_finished(qk_tap_dance_state_t *state, void *user_data);
 void rightthumb_reset(qk_tap_dance_state_t *state, void *user_data);
 
+void hyperspace_finished(qk_tap_dance_state_t *state, void *user_data);
+void hyperspace_reset(qk_tap_dance_state_t *state, void *user_data);
 
 /* Return an integer that corresponds to what kind of tap dance should be executed.
  *
@@ -199,6 +202,35 @@ void eurdol_reset(qk_tap_dance_state_t *state, void *user_data) {
     break;
   case TD_DOUBLE_TAP:
     unregister_code16(LSFT(KC_4));
+    break;
+  default:
+    break;
+  }
+}
+
+// HYPER SPACE
+
+void hyperspace_finished(qk_tap_dance_state_t *state, void *user_data) {
+  td_state = cur_dance(state);
+  switch (td_state) {
+  case TD_SINGLE_TAP: // Spacebar
+    register_code(KC_SPACE);
+    break;
+  case TD_SINGLE_HOLD: // F19
+    register_code(KC_F19);
+    break;
+  default:
+    break;
+  }
+}
+
+void hyperspace_reset(qk_tap_dance_state_t *state, void *user_data) {
+  switch (td_state) {
+  case TD_SINGLE_TAP:
+    unregister_code(KC_SPACE);
+    break;
+  case TD_SINGLE_HOLD:
+    unregister_code(KC_F19);
     break;
   default:
     break;
@@ -407,6 +439,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   [THE_THUMB] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, thethumb_finished, thethumb_reset, 275),
   [RIGHT_THUMB] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, rightthumb_finished, rightthumb_reset, 275),
   [TO_BASE] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, tobase_finished, tobase_reset, 275),
+  [HYPER_SPACE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, hyperspace_finished, hyperspace_reset),
 };
 
 
