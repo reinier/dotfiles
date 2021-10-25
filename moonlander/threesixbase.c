@@ -308,25 +308,6 @@ void thethumb_finished(qk_tap_dance_state_t *state, void *user_data) {
       register_code16(LCTL(KC_F16));
       unregister_code16(LCTL(KC_F16));
       break;
-    case TD_TRIPLE_TAP:
-    // Check to see if the layer is already set
-    if (layer_state_is(4)) {
-      // If already set, then switch it off
-      layer_off(4);
-      register_code16(LCTL(KC_F13));
-      unregister_code16(LCTL(KC_F13));
-    } else {
-      // If not already set, then switch the layer on
-      layer_on(4);
-      register_code16(LCTL(KC_F17));
-      unregister_code16(LCTL(KC_F17));
-    }
-    break;
-    case TD_TRIPLE_HOLD:
-      layer_on(4);
-      register_code16(LCTL(KC_F17));
-      unregister_code16(LCTL(KC_F17));
-      break;
     default:
       break;
   }
@@ -340,10 +321,6 @@ void thethumb_reset(qk_tap_dance_state_t *state, void *user_data) {
     unregister_code16(LCTL(KC_F13));
   } else if (thethumb_tap_state.state == TD_DOUBLE_HOLD) {
     layer_off(3);
-    register_code16(LCTL(KC_F13));
-    unregister_code16(LCTL(KC_F13));
-  } else if (thethumb_tap_state.state == TD_TRIPLE_HOLD) {
-    layer_off(4);
     register_code16(LCTL(KC_F13));
     unregister_code16(LCTL(KC_F13));
   }
@@ -647,52 +624,3 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_3_4_4 KC_NO
 #define KR_3_4_5 TD(TO_BASE)
 #define KR_3_4_6 KC_ENTER
-
-
-// ##### Layer 4 Mouse
-
-#define KR_4_1_1 KC_ESC
-#define KR_4_1_2 KC_NO
-#define KR_4_1_3 KC_NO
-#define KR_4_1_4 KC_NO
-#define KR_4_1_5 KC_NO
-//
-#define KR_4_1_6 KC_MS_WH_DOWN
-#define KR_4_1_7 KC_MS_WH_RIGHT
-#define KR_4_1_8 KC_MS_UP
-#define KR_4_1_9 KC_MS_WH_LEFT
-#define KR_4_1_10 KC_BSPC
-
-
-#define KR_4_2_1 KC_LCTRL
-#define KR_4_2_2 KC_LALT
-#define KR_4_2_3 KC_LSHIFT
-#define KR_4_2_4 KC_LGUI
-#define KR_4_2_5 KC_NO
-//
-#define KR_4_2_6 KC_MS_WH_UP
-#define KR_4_2_7 KC_MS_LEFT
-#define KR_4_2_8 KC_MS_DOWN
-#define KR_4_2_9 KC_MS_RIGHT
-#define KR_4_2_10 KC_MS_BTN2
-
-
-#define KR_4_3_1 KC_NO
-#define KR_4_3_2 KC_MS_ACCEL0
-#define KR_4_3_3 KC_MS_ACCEL1
-#define KR_4_3_4 KC_MS_ACCEL2
-#define KR_4_3_5 KC_NO
-//
-#define KR_4_3_6 KC_NO
-#define KR_4_3_7 KC_NO
-#define KR_4_3_8 KC_NO
-#define KR_4_3_9 KC_NO
-#define KR_4_3_10 KC_NO
-
-#define KR_4_4_1 KC_TAB
-#define KR_4_4_2 KC_SPACE
-#define KR_4_4_3 KC_NO
-
-#define KR_4_4_4 KC_MS_BTN1
-#define KR_4_4_5 TD(TO_BASE)
-#define KR_4_4_6 KC_ENTER
