@@ -1,23 +1,28 @@
+-- Required download:
+-- https://github.com/Hammerspoon/Spoons/blob/master/Spoons/SpoonInstall.spoon.zip
+hs.loadSpoon("SpoonInstall")
+
+local minihyper = { "alt", "shift", "cmd" }
+
 require('ergomouse')
 require('layerdisplay')
 require('hyperconfig')
 -- require('hammerbrowser')
 
-hs.loadSpoon("SpoonInstall")
-
 spoon.SpoonInstall:andUse('Emojis', {
 	hotkeys = {
-		toggle = { { "alt", "shift", "cmd" }, "e" },
+		toggle = { minihyper, "e" },
 	}
 })
 
-cherry = hs.loadSpoon("Cherry")
--- emojis = hs.loadSpoon("Emojis")
-
-cherry:bindHotkeys({
-	start = {{ "alt", "shift", "cmd" }, "p"}
+spoon.SpoonInstall:andUse('KSheet', {
+	hotkeys = {
+		toggle = { minihyper, "/" },
+	}
 })
 
--- emojis:bindHotkeys({
--- 	toggle = {{ "alt", "shift", "cmd" }, "e"}
--- })
+spoon.SpoonInstall:andUse('Cherry', {
+	hotkeys = {
+		start = { minihyper, "p" },
+	}
+})
