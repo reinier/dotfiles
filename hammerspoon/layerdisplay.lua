@@ -4,22 +4,14 @@ layerbar = hs.menubar.new()
 layerbar:setTitle("🙂")
 
 -- intercept QMK keys to change the indicated layer
-hs.hotkey.bind({'ctrl'}, 'f13', function()
+hs.hotkey.bind({'shift', 'alt'}, 'f16', function()
 	layerbar:setTitle("BASE")
 end)
 
-hs.hotkey.bind({'ctrl'}, 'f14', function()
-	layerbar:setTitle("CHAR")
+hs.hotkey.bind({'shift', 'alt'}, 'f17', function()
+	layerbar:setTitle("SYM")
 end)
 
-hs.hotkey.bind({'ctrl'}, 'f15', function()
-	layerbar:setTitle("NAV")
-end)
-
-hs.hotkey.bind({'ctrl'}, 'f16', function()
-	layerbar:setTitle("NUM")
-end)
-
-hs.hotkey.bind({'ctrl'}, 'f17', function()
-	layerbar:setTitle("MOUSE")
+hs.hotkey.bind({'shift', 'alt'}, 'f18', function()
+	layerbar:setTitle("NAV NUM")
 end)
