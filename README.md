@@ -32,8 +32,12 @@ The keyboard:
 ## Install
 
 Symlink the config directories in the right place. Examples:
-- `ln -s ~/dev/dotfiles/karabiner ~/.config/karabiner`
+
 - `ln -s ~/dev/dotfiles/z.sh ~/z.sh`
+- `ln -s ~/dev/dotfiles/.zprofile ~/.zprofile`
+- `ln -s ~/dev/dotfiles/.zshrc ~/.zshrc`
+- `ln -s ~/dev/dotfiles/karabiner ~/.config/karabiner`
+- `ln -s ~/dev/dotfiles/hammerspoon ~/.hammerspoon`
 - `ln -s ~/dev/dotfiles/microdox ~/qmk_firmware/keyboards/boardsource/microdox/keymaps/microdox-mk2`
 - `ln -s ~/dev/dotfiles/moonlander ~/qmk_firmware/keyboards/moonlander/keymaps/moonlander-mk2`
 
