@@ -1,58 +1,37 @@
---
--- Browser Menu
---
+-- https://zzamboni.org/post/my-hammerspoon-configuration-with-commentary/
 
--- Step 1: Take care, that Hammerspoon is the default browser
-if hs.urlevent.getDefaultHandler("http") ~= "org.hammerspoon.hammerspoon" then
-		hs.urlevent.setDefaultHandler("http")
+function appID(app)
+	return hs.application.infoForBundlePath(app)['CFBundleIdentifier']
 end
 
--- Step 2: Setup the browser menu
-local active_browser     = hs.settings.get("active_browser") or "com.apple.safari"
-local browser_menu       = hs.menubar.new()
-local available_browsers = {
-		["com.apple.safari"] = {
-				name = "Safari",
-				icon = os.getenv("HOME") .. "/.hammerspoon/browsermenu/safari.png"
-		},
-		["org.mozilla.firefox"] = {
-				name = "Firefox",
-				icon = os.getenv("HOME") .. "/.hammerspoon/browsermenu/firefox.png"
-		},
-		["com.google.chrome"] = {
-				name = "Google Chrome",
-				icon = os.getenv("HOME") .. "/.hammerspoon/browsermenu/chrome.png"
-		},
-}
+safariBrowser = appID('/Applications/Safari.app')
+chromeBrowser = appID('/Applications/Google Chrome.app')
+firefoxBrowser = appID('/Applications/Firefox.app')
 
-function init_browser_menu()
-		local menu_items = {}
+DefaultBrowser = safariBrowser
+workBrowser = chromeBrowser
 
-		for browser_id, browser_data in pairs(available_browsers) do
-				local image = hs.image.imageFromPath(browser_data["icon"]):setSize({w=16, h=16})
-
-				if browser_id == active_browser then
-						browser_menu:setIcon(image)
-				end
-
-				table.insert(menu_items, {
-						title   = browser_data["name"],
-						image   = image,
-						checked = browser_id == active_browser,
-						fn      = function()
-								active_browser = browser_id
-								hs.settings.set("active_browser", browser_id)
-								init_browser_menu()
-						end
-				})
-		end
-
-		browser_menu:setMenu(menu_items)
-end
-
-init_browser_menu()
-
--- Step 3: Register a handler for opening URLs
-hs.urlevent.httpCallback = function(scheme, host, params, fullURL)
-		hs.urlevent.openURLWithBundle(fullURL, active_browser)
-end
+spoon.SpoonInstall:andUse("URLDispatcher",
+	{
+	 config = {
+		 url_patterns = {
+			 { "https?://calendar.google.com",    workBrowser },
+			 { "https?://mail.google.com",      	workBrowser },
+			 { "https?://atlassian.dpgmedia.net", workBrowser }
+		 },
+		 -- url_redir_decoders = {
+			--  -- Send MS Teams URLs directly to the app
+			--  { "MS Teams URLs",
+			-- 	 "(https://teams.microsoft.com.*)", "msteams:%1", true },
+			--  -- Preview incorrectly encodes the anchor
+			--  -- character in URLs as %23, we fix it
+			--  { "Fix broken Preview anchor URLs",
+			-- 	 "%%23", "#", false, "Preview" },
+		 -- },
+		 default_handler = DefaultBrowser
+	 },
+	 start = true,
+	 -- Enable debug logging if you get unexpected behavior
+	 -- loglevel = 'debug'
+	}
+)

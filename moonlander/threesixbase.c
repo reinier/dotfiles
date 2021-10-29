@@ -12,6 +12,9 @@ Hook for when switching layers. Now used to 'silently' sent Hammerspoon signals 
 
 */
 
+
+// #include "print.h"
+
 layer_state_t layer_state_set_user(layer_state_t state) {
   switch (get_highest_layer(state)) {
     case 1:
@@ -21,6 +24,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         SEND_STRING(SS_DOWN(X_LSFT) SS_DOWN(X_LALT) SS_TAP(X_F18) SS_UP(X_LSFT) SS_UP(X_LALT)); 
         break;
     default:
+        //print("reinier");
         SEND_STRING(SS_DOWN(X_LSFT) SS_DOWN(X_LALT) SS_TAP(X_F16) SS_UP(X_LSFT) SS_UP(X_LALT)); 
         break;  
   }
@@ -98,7 +102,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #define KR_1_1_1 KC_ESC
 #define KR_1_1_2 LALT(KC_2) // €
 #define KR_1_1_3 KC_MINUS
-#define KR_1_1_4 KC_QUOT
+#define KR_1_1_4 KC_DQUO
 #define KR_1_1_5 LSFT(KC_BSLASH)
 //
 #define KR_1_1_6 LSFT(KC_6)
@@ -110,9 +114,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // Mid row
 
 #define KR_1_2_1 KC_AMPR
-#define KR_1_2_2 LSFT(KC_2)
+#define KR_1_2_2 LSFT(KC_2) // @
 #define KR_1_2_3 KC_EXLM
-#define KR_1_2_4 KC_DQUO
+#define KR_1_2_4 KC_QUOT
 #define KR_1_2_5 KC_SCLN
 //
 #define KR_1_2_6 KC_COLN
