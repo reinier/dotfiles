@@ -181,7 +181,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 #define KR_2_1_1 KC_ESC
 #define KR_2_1_2 KC_DEL
-#define KR_2_1_3 KC_TRNS
+#define KR_2_1_3 LALT(KC_2) // €
 #define KR_2_1_4 KC_PERC
 #define KR_2_1_5 KC_NO
 //
@@ -198,18 +198,18 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #define KR_2_2_4 LALT_T(KC_MINUS)
 #define KR_2_2_5 KC_NO
 //
-#define KR_2_2_6 KC_TRNS
+#define KR_2_2_6 KC_COLN
 #define KR_2_2_7 RALT_T(KC_4)
 #define KR_2_2_8 RCTL_T(KC_5)
 #define KR_2_2_9 KC_6
-#define KR_2_2_10 KC_TRNS
+#define KR_2_2_10 KC_PEQL
 
 
 #define KR_2_3_1 KC_NO
 #define KR_2_3_2 KC_NO
 #define KR_2_3_3 KC_SLSH
-#define KR_2_3_4 KC_TRNS
-#define KR_2_3_5 KC_TRNS
+#define KR_2_3_4 KC_PPLS
+#define KR_2_3_5 KC_ASTR
 //
 #define KR_2_3_6 KC_0
 #define KR_2_3_7 KC_1
