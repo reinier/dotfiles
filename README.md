@@ -16,10 +16,10 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 - Only use 36 keys
 - Minimal number of layers for usability
 - All layers available on thumb cluster
-- Mods on every layer ([home row mods](https://precondition.github.io/home-row-mods)) except for layer 1. Layers 2 left hand only + extra `cmd` key.
+- Mods on every layer (1/2 [home row mods](https://precondition.github.io/home-row-mods)) with dedicated CMD and SHIFT keys.
 - Easy sync between my [Microdox](https://boardsource.xyz/store/5f2e7e4a2902de7151494f92) and [Moonlander](https://www.zsa.io/moonlander/)
 - Minimize pinky use on both sides for ergonomic reasons
-- No tap dances. No combos. Home row mods. Only three layers. Zen.
+- No tap dances. No combos.
 
 The keymap:
 
