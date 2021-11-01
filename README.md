@@ -3,10 +3,10 @@
 My Mac and mechanical keyboard (QMK) configuration
 
 For keyboard firmware install you need QMK:
-`brew tap homebrew/cask-drivers`
-`brew install --cask qmk-toolbox`
-`brew install qmk/qmk/qmk`
-`qmk setup`
+- `brew tap homebrew/cask-drivers`
+- `brew install --cask qmk-toolbox`
+- `brew install qmk/qmk/qmk`
+- `qmk setup`
 
 ## Keyboards
 
