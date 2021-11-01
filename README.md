@@ -8,7 +8,7 @@ For keyboard firmware install you need QMK:
 `brew install qmk/qmk/qmk`
 `qmk setup`
 
-## Microdox mk1
+## Keyboards
 
 With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of things:
 
@@ -28,6 +28,16 @@ The keymap:
 The keyboard:
 
 ![Microdox keyboard](./microdox.png?raw=true)
+
+## Hammerspoon
+
+- To display the current layer of my mechanical 36-key keyboard
+- To make scrolling easy with the Logi Ergo MX
+- To serve as my url dispatcher to open links with the correct browser
+- To move windows
+- For easy app switching
+- To do all kinds of scripting
+- Some scripts available in hyper hyper mode (Hyper+H)
 
 ## Install
 
