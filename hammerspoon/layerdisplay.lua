@@ -13,5 +13,9 @@ hs.hotkey.bind({'shift', 'alt'}, 'f17', function()
 end)
 
 hs.hotkey.bind({'shift', 'alt'}, 'f18', function()
-	layerbar:setTitle("NAV NUM")
+	layerbar:setTitle("NUMPAD")
+end)
+
+hs.hotkey.bind({'shift', 'alt'}, 'f19', function()
+	layerbar:setTitle("NAVIGATION")
 end)
