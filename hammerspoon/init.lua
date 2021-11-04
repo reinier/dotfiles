@@ -9,13 +9,7 @@ require('ergomouse')
 require('layerdisplay')
 require('hammerbrowser')
 require('hypers')
-require('hyperhyper')
-
--- spoon.SpoonInstall:andUse('KSheet', {
--- 	hotkeys = {
--- 		toggle = { hyperkey, "/" },
--- 	}
--- })
+-- require('hyperhyper')
 
 -- spoon.SpoonInstall:andUse('Cherry', {
 -- 	hotkeys = {

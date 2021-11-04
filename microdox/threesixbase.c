@@ -130,10 +130,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #define KR_1_1_4 LSFT(KC_6)
 #define KR_1_1_5 LSFT(KC_BSLASH)
 
-// #define KR_1_1_3 
-// #define KR_1_1_4 
-// #define KR_1_1_5 LSFT(KC_BSLASH)
-//
 #define KR_1_1_6 KC_AMPR
 #define KR_1_1_7 LSFT(KC_LBRC)
 #define KR_1_1_8 LSFT(KC_RBRC)
@@ -146,21 +142,21 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #define KR_1_2_2 KC_DQUO
 #define KR_1_2_3 KC_QUOT
 #define KR_1_2_4 KC_MINUS
-#define KR_1_2_5 KC_EXLM
+#define KR_1_2_5 KC_PPLS
 //
 #define KR_1_2_6 KC_COLN
 #define KR_1_2_7 KC_LPRN
 #define KR_1_2_8 KC_RPRN
 #define KR_1_2_9 KC_HASH
-#define KR_1_2_10 KC_PEQL
+#define KR_1_2_10 KC_EXLM
 
 // Lower row
 
 #define KR_1_3_1 KC_TILD
 #define KR_1_3_2 KC_BSLASH
 #define KR_1_3_3 KC_GRV
-#define KR_1_3_4 KC_PPLS
-#define KR_1_3_5 KC_ASTR
+#define KR_1_3_4 KC_ASTR
+#define KR_1_3_5 KC_PEQL
 //
 #define KR_1_3_6 KC_SCLN
 #define KR_1_3_7 KC_LBRC
@@ -193,23 +189,23 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 
 #define KR_2_2_1 KC_NO
-#define KR_2_2_2 KC_DOT
-#define KR_2_2_3 LCTL_T(KC_COMM)
+#define KR_2_2_2 KC_SPACE
+#define KR_2_2_3 LCTL_T(KC_DOT)
 #define KR_2_2_4 LALT_T(KC_MINUS)
-#define KR_2_2_5 KC_NO
+#define KR_2_2_5 KC_PPLS
 //
 #define KR_2_2_6 KC_COLN
 #define KR_2_2_7 RALT_T(KC_4)
 #define KR_2_2_8 RCTL_T(KC_5)
 #define KR_2_2_9 KC_6
-#define KR_2_2_10 KC_PEQL
+#define KR_2_2_10 KC_COMM
 
 
 #define KR_2_3_1 KC_NO
 #define KR_2_3_2 KC_NO
 #define KR_2_3_3 KC_SLSH
-#define KR_2_3_4 KC_PPLS
-#define KR_2_3_5 KC_ASTR
+#define KR_2_3_4 KC_ASTR
+#define KR_2_3_5 KC_PEQL
 //
 #define KR_2_3_6 KC_0
 #define KR_2_3_7 KC_1
@@ -229,24 +225,24 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 #define KR_3_1_1 KC_ESC
 #define KR_3_1_2 KC_DEL
-#define KR_3_1_3 KC_CAPS
-#define KR_3_1_4 LGUI(KC_GRV)
-#define KR_3_1_5 LCTL(KC_TAB)
+#define KR_3_1_3 KC_NO
+#define KR_3_1_4 KC_NO
+#define KR_3_1_5 KC_NO
 //
-#define KR_3_1_6 KC_NO
-#define KR_3_1_7 KC_NO
+#define KR_3_1_6 KC_PGUP
+#define KR_3_1_7 LGUI(KC_GRV) // switch windows
 #define KR_3_1_8 KC_UP
-#define KR_3_1_9 KC_NO
+#define KR_3_1_9 LCTL(KC_TAB) // switch tabs
 #define KR_3_1_10 KC_BSPC
 
 
-#define KR_3_2_1 KC_NO
-#define KR_3_2_2 KC_NO
-#define KR_3_2_3 KC_LCTL
-#define KR_3_2_4 KC_LALT
+#define KR_3_2_1 KC_CAPS
+#define KR_3_2_2 KC_MEDIA_PLAY_PAUSE
+#define KR_3_2_3 LCTL_T(KC_MEDIA_PREV_TRACK)
+#define KR_3_2_4 LALT_T(KC_MEDIA_NEXT_TRACK)
 #define KR_3_2_5 KC_NO
 //
-#define KR_3_2_6 KC_NO
+#define KR_3_2_6 KC_PGDOWN
 #define KR_3_2_7 KC_LEFT
 #define KR_3_2_8 KC_DOWN
 #define KR_3_2_9 KC_RGHT
@@ -254,9 +250,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 
 #define KR_3_3_1 KC_NO
-#define KR_3_3_2 KC_NO
-#define KR_3_3_3 KC_NO
-#define KR_3_3_4 KC_NO
+#define KR_3_3_2 KC__MUTE
+#define KR_3_3_3 KC__VOLDOWN
+#define KR_3_3_4 KC__VOLUP
 #define KR_3_3_5 KC_NO
 //
 #define KR_3_3_6 KC_NO

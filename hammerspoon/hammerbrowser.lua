@@ -17,6 +17,7 @@ spoon.SpoonInstall:andUse("URLDispatcher",
 		 url_patterns = {
 			 { "https?://calendar.google.com",    workBrowser },
 			 { "https?://mail.google.com",      	workBrowser },
+			 { "https?://meet.google.com",      	workBrowser },
 			 { "https?://atlassian.dpgmedia.net", workBrowser }
 		 },
 		 -- url_redir_decoders = {
