@@ -32,25 +32,6 @@ hs.hotkey.bind(hyperkey, "e", function()
 	hs.application.launchOrFocusByBundleID('com.panic.nova')
 end)
 
--- hs.hotkey.bind(hyperkey, "l", function()
--- 	-- Duplicate line
--- 	hs.eventtap.keyStroke({"cmd"}, "right")
--- 	hs.eventtap.keyStroke({"shift,cmd"}, "left")
--- 	hs.eventtap.keyStroke({"cmd"}, "c")
--- 	hs.eventtap.keyStroke({}, "right")
--- 	hs.eventtap.keyStroke({}, "return")
--- 	hs.eventtap.keyStroke({"cmd"}, "v")
--- end)
-
--- hs.hotkey.bind(hyperkey, "k", function()
--- 	-- Show emojis and characters
--- 	hs.eventtap.keyStroke({"ctrl,cmd"}, "space")
--- end)
-
--- hs.hotkey.bind(hyperkey, "o", function()
---   hs.eventtap.keyStroke({}, "return")
--- end)
-
 -- Application switcher
 hs.window.switcher.ui.fontName = 'Menlo'
 hs.window.switcher.ui.textSize = 9 -- in screen points
