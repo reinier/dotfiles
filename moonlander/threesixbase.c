@@ -39,11 +39,156 @@ enum {
     TD_SLASH_DASH,
 };
 
-// Tap Dance definitions
+// - - -
+
+// Define a type containing as many tapdance states as you need
+typedef enum {
+    TD_NONE,
+    TD_UNKNOWN,
+    TD_SINGLE_TAP,
+    TD_SINGLE_HOLD,
+    TD_DOUBLE_SINGLE_TAP
+} td_state_t;
+
+// Create a global instance of the tapdance state type
+static td_state_t td_state;
+
+// Declare your tapdance functions:
+
+// Function to determine the current tapdance state
+td_state_t cur_dance(qk_tap_dance_state_t *state);
+
+// `finished` and `reset` functions for each tapdance keycode
+void commquot_finished(qk_tap_dance_state_t *state, void *user_data);
+void commquot_reset(qk_tap_dance_state_t *state, void *user_data);
+
+void dotscoln_finished(qk_tap_dance_state_t *state, void *user_data);
+void dotscoln_reset(qk_tap_dance_state_t *state, void *user_data);
+
+void slashdash_finished(qk_tap_dance_state_t *state, void *user_data);
+void slashdash_reset(qk_tap_dance_state_t *state, void *user_data);
+
+// Determine the tapdance state to return
+td_state_t cur_dance(qk_tap_dance_state_t *state) {
+    if (state->count == 1) {
+        if (state->interrupted || !state->pressed) return TD_SINGLE_TAP;
+        else return TD_SINGLE_HOLD;
+    }
+
+    if (state->count == 2) return TD_DOUBLE_SINGLE_TAP;
+    else return TD_UNKNOWN; // Any number higher than the maximum state value you return above
+}
+
+// Handle the possible states for each tapdance keycode you define:
+
+void commquot_finished(qk_tap_dance_state_t *state, void *user_data) {
+    td_state = cur_dance(state);
+    switch (td_state) {
+        case TD_SINGLE_TAP:
+            register_code16(KC_COMM);
+            break;
+        case TD_SINGLE_HOLD:
+            tap_code16(KC_QUOT);
+            break;
+        case TD_DOUBLE_SINGLE_TAP:
+            tap_code16(KC_COMM);
+            register_code16(KC_COMM);
+        case TD_NONE:
+        case TD_UNKNOWN:
+            break;
+    }
+}
+
+void commquot_reset(qk_tap_dance_state_t *state, void *user_data) {
+    switch (td_state) {
+        case TD_SINGLE_TAP:
+            unregister_code16(KC_COMM);
+            break;
+        case TD_SINGLE_HOLD:
+            break;
+        case TD_DOUBLE_SINGLE_TAP:
+            unregister_code16(KC_COMM);
+            break;
+        case TD_NONE:
+        case TD_UNKNOWN:
+            break;
+    }
+}
+
+void dotscoln_finished(qk_tap_dance_state_t *state, void *user_data) {
+  td_state = cur_dance(state);
+  switch (td_state) {
+      case TD_SINGLE_TAP:
+          register_code16(KC_DOT);
+          break;
+      case TD_SINGLE_HOLD:
+          tap_code16(KC_SCLN);
+          break;
+      case TD_DOUBLE_SINGLE_TAP:
+          tap_code16(KC_DOT);
+          register_code16(KC_DOT);
+      case TD_NONE:
+      case TD_UNKNOWN:
+          break;
+  }
+}
+
+void dotscoln_reset(qk_tap_dance_state_t *state, void *user_data) {
+  switch (td_state) {
+      case TD_SINGLE_TAP:
+          unregister_code16(KC_DOT);
+          break;
+      case TD_SINGLE_HOLD:
+          break;
+      case TD_DOUBLE_SINGLE_TAP:
+          unregister_code16(KC_DOT);
+          break;
+      case TD_NONE:
+      case TD_UNKNOWN:
+          break;
+  }
+}
+
+void slashdash_finished(qk_tap_dance_state_t *state, void *user_data) {
+  td_state = cur_dance(state);
+  switch (td_state) {
+      case TD_SINGLE_TAP:
+          register_code16(KC_SLASH);
+          break;
+      case TD_SINGLE_HOLD:
+          tap_code16(KC_MINUS);
+          break;
+      case TD_DOUBLE_SINGLE_TAP:
+          tap_code16(KC_SLASH);
+          register_code16(KC_SLASH);
+      case TD_NONE:
+      case TD_UNKNOWN:
+          break;
+  }
+}
+
+void slashdash_reset(qk_tap_dance_state_t *state, void *user_data) {
+  switch (td_state) {
+      case TD_SINGLE_TAP:
+          unregister_code16(KC_SLASH);
+          break;
+      case TD_SINGLE_HOLD:
+          break;
+      case TD_DOUBLE_SINGLE_TAP:
+          unregister_code16(KC_SLASH);
+          break;
+      case TD_NONE:
+      case TD_UNKNOWN:
+          break;
+  }
+}
+
+// - - - Tap Dance definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
-    [TD_COMM_QUOT] = ACTION_TAP_DANCE_DOUBLE(KC_COMM, KC_QUOT),
-    [TD_DOT_SCOLN] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_SCLN),
-    [TD_SLASH_DASH] = ACTION_TAP_DANCE_DOUBLE(KC_SLSH, KC_MINUS),
+    // [TD_COMM_QUOT] = ACTION_TAP_DANCE_DOUBLE(KC_COMM, KC_QUOT),
+    [TD_COMM_QUOT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, commquot_finished, commquot_reset),
+    [TD_DOT_SCOLN] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dotscoln_finished, dotscoln_reset),
+    [TD_SLASH_DASH] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, slashdash_finished, slashdash_reset),
 };
 
 /*
