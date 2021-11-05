@@ -32,29 +32,19 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   return state;
 }
 
-// COMBOS
+// Tap Dance declarations
+enum {
+    TD_COMM_QUOT,
+    TD_DOT_SCOLN,
+    TD_SLASH_DASH,
+};
 
-// enum combos {
-//   COM_LEFT,
-//   COM_DOWN,
-//   COM_UP,
-//   COM_RIGHT,
-//   COMBO_LENGTH
-// };
-// 
-// uint16_t COMBO_LEN = COMBO_LENGTH;
-// 
-// const uint16_t PROGMEM combo_left[]  = {KC_N, KC_M, COMBO_END};
-// const uint16_t PROGMEM combo_down[]  = {KC_M, KC_COMM, COMBO_END};
-// const uint16_t PROGMEM combo_up[]    = {KC_COMM, KC_DOT, COMBO_END};
-// const uint16_t PROGMEM combo_right[] = {KC_DOT, KC_SLSH, COMBO_END};
-// 
-// combo_t key_combos[] = {
-//     [COM_LEFT]  = COMBO(combo_left, KC_LEFT),
-//     [COM_DOWN]  = COMBO(combo_down, KC_DOWN),
-//     [COM_UP]    = COMBO(combo_up, KC_UP),
-//     [COM_RIGHT] = COMBO(combo_right, KC_RGHT),
-// };
+// Tap Dance definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+    [TD_COMM_QUOT] = ACTION_TAP_DANCE_DOUBLE(KC_COMM, KC_QUOT),
+    [TD_DOT_SCOLN] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_SCLN),
+    [TD_SLASH_DASH] = ACTION_TAP_DANCE_DOUBLE(KC_SLSH, KC_MINUS),
+};
 
 /*
 
@@ -106,9 +96,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 //
 #define KR_0_3_6 KC_N
 #define KR_0_3_7 KC_M
-#define KR_0_3_8 KC_COMM
-#define KR_0_3_9 KC_DOT
-#define KR_0_3_10 KC_SLSH
+#define KR_0_3_8 TD(TD_COMM_QUOT)
+#define KR_0_3_9 TD(TD_DOT_SCOLN)
+#define KR_0_3_10 TD(TD_SLASH_DASH)
 
 // Thumb cluster
 
@@ -125,7 +115,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // ###### Layer 1 Characters
 
 #define KR_1_1_1 KC_ESC
-#define KR_1_1_2 KC_DEL
+#define KR_1_1_2 KC_NO
 #define KR_1_1_3 LALT(KC_2) // €
 #define KR_1_1_4 LSFT(KC_6)
 #define KR_1_1_5 LSFT(KC_BSLASH)
@@ -176,7 +166,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // ##### Layer 2 Numbers
 
 #define KR_2_1_1 KC_ESC
-#define KR_2_1_2 KC_DEL
+#define KR_2_1_2 KC_NO
 #define KR_2_1_3 LALT(KC_2) // €
 #define KR_2_1_4 KC_PERC
 #define KR_2_1_5 KC_NO
@@ -224,7 +214,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // ##### Layer 3 Navigation
 
 #define KR_3_1_1 KC_ESC
-#define KR_3_1_2 KC_DEL
+#define KR_3_1_2 KC_NO
 #define KR_3_1_3 KC_NO
 #define KR_3_1_4 KC_NO
 #define KR_3_1_5 KC_NO
