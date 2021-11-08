@@ -1,8 +1,9 @@
 -- Reserved:
 
--- A - Keyboard Maestro
+-- A, J, K, L - Keyboard Maestro
 -- C - Alfred
--- T - Alfred
+-- T, M - Alfred
+-- H - Hyperhammer
 
 hs.hotkey.bind(hyperkey, "d", function()
 	hs.application.launchOrFocusByBundleID('com.agiletortoise.Drafts-OSX')
@@ -24,7 +25,7 @@ hs.hotkey.bind(hyperkey, "f", function()
 	hs.application.launchOrFocusByBundleID('com.omnigroup.OmniFocus3.MacAppStore')
 end)
 
-hs.hotkey.bind(hyperkey, "p", function()
+hs.hotkey.bind(hyperkey, "s", function()
 	hs.application.launchOrFocusByBundleID('com.agilebits.onepassword7')
 end)
 

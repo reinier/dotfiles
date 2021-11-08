@@ -5,6 +5,7 @@ hs.loadSpoon("SpoonInstall")
 hyperkey = { "ctrl", "alt", "shift", "cmd" }
 
 require('ergomouse')
-require('layerdisplay')
 require('hammerbrowser')
+require('hyperhammer')
 require('hypers')
+-- require('layerdisplay')
