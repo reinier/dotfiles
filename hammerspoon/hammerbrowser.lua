@@ -15,21 +15,12 @@ spoon.SpoonInstall:andUse("URLDispatcher",
 	{
 	 config = {
 		 url_patterns = {
-			 { "https?://calendar.google.com",    workBrowser },
-			 { "https?://mail.google.com",      	workBrowser },
-			 { "https?://meet.google.com",      	workBrowser },
-			 { "https?://persgroep-it.slack.com", workBrowser },
-			 { "https?://atlassian.dpgmedia.net", workBrowser }
+			 { hs.settings.get("secrets").workUrls.calendar,	workBrowser },
+			 { hs.settings.get("secrets").workUrls.mail,    	workBrowser },
+			 { hs.settings.get("secrets").workUrls.meet,  		workBrowser },
+			 { hs.settings.get("secrets").workUrls.slack, 		workBrowser },
+			 { hs.settings.get("secrets").workUrls.jira,			workBrowser }
 		 },
-		 -- url_redir_decoders = {
-			--  -- Send MS Teams URLs directly to the app
-			--  { "MS Teams URLs",
-			-- 	 "(https://teams.microsoft.com.*)", "msteams:%1", true },
-			--  -- Preview incorrectly encodes the anchor
-			--  -- character in URLs as %23, we fix it
-			--  { "Fix broken Preview anchor URLs",
-			-- 	 "%%23", "#", false, "Preview" },
-		 -- },
 		 default_handler = DefaultBrowser
 	 },
 	 start = true,
@@ -37,23 +28,3 @@ spoon.SpoonInstall:andUse("URLDispatcher",
 	 -- loglevel = 'debug'
 	}
 )
-
--- Move this to a hyperhammer
-
-browsermenu = hs.menubar.new()
-items = {
-	{ title = "Safari", fn = function() setsafari() end },
-	{ title = "Chrome", fn = function() setchrome() end },
-}
-browsermenu:setMenu(items)
-browsermenu:setTitle("🧭")
-
-function setsafari()
-	hs.alert.show('safari set as default browser')
-	spoon.URLDispatcher.default_handler = safariBrowser
-end
-
-function setchrome()
-	hs.alert.show('chrome set as default browser')
-	spoon.URLDispatcher.default_handler = chromeBrowser
-end

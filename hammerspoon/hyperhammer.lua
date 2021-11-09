@@ -45,6 +45,16 @@ local chooserActions = {
 		["subText"] = "Input and output audio to Poly over BT",
 		["val"] = "polybt"
 	},
+	{
+		["text"] = "Set Safari as default",
+		["subText"] = "Set Safari as default browser in Hammerspoon",
+		["val"] = "safari"
+	},
+	{
+		["text"] = "Set Chrome as default",
+		["subText"] = "Set Chrome as default browser in Hammerspoon",
+		["val"] = "chrome"
+	},
 }
 
 local chooser
@@ -96,6 +106,16 @@ choseAction = function(action)
 		else
 			hs.alert.show('❌ not found')
 		end
+	
+	-- See hammerbrowser.lua for variables 
+	
+	elseif action['val'] == "safari" then
+		hs.alert.show('✅')
+		spoon.URLDispatcher.default_handler = safariBrowser
+	
+	elseif action['val'] == "chrome" then
+		hs.alert.show('✅')
+		spoon.URLDispatcher.default_handler = chromeBrowser
 		
 	else
 		hs.alert.show('❌ not found')
