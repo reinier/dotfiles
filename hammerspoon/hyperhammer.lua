@@ -102,8 +102,6 @@ choseAction = function(action)
 	end
 end
 
-
-
 chooser = hs.chooser.new(choseAction)
 chooser:choices(chooserActions)
 
