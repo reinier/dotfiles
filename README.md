@@ -3,6 +3,7 @@
 My Mac and mechanical keyboard (QMK) configuration
 
 For keyboard firmware install you need QMK:
+
 - `brew tap homebrew/cask-drivers`
 - `brew install --cask qmk-toolbox`
 - `brew install qmk/qmk/qmk`
@@ -19,7 +20,7 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 - Dedicated CMD and SHIFT keys and [home row mods](https://precondition.github.io/home-row-mods) for ALT and CTRL
 - Easy sync between my [Microdox](https://boardsource.xyz/store/5f2e7e4a2902de7151494f92) and [Moonlander](https://www.zsa.io/moonlander/)
 - Minimize pinky use on both sides for ergonomic reasons
-- Minimal use of tap dances
+- Minimal use of tap dances and combos
 
 The keymap:
 
@@ -49,5 +50,5 @@ Symlink the config directories in the right place. Examples:
 - `ln -s ~/dev/dotfiles/microdox ~/qmk_firmware/keyboards/boardsource/microdox/keymaps/microdox-mk2`
 - `ln -s ~/dev/dotfiles/moonlander ~/qmk_firmware/keyboards/moonlander/keymaps/moonlander-mk2`
 
-Show invisible files in Finder: 
+Show invisible files in Finder:
 Hold down the Command, Shift and Period keys: `cmd + shift + .`

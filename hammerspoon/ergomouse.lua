@@ -1,7 +1,7 @@
 -- https://github.com/tekezo/Karabiner/issues/814
 -- https://savourytimes.com/smooth-scrolling-with-greatest-trackball-mx-ergo/
 -- HANDLE SCROLLING WITH MOUSE BUTTON PRESSED
-local scrollMouseButton = 2
+-- local scrollMouseButton = 2
 local deferred = false
 
 overrideOtherMouseDown =

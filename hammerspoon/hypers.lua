@@ -1,10 +1,3 @@
--- Reserved:
-
--- A, J, K, L - Keyboard Maestro
--- C, T - Alfred
--- H - Hyperhammer
--- M - MenuAnywhere
-
 hs.hotkey.bind(hyperkey, "d", function()
 	hs.application.launchOrFocusByBundleID('com.agiletortoise.Drafts-OSX')
 end)

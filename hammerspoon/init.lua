@@ -6,8 +6,10 @@ local secrets = require('secrets')
 hs.loadSpoon("SpoonInstall")
 
 hyperkey = { "ctrl", "alt", "shift", "cmd" }
+mehkey = { "ctrl", "alt", "shift" }
 
 require('ergomouse')
 require('hammerbrowser')
-require('hyperhammer')
+require('mehspace')
 require('hypers')
+require('layerdisplay')

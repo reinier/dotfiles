@@ -4,30 +4,51 @@
 
 */
 
+
+
+
+enum combos {
+  DF_CBO,
+  JK_CBO,
+  COMBO_LENGTH
+};
+
+uint16_t COMBO_LEN = COMBO_LENGTH;
+
+const uint16_t PROGMEM df_combo[]   = {LCTL_T(KC_D), LALT_T(KC_F), COMBO_END};
+const uint16_t PROGMEM jk_combo[]   = {RALT_T(KC_J), RCTL_T(KC_K), COMBO_END};
+
+combo_t key_combos[] = {
+    // D+F = TAB
+    [DF_CBO] = COMBO(df_combo, KC_TAB),
+    // J+K = ENTER
+    [JK_CBO] = COMBO(jk_combo, KC_ENT),
+};
+
 /*
 
 Hook for when switching layers. Now used to 'silently' sent Hammerspoon signals about the keyboard layer. It uses shift and alt to prevent the Mac from beeping when Hammerspoon is running and the keyboard is returning from the OSL to the base layer. `layer_state_set_user` is run multiple times, even in between key down and key up of a key in the OSL. This collides with the F key which then gets the modifier of the One Shot key. I prevent this by adding modifiers to the F keys.
 
 */
 
-// layer_state_t layer_state_set_user(layer_state_t state) {
-//   switch (get_highest_layer(state)) {
-//     case 1:
-//         SEND_STRING(SS_DOWN(X_LSFT) SS_DOWN(X_LALT) SS_TAP(X_F17) SS_UP(X_LSFT) SS_UP(X_LALT)); 
-//         break;
-//     case 2:
-//         SEND_STRING(SS_DOWN(X_LSFT) SS_DOWN(X_LALT) SS_TAP(X_F18) SS_UP(X_LSFT) SS_UP(X_LALT)); 
-//         break;
-//     case 3:
-//         SEND_STRING(SS_DOWN(X_LSFT) SS_DOWN(X_LALT) SS_TAP(X_F19) SS_UP(X_LSFT) SS_UP(X_LALT)); 
-//         break;    
-//     default:
-//         //print("reinier");
-//         SEND_STRING(SS_DOWN(X_LSFT) SS_DOWN(X_LALT) SS_TAP(X_F16) SS_UP(X_LSFT) SS_UP(X_LALT)); 
-//         break;  
-//   }
-//   return state;
-// }
+layer_state_t layer_state_set_user(layer_state_t state) {
+  switch (get_highest_layer(state)) {
+    case 1:
+        tap_code(KC_MS_BTN5); 
+        break;
+    case 2:
+        tap_code(KC_MS_BTN6);
+        break;
+    case 3:
+        tap_code(KC_MS_BTN7); 
+        break;    
+    default:
+        //print("reinier");
+        tap_code(KC_MS_BTN4); 
+        break;  
+  }
+  return state;
+}
 
 // Tap Dance declarations
 enum {
@@ -119,7 +140,7 @@ void dotscoln_finished(qk_tap_dance_state_t *state, void *user_data) {
           register_code16(KC_DOT);
           break;
       case TD_SINGLE_HOLD:
-          tap_code16(KC_SCLN);
+          tap_code16(LSFT(KC_SCLN));
           break;
       case TD_DOUBLE_SINGLE_TAP:
           tap_code16(KC_DOT);
@@ -217,7 +238,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 // Mid row
 
 #define KR_0_2_1 KC_A
-#define KR_0_2_2 KC_S
+#define KR_0_2_2 MEH_T(KC_S)
 #define KR_0_2_3 LCTL_T(KC_D)
 #define KR_0_2_4 LALT_T(KC_F)
 #define KR_0_2_5 KC_G
@@ -225,7 +246,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_0_2_6 KC_H
 #define KR_0_2_7 RALT_T(KC_J)
 #define KR_0_2_8 RCTL_T(KC_K)
-#define KR_0_2_9 KC_L
+#define KR_0_2_9 MEH_T(KC_L)
 #define KR_0_2_10 KC_P
 
 // Bottom row
@@ -253,47 +274,46 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_0_4_6 KC_NO
 
 
-
-// ###### Layer 1 Characters
+// ###### Layer 1 Symbols and arrow keys
 
 #define KR_1_1_1 KC_ESC
-#define KR_1_1_2 KC_NO
-#define KR_1_1_3 LALT(KC_2) // €
-#define KR_1_1_4 LSFT(KC_6)
-#define KR_1_1_5 LSFT(KC_BSLASH)
-
-#define KR_1_1_6 KC_NO
-#define KR_1_1_7 LSFT(KC_LBRC)
-#define KR_1_1_8 LSFT(KC_RBRC)
-#define KR_1_1_9 KC_NO
+#define KR_1_1_2 KC_HASH
+#define KR_1_1_3 LSFT(KC_LBRC)
+#define KR_1_1_4 LSFT(KC_RBRC)
+#define KR_1_1_5 KC_ASTR
+// LOPT(KC_SCLN) // …
+#define KR_1_1_6 KC_TILD
+#define KR_1_1_7 KC_AMPR
+#define KR_1_1_8 KC_UP
+#define KR_1_1_9 LSFT(KC_6) // ^
 #define KR_1_1_10 KC_BSPC
 
 // Mid row
 
 #define KR_1_2_1 KC_TAB
-#define KR_1_2_2 KC_HASH
-#define KR_1_2_3 LSFT(KC_2) // @
-#define KR_1_2_4 KC_EXLM
+#define KR_1_2_2 LSFT(KC_2) // @
+#define KR_1_2_3 LCTL_T(KC_LBRC)
+#define KR_1_2_4 LALT_T(KC_RBRC)
 #define KR_1_2_5 KC_PPLS
 //
-#define KR_1_2_6 KC_AMPR
-#define KR_1_2_7 KC_LPRN
-#define KR_1_2_8 KC_RPRN
-#define KR_1_2_9 KC_GRV
+#define KR_1_2_6 KC_EXLM
+#define KR_1_2_7 KC_LEFT
+#define KR_1_2_8 KC_DOWN
+#define KR_1_2_9 KC_RGHT
 #define KR_1_2_10 KC_ENTER
 
 // Lower row
 
-#define KR_1_3_1 KC_NO
+#define KR_1_3_1 LSFT(KC_BSLASH) // |
 #define KR_1_3_2 KC_BSLASH
-#define KR_1_3_3 KC_TILD
-#define KR_1_3_4 KC_ASTR
+#define KR_1_3_3 KC_LPRN
+#define KR_1_3_4 KC_RPRN
 #define KR_1_3_5 KC_PEQL
 //
-#define KR_1_3_6 KC_NO
-#define KR_1_3_7 KC_LBRC
-#define KR_1_3_8 KC_RBRC
-#define KR_1_3_9 LOPT(KC_SCLN) // …
+#define KR_1_3_6 LSFT(KC_MINUS) // _
+#define KR_1_3_7 KC_GRV
+#define KR_1_3_8 LSFT(KC_QUOT)
+#define KR_1_3_9 KC_SCLN
 #define KR_1_3_10 TO(3)
 
 
@@ -308,10 +328,10 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 // ##### Layer 2 Numbers
 
 #define KR_2_1_1 KC_ESC
-#define KR_2_1_2 KC_NO
+#define KR_2_1_2 LSFT(KC_4) // $
 #define KR_2_1_3 LALT(KC_2) // €
 #define KR_2_1_4 KC_PERC
-#define KR_2_1_5 KC_NO
+#define KR_2_1_5 KC_ASTR
 //
 #define KR_2_1_6 KC_COMM
 #define KR_2_1_7 KC_7
@@ -335,8 +355,8 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 #define KR_2_3_1 KC_NO
 #define KR_2_3_2 KC_NO
-#define KR_2_3_3 KC_SLSH
-#define KR_2_3_4 KC_ASTR
+#define KR_2_3_3 KC_NO
+#define KR_2_3_4 KC_SLSH
 #define KR_2_3_5 KC_PEQL
 //
 #define KR_2_3_6 KC_0
@@ -356,28 +376,28 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 // ##### Layer 3 Navigation
 
 #define KR_3_1_1 KC_ESC
-#define KR_3_1_2 KC_NO
-#define KR_3_1_3 KC_NO
-#define KR_3_1_4 KC_NO
+#define KR_3_1_2 KC_MS_ACCEL2
+#define KR_3_1_3 KC_MS_ACCEL1
+#define KR_3_1_4 KC_MS_ACCEL0
 #define KR_3_1_5 KC_NO
 //
-#define KR_3_1_6 KC_PGUP
-#define KR_3_1_7 LGUI(KC_GRV) // switch windows
-#define KR_3_1_8 KC_UP
-#define KR_3_1_9 LCTL(KC_TAB) // switch tabs
+#define KR_3_1_6 KC_MS_WH_DOWN
+#define KR_3_1_7 KC_MS_WH_RIGHT
+#define KR_3_1_8 KC_MS_UP
+#define KR_3_1_9 KC_MS_WH_LEFT
 #define KR_3_1_10 KC_BSPC
 
 
-#define KR_3_2_1 KC_TAB
+#define KR_3_2_1 KC_NO
 #define KR_3_2_2 KC_MEDIA_PREV_TRACK
 #define KR_3_2_3 LCTL_T(KC_MEDIA_PLAY_PAUSE)
 #define KR_3_2_4 LALT_T(KC_MEDIA_NEXT_TRACK)
-#define KR_3_2_5 KC_NO
+#define KR_3_2_5 KC_MS_BTN1
 //
-#define KR_3_2_6 KC_PGDOWN
-#define KR_3_2_7 KC_LEFT
-#define KR_3_2_8 KC_DOWN
-#define KR_3_2_9 KC_RGHT
+#define KR_3_2_6 KC_MS_WH_UP
+#define KR_3_2_7 KC_MS_LEFT
+#define KR_3_2_8 KC_MS_DOWN
+#define KR_3_2_9 KC_MS_RIGHT
 #define KR_3_2_10 KC_ENTER
 
 
@@ -385,7 +405,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_3_3_2 KC__MUTE
 #define KR_3_3_3 KC__VOLDOWN
 #define KR_3_3_4 KC__VOLUP
-#define KR_3_3_5 KC_NO
+#define KR_3_3_5 KC_MS_BTN2
 //
 #define KR_3_3_6 KC_NO
 #define KR_3_3_7 KC_NO
