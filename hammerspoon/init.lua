@@ -10,6 +10,6 @@ mehkey = { "ctrl", "alt", "shift" }
 
 require('ergomouse')
 require('hammerbrowser')
-require('mehspace')
-require('hypers')
+require('hyperspace')
+-- require('hypers')
 -- require('layerdisplay')

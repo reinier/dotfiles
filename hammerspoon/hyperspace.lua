@@ -130,7 +130,7 @@ end
 chooser = hs.chooser.new(choseAction)
 chooser:choices(chooserActions)
 
-hs.hotkey.bind(mehkey, "space", function()
+hs.hotkey.bind(hyperkey, "h", function()
 	chooser:show()
 end)
 
@@ -168,28 +168,28 @@ screenPositions.mid = {
  w = 4, h = 3
 }
 
-hs.hotkey.bind(mehkey, "j", function()
+hs.hotkey.bind(hyperkey, "j", function()
 	window = hs.window.focusedWindow()
 	grid.set(window, screenPositions.left)
 end)
 
-hs.hotkey.bind(mehkey, 'l', function()
+hs.hotkey.bind(hyperkey, 'l', function()
  window = hs.window.focusedWindow()
  grid.set(window, screenPositions.right)
 end)
 
-hs.hotkey.bind(mehkey, 'i', function()
+hs.hotkey.bind(hyperkey, 'i', function()
  window = hs.window.focusedWindow()
  grid.set(window, screenPositions.full)
 end)
 
-hs.hotkey.bind(mehkey, 'k', function()
+hs.hotkey.bind(hyperkey, 'k', function()
  window = hs.window.focusedWindow()
  grid.set(window, screenPositions.mid)
 end)
 
 -- Move window to next display and resize relatively
-hs.hotkey.bind(mehkey, 'o', function()
+hs.hotkey.bind(hyperkey, 'o', function()
  window = hs.window.focusedWindow()
  local screen = window:screen()
  -- compute the unitRect of the focused window relative to the current screen
