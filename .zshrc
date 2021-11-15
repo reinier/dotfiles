@@ -16,6 +16,8 @@ alias hist="history 1"
 # alias ibrew='arch -x86_64 brew'
 # alias a="arch -x86_64"
 
+alias gbi="mdls -name kMDItemCFBundleIdentifier -r"
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."

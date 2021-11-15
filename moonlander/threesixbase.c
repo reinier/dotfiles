@@ -31,24 +31,24 @@ Hook for when switching layers. Now used to 'silently' sent Hammerspoon signals 
 
 */
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-  switch (get_highest_layer(state)) {
-    case 1:
-        tap_code(KC_MS_BTN5); 
-        break;
-    case 2:
-        tap_code(KC_MS_BTN6);
-        break;
-    case 3:
-        tap_code(KC_MS_BTN7); 
-        break;    
-    default:
-        //print("reinier");
-        tap_code(KC_MS_BTN4); 
-        break;  
-  }
-  return state;
-}
+// layer_state_t layer_state_set_user(layer_state_t state) {
+//   switch (get_highest_layer(state)) {
+//     case 1:
+//         tap_code(KC_MS_BTN5); 
+//         break;
+//     case 2:
+//         tap_code(KC_MS_BTN6);
+//         break;
+//     case 3:
+//         tap_code(KC_MS_BTN7); 
+//         break;    
+//     default:
+//         //print("reinier");
+//         tap_code(KC_MS_BTN4); 
+//         break;  
+//   }
+//   return state;
+// }
 
 // Tap Dance declarations
 enum {
