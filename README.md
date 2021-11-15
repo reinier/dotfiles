@@ -35,8 +35,17 @@ The keyboard:
 - To make scrolling easy with the Logi Ergo MX
 - To serve as my url dispatcher to open links with the correct browser
 - To move windows
-- For easy app switching
 - To do all kinds of scripting
+
+## Other productivity apps
+
+Invisible in this repo, but I also use the following apps to be more productive:
+
+- Keyboard Maestro (I make use of palettes quite heavily)
+- Drafts (to quickly jot down notes and script text)
+- ~~Alfred~~ (Stopped using it because it overlaps too much with Keyboard Maestro and Hammerspoon)
+- CleanShot X (the best screenshot app there is)
+- Menuwhere (to navigate app menus with my keyboard)
 
 ## Install
 
