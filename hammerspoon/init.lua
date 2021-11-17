@@ -15,9 +15,6 @@ require('hammerbrowser')
 require('hammermodal')
 require('windowmanagement')
 
--- If KM is to slow with the palettes, you can simulate a palette with:
--- http://www.hammerspoon.org/Spoons/FadeLogo.html
-
 hsImage = hs.loadSpoon('FadeLogo')
 hsImage:start()
 
