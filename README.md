@@ -24,7 +24,7 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 
 The keymap:
 
-![Keymap microdox](./keymap.png?raw=true)
+![Keymap microdox](./hammerspoon/keyboard/keymap.png?raw=true)
 
 The keyboard:
 

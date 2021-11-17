@@ -238,7 +238,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 // Mid row
 
 #define KR_0_2_1 KC_A
-#define KR_0_2_2 MEH_T(KC_S)
+#define KR_0_2_2 KC_S
 #define KR_0_2_3 LCTL_T(KC_D)
 #define KR_0_2_4 LALT_T(KC_F)
 #define KR_0_2_5 KC_G
@@ -246,7 +246,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_0_2_6 KC_H
 #define KR_0_2_7 RALT_T(KC_J)
 #define KR_0_2_8 RCTL_T(KC_K)
-#define KR_0_2_9 MEH_T(KC_L)
+#define KR_0_2_9 KC_L
 #define KR_0_2_10 KC_P
 
 // Bottom row
@@ -267,7 +267,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 #define KR_0_4_1 KC_NO
 #define KR_0_4_2 OSM(MOD_LSFT)
-#define KR_0_4_3 HYPR_T(KC_SPACE)
+#define KR_0_4_3 MEH_T(KC_SPACE)
 
 #define KR_0_4_4 TO(1)
 #define KR_0_4_5 OSM(MOD_LGUI)
@@ -376,9 +376,9 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 // ##### Layer 3 Navigation
 
 #define KR_3_1_1 KC_ESC
-#define KR_3_1_2 KC_MS_ACCEL2
-#define KR_3_1_3 KC_MS_ACCEL1
-#define KR_3_1_4 KC_MS_ACCEL0
+#define KR_3_1_2 KC_NO
+#define KR_3_1_3 KC_MS_ACCEL2
+#define KR_3_1_4 KC_NO
 #define KR_3_1_5 KC_NO
 //
 #define KR_3_1_6 KC_MS_WH_DOWN
@@ -388,11 +388,11 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_3_1_10 KC_BSPC
 
 
-#define KR_3_2_1 KC_NO
-#define KR_3_2_2 KC_MEDIA_PREV_TRACK
-#define KR_3_2_3 LCTL_T(KC_MEDIA_PLAY_PAUSE)
-#define KR_3_2_4 LALT_T(KC_MEDIA_NEXT_TRACK)
-#define KR_3_2_5 KC_MS_BTN1
+#define KR_3_2_1 KC_TAB
+#define KR_3_2_2 KC_MS_ACCEL2
+#define KR_3_2_3 KC_MS_ACCEL0
+#define KR_3_2_4 KC_MS_BTN1
+#define KR_3_2_5 KC_MS_BTN2
 //
 #define KR_3_2_6 KC_MS_WH_UP
 #define KR_3_2_7 KC_MS_LEFT
@@ -402,10 +402,10 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 
 #define KR_3_3_1 KC_CAPS
-#define KR_3_3_2 KC__MUTE
-#define KR_3_3_3 KC__VOLDOWN
-#define KR_3_3_4 KC__VOLUP
-#define KR_3_3_5 KC_MS_BTN2
+#define KR_3_3_2 KC_LCTRL
+#define KR_3_3_3 KC_LALT
+#define KR_3_3_4 KC_NO
+#define KR_3_3_5 KC_NO
 //
 #define KR_3_3_6 KC_NO
 #define KR_3_3_7 KC_NO
