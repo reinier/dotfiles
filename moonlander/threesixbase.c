@@ -282,18 +282,18 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_1_1_4 LSFT(KC_RBRC)
 #define KR_1_1_5 KC_ASTR
 // LOPT(KC_SCLN) // …
-#define KR_1_1_6 KC_AMPR
+#define KR_1_1_6 LSFT(KC_6) // ^
 #define KR_1_1_7 KC_HASH
 #define KR_1_1_8 KC_UP
-#define KR_1_1_9 LSFT(KC_6) // ^
+#define KR_1_1_9 KC_AMPR
 #define KR_1_1_10 KC_BSPC
 
 // Mid row
 
 #define KR_1_2_1 KC_TAB
-#define KR_1_2_2 LSFT(KC_2) // @
-#define KR_1_2_3 KC_LPRN
-#define KR_1_2_4 KC_RPRN
+#define KR_1_2_2 LCTL_T(KC_GRV)
+#define KR_1_2_3 LALT_T(KC_LBRC)
+#define KR_1_2_4 MEH_T(KC_RBRC)
 #define KR_1_2_5 KC_PPLS
 //
 #define KR_1_2_6 KC_EXLM
@@ -305,13 +305,13 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 // Lower row
 
 #define KR_1_3_1 LSFT(KC_BSLASH) // |
-#define KR_1_3_2 LCTL_T(KC_BSLASH)
-#define KR_1_3_3 LALT_T(KC_LBRC)
-#define KR_1_3_4 MEH_T(KC_RBRC)
+#define KR_1_3_2 KC_BSLASH
+#define KR_1_3_3 KC_LPRN
+#define KR_1_3_4 KC_RPRN
 #define KR_1_3_5 KC_PEQL
 //
 #define KR_1_3_6 LSFT(KC_MINUS) // _
-#define KR_1_3_7 KC_GRV
+#define KR_1_3_7 LSFT(KC_2) // @
 #define KR_1_3_8 LSFT(KC_QUOT)
 #define KR_1_3_9 KC_SCLN
 #define KR_1_3_10 TO(3)
@@ -339,11 +339,10 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_2_1_9 KC_9
 #define KR_2_1_10 KC_BSPC
 
-
 #define KR_2_2_1 KC_TAB
-#define KR_2_2_2 KC_SPACE
-#define KR_2_2_3 KC_DOT
-#define KR_2_2_4 KC_MINUS
+#define KR_2_2_2 LCTL_T(KC_SPACE)
+#define KR_2_2_3 LALT_T(KC_DOT)
+#define KR_2_2_4 MEH_T(KC_MINUS)
 #define KR_2_2_5 KC_PPLS
 //
 #define KR_2_2_6 KC_COLN
@@ -353,9 +352,9 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KR_2_2_10 KC_ENTER
 
 #define KR_2_3_1 KC_NO
-#define KR_2_3_2 KC_LCTRL
-#define KR_2_3_3 KC_LALT
-#define KR_2_3_4 MEH_T(KC_SLSH)
+#define KR_2_3_2 KC_NO
+#define KR_2_3_3 KC_NO
+#define KR_2_3_4 KC_SLSH
 #define KR_2_3_5 KC_PEQL
 //
 #define KR_2_3_6 KC_0
