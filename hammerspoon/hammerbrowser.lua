@@ -15,11 +15,12 @@ spoon.SpoonInstall:andUse("URLDispatcher",
 	{
 	 config = {
 		 url_patterns = {
-			 { hs.settings.get("secrets").workUrls.calendar,	workBrowser },
-			 { hs.settings.get("secrets").workUrls.mail,    	workBrowser },
-			 { hs.settings.get("secrets").workUrls.meet,  		workBrowser },
-			 { hs.settings.get("secrets").workUrls.slack, 		workBrowser },
-			 { hs.settings.get("secrets").workUrls.jira,			workBrowser }
+			{ hs.settings.get("secrets").workUrls.calendar,	workBrowser },
+			{ hs.settings.get("secrets").workUrls.mail,    	workBrowser },
+			{ hs.settings.get("secrets").workUrls.meet,  		workBrowser },
+			{ hs.settings.get("secrets").workUrls.slack, 		workBrowser },
+			{ hs.settings.get("secrets").workUrls.jira,			workBrowser },
+			{ "https?://www.figma.com",											workBrowser }
 		 },
 		 default_handler = DefaultBrowser
 	 },
