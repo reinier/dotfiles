@@ -1,6 +1,7 @@
 # Build Options
 
-RGBLIGHT_ENABLE = yes
+# RGBLIGHT_ENABLE = yes
+# RGB_MATRIX_ENABLE = no
 
 # EXTRAKEY_ENABLE = yes
 

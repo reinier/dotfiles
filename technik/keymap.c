@@ -19,33 +19,29 @@
 #include "microhacks.c"
 #include "threesixbase.c"
 
-const rgblight_segment_t PROGMEM my_sym_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {17, 4, HSV_RED}
-);
-const rgblight_segment_t PROGMEM my_num_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {5, 4, HSV_RED}
-);
-
-const rgblight_segment_t PROGMEM my_nav_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {29, 4, HSV_RED}
-);
-
-const rgblight_segment_t PROGMEM my_mouse_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {41, 4, HSV_RED}
-);
-
-// Now define the array of layers. Later layers take precedence
-const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    my_sym_layer,
-    my_num_layer,    // Overrides caps lock layer
-    my_nav_layer,    // Overrides other layers
-    my_mouse_layer     // Overrides other layers
-);
-
-void keyboard_post_init_user(void) {
-    // Enable the LED layers
-    rgblight_layers = my_rgb_layers;
+layer_state_t layer_state_set_user(layer_state_t state) {
+  switch (get_highest_layer(state)) {
+    case 1:
+        rgb_matrix_set_color_all(255, 255, 0);
+        break;
+    case 2:
+        rgb_matrix_set_color_all(255, 255, 30);
+        break;
+    case 3:
+        rgb_matrix_set_color_all(255, 255, 60);
+        break; 
+    case 4:
+        rgb_matrix_set_color_all(255, 255, 90);
+        break;   
+    default:
+        //print("reinier");
+        rgb_matrix_set_color_all(255, 255, 180);
+        break;  
+  }
+  return state;
 }
+
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
