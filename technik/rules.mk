@@ -10,3 +10,5 @@
 MOUSEKEY_ENABLE = yes
 
 COMBO_ENABLE = yes
+
+RAW_ENABLE = yes

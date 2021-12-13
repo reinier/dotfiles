@@ -18,88 +18,109 @@
 
 #include "microhacks.c"
 #include "threesixbase.c"
+#include "raw_hid.h"
+
+static uint8_t	resp = 1;
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   switch (get_highest_layer(state)) {
     case 1:
-        rgb_matrix_set_color_all(255, 255, 0);
+        raw_hid_send((uint8_t *)&resp, sizeof(resp));
         break;
     case 2:
-        rgb_matrix_set_color_all(255, 255, 30);
+        raw_hid_send((uint8_t *)&resp, sizeof(resp));
         break;
     case 3:
-        rgb_matrix_set_color_all(255, 255, 60);
+        raw_hid_send((uint8_t *)&resp, sizeof(resp));
         break; 
     case 4:
-        rgb_matrix_set_color_all(255, 255, 90);
+        raw_hid_send((uint8_t *)&resp, sizeof(resp));
         break;   
     default:
         //print("reinier");
-        rgb_matrix_set_color_all(255, 255, 180);
+        raw_hid_send((uint8_t *)&resp, sizeof(resp));
         break;  
   }
   return state;
 }
 
-
+// void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+//     // for (uint8_t i = led_min; i <= led_max; i++) {
+//         switch(get_highest_layer(layer_state|default_layer_state)) {
+//             case 0:
+//                 //rgb_matrix_set_color(i, RGB_BLUE);
+//                 rgb_matrix_sethsv(1, 1, 1);
+//                 break;
+//             case 1:
+//             case 2:
+//             case 3:
+//             case 4:
+//                 //rgb_matrix_set_color(i, RGB_YELLOW);
+//                 rgb_matrix_sethsv(5, 5, 5);
+//                 break;
+//             default:
+//                 break;
+//         }
+//     // }
+// }
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [0] = LAYOUT_ortho_4x12(
-    KR_0_1_1,  KR_0_1_2,  KR_0_1_3,  KR_0_1_4,  KR_0_1_5,  _______,        _______,   KR_0_1_6,  KR_0_1_7,  KR_0_1_8,  KR_0_1_9,  KR_0_1_10,
+    KR_0_1_1,  KR_0_1_2,  KR_0_1_3,  KR_0_1_4,  KR_0_1_5,  RGB_M_P,        _______,   KR_0_1_6,  KR_0_1_7,  KR_0_1_8,  KR_0_1_9,  KR_0_1_10,
     KR_0_2_1,  KR_0_2_2,  KR_0_2_3,  KR_0_2_4,  KR_0_2_5,  _______,        _______,   KR_0_2_6,  KR_0_2_7,  KR_0_2_8,  KR_0_2_9,  KR_0_2_10,
     KR_0_3_1,  KR_0_3_2,  KR_0_3_3,  KR_0_3_4,  KR_0_3_5,  _______,        _______,   KR_0_3_6,  KR_0_3_7,  KR_0_3_8,  KR_0_3_9,  KR_0_3_10,
-    RGB_TOG,   _______,   KR_0_4_1,  KR_0_4_2,  KR_0_4_3,  _______,        _______,   KR_0_4_4,  KR_0_4_5,  KR_0_4_6,  _______,   _______
+    RGB_TOG,   RGB_MOD,   _______,   KR_0_4_1,  KR_0_4_2,  KR_0_4_3,       KR_0_4_4,  KR_0_4_5,  KR_0_4_6,  _______,   RGB_VAI,   RGB_HUI
   ),
 
   [1] = LAYOUT_ortho_4x12(
     KR_1_1_1,  KR_1_1_2,  KR_1_1_3,  KR_1_1_4,  KR_1_1_5,  _______,        _______,   KR_1_1_6,  KR_1_1_7,  KR_1_1_8,  KR_1_1_9,  KR_1_1_10,
     KR_1_2_1,  KR_1_2_2,  KR_1_2_3,  KR_1_2_4,  KR_1_2_5,  _______,        _______,   KR_1_2_6,  KR_1_2_7,  KR_1_2_8,  KR_1_2_9,  KR_1_2_10,
     KR_1_3_1,  KR_1_3_2,  KR_1_3_3,  KR_1_3_4,  KR_1_3_5,  _______,        _______,   KR_1_3_6,  KR_1_3_7,  KR_1_3_8,  KR_1_3_9,  KR_1_3_10,
-    RGB_MOD,   RGB_M_P,   KR_1_4_1,  KR_1_4_2,  KR_1_4_3,  _______,        _______,   KR_1_4_4,  KR_1_4_5,  KR_1_4_6,  RGB_VAI,   RGB_HUI
+    _______,   _______,   _______,   KR_1_4_1,  KR_1_4_2,  KR_1_4_3,       KR_1_4_4,  KR_1_4_5,  KR_1_4_6,  _______,   _______,   _______
   ),
 
   [2] = LAYOUT_ortho_4x12(
     KR_2_1_1,  KR_2_1_2,  KR_2_1_3,  KR_2_1_4,  KR_2_1_5,  _______,        _______,   KR_2_1_6,  KR_2_1_7,  KR_2_1_8,  KR_2_1_9,  KR_2_1_10,
     KR_2_2_1,  KR_2_2_2,  KR_2_2_3,  KR_2_2_4,  KR_2_2_5,  _______,        _______,   KR_2_2_6,  KR_2_2_7,  KR_2_2_8,  KR_2_2_9,  KR_2_2_10,
     KR_2_3_1,  KR_2_3_2,  KR_2_3_3,  KR_2_3_4,  KR_2_3_5,  _______,        _______,   KR_2_3_6,  KR_2_3_7,  KR_2_3_8,  KR_2_3_9,  KR_2_3_10,
-    _______,   _______,   KR_2_4_1,  KR_2_4_2,  KR_2_4_3,  _______,        _______,   KR_2_4_4,  KR_2_4_5,  KR_2_4_6,  _______,   _______
+    _______,   _______,   _______,   KR_2_4_1,  KR_2_4_2,  KR_2_4_3,       KR_2_4_4,  KR_2_4_5,  KR_2_4_6,  _______,   _______,   _______
   ),
   
   [3] = LAYOUT_ortho_4x12(
     KR_3_1_1,  KR_3_1_2,  KR_3_1_3,  KR_3_1_4,  KR_3_1_5,  _______,        _______,   KR_3_1_6,  KR_3_1_7,  KR_3_1_8,  KR_3_1_9,  KR_3_1_10,
     KR_3_2_1,  KR_3_2_2,  KR_3_2_3,  KR_3_2_4,  KR_3_2_5,  _______,        _______,   KR_3_2_6,  KR_3_2_7,  KR_3_2_8,  KR_3_2_9,  KR_3_2_10,
     KR_3_3_1,  KR_3_3_2,  KR_3_3_3,  KR_3_3_4,  KR_3_3_5,  _______,        _______,   KR_3_3_6,  KR_3_3_7,  KR_3_3_8,  KR_3_3_9,  KR_3_3_10,
-    _______,   _______,   KR_3_4_1,  KR_3_4_2,  KR_3_4_3,  _______,        _______,   KR_3_4_4,  KR_3_4_5,  KR_3_4_6,  _______,   _______
+    _______,   _______,   _______,   KR_3_4_1,  KR_3_4_2,  KR_3_4_3,       KR_3_4_4,  KR_3_4_5,  KR_3_4_6,  _______,   _______,   _______
   ),
   
   [4] = LAYOUT_ortho_4x12(
     KR_4_1_1,  KR_4_1_2,  KR_4_1_3,  KR_4_1_4,  KR_4_1_5,  _______,        _______,   KR_4_1_6,  KR_4_1_7,  KR_4_1_8,  KR_4_1_9,  KR_4_1_10,
     KR_4_2_1,  KR_4_2_2,  KR_4_2_3,  KR_4_2_4,  KR_4_2_5,  _______,        _______,   KR_4_2_6,  KR_4_2_7,  KR_4_2_8,  KR_4_2_9,  KR_4_2_10,
     KR_4_3_1,  KR_4_3_2,  KR_4_3_3,  KR_4_3_4,  KR_4_3_5,  _______,        _______,   KR_4_3_6,  KR_4_3_7,  KR_4_3_8,  KR_4_3_9,  KR_4_3_10,
-    _______,   _______,   KR_4_4_1,  KR_4_4_2,  KR_4_4_3,  _______,        _______,   KR_4_4_4,  KR_4_4_5,  KR_4_4_6,  _______,   _______
-  ),
-
-//   [_MAIN] = LAYOUT_ortho_4x12(
-//     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-//     KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-//     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT ,
-//     RGB_TOG, KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
-//   ),
-// 
-//   [_RAISE] = LAYOUT_ortho_4x12(
-//   KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR,    KC_ASTR,    KC_LPRN, KC_RPRN, KC_BSPC,
-//   KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_UNDS,    KC_PLUS,    KC_LCBR, KC_RCBR, KC_PIPE,
-//   _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  S(KC_NUHS), S(KC_NUBS), KC_HOME, KC_END,  _______,
-//   RESET,   _______, _______, _______, _______, _______, _______, _______,    KC_MNXT,    KC_VOLD, KC_VOLU, KC_MPLY
-//   ),
-// 
-//   [_LOWER] = LAYOUT_ortho_4x12(
-//  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-//  KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
-//  _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
-//  RGB_MOD, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
-//   )
-
+    _______,   _______,   _______,   KR_4_4_1,  KR_4_4_2,  KR_4_4_3,       KR_4_4_4,  KR_4_4_5,  KR_4_4_6,  _______,   _______,   _______
+  )
 };
 
+// This function creates packets of exactly RAW_EPSIZE to be broken down and sent via raw_hid_send()
+// This is because raw_hid_send will do nothing if length != RAW_EPSIZE
+// INFO: As far as I can tell, a packet starting with 0 will not transmit that first byte
+// Somehow someway, by the time the packet gets to my linux python scripts, the first zero of the packet is missing...
+// void raw_hid_send_pad(uint8_t *data, uint8_t length) {
+//   // if the length is already correct, just send it quick and don't bother with the slower packet conversion
+//   if (length == RAW_EPSIZE) {
+//     raw_hid_send(data, RAW_EPSIZE);
+//     return;
+//   }
+// 
+//   uint8_t packet[RAW_EPSIZE];
+//   uint8_t n = 0;
+//   
+//   while (n < length) {
+//     for (uint8_t i = 0; i < RAW_EPSIZE; i++) {
+//       packet[i] = i < length ? data[n] : 0;
+//       n++;
+//     }
+//     raw_hid_send(packet, RAW_EPSIZE);
+//   }
+// }
