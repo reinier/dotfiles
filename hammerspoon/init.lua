@@ -13,7 +13,7 @@ reimod = mehkey
 require('ergomouse')
 require('hammerbrowser')
 require('windowmanagement')
-require('showkeymap')
+-- require('showkeymap')
 
 hsImage = hs.loadSpoon('FadeLogo')
 hsImage:start()

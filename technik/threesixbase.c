@@ -26,9 +26,9 @@
 #define KR_0_2_2 LCTL_T(KC_S)
 #define KR_0_2_3 LALT_T(KC_D)
 #define KR_0_2_4 MEH_T(KC_F)
-#define KR_0_2_5 HYPR_T(KC_G)
+#define KR_0_2_5 KC_G
 //
-#define KR_0_2_6 HYPR_T(KC_H)
+#define KR_0_2_6 KC_H
 #define KR_0_2_7 MEH_T(KC_J)
 #define KR_0_2_8 RALT_T(KC_K)
 #define KR_0_2_9 RCTL_T(KC_L)
@@ -172,7 +172,7 @@
 #define KR_3_2_2 KC_LCTRL
 #define KR_3_2_3 KC_LALT
 #define KR_3_2_4 KC_MEH
-#define KR_3_2_5 KC_HYPR
+#define KR_3_2_5 KC_NO
 //
 #define KR_3_2_6 KC_PGDOWN
 #define KR_3_2_7 KC_LEFT
