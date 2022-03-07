@@ -1,5 +1,5 @@
 local secrets = require('secrets')
-	secrets.start('.secrets.json')
+secrets.start('.secrets.json')
 
 -- Required download:
 -- https://github.com/Hammerspoon/Spoons/blob/master/Spoons/SpoonInstall.spoon.zip
@@ -12,7 +12,7 @@ reimod = mehkey
 
 require('ergomouse')
 require('hammerbrowser')
-require('windowmanagement')
+-- require('windowmanagement')
 -- require('showkeymap')
 
 hsImage = hs.loadSpoon('FadeLogo')

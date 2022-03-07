@@ -6,24 +6,32 @@
 
 enum combos {
 //	 WER_CBO,
-	 SDF_CBO,
-	 XCV_CBO,
-	 COMBO_LENGTH
+	 // SDF_CBO,
+	XC_CBO,
+	CV_CBO,
+	QW_CBO,
+	 // JKL_CBO,
+	COMBO_LENGTH
  };
 
  uint16_t COMBO_LEN = COMBO_LENGTH;
 
  //const uint16_t PROGMEM wer_combo[]   = {KC_W, KC_E, KC_R, COMBO_END};
- const uint16_t PROGMEM sdf_combo[]   = {LCTL_T(KC_S), LALT_T(KC_D), MEH_T(KC_F), COMBO_END};
- const uint16_t PROGMEM xcv_combo[]   = {KC_X, KC_C, KC_V, COMBO_END};
+ // const uint16_t PROGMEM sdf_combo[]   = {LCTL_T(KC_S), LALT_T(KC_D), MEH_T(KC_F), COMBO_END};
+ // const uint16_t PROGMEM jkl_combo[]   = {RCTL_T(KC_L), RALT_T(KC_K), MEH_T(KC_J), COMBO_END};
+ const uint16_t PROGMEM xc_combo[]   = {KC_X, KC_C, COMBO_END};
+ const uint16_t PROGMEM cv_combo[]   = {KC_C, KC_V, COMBO_END};
+ const uint16_t PROGMEM qw_combo[]   = {KC_Q, KC_W, COMBO_END};
 
  combo_t key_combos[] = {
 		 // Make a space bar hold down available for dragging selections around. Not for general spacebar use.
 		//[WER_CBO] = COMBO(wer_combo, KC_SPACE),
 		// Quick access NAV Layer
-		[SDF_CBO] = COMBO(sdf_combo, TO(3)),
+		[CV_CBO] = COMBO(cv_combo, TO(3)),
+		// [JKL_CBO] = COMBO(jkl_combo, SH_TT),
 		// Make a CMD key available on left side for easy one handed access
-		[XCV_CBO] = COMBO(xcv_combo, OSM(MOD_LGUI)),
+		[XC_CBO] = COMBO(xc_combo, OSM(MOD_LGUI)),
+		[QW_CBO] = COMBO(qw_combo, KC_BSPC),
 
  };
 
