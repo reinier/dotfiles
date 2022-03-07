@@ -14,17 +14,20 @@ For keyboard firmware install you need QMK:
 With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of things:
 
 - Keep qwerty my main layout for now, except for P at right pinky
-- Only use 34 keys
+- Only use 36 keys
 - Minimal number of layers for usability
 - All layers available on thumb cluster
-- Dedicated CMD and SHIFT keys and [home row mods](https://precondition.github.io/home-row-mods) for ALT and CTRL
+- Dedicated CMD and SHIFT keys and [home row mods](https://precondition.github.io/home-row-mods) for MEH, ALT and CTRL
 - Easy sync between my [Microdox](https://boardsource.xyz/store/5f2e7e4a2902de7151494f92) and [Moonlander](https://www.zsa.io/moonlander/)
 - Minimize pinky use on both sides for ergonomic reasons
-- Minimal use of tap dances and combos
+- No tap dances
+- A couple of combos are available on the left side to use in tandem with mouse
 
-The keymap:
+The keymap + macros for meh-key:
 
 ![Keymap microdox](./hammerspoon/keyboard/keymap.png?raw=true)
+
+![Mehmap](./hammerspoon/keyboard/mehmap.png?raw=true)
 
 The keyboard:
 
