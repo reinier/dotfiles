@@ -46,7 +46,7 @@ Invisible in this repo, but I also use the following apps to be more productive:
 
 - Keyboard Maestro (I make use of palettes quite heavily)
 - Drafts (to quickly jot down notes and script text)
-- ~~Alfred~~ (stopped using it because it overlaps too much with Keyboard Maestro and Hammerspoon)
+- Alfred (mostly used for searching through different services)
 - CleanShot X (the best screenshot app there is)
 - Menuwhere (to navigate app menus with my keyboard)
 
