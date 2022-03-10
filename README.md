@@ -17,7 +17,7 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 - Only use 36 keys
 - Minimal number of layers for usability
 - All layers available on thumb cluster
-- Dedicated CMD and SHIFT keys and [home row mods](https://precondition.github.io/home-row-mods) for MEH, ALT and CTRL
+- Dedicated CMD and SHIFT keys and [home row mods](https://precondition.github.io/home-row-mods) for ALT and CTRL
 - Easy sync between my [Microdox](https://boardsource.xyz/store/5f2e7e4a2902de7151494f92) and [Moonlander](https://www.zsa.io/moonlander/)
 - Minimize pinky use on both sides for ergonomic reasons
 - No tap dances
