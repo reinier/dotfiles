@@ -84,9 +84,11 @@ enum combos {
 
 #define KR_0_4_1 OSM(MOD_LSFT)
 #define KR_0_4_2 KC_SPACE
+#define KR_0_4_3 KC_ENTER
 
-#define KR_0_4_3 TO(1)
-#define KR_0_4_4 OSM(MOD_LGUI)
+#define KR_0_4_4 TO(3)
+#define KR_0_4_5 TO(1)
+#define KR_0_4_6 OSM(MOD_LGUI)
 
 
 // ###### Layer 1 Symbols
@@ -115,15 +117,15 @@ enum combos {
 #define KR_1_2_7 KC_LPRN
 #define KR_1_2_8 KC_RPRN
 #define KR_1_2_9 KC_SCLN
-#define KR_1_2_10 KC_ENTER
+#define KR_1_2_10 KC_NO
 
 // Lower row
 
 #define KR_1_3_1 KC_CAPS
 #define KR_1_3_2 KC_AMPR
 #define KR_1_3_3 LSFT(KC_MINUS) // _
-#define KR_1_3_4 TO(3)
-#define KR_1_3_5 KC_PERC
+#define KR_1_3_4 KC_PERC
+#define KR_1_3_5 KC_SPACE
 //
 #define KR_1_3_6 LSFT(KC_BSLASH) // |
 #define KR_1_3_7 KC_LBRC
@@ -131,11 +133,15 @@ enum combos {
 #define KR_1_3_9 LOPT(KC_SCLN) // …
 #define KR_1_3_10 KC_BSLASH
 
+// Thumb cluser
+
 #define KR_1_4_1 KC_TRNS
 #define KR_1_4_2 TO(0)
+#define KR_1_4_3 KC_TRNS
 
-#define KR_1_4_3 TO(2)
-#define KR_1_4_4 KC_TRNS
+#define KR_1_4_4 TO(3)
+#define KR_1_4_5 TO(2)
+#define KR_1_4_6 KC_TRNS
 
 // ##### Layer 2 Numbers
 
@@ -145,7 +151,7 @@ enum combos {
 #define KR_2_1_4 KC_PPLS
 #define KR_2_1_5 KC_ASTR
 //
-#define KR_2_1_6 KC_DOT
+#define KR_2_1_6 KC_NO
 #define KR_2_1_7 KC_7
 #define KR_2_1_8 KC_8
 #define KR_2_1_9 KC_9
@@ -153,23 +159,23 @@ enum combos {
 
 
 #define KR_2_2_1 KC_TAB
-#define KR_2_2_2 LCTL_T(KC_SPACE)
+#define KR_2_2_2 LCTL_T(KC_DOT)
 #define KR_2_2_3 LALT_T(KC_COMM)
 #define KR_2_2_4 MEH_T(KC_MINUS)
 #define KR_2_2_5 KC_PEQL
 //
 #define KR_2_2_6 KC_COLN
-#define KR_2_2_7 KC_4
-#define KR_2_2_8 KC_5
-#define KR_2_2_9 KC_6
-#define KR_2_2_10 KC_ENTER
+#define KR_2_2_7 MEH_T(KC_4)
+#define KR_2_2_8 RALT_T(KC_5)
+#define KR_2_2_9 RCTL_T(KC_6)
+#define KR_2_2_10 KC_NO
 
 
-#define KR_2_3_1 KC_NO
+#define KR_2_3_1 KC_CAPS
 #define KR_2_3_2 KC_NO
-#define KR_2_3_3 LSFT(KC_MINUS)
-#define KR_2_3_4 TO(3)
-#define KR_2_3_5 KC_PERC
+#define KR_2_3_3 LSFT(KC_MINUS) // _
+#define KR_2_3_4 KC_PERC
+#define KR_2_3_5 KC_SPACE
 //
 #define KR_2_3_6 KC_0
 #define KR_2_3_7 KC_1
@@ -177,12 +183,15 @@ enum combos {
 #define KR_2_3_9 KC_3
 #define KR_2_3_10 KC_SLSH
 
+// Thumb cluser
 
 #define KR_2_4_1 KC_TRNS
 #define KR_2_4_2 TO(0)
+#define KR_2_4_3 KC_TRNS
 
-#define KR_2_4_3 TO(1)
-#define KR_2_4_4 KC_TRNS
+#define KR_2_4_4 TO(3)
+#define KR_2_4_5 TO(1)
+#define KR_2_4_6 KC_TRNS
 
 // ##### Layer 3 NAV
 
@@ -200,7 +209,7 @@ enum combos {
 
 
 #define KR_3_2_1 KC_TAB
-#define KR_3_2_2 LCTL_T(KC_SPACE)
+#define KR_3_2_2 KC_LCTL
 #define KR_3_2_3 KC_LALT
 #define KR_3_2_4 KC_MEH
 #define KR_3_2_5 KC_NO
@@ -209,14 +218,14 @@ enum combos {
 #define KR_3_2_7 KC_LEFT
 #define KR_3_2_8 KC_DOWN
 #define KR_3_2_9 KC_RIGHT
-#define KR_3_2_10 KC_ENTER
+#define KR_3_2_10 KC_NO
 
 
-#define KR_3_3_1 KC_NO
+#define KR_3_3_1 KC_CAPS
 #define KR_3_3_2 KC_NO
 #define KR_3_3_3 KC_NO
-#define KR_3_3_4 TO(4)
-#define KR_3_3_5 KC_NO
+#define KR_3_3_4 KC_NO
+#define KR_3_3_5 KC_SPACE
 
 #define KR_3_3_6 KC_NO
 #define KR_3_3_7 LALT(KC_LEFT)
@@ -224,11 +233,15 @@ enum combos {
 #define KR_3_3_9 LALT(KC_RIGHT)
 #define KR_3_3_10 KC_NO
 
+// Thumb cluser
+
 #define KR_3_4_1 KC_TRNS
 #define KR_3_4_2 TO(0)
-
 #define KR_3_4_3 KC_TRNS
-#define KR_3_4_4 KC_TRNS
+
+#define KR_3_4_4 TO(4)
+#define KR_3_4_5 TO(1)
+#define KR_3_4_6 KC_TRNS
 
 // ##### Layer 4 Mouse
 
@@ -246,7 +259,7 @@ enum combos {
 
 
 #define KR_4_2_1 KC_TAB
-#define KR_4_2_2 KC_SPACE
+#define KR_4_2_2 KC_NO
 #define KR_4_2_3 KC_MS_ACCEL0
 #define KR_4_2_4 KC_MS_BTN1
 #define KR_4_2_5 KC_MS_BTN2
@@ -255,14 +268,14 @@ enum combos {
 #define KR_4_2_7 KC_MS_LEFT
 #define KR_4_2_8 KC_MS_DOWN
 #define KR_4_2_9 KC_MS_RIGHT
-#define KR_4_2_10 KC_ENTER
+#define KR_4_2_10 KC_NO
 
 
 #define KR_4_3_1 KC_CAPS
 #define KR_4_3_2 KC_LCTRL
 #define KR_4_3_3 KC_LALT
-#define KR_4_3_4 TO(3)
-#define KR_4_3_5 KC_NO
+#define KR_4_3_4 KC_NO
+#define KR_4_3_5 KC_SPACE
 
 #define KR_4_3_6 KC_NO
 #define KR_4_3_7 KC_NO
@@ -270,8 +283,50 @@ enum combos {
 #define KR_4_3_9 KC_NO
 #define KR_4_3_10 KC_NO
 
+// Thumb cluser
+
 #define KR_4_4_1 KC_TRNS
 #define KR_4_4_2 TO(0)
-
 #define KR_4_4_3 KC_TRNS
-#define KR_4_4_4 KC_TRNS
+
+#define KR_4_4_4 TO(3)
+#define KR_4_4_5 TO(1)
+#define KR_4_4_6 KC_TRNS
+
+
+// DUMMIES
+
+#define KR_0_1_0  KC_NO
+#define KR_0_1_11 KC_NO
+#define KR_0_2_0  KC_NO
+#define KR_0_2_11 KC_NO
+#define KR_0_3_0  KC_NO
+#define KR_0_3_11 KC_NO
+
+#define KR_1_1_0  KC_NO
+#define KR_1_1_11 KC_NO
+#define KR_1_2_0  KC_NO
+#define KR_1_2_11 KC_NO
+#define KR_1_3_0  KC_NO
+#define KR_1_3_11 KC_NO
+
+#define KR_2_1_0  KC_NO
+#define KR_2_1_11 KC_NO
+#define KR_2_2_0  KC_NO
+#define KR_2_2_11 KC_NO
+#define KR_2_3_0  KC_NO
+#define KR_2_3_11 KC_NO
+
+#define KR_3_1_0  KC_NO
+#define KR_3_1_11 KC_NO
+#define KR_3_2_0  KC_NO
+#define KR_3_2_11 KC_NO
+#define KR_3_3_0  KC_NO
+#define KR_3_3_11 KC_NO
+
+#define KR_4_1_0  KC_NO
+#define KR_4_1_11 KC_NO
+#define KR_4_2_0  KC_NO
+#define KR_4_2_11 KC_NO
+#define KR_4_3_0  KC_NO
+#define KR_4_3_11 KC_NO

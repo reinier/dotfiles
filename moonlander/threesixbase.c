@@ -5,35 +5,27 @@
 */
 
 enum combos {
-//	 WER_CBO,
-	 // SDF_CBO,
-	XC_CBO,
-	CV_CBO,
 	QW_CBO,
-	 // JKL_CBO,
+	ZX_CBO,
+	XC_CBO,
+	VB_CBO,
 	COMBO_LENGTH
- };
+};
 
- uint16_t COMBO_LEN = COMBO_LENGTH;
+uint16_t COMBO_LEN = COMBO_LENGTH;
 
- //const uint16_t PROGMEM wer_combo[]   = {KC_W, KC_E, KC_R, COMBO_END};
- // const uint16_t PROGMEM sdf_combo[]   = {LCTL_T(KC_S), LALT_T(KC_D), MEH_T(KC_F), COMBO_END};
- // const uint16_t PROGMEM jkl_combo[]   = {RCTL_T(KC_L), RALT_T(KC_K), MEH_T(KC_J), COMBO_END};
- const uint16_t PROGMEM xc_combo[]   = {KC_X, KC_C, COMBO_END};
- const uint16_t PROGMEM cv_combo[]   = {KC_C, KC_V, COMBO_END};
- const uint16_t PROGMEM qw_combo[]   = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM qw_combo[]   = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM zx_combo[]   = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM xc_combo[]   = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM vb_combo[]   = {KC_V, KC_B, COMBO_END};
 
- combo_t key_combos[] = {
-		 // Make a space bar hold down available for dragging selections around. Not for general spacebar use.
-		//[WER_CBO] = COMBO(wer_combo, KC_SPACE),
-		// Quick access NAV Layer
-		[CV_CBO] = COMBO(cv_combo, TO(3)),
-		// [JKL_CBO] = COMBO(jkl_combo, SH_TT),
-		// Make a CMD key available on left side for easy one handed access
-		[XC_CBO] = COMBO(xc_combo, OSM(MOD_LGUI)),
-		[QW_CBO] = COMBO(qw_combo, KC_BSPC),
+combo_t key_combos[] = {
+	[QW_CBO] = COMBO(qw_combo, KC_ESC),
+	[ZX_CBO] = COMBO(zx_combo, KC_BSPC),
+	[XC_CBO] = COMBO(xc_combo, OSM(MOD_LGUI)),
+	[VB_CBO] = COMBO(vb_combo, KC_SPACE),
 
- };
+};
 
 // # Layer 0
 
@@ -54,15 +46,15 @@ enum combos {
 // Mid row
 
 #define KR_0_2_1 KC_A
-#define KR_0_2_2 LCTL_T(KC_S)
-#define KR_0_2_3 LALT_T(KC_D)
-#define KR_0_2_4 MEH_T(KC_F)
+#define KR_0_2_2 KC_S
+#define KR_0_2_3 LCTL_T(KC_D)
+#define KR_0_2_4 LALT_T(KC_F)
 #define KR_0_2_5 KC_G
 //
 #define KR_0_2_6 KC_H
-#define KR_0_2_7 MEH_T(KC_J)
-#define KR_0_2_8 RALT_T(KC_K)
-#define KR_0_2_9 RCTL_T(KC_L)
+#define KR_0_2_7 RALT_T(KC_J)
+#define KR_0_2_8 RCTL_T(KC_K)
+#define KR_0_2_9 KC_L
 #define KR_0_2_10 KC_P
 
 // Bottom row
@@ -83,11 +75,11 @@ enum combos {
 // Thumb cluster
 
 #define KR_0_4_1 OSM(MOD_LSFT)
-#define KR_0_4_2 KC_SPACE
-#define KR_0_4_3 KC_ENTER
+#define KR_0_4_2 MEH_T(KC_SPACE)
+#define KR_0_4_3 LT(3, KC_ENTER)
 
-#define KR_0_4_4 TO(3)
-#define KR_0_4_5 TO(1)
+#define KR_0_4_4 TT(2)
+#define KR_0_4_5 TT(1)
 #define KR_0_4_6 OSM(MOD_LGUI)
 
 
@@ -108,9 +100,9 @@ enum combos {
 // Mid row
 
 #define KR_1_2_1 KC_TAB
-#define KR_1_2_2 LCTL_T(KC_GRV)
-#define KR_1_2_3 LALT_T(KC_QUOT)
-#define KR_1_2_4 MEH_T(KC_MINUS)
+#define KR_1_2_2 (KC_GRV)
+#define KR_1_2_3 LCTL_T(KC_QUOT)
+#define KR_1_2_4 LALT_T(KC_MINUS)
 #define KR_1_2_5 KC_PEQL
 //
 #define KR_1_2_6 LSFT(KC_SCLN) // :
@@ -139,8 +131,8 @@ enum combos {
 #define KR_1_4_2 TO(0)
 #define KR_1_4_3 KC_TRNS
 
-#define KR_1_4_4 TO(3)
-#define KR_1_4_5 TO(2)
+#define KR_1_4_4 KC_NO
+#define KR_1_4_5 KC_NO
 #define KR_1_4_6 KC_TRNS
 
 // ##### Layer 2 Numbers
@@ -159,15 +151,15 @@ enum combos {
 
 
 #define KR_2_2_1 KC_TAB
-#define KR_2_2_2 LCTL_T(KC_DOT)
-#define KR_2_2_3 LALT_T(KC_COMM)
-#define KR_2_2_4 MEH_T(KC_MINUS)
+#define KR_2_2_2 KC_DOT
+#define KR_2_2_3 LCTL_T(KC_COMM)
+#define KR_2_2_4 LALT_T(KC_MINUS)
 #define KR_2_2_5 KC_PEQL
 //
 #define KR_2_2_6 KC_COLN
-#define KR_2_2_7 MEH_T(KC_4)
-#define KR_2_2_8 RALT_T(KC_5)
-#define KR_2_2_9 RCTL_T(KC_6)
+#define KR_2_2_7 RALT_T(KC_4)
+#define KR_2_2_8 RCTL_T(KC_5)
+#define KR_2_2_9 KC_6
 #define KR_2_2_10 KC_NO
 
 
@@ -189,8 +181,8 @@ enum combos {
 #define KR_2_4_2 TO(0)
 #define KR_2_4_3 KC_TRNS
 
-#define KR_2_4_4 TO(3)
-#define KR_2_4_5 TO(1)
+#define KR_2_4_4 KC_NO
+#define KR_2_4_5 KC_NO
 #define KR_2_4_6 KC_TRNS
 
 // ##### Layer 3 NAV
@@ -209,9 +201,9 @@ enum combos {
 
 
 #define KR_3_2_1 KC_TAB
-#define KR_3_2_2 KC_LCTL
-#define KR_3_2_3 KC_LALT
-#define KR_3_2_4 KC_MEH
+#define KR_3_2_2 KC_NO
+#define KR_3_2_3 KC_LCTL
+#define KR_3_2_4 KC_LALT
 #define KR_3_2_5 KC_NO
 //
 #define KR_3_2_6 KC_PGDOWN
@@ -228,9 +220,9 @@ enum combos {
 #define KR_3_3_5 KC_SPACE
 
 #define KR_3_3_6 KC_NO
-#define KR_3_3_7 LALT(KC_LEFT)
+#define KR_3_3_7 LSFT(KC_LEFT)
 #define KR_3_3_8 KC_TAB
-#define KR_3_3_9 LALT(KC_RIGHT)
+#define KR_3_3_9 LSFT(KC_RIGHT)
 #define KR_3_3_10 KC_NO
 
 // Thumb cluser
@@ -240,7 +232,7 @@ enum combos {
 #define KR_3_4_3 KC_TRNS
 
 #define KR_3_4_4 TO(4)
-#define KR_3_4_5 TO(1)
+#define KR_3_4_5 KC_NO
 #define KR_3_4_6 KC_TRNS
 
 // ##### Layer 4 Mouse
@@ -272,9 +264,9 @@ enum combos {
 
 
 #define KR_4_3_1 KC_CAPS
-#define KR_4_3_2 KC_LCTRL
-#define KR_4_3_3 KC_LALT
-#define KR_4_3_4 KC_NO
+#define KR_4_3_2 KC_NO
+#define KR_4_3_3 KC_LCTRL
+#define KR_4_3_4 KC_LALT
 #define KR_4_3_5 KC_SPACE
 
 #define KR_4_3_6 KC_NO
@@ -287,10 +279,10 @@ enum combos {
 
 #define KR_4_4_1 KC_TRNS
 #define KR_4_4_2 TO(0)
-#define KR_4_4_3 KC_TRNS
+#define KR_4_4_3 KC_ENTER
 
 #define KR_4_4_4 TO(3)
-#define KR_4_4_5 TO(1)
+#define KR_4_4_5 KC_NO
 #define KR_4_4_6 KC_TRNS
 
 

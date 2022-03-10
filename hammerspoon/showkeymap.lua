@@ -54,7 +54,7 @@ end
 
 mapShown = 0
 
-hs.hotkey.bind(reimod, "/", function()
+hs.hotkey.bind(reimod, "b", function()
 	if mapShown == 0 then
 		showKeymap()
 		mapShown = 1
