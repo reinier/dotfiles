@@ -279,12 +279,11 @@ combo_t key_combos[] = {
 
 #define KR_4_4_1 KC_TRNS
 #define KR_4_4_2 TO(0)
-#define KR_4_4_3 KC_ENTER
+#define KR_4_4_3 KC_TRNS
 
 #define KR_4_4_4 TO(3)
 #define KR_4_4_5 KC_NO
 #define KR_4_4_6 KC_TRNS
-
 
 // DUMMIES
 
