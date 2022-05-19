@@ -1,11 +1,12 @@
 showKeymap = function()
 	local frame = hs.screen.mainScreen():frame()
 	local currentScreen = hs.screen.mainScreen():name()
-	if (currentScreen == 'LG UltraFine') then
-		imgsz = hs.geometry.size(1400, 960)
-	else
-		imgsz = hs.geometry.size(700, 480)
-	end
+	-- if (currentScreen == 'LG UltraFine') then
+	-- 	imgsz = hs.geometry.size(1400, 960)
+	-- else
+	-- 	imgsz = hs.geometry.size(700, 480)
+	-- end
+	imgsz = hs.geometry.size(1400, 960)
 	modalCanvas = hs.canvas.new(frame)
 	modalCanvas[1] = {
 		type = 'image',
@@ -28,11 +29,12 @@ end
 showReimod = function()
 	local frame = hs.screen.mainScreen():frame()
 	local currentScreen = hs.screen.mainScreen():name()
-	if (currentScreen == 'LG UltraFine') then
-		imgsz = hs.geometry.size(1400, 960)
-	else
-		imgsz = hs.geometry.size(700, 480)
-	end
+	-- if (currentScreen == 'LG UltraFine') then
+	-- 	imgsz = hs.geometry.size(1400, 960)
+	-- else
+	-- 	imgsz = hs.geometry.size(700, 480)
+	-- end
+	imgsz = hs.geometry.size(1400, 960)
 	modalCanvas = hs.canvas.new(frame)
 	modalCanvas[1] = {
 		type = 'image',

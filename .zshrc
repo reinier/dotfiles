@@ -18,6 +18,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias la="ls -lhA ${colorflag}"
 
+alias weer="curl 'wttr.in/Zaandam?m2&lang=nl'"
+
 # init z! (https://github.com/rupa/z)
 . ~/z.sh
 
