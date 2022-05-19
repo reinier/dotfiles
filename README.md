@@ -14,10 +14,9 @@ For keyboard firmware install you need QMK:
 With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of things:
 
 - Keep qwerty my main layout for now, except for P at right pinky
-- Only use 36 keys
+- Only use 34 keys (I've tried 36 a couple of times but my thumbs get lost on more then two keys for some reason)
 - Minimal number of layers for usability
-- All layers available on thumb cluster
-- Dedicated CMD and SHIFT keys and [home row mods](https://precondition.github.io/home-row-mods) for ALT and CTRL
+- Dedicated CMD and SHIFT keys and [home row mods](https://precondition.github.io/home-row-mods) for ALT, CTRL and MEH
 - Easy sync between my [Microdox](https://boardsource.xyz/store/5f2e7e4a2902de7151494f92) and [Moonlander](https://www.zsa.io/moonlander/)
 - Minimize pinky use on both sides for ergonomic reasons
 - No tap dances
