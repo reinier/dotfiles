@@ -2,7 +2,7 @@
 
 My Mac and mechanical keyboard (QMK) configuration
 
-For keyboard firmware install you need QMK:
+For keyboard firmware install you need [QMK](https://beta.docs.qmk.fm):
 
 - `brew tap homebrew/cask-drivers`
 - `brew install --cask qmk-toolbox`
@@ -22,15 +22,17 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 - No tap dances
 - A couple of combos are available on the left side to use in tandem with mouse
 
-The keymap + macros for meh-key:
+### The keymap and macros for use with the MEH-key
 
 ![Keymap microdox](./hammerspoon/keyboard/keymap.png?raw=true)
 
 ![Mehmap](./hammerspoon/keyboard/mehmap.png?raw=true)
 
-The keyboard:
+### The keyboards
 
-![Microdox keyboard](./microdox.png?raw=true)
+![Microdox keyboard](./assets/microdox.png?raw=true)
+
+![Modded Moonlander keyboard](./assets/moonlander.png?raw=true)
 
 ## Hammerspoon
 
@@ -48,8 +50,9 @@ Invisible in this repo, but I also use the following apps to be more productive:
 - Alfred (mostly used for searching through different services)
 - CleanShot X (the best screenshot app there is)
 - Menuwhere (to navigate app menus with my keyboard)
+- Omnigraffle (for diagramming and visualising the keymap)
 
-## Install
+## Install dotfiles on clean system
 
 Symlink the config directories in the right place. Examples:
 
@@ -61,5 +64,6 @@ Symlink the config directories in the right place. Examples:
 - `ln -s ~/dev/dotfiles/microdox ~/qmk_firmware/keyboards/boardsource/microdox/keymaps/microdox-mk2`
 - `ln -s ~/dev/dotfiles/moonlander ~/qmk_firmware/keyboards/moonlander/keymaps/moonlander-mk2`
 
-Show invisible files in Finder:
+### Show invisible files in Finder
+
 Hold down the Command, Shift and Period keys: `cmd + shift + .`
