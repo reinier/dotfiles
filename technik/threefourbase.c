@@ -8,7 +8,9 @@ enum combos {
 	QW_CBO,
 	ZX_CBO,
 	XC_CBO,
-	THUMBS_CBO,
+	DFG_CBO,
+	//THUMBS_CBO,
+	MOUSE_CBO,
 	COMBO_LENGTH
 };
 
@@ -17,13 +19,17 @@ uint16_t COMBO_LEN = COMBO_LENGTH;
 const uint16_t PROGMEM qw_combo[]   = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM zx_combo[]   = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM xc_combo[]   = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM thumbs_combo[]   = {KC_SPACE, TT(1), COMBO_END};
+const uint16_t PROGMEM dfg_combo[]   = {LALT_T(KC_D), MEH_T(KC_F), KC_G, COMBO_END};
+//const uint16_t PROGMEM thumbs_combo[]   = {KC_SPACE, TT(1), COMBO_END};
+const uint16_t PROGMEM mouse_combo[]   = {KC_MS_BTN1, KC_MS_BTN2, COMBO_END};
 
 combo_t key_combos[] = {
 	[QW_CBO] = COMBO(qw_combo, KC_ESC),
 	[ZX_CBO] = COMBO(zx_combo, KC_BSPC),
 	[XC_CBO] = COMBO(xc_combo, OSM(MOD_LGUI)),
-	[THUMBS_CBO] = COMBO(thumbs_combo, TO(3))
+	[DFG_CBO] = COMBO(dfg_combo, KC_ENTER),
+	[MOUSE_CBO] = COMBO(mouse_combo, LSG(KC_4)), // Screenshot shortcut
+	//[THUMBS_CBO] = COMBO(thumbs_combo, TO(3))
 };
 
 // # Layer 0
@@ -54,7 +60,7 @@ combo_t key_combos[] = {
 #define KR_0_2_7 MEH_T(KC_J)
 #define KR_0_2_8 RALT_T(KC_K)
 #define KR_0_2_9 RCTL_T(KC_L)
-#define KR_0_2_10 KC_P
+#define KR_0_2_10 LSFT_T(KC_P)
 
 // Bottom row
 
@@ -225,15 +231,15 @@ combo_t key_combos[] = {
 
 #define KR_3_3_1 KC_CAPS
 #define KR_3_3_2 KC_NO
-#define KR_3_3_3 KC_NO
-#define KR_3_3_4 KC_NO
+#define KR_3_3_3 TO(4)
+#define KR_3_3_4 KC_NO // Hold down for temp nav layer. Leave on KC_NO
 #define KR_3_3_5 KC_SPACE
 
 #define KR_3_3_6 KC_NO
 #define KR_3_3_7 LSFT(KC_LEFT)
 #define KR_3_3_8 KC_TAB
 #define KR_3_3_9 LSFT(KC_RIGHT)
-#define KR_3_3_10 TO(4)
+#define KR_3_3_10 KC_NO
 
 // Thumb cluser
 
@@ -252,8 +258,8 @@ combo_t key_combos[] = {
 // Top row
 
 #define KR_4_1_1 KC_ESC
-#define KR_4_1_2 KC_MS_ACCEL1
-#define KR_4_1_3 KC_MS_ACCEL2
+#define KR_4_1_2 KC_NO
+#define KR_4_1_3 KC_NO
 #define KR_4_1_4 LSG(KC_4) // Screenshot button `cmd shift 4`
 #define KR_4_1_5 KC_NO
 //
@@ -264,9 +270,9 @@ combo_t key_combos[] = {
 #define KR_4_1_10 KC_BSPC
 
 
-#define KR_4_2_1 KC_TAB
-#define KR_4_2_2 KC_SPACE
-#define KR_4_2_3 KC_MS_ACCEL0
+#define KR_4_2_1 KC_LGUI
+#define KR_4_2_2 KC_LCTRL
+#define KR_4_2_3 KC_LALT
 #define KR_4_2_4 KC_MS_BTN1
 #define KR_4_2_5 KC_MS_BTN2
 //
@@ -277,11 +283,11 @@ combo_t key_combos[] = {
 #define KR_4_2_10 KC_ENTER
 
 
-#define KR_4_3_1 KC_CAPS
+#define KR_4_3_1 KC_NO
 #define KR_4_3_2 KC_NO
-#define KR_4_3_3 KC_LCTRL
-#define KR_4_3_4 KC_LALT
-#define KR_4_3_5 KC_NO
+#define KR_4_3_3 LGUI(KC_C)
+#define KR_4_3_4 LGUI(KC_V)
+#define KR_4_3_5 KC_SPACE
 
 #define KR_4_3_6 KC_NO
 #define KR_4_3_7 KC_NO
@@ -298,8 +304,6 @@ combo_t key_combos[] = {
 #define KR_4_4_4 TO(1)
 #define KR_4_4_5 KC_TRNS
 #define KR_4_4_6 KC_TRNS
-
-
 
 
 

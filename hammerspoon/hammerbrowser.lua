@@ -32,10 +32,10 @@ spoon.SpoonInstall:andUse("URLDispatcher",
 
 hs.urlevent.bind("setDefaultSafari", function(eventName, params)
 	spoon.URLDispatcher.default_handler = safariBrowser
-	hs.alert.show('Safari is now the default browser')
+	hs.alert.show('Default: SAFARI')
 end)
 
 hs.urlevent.bind("setDefaultChrome", function(eventName, params)
 	spoon.URLDispatcher.default_handler = chromeBrowser
-	hs.alert.show('Chrome is now the default browser')
+	hs.alert.show('Default: CHROME')
 end)	
