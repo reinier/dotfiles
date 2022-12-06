@@ -11,7 +11,7 @@ mehkey = { "ctrl", "alt", "shift" }
 reimod = mehkey
 
 require('ergomouse')
-require('hammerbrowser')
+-- require('hammerbrowser')
 require('showkeymap')
 -- require('windowmanagement')
 

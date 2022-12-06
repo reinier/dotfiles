@@ -10,7 +10,7 @@ SAVEHIST=$HISTSIZE
 # Om standaard '1' toe te voegen om zo vanaf het begin van de geschiedenis te zoeken
 alias hist="history 1"
 
-alias gbi="mdls -name kMDItemCFBundleIdentifier -r"
+# alias gbi="mdls -name kMDItemCFBundleIdentifier -r"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -25,6 +25,6 @@ alias weer="curl 'wttr.in/Zaandam?m2&lang=nl'"
 
 # . /usr/local/opt/asdf/asdf.sh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
