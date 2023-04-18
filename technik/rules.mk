@@ -1,8 +1,11 @@
 # Build Options
 
-MOUSEKEY_ENABLE = yes
-
+RGB_MATRIX_DRIVER = WS2812
 COMBO_ENABLE = yes
+TAP_DANCE_ENABLE = yes
+SRC += features/repeat_key.c
+
+# MOUSEKEY_ENABLE = yes
 # RGBLIGHT_ENABLE = yes
 # RGB_MATRIX_ENABLE = no
 # EXTRAKEY_ENABLE = yes

@@ -4,14 +4,6 @@
 
 */
 
-enum custom_keycodes {
-  REPEAT = SAFE_RANGE,
-  // Other custom keys...
-};
-
-/* Repeat key as described in: https://getreuer.info/posts/keyboards/repeat-key/ */
-#include "features/repeat_key.h"
-
 /*
 
 ## COMBOS
@@ -207,7 +199,7 @@ enum tap_dance_codes {
 #define KR_3_3_7 LGUI(KC_MINUS)
 #define KR_3_3_8 KC_TAB
 #define KR_3_3_9 LGUI(KC_EQUAL)
-#define KR_3_3_10 REPEAT
+#define KR_3_3_10 KC_TRNS
 
 // Thumb cluser
 

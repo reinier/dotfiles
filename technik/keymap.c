@@ -16,61 +16,16 @@
 
 #include QMK_KEYBOARD_H
 
-#include "microhacks.c"
 #include "threefourbase.c"
-// #include "raw_hid.h"
-// 
-// static uint8_t	resp = 1;
-// 
-// layer_state_t layer_state_set_user(layer_state_t state) {
-//   switch (get_highest_layer(state)) {
-//     case 1:
-//         raw_hid_send((uint8_t *)&resp, sizeof(resp));
-//         break;
-//     case 2:
-//         raw_hid_send((uint8_t *)&resp, sizeof(resp));
-//         break;
-//     case 3:
-//         raw_hid_send((uint8_t *)&resp, sizeof(resp));
-//         break; 
-//     case 4:
-//         raw_hid_send((uint8_t *)&resp, sizeof(resp));
-//         break;   
-//     default:
-//         //print("reinier");
-//         raw_hid_send((uint8_t *)&resp, sizeof(resp));
-//         break;  
-//   }
-//   return state;
-// }
-
-// void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-//     // for (uint8_t i = led_min; i <= led_max; i++) {
-//         switch(get_highest_layer(layer_state|default_layer_state)) {
-//             case 0:
-//                 //rgb_matrix_set_color(i, RGB_BLUE);
-//                 rgb_matrix_sethsv(1, 1, 1);
-//                 break;
-//             case 1:
-//             case 2:
-//             case 3:
-//             case 4:
-//                 //rgb_matrix_set_color(i, RGB_YELLOW);
-//                 rgb_matrix_sethsv(5, 5, 5);
-//                 break;
-//             default:
-//                 break;
-//         }
-//     // }
-// }
+#include "microhacks.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [0] = LAYOUT_ortho_4x12(
-    KR_0_1_1,  KR_0_1_2,  KR_0_1_3,  KR_0_1_4,  KR_0_1_5,  RGB_M_P,        _______,   KR_0_1_6,  KR_0_1_7,  KR_0_1_8,  KR_0_1_9,  KR_0_1_10,
-    KR_0_2_1,  KR_0_2_2,  KR_0_2_3,  KR_0_2_4,  KR_0_2_5,  _______,        _______,   KR_0_2_6,  KR_0_2_7,  KR_0_2_8,  KR_0_2_9,  KR_0_2_10,
-    KR_0_3_1,  KR_0_3_2,  KR_0_3_3,  KR_0_3_4,  KR_0_3_5,  _______,        _______,   KR_0_3_6,  KR_0_3_7,  KR_0_3_8,  KR_0_3_9,  KR_0_3_10,
-    RGB_TOG,   RGB_MOD,   _______,   KR_0_4_2,  KR_0_4_3,  _______,       _______,  KR_0_4_4,  KR_0_4_5,  _______,   RGB_VAI,   RGB_HUI
+    KR_0_1_1,  KR_0_1_2,  KR_0_1_3,  KR_0_1_4,  KR_0_1_5,  RGB_SPD,        RGB_SPI,   KR_0_1_6,  KR_0_1_7,  KR_0_1_8,  KR_0_1_9,  KR_0_1_10,
+    KR_0_2_1,  KR_0_2_2,  KR_0_2_3,  KR_0_2_4,  KR_0_2_5,  RGB_SAD,        RGB_SAI,   KR_0_2_6,  KR_0_2_7,  KR_0_2_8,  KR_0_2_9,  KR_0_2_10,
+    KR_0_3_1,  KR_0_3_2,  KR_0_3_3,  KR_0_3_4,  KR_0_3_5,  RGB_HUD,        RGB_HUI,   KR_0_3_6,  KR_0_3_7,  KR_0_3_8,  KR_0_3_9,  KR_0_3_10,
+    RGB_TOG,   RGB_RMOD,  RGB_MOD,   KR_0_4_2,  KR_0_4_3,  RGB_VAD,        RGB_VAI,   KR_0_4_4,  KR_0_4_5,  RGB_M_P,   RGB_M_B,   RGB_M_R
   ),
 
   [1] = LAYOUT_ortho_4x12(
@@ -101,26 +56,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,   _______,   _______,   KR_4_4_2,  KR_4_4_3,  _______,       _______,  KR_4_4_4,  KR_4_4_5 ,  _______,   _______,   _______
   )
 };
-
-// This function creates packets of exactly RAW_EPSIZE to be broken down and sent via raw_hid_send()
-// This is because raw_hid_send will do nothing if length != RAW_EPSIZE
-// INFO: As far as I can tell, a packet starting with 0 will not transmit that first byte
-// Somehow someway, by the time the packet gets to my linux python scripts, the first zero of the packet is missing...
-// void raw_hid_send_pad(uint8_t *data, uint8_t length) {
-//   // if the length is already correct, just send it quick and don't bother with the slower packet conversion
-//   if (length == RAW_EPSIZE) {
-//     raw_hid_send(data, RAW_EPSIZE);
-//     return;
-//   }
-// 
-//   uint8_t packet[RAW_EPSIZE];
-//   uint8_t n = 0;
-//   
-//   while (n < length) {
-//     for (uint8_t i = 0; i < RAW_EPSIZE; i++) {
-//       packet[i] = i < length ? data[n] : 0;
-//       n++;
-//     }
-//     raw_hid_send(packet, RAW_EPSIZE);
-//   }
-// }

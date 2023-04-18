@@ -3,6 +3,8 @@
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t * record) {
 	
+	if (!process_repeat_key(keycode, record, REPEAT)) { return false; }
+	
 	// Store the current modifier state in the variable for later reference
 	mod_state = get_mods();
 	switch (keycode) {
@@ -39,5 +41,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
 		}
 
 	}
+	
+	
+	
 	return true;
 };
