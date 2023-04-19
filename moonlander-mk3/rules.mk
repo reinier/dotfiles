@@ -1,10 +1,10 @@
-# Set any rules.mk overrides for your specific keymap here.
-# See rules at https://docs.qmk.fm/#/config_options?id=the-rulesmk-file
+MOUSEKEY_ENABLE = yes
+RGB_MATRIX_ENABLE = yes
+RGB_MATRIX_DRIVER = IS31FL3731
 CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
 ORYX_ENABLE = yes
-RGB_MATRIX_CUSTOM_KB = yes
 TAP_DANCE_ENABLE = yes
 SPACE_CADET_ENABLE = no
 COMBO_ENABLE = yes
-SRC = matrix.c
+SRC += features/repeat_key.c

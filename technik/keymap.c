@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KR_0_1_1,  KR_0_1_2,  KR_0_1_3,  KR_0_1_4,  KR_0_1_5,  RGB_SPD,        RGB_SPI,   KR_0_1_6,  KR_0_1_7,  KR_0_1_8,  KR_0_1_9,  KR_0_1_10,
     KR_0_2_1,  KR_0_2_2,  KR_0_2_3,  KR_0_2_4,  KR_0_2_5,  RGB_SAD,        RGB_SAI,   KR_0_2_6,  KR_0_2_7,  KR_0_2_8,  KR_0_2_9,  KR_0_2_10,
     KR_0_3_1,  KR_0_3_2,  KR_0_3_3,  KR_0_3_4,  KR_0_3_5,  RGB_HUD,        RGB_HUI,   KR_0_3_6,  KR_0_3_7,  KR_0_3_8,  KR_0_3_9,  KR_0_3_10,
-    RGB_TOG,   RGB_RMOD,  RGB_MOD,   KR_0_4_2,  KR_0_4_3,  RGB_VAD,        RGB_VAI,   KR_0_4_4,  KR_0_4_5,  RGB_M_P,   RGB_M_B,   RGB_M_R
+    RGB_TOG,   RGB_RMOD,  RGB_MOD,   KR_0_4_2,  KR_0_4_3,  RGB_VAD,        RGB_VAI,   KR_0_4_4,  KR_0_4_5,  RGB_M_B,   _______,   REPEAT
   ),
 
   [1] = LAYOUT_ortho_4x12(

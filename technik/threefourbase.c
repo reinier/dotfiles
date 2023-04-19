@@ -4,14 +4,6 @@
 
 */
 
-enum custom_keycodes {
-  REPEAT = SAFE_RANGE,
-  // Other custom keys...
-};
-
-/* Repeat key as described in: https://getreuer.info/posts/keyboards/repeat-key/ */
-#include "features/repeat_key.h"
-
 /*
 
 ## COMBOS
@@ -23,8 +15,6 @@ enum combos {
 	CBO_1,
 	CBO_2,
 	CBO_3,
-	CBO_4,
-	CBO_5,
 	COMBO_LENGTH
 };
 
@@ -33,17 +23,14 @@ uint16_t COMBO_LEN = COMBO_LENGTH;
 const uint16_t PROGMEM combo0[] = { KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_Z, KC_X, COMBO_END};
-const uint16_t PROGMEM combo3[] = { KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM combo4[] = { KC_COMMA, KC_DOT, COMBO_END};
-const uint16_t PROGMEM combo5[] = { KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM combo3[] = { KC_COMMA, KC_DOT, COMBO_END};
+
 
 combo_t key_combos[] = {
 	[CBO_0] = COMBO(combo0, KC_ESCAPE),
 	[CBO_1] = COMBO(combo1, KC_TAB),
-	[CBO_2] = COMBO(combo2, LSFT(KC_TAB)),
-	[CBO_3] = COMBO(combo3, OSM(MOD_LGUI)),
-	[CBO_4] = COMBO(combo4, KC_ENTER),
-	[CBO_5] = COMBO(combo5, LALT(KC_BSPC)),
+	[CBO_2] = COMBO(combo2, KC_GRAVE),
+	[CBO_3] = COMBO(combo3, KC_ENTER),
 };
 
 /* TAPDANCES */
@@ -104,10 +91,10 @@ enum tap_dance_codes {
 // Thumb cluster
 
 #define KR_0_4_1 KC_NO
-#define KR_0_4_2 TD(DANCE_0)
-#define KR_0_4_3 LT(1,KC_SPACE)
+#define KR_0_4_2 OSM(MOD_LSFT)
+#define KR_0_4_3 LT(3,KC_SPACE)
 
-#define KR_0_4_4 OSM(MOD_LSFT)
+#define KR_0_4_4 TD(DANCE_0)
 #define KR_0_4_5 OSM(MOD_LGUI)
 #define KR_0_4_6 KC_NO
 
@@ -160,69 +147,15 @@ enum tap_dance_codes {
 // Thumb cluser
 
 #define KR_1_4_1 KC_TRNS
-#define KR_1_4_2 TO(3)
-#define KR_1_4_3 KC_TRNS
+#define KR_1_4_2 TO(4)
+#define KR_1_4_3 TO(3)
 
 #define KR_1_4_4 KC_TRNS
 #define KR_1_4_5 KC_TRNS
 #define KR_1_4_6 KC_TRNS
 
 // ############################################
-// ##### Layer 2 EXTENDED
-// ############################################
-
-// Top row
-
-#define KR_3_1_1 KC_ESC
-#define KR_3_1_2 LGUI(KC_W)
-#define KR_3_1_3 LGUI(LSFT(KC_5)) // Screenshot with Cleanshot
-#define KR_3_1_4 KC_DELETE
-#define KR_3_1_5 KC_BSPC
-//
-#define KR_3_1_6 KC_TRNS
-#define KR_3_1_7 LGUI(KC_LBRC)
-#define KR_3_1_8 KC_UP
-#define KR_3_1_9 LGUI(KC_RBRC)
-#define KR_3_1_10 KC_DELETE
-
-#define KR_3_2_1 TD(DANCE_1)
-#define KR_3_2_2 TD(DANCE_2)
-#define KR_3_2_3 TD(DANCE_3)
-#define KR_3_2_4 TD(DANCE_4)
-#define KR_3_2_5 KC_ENTER
-//
-#define KR_3_2_6 KC_TRNS
-#define KR_3_2_7 KC_LEFT
-#define KR_3_2_8 KC_DOWN
-#define KR_3_2_9 KC_RIGHT
-#define KR_3_2_10 KC_ENTER
-
-#define KR_3_3_1 LGUI(KC_Z)
-#define KR_3_3_2 LGUI(KC_X)
-#define KR_3_3_3 LGUI(KC_C)
-#define KR_3_3_4 LGUI(KC_V)
-#define KR_3_3_5 KC_SPACE
-
-#define KR_3_3_6 KC_TRNS
-#define KR_3_3_7 LGUI(KC_MINUS)
-#define KR_3_3_8 KC_TAB
-#define KR_3_3_9 LGUI(KC_EQUAL)
-#define KR_3_3_10 REPEAT
-
-// Thumb cluser
-
-#define KR_3_4_1 KC_TRNS
-#define KR_3_4_2 TO(0)
-#define KR_3_4_3 KC_TRNS
-
-#define KR_3_4_4 KC_TRNS
-#define KR_3_4_5 KC_TRNS
-#define KR_3_4_6 KC_TRNS
-
-
-
-// ############################################
-// ##### Layer 3 NUM
+// ##### Layer 2 NUM
 // ############################################
 
 // Top row
@@ -268,12 +201,64 @@ enum tap_dance_codes {
 // Thumb cluser
 
 #define KR_2_4_1 KC_TRNS
-#define KR_2_4_2 TO(0)
+#define KR_2_4_2 KC_TRNS
 #define KR_2_4_3 KC_TRNS
 
-#define KR_2_4_4 KC_TRNS
+#define KR_2_4_4 TO(0)
 #define KR_2_4_5 KC_TRNS
 #define KR_2_4_6 KC_TRNS
+
+// ############################################
+// ##### Layer 3 EXTENDED
+// ############################################
+
+// Top row
+
+#define KR_3_1_1 KC_ESC
+#define KR_3_1_2 LGUI(KC_W)
+#define KR_3_1_3 LGUI(LSFT(KC_5)) // Screenshot with Cleanshot
+#define KR_3_1_4 KC_DELETE
+#define KR_3_1_5 KC_BSPC
+//
+#define KR_3_1_6 KC_TRNS
+#define KR_3_1_7 LGUI(KC_LBRC)
+#define KR_3_1_8 KC_UP
+#define KR_3_1_9 LGUI(KC_RBRC)
+#define KR_3_1_10 KC_DELETE
+
+#define KR_3_2_1 TD(DANCE_1)
+#define KR_3_2_2 TD(DANCE_2)
+#define KR_3_2_3 TD(DANCE_3)
+#define KR_3_2_4 TD(DANCE_4)
+#define KR_3_2_5 KC_ENTER
+//
+#define KR_3_2_6 KC_TRNS
+#define KR_3_2_7 KC_LEFT
+#define KR_3_2_8 KC_DOWN
+#define KR_3_2_9 KC_RIGHT
+#define KR_3_2_10 KC_ENTER
+
+#define KR_3_3_1 LGUI(KC_Z)
+#define KR_3_3_2 LGUI(KC_X)
+#define KR_3_3_3 LGUI(KC_C)
+#define KR_3_3_4 LGUI(KC_V)
+#define KR_3_3_5 KC_SPACE
+
+#define KR_3_3_6 KC_TRNS
+#define KR_3_3_7 LGUI(KC_MINUS)
+#define KR_3_3_8 KC_TAB
+#define KR_3_3_9 LGUI(KC_EQUAL)
+#define KR_3_3_10 KC_TRNS
+
+// Thumb cluser
+
+#define KR_3_4_1 KC_TRNS
+#define KR_3_4_2 KC_TRNS
+#define KR_3_4_3 KC_TRNS
+
+#define KR_3_4_4 TO(0)
+#define KR_3_4_5 KC_TRNS
+#define KR_3_4_6 KC_TRNS
 
 // ############################################
 // ##### Layer 4 Mouse
@@ -281,95 +266,53 @@ enum tap_dance_codes {
 
 // Top row
 
-#define KR_4_1_1 KC_NO
-#define KR_4_1_2 KC_NO
-#define KR_4_1_3 KC_NO
-#define KR_4_1_4 KC_NO
-#define KR_4_1_5 KC_NO
+#define KR_4_1_1 KC_ESC
+#define KR_4_1_2 LGUI(KC_W)
+#define KR_4_1_3 LGUI(LSFT(KC_5)) // Screenshot with Cleanshot
+#define KR_4_1_4 KC_TRNS
+#define KR_4_1_5 KC_BSPC
 //
-#define KR_4_1_6 KC_NO
-#define KR_4_1_7 KC_NO
-#define KR_4_1_8 KC_NO
-#define KR_4_1_9 KC_NO
-#define KR_4_1_10 KC_NO
+#define KR_4_1_6 KC_TRNS
+#define KR_4_1_7 KC_TRNS
+#define KR_4_1_8 KC_MS_UP
+#define KR_4_1_9 KC_TRNS
+#define KR_4_1_10 KC_TRNS
 
 
-#define KR_4_2_1 KC_NO
-#define KR_4_2_2 KC_NO
-#define KR_4_2_3 KC_NO
-#define KR_4_2_4 KC_NO
-#define KR_4_2_5 KC_NO
+#define KR_4_2_1 TD(DANCE_1)
+#define KR_4_2_2 TD(DANCE_2)
+#define KR_4_2_3 TD(DANCE_3)
+#define KR_4_2_4 TD(DANCE_4)
+#define KR_4_2_5 KC_ENTER
 //
-#define KR_4_2_6 KC_NO
-#define KR_4_2_7 KC_NO
-#define KR_4_2_8 KC_NO
-#define KR_4_2_9 KC_NO
-#define KR_4_2_10 KC_NO
+#define KR_4_2_6 KC_TRNS
+#define KR_4_2_7 KC_MS_LEFT
+#define KR_4_2_8 KC_MS_DOWN
+#define KR_4_2_9 KC_MS_RIGHT
+#define KR_4_2_10 KC_TRNS
 
 
-#define KR_4_3_1 KC_NO
-#define KR_4_3_2 KC_NO
-#define KR_4_3_3 KC_NO
-#define KR_4_3_4 KC_NO
-#define KR_4_3_5 KC_NO
+#define KR_4_3_1 LGUI(KC_Z)
+#define KR_4_3_2 LGUI(KC_X)
+#define KR_4_3_3 LGUI(KC_C)
+#define KR_4_3_4 LGUI(KC_V)
+#define KR_4_3_5 KC_SPACE
 
-#define KR_4_3_6 KC_NO
-#define KR_4_3_7 KC_NO
-#define KR_4_3_8 KC_NO
-#define KR_4_3_9 KC_NO
-#define KR_4_3_10 KC_NO
+#define KR_4_3_6 KC_TRNS
+#define KR_4_3_7 KC_TRNS
+#define KR_4_3_8 KC_TRNS
+#define KR_4_3_9 KC_TRNS
+#define KR_4_3_10 KC_TRNS
 
 // Thumb cluser
 
 #define KR_4_4_1 KC_TRNS
-#define KR_4_4_2 TO(0)
-#define KR_4_4_3 KC_TRNS
+#define KR_4_4_2 KC_BTN2
+#define KR_4_4_3 KC_BTN1
 
-#define KR_4_4_4 KC_TRNS
+#define KR_4_4_4 TO(0)
 #define KR_4_4_5 KC_TRNS
 #define KR_4_4_6 KC_TRNS
-
-
-
-
-// ############################################
-// DUMMIES
-// ############################################
-
-#define KR_0_1_0  KC_NO
-#define KR_0_1_11 KC_NO
-#define KR_0_2_0  KC_NO
-#define KR_0_2_11 KC_NO
-#define KR_0_3_0  KC_NO
-#define KR_0_3_11 KC_NO
-
-#define KR_1_1_0  KC_NO
-#define KR_1_1_11 KC_NO
-#define KR_1_2_0  KC_NO
-#define KR_1_2_11 KC_NO
-#define KR_1_3_0  KC_NO
-#define KR_1_3_11 KC_NO
-
-#define KR_2_1_0  KC_NO
-#define KR_2_1_11 KC_NO
-#define KR_2_2_0  KC_NO
-#define KR_2_2_11 KC_NO
-#define KR_2_3_0  KC_NO
-#define KR_2_3_11 KC_NO
-
-#define KR_3_1_0  KC_NO
-#define KR_3_1_11 KC_NO
-#define KR_3_2_0  KC_NO
-#define KR_3_2_11 KC_NO
-#define KR_3_3_0  KC_NO
-#define KR_3_3_11 KC_NO
-
-#define KR_4_1_0  KC_NO
-#define KR_4_1_11 KC_NO
-#define KR_4_2_0  KC_NO
-#define KR_4_2_11 KC_NO
-#define KR_4_3_0  KC_NO
-#define KR_4_3_11 KC_NO
 
 // ############################################
 // TAP DANCE
@@ -413,7 +356,7 @@ void dance_0_finished(tap_dance_state_t *state, void *user_data) {
 	dance_state[0].step = dance_step(state);
 	switch (dance_state[0].step) {
 		case SINGLE_TAP: layer_move(2); break;
-		case SINGLE_HOLD: layer_on(3); break;
+		case SINGLE_HOLD: layer_on(1); break;
 		case DOUBLE_TAP: layer_move(2); break;
 		case DOUBLE_SINGLE_TAP: layer_move(2); break;
 	}
@@ -422,7 +365,7 @@ void dance_0_finished(tap_dance_state_t *state, void *user_data) {
 void dance_0_reset(tap_dance_state_t *state, void *user_data) {
 	wait_ms(10);
 	switch (dance_state[0].step) {
-		case SINGLE_HOLD: layer_off(3); break;
+		case SINGLE_HOLD: layer_off(1); break;
 	}
 	dance_state[0].step = 0;
 }

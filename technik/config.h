@@ -56,3 +56,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #undef ONESHOT_TIMEOUT
 #define ONESHOT_TIMEOUT 2000
+
+#define IGNORE_MOD_TAP_INTERRUPT
+
+#undef MOUSEKEY_INTERVAL
+#define MOUSEKEY_INTERVAL 12
+
+#undef MOUSEKEY_DELAY
+#define MOUSEKEY_DELAY 3
+
+#undef MOUSEKEY_MAX_SPEED
+#define MOUSEKEY_MAX_SPEED 10
+
+#undef MOUSEKEY_TIME_TO_MAX
+#define MOUSEKEY_TIME_TO_MAX 80
