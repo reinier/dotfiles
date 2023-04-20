@@ -61,11 +61,11 @@ enum tap_dance_codes {
 
 // Mid row
 
-#define KR_0_2_1 MT(MOD_LSFT, KC_A)
-#define KR_0_2_2 MT(MOD_LCTL, KC_S) //LCTL_T(KC_S)
-#define KR_0_2_3 MT(MOD_LALT, KC_D) //LALT_T(KC_D)
+#define KR_0_2_1 LSFT_T(KC_A)
+#define KR_0_2_2 LCTL_T(KC_S)
+#define KR_0_2_3 LALT_T(KC_D)
 #define KR_0_2_4 MEH_T(KC_F)
-#define KR_0_2_5 ALL_T(KC_G)
+#define KR_0_2_5 LGUI_T(KC_G)
 //
 #define KR_0_2_6 KC_H
 #define KR_0_2_7 MEH_T(KC_J)
@@ -220,7 +220,7 @@ enum tap_dance_codes {
 #define KR_3_1_4 KC_DELETE
 #define KR_3_1_5 KC_BSPC
 //
-#define KR_3_1_6 KC_TRNS
+#define KR_3_1_6 KC_PAGE_UP
 #define KR_3_1_7 LGUI(KC_LBRC)
 #define KR_3_1_8 KC_UP
 #define KR_3_1_9 LGUI(KC_RBRC)
@@ -232,7 +232,7 @@ enum tap_dance_codes {
 #define KR_3_2_4 TD(DANCE_4)
 #define KR_3_2_5 KC_ENTER
 //
-#define KR_3_2_6 KC_TRNS
+#define KR_3_2_6 KC_PAGE_DOWN
 #define KR_3_2_7 KC_LEFT
 #define KR_3_2_8 KC_DOWN
 #define KR_3_2_9 KC_RIGHT
@@ -272,7 +272,7 @@ enum tap_dance_codes {
 #define KR_4_1_4 KC_TRNS
 #define KR_4_1_5 KC_BSPC
 //
-#define KR_4_1_6 KC_TRNS
+#define KR_4_1_6 KC_MS_WH_DOWN
 #define KR_4_1_7 KC_TRNS
 #define KR_4_1_8 KC_MS_UP
 #define KR_4_1_9 KC_TRNS
@@ -285,7 +285,7 @@ enum tap_dance_codes {
 #define KR_4_2_4 TD(DANCE_4)
 #define KR_4_2_5 KC_ENTER
 //
-#define KR_4_2_6 KC_TRNS
+#define KR_4_2_6 KC_MS_WH_UP
 #define KR_4_2_7 KC_MS_LEFT
 #define KR_4_2_8 KC_MS_DOWN
 #define KR_4_2_9 KC_MS_RIGHT
