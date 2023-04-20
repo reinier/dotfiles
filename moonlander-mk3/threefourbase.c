@@ -273,9 +273,9 @@ enum tap_dance_codes {
 #define KR_4_1_5 KC_BSPC
 //
 #define KR_4_1_6 KC_MS_WH_DOWN
-#define KR_4_1_7 KC_MS_WH_LEFT
+#define KR_4_1_7 KC_MS_WH_RIGHT
 #define KR_4_1_8 KC_MS_UP
-#define KR_4_1_9 KC_MS_WH_RIGHT
+#define KR_4_1_9 KC_MS_WH_LEFT
 #define KR_4_1_10 KC_TRNS
 
 
