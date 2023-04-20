@@ -20,7 +20,7 @@ enum combos {
 
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
-const uint16_t PROGMEM combo0[] = { KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM combo0[] = { KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM combo3[] = { KC_COMMA, KC_DOT, COMBO_END};
@@ -273,9 +273,9 @@ enum tap_dance_codes {
 #define KR_4_1_5 KC_BSPC
 //
 #define KR_4_1_6 KC_MS_WH_DOWN
-#define KR_4_1_7 KC_TRNS
+#define KR_4_1_7 KC_MS_WH_LEFT
 #define KR_4_1_8 KC_MS_UP
-#define KR_4_1_9 KC_TRNS
+#define KR_4_1_9 KC_MS_WH_RIGHT
 #define KR_4_1_10 KC_TRNS
 
 
@@ -289,7 +289,7 @@ enum tap_dance_codes {
 #define KR_4_2_7 KC_MS_LEFT
 #define KR_4_2_8 KC_MS_DOWN
 #define KR_4_2_9 KC_MS_RIGHT
-#define KR_4_2_10 KC_TRNS
+#define KR_4_2_10 KC_ENTER
 
 
 #define KR_4_3_1 LGUI(KC_Z)
@@ -300,7 +300,7 @@ enum tap_dance_codes {
 
 #define KR_4_3_6 KC_TRNS
 #define KR_4_3_7 KC_TRNS
-#define KR_4_3_8 KC_TRNS
+#define KR_4_3_8 KC_TAB
 #define KR_4_3_9 KC_TRNS
 #define KR_4_3_10 KC_TRNS
 
