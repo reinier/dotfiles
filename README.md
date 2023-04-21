@@ -17,26 +17,20 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 - Only use 34 keys (I've tried 36 a couple of times but my thumbs get lost on more then two keys for some reason)
 - Minimal number of layers for usability
 - Dedicated CMD and SHIFT keys and [home row mods](https://precondition.github.io/home-row-mods) for ALT, CTRL and MEH
-- Easy sync between my [Microdox](https://boardsource.xyz/store/5f2e7e4a2902de7151494f92) and [Moonlander](https://www.zsa.io/moonlander/)
+- Easy sync between my [Technik](https://boardsource.xyz/store/5ffb9b01edd0447f8023fdb2) and [Moonlander](https://www.zsa.io/moonlander/)
 - Minimize pinky use on both sides for ergonomic reasons
 - No tap dances
-- A couple of combos are available on the left side to use in tandem with mouse
+- Minimal use of combos
 
 ### The keymap and macros for use with the MEH-key
 
-![Keymap microdox](./hammerspoon/keyboard/keymap.png?raw=true)
+![Keymap base 34 layout](./hammerspoon/keyboard/keymap.png?raw=true)
 
 ![Mehmap](./hammerspoon/keyboard/mehmap.png?raw=true)
 
-### The keyboards
-
-![Microdox keyboard](./assets/microdox.png?raw=true)
-
-![Modded Moonlander keyboard](./assets/moonlander.png?raw=true)
-
 ## Hammerspoon
 
-- To make scrolling easy with the Logi Ergo MX
+- To make scrolling easy with the Logi Ergo MX en Kensington mouse
 - To serve as my url dispatcher to open links with the correct browser
 - To move windows
 - To do all kinds of scripting
@@ -49,8 +43,6 @@ Invisible in this repo, but I also use the following apps to be more productive:
 - Drafts (to quickly jot down notes and script text)
 - Alfred (mostly used for searching through different services)
 - CleanShot X (the best screenshot app there is)
-- Menuwhere (to navigate app menus with my keyboard)
-- Omnigraffle (for diagramming and visualising the keymap)
 
 ## Install dotfiles on clean system
 
@@ -61,8 +53,8 @@ Symlink the config directories in the right place. Examples:
 - `ln -s ~/dev/dotfiles/.zshrc ~/.zshrc`
 - `ln -s ~/dev/dotfiles/karabiner ~/.config/karabiner`
 - `ln -s ~/dev/dotfiles/hammerspoon ~/.hammerspoon`
-- `ln -s ~/dev/dotfiles/microdox ~/qmk_firmware/keyboards/boardsource/microdox/keymaps/microdox-mk2`
-- `ln -s ~/dev/dotfiles/moonlander ~/qmk_firmware/keyboards/moonlander/keymaps/moonlander-mk2`
+- `ln -s ~/dev/dotfiles/technik ~/qmk_firmware/keyboards/boardsource/technik_o/keymaps/technik-reinier`
+- `ln -s ~/dev/dotfiles/moonlander-mk3 ~/qmk_firmware/keyboards/moonlander/keymaps/moonlander-mk3`
 
 ### Show invisible files in Finder
 
