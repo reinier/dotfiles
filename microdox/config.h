@@ -1,21 +1,8 @@
 #pragma once
 
-// number of taps for TT Tap-Toggle keys to toggle
-#ifdef TAPPING_TOGGLE
-#undef TAPPING_TOGGLE
-#endif
-#define TAPPING_TOGGLE 1
+#define ONESHOT_TAP_TOGGLE 2
 
-#define TAPPING_TERM 200
-
-#define PERMISSIVE_HOLD
+#undef ONESHOT_TIMEOUT
+#define ONESHOT_TIMEOUT 2000
 
 #define IGNORE_MOD_TAP_INTERRUPT
-
-#define MK_KINETIC_SPEED 
-#define MOUSEKEY_DELAY 8
-#define MOUSEKEY_INTERVAL 8
-#define MOUSEKEY_MOVE_DELTA 2
-#define MOUSEKEY_INITIAL_SPEED 2
-#define MOUSEKEY_DECELERATED_SPEED 100
-#define MOUSEKEY_MAX_SPEED 14
