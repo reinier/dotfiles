@@ -57,6 +57,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef ONESHOT_TIMEOUT
 #define ONESHOT_TIMEOUT 2000
 
+#define TAPPING_TOGGLE 1
+
 #define IGNORE_MOD_TAP_INTERRUPT
 
 #undef MOUSEKEY_INTERVAL
