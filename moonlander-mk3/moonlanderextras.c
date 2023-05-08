@@ -1,6 +1,6 @@
 #define THUMB1 KC_NO
-#define THUMB2 KC_MS_BTN1
-#define THUMB3 KC_MS_BTN2
+#define THUMB2 KC_NO
+#define THUMB3 KC_NO
 
 #define KR_0_1_0  KC_NO
 #define KR_0_1_11 KC_NO
