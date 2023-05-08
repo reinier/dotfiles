@@ -177,8 +177,8 @@ combo_t key_combos[] = {
 //
 #define KR_2_2_6 KC_COLN
 #define KR_2_2_7 MEH_T(KC_4)
-#define KR_2_2_8 MT(MOD_RALT, KC_5)
-#define KR_2_2_9 MT(MOD_RCTL, KC_6)
+#define KR_2_2_8 RALT_T(KC_5)
+#define KR_2_2_9 RCTL_T(KC_6)
 #define KR_2_2_10 KC_ENTER
 
 
@@ -254,51 +254,59 @@ combo_t key_combos[] = {
 #define KR_3_4_2 KC_TRNS
 #define KR_3_4_3 TO(0)
 
-#define KR_3_4_4 TO(4)
+#define KR_3_4_4 KC_TRNS
 #define KR_3_4_5 KC_TRNS
 #define KR_3_4_6 KC_TRNS
 
+
+
+
+
+
+
+
+
 // ############################################
-// ##### Layer 4 Mouse
+// ##### Layer 4 Mouse // DISCONTINUED
 // ############################################
 
 // Top row
 
-#define KR_4_1_1 KC_ESC
+#define KR_4_1_1 KC_TRNS
 #define KR_4_1_2 KC_TRNS
-#define KR_4_1_3 LGUI(LSFT(KC_5)) // Screenshot with Cleanshot
+#define KR_4_1_3 KC_TRNS
 #define KR_4_1_4 KC_TRNS
-#define KR_4_1_5 KC_BSPC
+#define KR_4_1_5 KC_TRNS
 //
-#define KR_4_1_6 KC_MS_WH_DOWN
-#define KR_4_1_7 KC_MS_WH_RIGHT
-#define KR_4_1_8 KC_MS_UP
-#define KR_4_1_9 KC_MS_WH_LEFT
+#define KR_4_1_6 KC_TRNS
+#define KR_4_1_7 KC_TRNS
+#define KR_4_1_8 KC_TRNS
+#define KR_4_1_9 KC_TRNS
 #define KR_4_1_10 KC_TRNS
 
 
 #define KR_4_2_1 KC_TRNS
 #define KR_4_2_2 KC_TRNS
 #define KR_4_2_3 KC_TRNS
-#define KR_4_2_4 KC_BTN1
-#define KR_4_2_5 KC_BTN2
+#define KR_4_2_4 KC_TRNS
+#define KR_4_2_5 KC_TRNS
 //
-#define KR_4_2_6 KC_MS_WH_UP
-#define KR_4_2_7 KC_MS_LEFT
-#define KR_4_2_8 KC_MS_DOWN
-#define KR_4_2_9 KC_MS_RIGHT
-#define KR_4_2_10 KC_ENTER
+#define KR_4_2_6 KC_TRNS
+#define KR_4_2_7 KC_TRNS
+#define KR_4_2_8 KC_TRNS
+#define KR_4_2_9 KC_TRNS
+#define KR_4_2_10 KC_TRNS
 
 
 #define KR_4_3_1 KC_TRNS
 #define KR_4_3_2 KC_TRNS
 #define KR_4_3_3 KC_TRNS
 #define KR_4_3_4 KC_TRNS
-#define KR_4_3_5 KC_SPACE
+#define KR_4_3_5 KC_TRNS
 
 #define KR_4_3_6 KC_TRNS
 #define KR_4_3_7 KC_TRNS
-#define KR_4_3_8 KC_TAB
+#define KR_4_3_8 KC_TRNS
 #define KR_4_3_9 KC_TRNS
 #define KR_4_3_10 KC_TRNS
 
@@ -306,8 +314,8 @@ combo_t key_combos[] = {
 
 #define KR_4_4_1 KC_TRNS
 #define KR_4_4_2 KC_TRNS
-#define KR_4_4_3 TO(0)
+#define KR_4_4_3 KC_TRNS
 
-#define KR_4_4_4 TO(3)
+#define KR_4_4_4 KC_TRNS
 #define KR_4_4_5 KC_TRNS
 #define KR_4_4_6 KC_TRNS

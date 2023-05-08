@@ -1,13 +1,9 @@
 enum custom_keycodes {
-  //REPEAT = SAFE_RANGE,
   KC_CCCV= SAFE_RANGE,
   // Other custom keys...
 };
 
 uint16_t copy_paste_timer;
-
-/* Repeat key as described in: https://getreuer.info/posts/keyboards/repeat-key/ */
-//#include "features/repeat_key.h"
 
 // Initialize variable holding the binary
 // representation of active modifiers.
@@ -63,9 +59,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
 			return false;
 		}
 	}
-	
-	// REPEAT key turned off because of a (unsolved) conflict with the CCCV key.
-	//if (!process_repeat_key(keycode, record, REPEAT)) { return false; }
 	
 	return true;
 };
