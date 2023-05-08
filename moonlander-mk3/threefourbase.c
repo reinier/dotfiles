@@ -27,8 +27,7 @@ const uint16_t PROGMEM combo1[] = { KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM combo3[] = { KC_COMMA, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo4[] = { KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM combo5[] = { KC_E, KC_R, COMBO_END};
-
+const uint16_t PROGMEM combo5[] = { MEH_T(KC_F), KC_G, COMBO_END};
 
 combo_t key_combos[] = {
 	[CBO_0] = COMBO(combo0, KC_ESCAPE),
@@ -220,7 +219,7 @@ combo_t key_combos[] = {
 #define KR_3_1_7 LGUI(KC_LBRC)
 #define KR_3_1_8 KC_UP
 #define KR_3_1_9 LGUI(KC_RBRC)
-#define KR_3_1_10 KC_DELETE
+#define KR_3_1_10 KC_TRNS
 
 // Mid row
 
