@@ -21,15 +21,15 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 
-#include "threefourbase.c"
 #include "microhacks.c"
+#include "threefourbase.c"
 #include "moonlanderextras.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [0] = LAYOUT_moonlander(
         RGB_M_B, KR_0_1_1,  KR_0_1_2,  KR_0_1_3,  KR_0_1_4,  KR_0_1_5,  _______,    KC_RBRC,  KR_0_1_6,  KR_0_1_7,  KR_0_1_8, KR_0_1_9,  KR_0_1_10,  KR_0_1_11,
         RGB_MOD, KR_0_2_1,  KR_0_2_2,  KR_0_2_3,  KR_0_2_4,  KR_0_2_5,  _______,    KC_LBRC,  KR_0_2_6,  KR_0_2_7,  KR_0_2_8, KR_0_2_9,  KR_0_2_10,  KR_0_2_11,
-        RGB_RMOD, KR_0_3_1,  KR_0_3_2,  KR_0_3_3,  KR_0_3_4,  KR_0_3_5,  REPEAT,    REPEAT,  KR_0_3_6,  KR_0_3_7, KR_0_3_8, KR_0_3_9,  KR_0_3_10,  KR_0_3_11,
+        RGB_RMOD, KR_0_3_1,  KR_0_3_2,  KR_0_3_3,  KR_0_3_4,  KR_0_3_5,  _______,   _______,  KR_0_3_6,  KR_0_3_7, KR_0_3_8, KR_0_3_9,  KR_0_3_10,  KR_0_3_11,
         RGB_TOG,   RGB_HUI, RGB_HUD,   _______,  KR_0_4_2,  KR_0_4_3,                        KR_0_4_4,  KR_0_4_5, KC_LEFT,  KC_DOWN,   KC_UP,      KC_RIGHT, 
         _______, _______,   _______,   _______,   _______,   _______,                      _______,   _______,   _______,   _______,   _______,    _______,
                                                   THUMB1, THUMB2, THUMB3,     THUMB3, THUMB2, THUMB1

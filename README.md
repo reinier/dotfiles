@@ -20,7 +20,7 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 - Easy sync between my [Technik](https://boardsource.xyz/store/5ffb9b01edd0447f8023fdb2) and [Moonlander](https://www.zsa.io/moonlander/)
 - Minimize pinky use on both sides for ergonomic reasons
 - No tap dances
-- Minimal use of combos
+- Minimal use of combos (currently six in use)
 
 ### The keymap and macros for use with the MEH-key
 

@@ -1,17 +1,18 @@
 enum custom_keycodes {
-  REPEAT = SAFE_RANGE,
+  //REPEAT = SAFE_RANGE,
+  KC_CCCV= SAFE_RANGE,
   // Other custom keys...
 };
 
+uint16_t copy_paste_timer;
+
 /* Repeat key as described in: https://getreuer.info/posts/keyboards/repeat-key/ */
-#include "features/repeat_key.h"
+//#include "features/repeat_key.h"
 
 // Initialize variable holding the binary
 // representation of active modifiers.
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t * record) {
-	
-	if (!process_repeat_key(keycode, record, REPEAT)) { return false; }
 	
 	// Store the current modifier state in the variable for later reference
 	mod_state = get_mods();
@@ -47,10 +48,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
 			// Let QMK process the KC_BSPC keycode as usual outside of shift
 			return true;
 		}
-
+		
+		case KC_CCCV:  // One key copy/paste
+		{
+			if (record->event.pressed) {
+				copy_paste_timer = timer_read();
+			} else {
+				if (timer_elapsed(copy_paste_timer) > TAPPING_TERM) {  // Hold, copy
+					tap_code16(LGUI(KC_C));
+				} else {  // Tap, paste
+					tap_code16(LGUI(KC_V));
+				}
+			}
+			return false;
+		}
 	}
 	
-	
+	// REPEAT key turned off because of a (unsolved) conflict with the CCCV key.
+	//if (!process_repeat_key(keycode, record, REPEAT)) { return false; }
 	
 	return true;
 };
