@@ -34,8 +34,8 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 
 - To make scrolling easy with the Logi Ergo MX en Kensington mouse
 - To serve as my url dispatcher to open links with the correct browser
-- To move windows
-- To do all kinds of scripting
+- Show my keymap with MEH-B
+- To do all kinds of other scripting
 
 ## Other productivity apps
 
