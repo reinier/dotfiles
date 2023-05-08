@@ -21,6 +21,8 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 - Minimize pinky use on both sides for ergonomic reasons
 - No tap dances
 - Minimal use of combos (currently six in use)
+- Base layer is always available by tapping right thumb and then left thumb
+- A CCCV key to suck something into the key by holding, and spitting it out by tapping. Currently on combo C+V. (CMD-C hold, CMD-V tap)
 
 ### The keymap and macros for use with the MEH-key
 
