@@ -11,10 +11,12 @@ For keyboard firmware install you need [QMK](https://beta.docs.qmk.fm):
 
 ## Keyboards
 
+![My technik keyboard for on the road](/assets/technik.jpg)
+
 With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of things:
 
 - Keep qwerty my main layout for now, except for P at right pinky
-- Only use 34 keys (I've tried 36 a couple of times but my thumbs get lost on more then two keys for some reason)
+- Only use 34 keys (I've tried 36 a couple of times but my thumbs get lost on more than two keys for some reason)
 - Minimal number of layers for usability
 - Dedicated CMD and SHIFT keys and [home row mods](https://precondition.github.io/home-row-mods) for ALT, CTRL and MEH
 - Easy sync between my [Technik](https://boardsource.xyz/store/5ffb9b01edd0447f8023fdb2) and [Moonlander](https://www.zsa.io/moonlander/)
