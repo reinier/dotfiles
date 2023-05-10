@@ -1,0 +1,1 @@
+{"title":"","rules":[{"description":"","manipulators":[{"type":"basic","from":{"key_code":"e"},"to_if_held_down":[{"repeat":false,"key_code":"2","modifiers":["left_alt"]}]}]}]}
