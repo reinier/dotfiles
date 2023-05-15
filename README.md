@@ -61,6 +61,7 @@ Symlink the config directories in the right place. Examples:
 - `ln -s ~/dev/dotfiles/technik ~/qmk_firmware/keyboards/boardsource/technik_o/keymaps/technik-reinier`
 - `ln -s ~/dev/dotfiles/microdox ~/qmk_firmware/keyboards/boardsource/microdox/keymaps/microdox-reinier`
 - `ln -s ~/dev/dotfiles/moonlander-mk3 ~/qmk_firmware/keyboards/moonlander/keymaps/moonlander-mk3`
+- `ln -s ~/dev/dotfiles/totem ~/qmk_firmware/keyboards/totem/keymaps/reinier`
 
 ### Show invisible files in Finder
 

@@ -1,42 +1,8 @@
 /*
 
-# Everything for a 34-key keyboard
+# Everything for the Totem keyboard
 
 */
-
-/*
-
-## COMBOS
-
-*/
-
-enum combos {
-	CBO_0,
-	CBO_1,
-	CBO_2,
-	CBO_3,
-	CBO_4,
-	CBO_5,
-	COMBO_LENGTH
-};
-
-uint16_t COMBO_LEN = COMBO_LENGTH;
-
-const uint16_t PROGMEM combo0[] = { KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM combo1[] = { KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM combo2[] = { KC_Z, KC_X, COMBO_END};
-const uint16_t PROGMEM combo3[] = { KC_COMMA, KC_DOT, COMBO_END};
-const uint16_t PROGMEM combo4[] = { KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM combo5[] = { RCTL_T(KC_K), LT(2, KC_I), COMBO_END};
-
-combo_t key_combos[] = {
-	[CBO_0] = COMBO(combo0, KC_ESCAPE),
-	[CBO_1] = COMBO(combo1, KC_TAB),
-	[CBO_2] = COMBO(combo2, KC_GRAVE),
-	[CBO_3] = COMBO(combo3, KC_ENTER),
-	[CBO_4] = COMBO(combo4, KC_CCCV),
-	[CBO_5] = COMBO(combo5, KC_ENTER)
-};
 
 // # Layer 0
 
@@ -44,13 +10,13 @@ combo_t key_combos[] = {
 
 #define KR_0_1_1 KC_Q
 #define KR_0_1_2 KC_W
-#define KR_0_1_3 LT(2, KC_E)
-#define KR_0_1_4 LT(3, KC_R)
+#define KR_0_1_3 KC_E
+#define KR_0_1_4 KC_R
 #define KR_0_1_5 KC_T
 //
 #define KR_0_1_6 KC_Y
-#define KR_0_1_7 LT(3, KC_U)
-#define KR_0_1_8 LT(2, KC_I)
+#define KR_0_1_7 KC_U
+#define KR_0_1_8 KC_I
 #define KR_0_1_9 KC_O
 #define KR_0_1_10 KC_BSPC
 
@@ -70,7 +36,6 @@ combo_t key_combos[] = {
 
 // Bottom row
 
-// #define KR_0_3_0 KC_NO
 #define KR_0_3_1 KC_Z
 #define KR_0_3_2 KC_X
 #define KR_0_3_3 KC_C
@@ -85,13 +50,13 @@ combo_t key_combos[] = {
 
 // Thumb cluster
 
-#define KR_0_4_1 KC_NO
+#define KR_0_4_1 KC_CCCV
 #define KR_0_4_2 OSM(MOD_LGUI)
-#define KR_0_4_3 MT(MOD_MEH, KC_SPACE)
+#define KR_0_4_3 LT(3, KC_SPACE)
 
 #define KR_0_4_4 TT(1)
 #define KR_0_4_5 OSM(MOD_LSFT)
-#define KR_0_4_6 KC_NO
+#define KR_0_4_6 MT(MOD_MEH, KC_ESC)
 
 // ############################################
 // ###### Layer 1 Symbols
