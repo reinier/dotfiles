@@ -18,28 +18,28 @@ After a couple of years experience with normal and low profile, I think I'm lean
 With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of things:
 
 - Keep qwerty my main layout for now, except for P at right pinky
-- Only use 34 keys, experimenting with 36 keys again.
+- Only use 34 keys
 - Minimal number of layers for usability
-- Dedicated CMD, SHIFT and MEH keys and [home row mods](https://precondition.github.io/home-row-mods) for ALT and CTRL
+- Dedicated CMD and SHIFT keys and [home row mods](https://precondition.github.io/home-row-mods) for all the mods
 - Easy sync between all my keyboards
 - Minimize pinky use on both sides for ergonomic reasons
 - No tap dances
 - Minimal use of combos (currently four in use)
 - Base layer is always available by tapping right thumb and then left thumb
-- Arrows are always available through the extend layer which is a hold on the spacebar away.
+- Navigation is always available through the extend layer which is a hold on the spacebar away.
 - Fast access NUM layer by holding space (extend layer) and tapping right thumb
 - A CCCV key (combo on C and V for now) to suck something into the key by holding, and spitting it out by tapping. (CMD-C hold, CMD-V tap)
 - I've tried working with a mouse layer, but it's not working for me right now.
 - Not too many hold keys, they conflict with my typing speed too much.
-- When there is a need for a modifier on a symbol, first hit the modifier on the base layer and then switch to the symbols layer.
+- When there is a need for a modifier on a symbol, first hit/hold the modifier on the base layer and then switch to the symbols layer. Used often for cmd-+ and cmd-] for example.
 
 ### Todo's, needs and wants
 
-- Shift on default thumb. Probably the right one.
-- If MEH key doesn't work on dedicated inner thumb keys, move it to hold on G and H.
+- Shift on default thumb. Probably the right one. Couldn't get used to it when I tried it the last time but also had other major changes then
 - On Totem I've got extra pinky keys available, not sure what to do with them or if I even want to.
 - I can do a lot more on the Extend layer for Mouse + keyboard use.
 - Train yourself in using backspaced on the Extend layer (H key) instead of the top right position (not comfortable at all)
+- Find a place for page up and page down, media controls and F keys. Probably need new layer.
 
 ### The keymap and macros for use with the MEH-key
 

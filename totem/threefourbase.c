@@ -51,15 +51,15 @@ combo_t key_combos[] = {
 // Mid row
 
 #define KR_0_2_1 KC_A
-#define KR_0_2_2 LSFT_T(KC_S)
-#define KR_0_2_3 LCTL_T(KC_D)
-#define KR_0_2_4 LALT_T(KC_F)
-#define KR_0_2_5 KC_G
+#define KR_0_2_2 LCTL_T(KC_S)
+#define KR_0_2_3 LALT_T(KC_D)
+#define KR_0_2_4 MEH_T(KC_F)
+#define KR_0_2_5 LSFT_T(KC_G)
 //
-#define KR_0_2_6 KC_H
-#define KR_0_2_7 RALT_T(KC_J)
-#define KR_0_2_8 RCTL_T(KC_K)
-#define KR_0_2_9 RGUI_T(KC_L)
+#define KR_0_2_6 RGUI_T(KC_H)
+#define KR_0_2_7 MEH_T(KC_J)
+#define KR_0_2_8 RALT_T(KC_K)
+#define KR_0_2_9 RCTL_T(KC_L)
 #define KR_0_2_10 KC_P
 
 // Bottom row
@@ -78,13 +78,13 @@ combo_t key_combos[] = {
 
 // Thumb cluster
 
-#define KR_0_4_1 OSM(MOD_MEH)
+#define KR_0_4_1 KC_NO
 #define KR_0_4_2 OSM(MOD_LGUI)
 #define KR_0_4_3 LT(3, KC_SPACE)
 
 #define KR_0_4_4 TT(1)
 #define KR_0_4_5 OSM(MOD_LSFT)
-#define KR_0_4_6 OSM(MOD_MEH)
+#define KR_0_4_6 KC_NO
 
 // ############################################
 // ###### Layer 1 Symbols
@@ -114,8 +114,8 @@ combo_t key_combos[] = {
 //
 #define KR_1_2_6 KC_COLN
 #define KR_1_2_7 KC_LPRN
-#define KR_1_2_8 KC_LCBR
-#define KR_1_2_9 KC_LBRC
+#define KR_1_2_8 KC_LBRC
+#define KR_1_2_9 KC_LCBR
 #define KR_1_2_10 KC_SCLN
 
 // Lower row
@@ -205,13 +205,13 @@ combo_t key_combos[] = {
 #define KR_3_1_1 KC_ESC
 #define KR_3_1_2 KC_TRNS
 #define KR_3_1_3 LGUI(LSFT(KC_5)) // Screenshot with Cleanshot
-#define KR_3_1_4 KC_DELETE
-#define KR_3_1_5 KC_BSPC
+#define KR_3_1_4 KC_TRNS
+#define KR_3_1_5 KC_TRNS
 //
-#define KR_3_1_6 KC_PAGE_UP
-#define KR_3_1_7 LGUI(KC_LBRC)
+#define KR_3_1_6 KC_DELETE
+#define KR_3_1_7 KC_TRNS
 #define KR_3_1_8 KC_UP
-#define KR_3_1_9 LGUI(KC_RBRC)
+#define KR_3_1_9 KC_TRNS
 #define KR_3_1_10 KC_BSPC
 
 // Mid row
@@ -220,7 +220,7 @@ combo_t key_combos[] = {
 #define KR_3_2_2 KC_TRNS
 #define KR_3_2_3 KC_TRNS
 #define KR_3_2_4 KC_TRNS
-#define KR_3_2_5 KC_ENTER
+#define KR_3_2_5 KC_BSPC
 //
 #define KR_3_2_6 KC_BSPC
 #define KR_3_2_7 KC_LEFT
@@ -233,10 +233,10 @@ combo_t key_combos[] = {
 #define KR_3_3_1 KC_TRNS
 #define KR_3_3_2 KC_TRNS
 #define KR_3_3_3 KC_TRNS
-#define KR_3_3_4 KC_TRNS
+#define KR_3_3_4 KC_ENTER
 #define KR_3_3_5 KC_SPACE
 
-#define KR_3_3_6 KC_PAGE_DOWN
+#define KR_3_3_6 A(KC_BSPC)
 #define KR_3_3_7 A(KC_LEFT)
 #define KR_3_3_8 KC_TAB
 #define KR_3_3_9 A(KC_RIGHT)
