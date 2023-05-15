@@ -162,15 +162,15 @@ combo_t key_combos[] = {
 
 
 #define KR_2_2_1 KC_TAB
-#define KR_2_2_2 LSFT_T(KC_DOT)
-#define KR_2_2_3 LCTL_T(KC_COMM)
-#define KR_2_2_4 LALT_T(KC_MINUS)
-#define KR_2_2_5 KC_PEQL
+#define KR_2_2_2 LCTL_T(KC_DOT)
+#define KR_2_2_3 LALT_T(KC_COMM)
+#define KR_2_2_4 MEH_T(KC_MINUS)
+#define KR_2_2_5 LSFT_T(KC_PEQL)
 //
 #define KR_2_2_6 KC_COLN
-#define KR_2_2_7 RALT_T(KC_4)
-#define KR_2_2_8 RCTL_T(KC_5)
-#define KR_2_2_9 RGUI_T(KC_6)
+#define KR_2_2_7 KC_4
+#define KR_2_2_8 KC_5
+#define KR_2_2_9 KC_6
 #define KR_2_2_10 KC_ENTER
 
 
