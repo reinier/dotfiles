@@ -5,10 +5,8 @@
 #include "microhacks.c"
 #include "threefourbase.c"
 
-#define KR_0_EXTRAL LT(2, KC_TAB)
-#define KR_0_EXTRAR KC_ENTER
-
-/* Wissel toch de duimknoppen om */
+#define KR_0_EXTRAL KC_NO
+#define KR_0_EXTRAR KC_NO
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 

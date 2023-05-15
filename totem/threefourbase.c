@@ -4,6 +4,34 @@
 
 */
 
+/*
+
+## COMBOS
+
+*/
+
+enum combos {
+	CBO_0,
+	CBO_1,
+	CBO_2,
+	CBO_3,
+	COMBO_LENGTH
+};
+
+uint16_t COMBO_LEN = COMBO_LENGTH;
+
+const uint16_t PROGMEM combo0[] = { KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo1[] = { KC_COMMA, KC_DOT, COMBO_END};
+const uint16_t PROGMEM combo2[] = { KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM combo3[] = { KC_M, KC_COMM, COMBO_END};
+
+combo_t key_combos[] = {
+	[CBO_0] = COMBO(combo0, KC_TAB),
+	[CBO_1] = COMBO(combo1, KC_ENTER),
+	[CBO_2] = COMBO(combo2, KC_CCCV),
+	[CBO_3] = COMBO(combo3, KC_ESC)
+};
+
 // # Layer 0
 
 // Top row
@@ -50,13 +78,13 @@
 
 // Thumb cluster
 
-#define KR_0_4_1 KC_CCCV
+#define KR_0_4_1 OSM(MOD_MEH)
 #define KR_0_4_2 OSM(MOD_LGUI)
 #define KR_0_4_3 LT(3, KC_SPACE)
 
 #define KR_0_4_4 TT(1)
 #define KR_0_4_5 OSM(MOD_LSFT)
-#define KR_0_4_6 MT(MOD_MEH, KC_ESC)
+#define KR_0_4_6 OSM(MOD_MEH)
 
 // ############################################
 // ###### Layer 1 Symbols
@@ -64,30 +92,30 @@
 
 // Top row
 
-#define KR_1_1_1 KC_TRNS
+#define KR_1_1_1 KC_ESCAPE
 #define KR_1_1_2 KC_TILD
-#define KR_1_1_3 KC_QUOT
+#define KR_1_1_3 KC_DQUO
 #define KR_1_1_4 KC_PLUS
 #define KR_1_1_5 KC_ASTR
 
 #define KR_1_1_6 KC_CIRC
-#define KR_1_1_7 KC_HASH
-#define KR_1_1_8 KC_LCBR
-#define KR_1_1_9 KC_RCBR
-#define KR_1_1_10 KC_TRNS
+#define KR_1_1_7 KC_EXLM
+#define KR_1_1_8 KC_AT
+#define KR_1_1_9 KC_HASH
+#define KR_1_1_10 KC_BSPC
 
 // Mid row
 
-#define KR_1_2_1 KC_TRNS
+#define KR_1_2_1 KC_TAB
 #define KR_1_2_2 KC_GRAVE
-#define KR_1_2_3 KC_DQUO
+#define KR_1_2_3 KC_QUOT
 #define KR_1_2_4 KC_MINUS
 #define KR_1_2_5 KC_EQUAL
 //
 #define KR_1_2_6 KC_COLN
-#define KR_1_2_7 KC_AT
-#define KR_1_2_8 KC_LPRN
-#define KR_1_2_9 KC_RPRN
+#define KR_1_2_7 KC_LPRN
+#define KR_1_2_8 KC_LCBR
+#define KR_1_2_9 KC_LBRC
 #define KR_1_2_10 KC_SCLN
 
 // Lower row
@@ -99,9 +127,9 @@
 #define KR_1_3_5 KC_PIPE
 //
 #define KR_1_3_6 LOPT(KC_SCLN) // …
-#define KR_1_3_7 KC_EXLM
-#define KR_1_3_8 KC_LBRC
-#define KR_1_3_9 KC_RBRC
+#define KR_1_3_7 KC_RPRN
+#define KR_1_3_8 KC_RBRC
+#define KR_1_3_9 KC_RCBR
 #define KR_1_3_10 KC_BSLS
 
 // Thumb cluser
@@ -130,7 +158,7 @@
 #define KR_2_1_7 KC_7
 #define KR_2_1_8 KC_8
 #define KR_2_1_9 KC_9
-#define KR_2_1_10 KC_TRNS
+#define KR_2_1_10 KC_BSPC
 
 
 #define KR_2_2_1 KC_TAB
@@ -184,21 +212,23 @@
 #define KR_3_1_7 LGUI(KC_LBRC)
 #define KR_3_1_8 KC_UP
 #define KR_3_1_9 LGUI(KC_RBRC)
-#define KR_3_1_10 KC_TRNS
+#define KR_3_1_10 KC_BSPC
 
 // Mid row
 
-#define KR_3_2_1 KC_TRNS
+#define KR_3_2_1 KC_TAB
 #define KR_3_2_2 KC_TRNS
 #define KR_3_2_3 KC_TRNS
 #define KR_3_2_4 KC_TRNS
 #define KR_3_2_5 KC_ENTER
 //
-#define KR_3_2_6 KC_PAGE_DOWN
+#define KR_3_2_6 KC_BSPC
 #define KR_3_2_7 KC_LEFT
 #define KR_3_2_8 KC_DOWN
 #define KR_3_2_9 KC_RIGHT
 #define KR_3_2_10 KC_ENTER
+
+// Bottom row
 
 #define KR_3_3_1 KC_TRNS
 #define KR_3_3_2 KC_TRNS
@@ -206,7 +236,7 @@
 #define KR_3_3_4 KC_TRNS
 #define KR_3_3_5 KC_SPACE
 
-#define KR_3_3_6 KC_TRNS
+#define KR_3_3_6 KC_PAGE_DOWN
 #define KR_3_3_7 A(KC_LEFT)
 #define KR_3_3_8 KC_TAB
 #define KR_3_3_9 A(KC_RIGHT)
@@ -218,7 +248,7 @@
 #define KR_3_4_2 KC_TRNS
 #define KR_3_4_3 TO(0)
 
-#define KR_3_4_4 KC_TRNS
+#define KR_3_4_4 TO(2) // To number layer
 #define KR_3_4_5 KC_TRNS
 #define KR_3_4_6 KC_TRNS
 
