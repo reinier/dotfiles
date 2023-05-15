@@ -36,7 +36,7 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 ### Todo's, needs and wants
 
 - Shift on default thumb. Probably the right one.
-- If MEH key doesnt work on dedicated inner thumb keys, move it to hold on G and H.
+- If MEH key doesn't work on dedicated inner thumb keys, move it to hold on G and H.
 - On Totem I've got extra pinky keys available, not sure what to do with them or if I even want to.
 - I can do a lot more on the Extend layer for Mouse + keyboard use.
 - Train yourself in using backspaced on the Extend layer (H key) instead of the top right position (not comfortable at all)
