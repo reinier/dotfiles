@@ -1,3 +1,3 @@
 # Build Options
 
-COMBO_ENABLE = yes
+COMBO_ENABLE = no

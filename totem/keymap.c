@@ -3,7 +3,7 @@
 #include "totem.h"
 
 #include "microhacks.c"
-#include "threefourbase.c"
+#include "threefourbase-16focus.c"
 
 #define KR_0_EXTRAL KC_NO
 #define KR_0_EXTRAR KC_NO
