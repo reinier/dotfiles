@@ -69,8 +69,8 @@ combo_t key_combos[] = {
 
 #define KR_0_3_6 KC_N
 #define KR_0_3_7 KC_M
-#define KR_0_3_8 KC_COMM
-#define KR_0_3_9 KC_DOT
+#define KR_0_3_8 KC_COMM_AMP
+#define KR_0_3_9 KC_DOT_ELIP
 #define KR_0_3_10 KC_SLASH
 
 // Thumb cluster
@@ -96,37 +96,37 @@ combo_t key_combos[] = {
 #define KR_1_1_5 KC_NO
 
 #define KR_1_1_6 KC_NO
-#define KR_1_1_7 KC_RPRN
+#define KR_1_1_7 KC_LBRC
 #define KR_1_1_8 KC_RBRC
-#define KR_1_1_9 KC_RCBR
+#define KR_1_1_9 KC_SCLN
 #define KR_1_1_10 KC_NO
 
 // Mid row
 
-#define KR_1_2_1 KC_AMPR
-#define KR_1_2_2 A(KC_SCLN)
+#define KR_1_2_1 KC_UNDS
+#define KR_1_2_2 KC_DLR
 #define KR_1_2_3 KC_GRAVE
 #define KR_1_2_4 KC_DQUO
 #define KR_1_2_5 KC_NO
 //
 #define KR_1_2_6 KC_NO
 #define KR_1_2_7 KC_LPRN_LR
-#define KR_1_2_8 KC_LBRC
-#define KR_1_2_9 KC_LCBR
-#define KR_1_2_10 KC_SCLN
+#define KR_1_2_8 KC_LCBR_LR
+#define KR_1_2_9 KC_TILD
+#define KR_1_2_10 KC_BSLS
 
 // Lower row
 
 #define KR_1_3_1 KC_NO
 #define KR_1_3_2 KC_CIRC
-#define KR_1_3_3 KC_UNDS
-#define KR_1_3_4 KC_TILD
+#define KR_1_3_3 KC_NO
+#define KR_1_3_4 KC_NO
 #define KR_1_3_5 KC_NO
 //
 #define KR_1_3_6 KC_NO
 #define KR_1_3_7 KC_PIPE
 #define KR_1_3_8 KC_PERC
-#define KR_1_3_9 KC_BSLS
+#define KR_1_3_9 KC_NO
 #define KR_1_3_10 KC_NO
 
 // Thumb cluser
@@ -146,7 +146,7 @@ combo_t key_combos[] = {
 // Top row
 
 #define KR_2_1_1 KC_NO
-#define KR_2_1_2 KC_DLR
+#define KR_2_1_2 KC_NO
 #define KR_2_1_3 KC_ASTR
 #define KR_2_1_4 KC_PLUS
 #define KR_2_1_5 KC_NO

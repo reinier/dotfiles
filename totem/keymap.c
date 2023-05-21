@@ -2,13 +2,6 @@
 #include <stdio.h>
 #include "totem.h"
 
-enum custom_keycodes {
-  KC_CCCV= SAFE_RANGE,
-  KC_LPRN_LR,
-  REPEAT,
-  // Other custom keys...
-};
-
 /* Repeat key as described in: https://getreuer.info/posts/keyboards/repeat-key/ */
 #include "features/repeat_key.h"
 #include "microhacks.c"
