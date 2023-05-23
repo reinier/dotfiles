@@ -21,6 +21,7 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 - Only use 34 keys on base layer and focus on 18 keys on other layers for usability (and sometime in the future migrate to a 100% 18-key keyboard). This is still work in progress.
 - Minimal number of layers for usability
 - Dedicated CMD and SHIFT keys and [home row mods](https://precondition.github.io/home-row-mods) for all the mods
+- Double tap on shift wil turn on CAPS WORD
 - Easy sync between all my keyboards (but my main focus right now is the Totem, so other keymaps can be out of date)
 - Minimize pinky use on both sides for ergonomic reasons
 - No tap dances

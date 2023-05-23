@@ -1,6 +1,6 @@
 /*
 
-# Everything for the Totem keyboard with a focus on 16 keys to transition to slowly
+# Qweighteen, a keymap with full QWERTY layout but with a focus on the eighteen most easiest reachable keys on the other layers. 
 
 */
 
@@ -75,13 +75,13 @@ combo_t key_combos[] = {
 
 // Thumb cluster
 
-#define KR_0_4_1 KC_NO
+#define KR_0_4_1 KC_CCCV
 #define KR_0_4_2 OSM(MOD_LGUI)
 #define KR_0_4_3 MEH_T(KC_SPACE)
 
 #define KR_0_4_4 REPEAT
 #define KR_0_4_5 OSM(MOD_LSFT)
-#define KR_0_4_6 KC_NO
+#define KR_0_4_6 CW_TOGG
 
 // ############################################
 // ###### Layer 1 Symbols
@@ -104,7 +104,7 @@ combo_t key_combos[] = {
 // Mid row
 
 #define KR_1_2_1 KC_UNDS
-#define KR_1_2_2 KC_DLR
+#define KR_1_2_2 KC_DLR_EUR
 #define KR_1_2_3 KC_GRAVE
 #define KR_1_2_4 KC_DQUO
 #define KR_1_2_5 KC_NO
@@ -112,24 +112,24 @@ combo_t key_combos[] = {
 #define KR_1_2_6 KC_NO
 #define KR_1_2_7 KC_LPRN_LR
 #define KR_1_2_8 KC_LCBR_LR
-#define KR_1_2_9 KC_TILD
-#define KR_1_2_10 KC_BSLS
+#define KR_1_2_9 KC_TILD_CIRC
+#define KR_1_2_10 KC_BSLS_PIPE
 
 // Lower row
 
 #define KR_1_3_1 KC_NO
-#define KR_1_3_2 KC_CIRC
+#define KR_1_3_2 KC_NO
 #define KR_1_3_3 KC_NO
 #define KR_1_3_4 KC_NO
 #define KR_1_3_5 KC_NO
 //
 #define KR_1_3_6 KC_NO
-#define KR_1_3_7 KC_PIPE
-#define KR_1_3_8 KC_PERC
+#define KR_1_3_7 KC_NO
+#define KR_1_3_8 KC_NO
 #define KR_1_3_9 KC_NO
 #define KR_1_3_10 KC_NO
 
-// Thumb cluser
+// Thumb cluster
 
 #define KR_1_4_1 KC_TRNS
 #define KR_1_4_2 KC_TRNS
@@ -145,30 +145,31 @@ combo_t key_combos[] = {
 
 // Top row
 
+
 #define KR_2_1_1 KC_NO
-#define KR_2_1_2 KC_NO
-#define KR_2_1_3 KC_ASTR
-#define KR_2_1_4 KC_PLUS
+#define KR_2_1_2 KC_PLUS
+#define KR_2_1_3 KC_6
+#define KR_2_1_4 KC_7
 #define KR_2_1_5 KC_NO
 //
 #define KR_2_1_6 KC_NO
-#define KR_2_1_7 KC_7
-#define KR_2_1_8 KC_8
-#define KR_2_1_9 KC_9
+#define KR_2_1_7 KC_8
+#define KR_2_1_8 KC_9
+#define KR_2_1_9 KC_0
 #define KR_2_1_10 KC_NO
 
 
-#define KR_2_2_1 KC_PEQL
-#define KR_2_2_2 A(KC_2) // €
-#define KR_2_2_3 KC_COLN
-#define KR_2_2_4 KC_MINUS
+#define KR_2_2_1 KC_ASTR_PERC
+#define KR_2_2_2 KC_MINUS
+#define KR_2_2_3 KC_1
+#define KR_2_2_4 KC_2
 #define KR_2_2_5 KC_NO
 //
 #define KR_2_2_6 KC_NO
-#define KR_2_2_7 KC_4
-#define KR_2_2_8 KC_5
-#define KR_2_2_9 KC_6
-#define KR_2_2_10 KC_0
+#define KR_2_2_7 KC_3
+#define KR_2_2_8 KC_4
+#define KR_2_2_9 KC_5
+#define KR_2_2_10 KC_PEQL
 
 
 #define KR_2_3_1 KC_NO
@@ -178,9 +179,9 @@ combo_t key_combos[] = {
 #define KR_2_3_5 KC_NO
 //
 #define KR_2_3_6 KC_NO
-#define KR_2_3_7 KC_1
-#define KR_2_3_8 KC_2
-#define KR_2_3_9 KC_3
+#define KR_2_3_7 KC_NO
+#define KR_2_3_8 KC_NO
+#define KR_2_3_9 KC_NO
 #define KR_2_3_10 KC_NO
 
 // Thumb cluser
@@ -188,7 +189,7 @@ combo_t key_combos[] = {
 
 #define KR_2_4_1 KC_TRNS
 #define KR_2_4_2 KC_TRNS
-#define KR_2_4_3 KC_COMM
+#define KR_2_4_3 KC_COLN
 
 #define KR_2_4_4 KC_TRNS
 #define KR_2_4_5 KC_TRNS

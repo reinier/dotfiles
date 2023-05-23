@@ -5,7 +5,7 @@
 /* Repeat key as described in: https://getreuer.info/posts/keyboards/repeat-key/ */
 #include "features/repeat_key.h"
 #include "microhacks.c"
-#include "threefourbase-16focus.c"
+#include "qweighteen.c"
 
 #define KR_0_EXTRAL KC_NO
 #define KR_0_EXTRAR KC_NO
