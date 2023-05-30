@@ -56,16 +56,18 @@ end
 
 mapShown = 0
 
-hs.hotkey.bind(reimod, "b", function()
-	if mapShown == 0 then
-		showKeymap()
-		mapShown = 1
-	elseif mapShown == 1 then
-		hideKeymap()
-		showReimod()
-		mapShown = 2
-	else
-		hideReimod()
-		mapShown = 0
-	end
-end)
+function toggleKeymap()
+	 if mapShown == 0 then
+		 showKeymap()
+		 mapShown = 1
+	 elseif mapShown == 1 then
+		 hideKeymap()
+		 showReimod()
+		 mapShown = 2
+	 else
+		 hideReimod()
+		 mapShown = 0
+	 end
+end
+
+-- hs.hotkey.bind(reimod, "b", toggleKeymap)

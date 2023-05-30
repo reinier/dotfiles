@@ -9,9 +9,13 @@ menuHammerMenuList = {
 			{cons.cat.submenu, '', 'T', 'Audio', {
 				  {cons.act.menu, "audioMenu"}
 			}},
-			{cons.cat.action, '', 'I', "Finder", {
+			{cons.cat.submenu, '', 'I', "Finder", {
 				  {cons.act.menu, 'finderMenu'}
 			}},
+			{cons.cat.action, '', 'space', "Alfred", {
+				  {cons.act.keycombo, {'cmd'}, 'space'},
+			}},
+			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'H', "Arc", {
 				  {cons.act.launcher, 'Arc'}
 			}},
@@ -23,9 +27,6 @@ menuHammerMenuList = {
 			}},
 			{cons.cat.action, 'shift', ',', "VSCode", {
 				  {cons.act.launcher, 'Visual Studio Code'}
-			}},
-			{cons.cat.action, '', 'space', "Alfred", {
-				  {cons.act.keycombo, {'cmd'}, 'space'},
 			}},
 			{cons.cat.action, '', 'U', "Figma", {
 				  {cons.act.launcher, 'Figma'}
@@ -51,10 +52,11 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'Y', "1Password", {
 				  {cons.act.launcher, '1Password'}
 			}},
+			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'A', "Actions", {
 				{cons.act.keycombo, hyperkey, 'a'},
 			}},
-			{cons.cat.action, '', 'V', "Actions", {
+			{cons.cat.action, '', 'V', "Templates", {
 				{cons.act.keycombo, hyperkey, 'v'},
 			}},
 			{cons.cat.action, '', 'C', "Clipboard", {
@@ -63,25 +65,18 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'S', 'App actions', {
 				  {cons.act.keycombo, hyperkey, 's'},
 			}},
-
+			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'R', "Reload HS", {
 				{cons.act.func, function()
 					  hs.reload()
 				end }
 			}},
-			-- {cons.cat.action, '', 'H', "Hammerspoon Manual", {
-			-- 	  {cons.act.func, function()
-			-- 		  hs.doc.hsdocs.forceExternalBrowser(true)
-			-- 		  hs.doc.hsdocs.moduleEntitiesInSidebar(true)
-			-- 		  hs.doc.hsdocs.help()
-			-- 	  end }
-			-- }},
-			-- {cons.cat.action, '', 'M', 'MenuHammer Default Config', {
-			-- 	{cons.act.openfile, "~/.hammerspoon/Spoons/MenuHammer.spoon/MenuConfigDefaults.lua"},
-			-- }},
-			{cons.cat.action, '', 'X', "Mute/Unmute", {
-				  {cons.act.mediakey, "mute"}
-			}},
+			{cons.cat.action, '', 'B', "Show keymap", {
+				{cons.act.func, function()
+					  toggleKeymap()
+				end }
+			}, true},
+			
 		}
 	},
 	applicationMenu = {

@@ -12,8 +12,8 @@ reimod = mehkey
 
 require('ergomouse')
 require('showkeymap')
-require('windowmanagement')
-require('appswitcher')
+-- require('windowmanagement')
+-- require('appswitcher')
 
 menuHammer = hs.loadSpoon("MenuHammer")
 menuHammer:enter()

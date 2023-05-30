@@ -1,7 +1,7 @@
 hs.window.switcher.ui.fontName = 'Menlo'
 hs.window.switcher.ui.showThumbnails = false
 hs.window.switcher.ui.showTitles = false
-hs.window.switcher.ui.showSelectedThumbnail = false 
+hs.window.switcher.ui.showSelectedThumbnail = true 
 hs.window.animationDuration = 0
 
 switcher = hs.window.switcher.new()
