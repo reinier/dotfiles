@@ -92,6 +92,21 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'A', "App Store", {
 				  {cons.act.launcher, 'App Store'}
 			}},
+			{cons.cat.action, '', 'G', "Github", {
+				  {cons.act.launcher, 'Github Desktop'}
+			}},
+			{cons.cat.action, '', 'K', "Keyboard Maestro", {
+				  {cons.act.launcher, 'Keyboard Maestro'}
+			}},
+			{cons.cat.action, '', 'N', "Numbers", {
+				  {cons.act.launcher, 'Numbers'}
+			}},
+			{cons.cat.action, '', 'U', "Ulysses", {
+				  {cons.act.launcher, 'Ulysses'}
+			}},
+			{cons.cat.action, '', 'S', "Slack", {
+				  {cons.act.launcher, 'Slack'}
+			}},
 		}
 	},
 	audioMenu = {
