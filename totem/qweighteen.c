@@ -66,7 +66,6 @@ combo_t key_combos[] = {
 #define KR_0_3_3 KC_C
 #define KR_0_3_4 KC_V
 #define KR_0_3_5 KC_B
-
 #define KR_0_3_6 KC_N
 #define KR_0_3_7 KC_M
 #define KR_0_3_8 KC_COMM_AMP
@@ -79,8 +78,8 @@ combo_t key_combos[] = {
 #define KR_0_4_2 OSM(MOD_LGUI)
 #define KR_0_4_3 MEH_T(KC_SPACE)
 
-#define KR_0_4_4 REPEAT
-#define KR_0_4_5 OSM(MOD_LSFT)
+#define KR_0_4_4 OSM(MOD_LSFT)
+#define KR_0_4_5 KC_F19
 #define KR_0_4_6 CW_TOGG
 
 // ############################################

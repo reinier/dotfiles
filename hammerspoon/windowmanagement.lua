@@ -32,21 +32,39 @@ screenPositions.mid = {
  w = 4, h = 3
 }
 
-local flagA
-local flagB
+screenPositions.top = {
+ x = 0, y = 0,
+ w = 6, h = 2
+}
 
-hs.hotkey.bind(reimod, "d", function()
+screenPositions.bottom = {
+ x = 0, y = 2,
+ w = 6, h = 2
+}
+local flagA
+-- local flagB
+
+hs.hotkey.bind(reimod, "i", function()
 	window = hs.window.focusedWindow()
-	if flagA ~= 'left' then
-		grid.set(window, screenPositions.left)
-		flagA = 'left'
-	else
-		grid.set(window, screenPositions.right)
-		flagA = 'right'
-	end
+	grid.set(window, screenPositions.top)
 end)
 
-hs.hotkey.bind(reimod, "f", function()
+hs.hotkey.bind(reimod, "k", function()
+	window = hs.window.focusedWindow()
+	grid.set(window, screenPositions.bottom)
+end)
+
+hs.hotkey.bind(reimod, "j", function()
+	window = hs.window.focusedWindow()
+	grid.set(window, screenPositions.left)
+end)
+
+hs.hotkey.bind(reimod, "l", function()
+	window = hs.window.focusedWindow()
+	grid.set(window, screenPositions.right)
+end)
+
+hs.hotkey.bind(reimod, "o", function()
 	window = hs.window.focusedWindow()
 	if flagB ~= 'full' then
 		grid.set(window, screenPositions.full)
@@ -58,7 +76,7 @@ hs.hotkey.bind(reimod, "f", function()
 end)
 
 -- Move window to next display and resize relatively
-hs.hotkey.bind(reimod, 'g', function()
+hs.hotkey.bind(reimod, 'u', function()
  window = hs.window.focusedWindow()
  local screen = window:screen()
  -- compute the unitRect of the focused window relative to the current screen

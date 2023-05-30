@@ -76,3 +76,7 @@ Symlink the config directories in the right place. Examples:
 ### Show invisible files in Finder
 
 Hold down the Command, Shift and Period keys: `cmd + shift + .`
+
+### Remove useless previews from icons in Finder
+
+`defaults write com.apple.finder  QLInlinePreviewMinimumSupportedSize -int 512`

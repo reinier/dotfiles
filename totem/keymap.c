@@ -7,8 +7,8 @@
 #include "microhacks.c"
 #include "qweighteen.c"
 
-#define KR_0_EXTRAL KC_NO
-#define KR_0_EXTRAR KC_NO
+#define KR_0_EXTRAL KC_F17
+#define KR_0_EXTRAR REPEAT 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
