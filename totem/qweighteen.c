@@ -2,6 +2,11 @@
 
 # Qweighteen, a keymap with full QWERTY layout but with a focus on the eighteen most easiest reachable keys on the other layers. 
 
+Inspired by the sixteen/eighteen keyboard of [Ben Vallack](https://www.youtube.com/@BenVallack)
+
+@TODO mouse layer (WER combo to enter mouse layer)
+@TODO split symbols layer for more typing comfort
+@TODO re-order layers so symbols layers are 1 and 2 instead of 1 and 4
 */
 
 /*
@@ -83,7 +88,7 @@ combo_t key_combos[] = {
 #define KR_0_4_6 CW_TOGG
 
 // ############################################
-// ###### Layer 1 Symbols
+// ###### Layer 1 Symbols I
 // ############################################
 
 // Top row
@@ -114,7 +119,7 @@ combo_t key_combos[] = {
 #define KR_1_2_9 KC_TILD_CIRC
 #define KR_1_2_10 KC_BSLS_PIPE
 
-// Lower row
+// Lower row 
 
 #define KR_1_3_1 KC_NO
 #define KR_1_3_2 KC_NO
@@ -137,6 +142,62 @@ combo_t key_combos[] = {
 #define KR_1_4_4 KC_TRNS
 #define KR_1_4_5 KC_TRNS
 #define KR_1_4_6 KC_TRNS
+
+// ############################################
+// ###### Layer 4 Symbols II
+// ############################################
+
+// Top row
+
+#define KR_4_1_1 KC_NO
+#define KR_4_1_2 KC_EXLM
+#define KR_4_1_3 KC_AT
+#define KR_4_1_4 KC_HASH
+#define KR_4_1_5 KC_NO
+
+#define KR_4_1_6 KC_NO
+#define KR_4_1_7 KC_LBRC
+#define KR_4_1_8 KC_RBRC
+#define KR_4_1_9 KC_SCLN
+#define KR_4_1_10 KC_NO
+
+// Mid row
+
+#define KR_4_2_1 KC_UNDS
+#define KR_4_2_2 KC_DLR_EUR
+#define KR_4_2_3 KC_GRAVE
+#define KR_4_2_4 KC_DQUO
+#define KR_4_2_5 KC_NO
+//
+#define KR_4_2_6 KC_NO
+#define KR_4_2_7 KC_LPRN_LR
+#define KR_4_2_8 KC_LCBR_LR
+#define KR_4_2_9 KC_TILD_CIRC
+#define KR_4_2_10 KC_BSLS_PIPE
+
+// Lower row
+
+#define KR_4_3_1 KC_NO
+#define KR_4_3_2 KC_NO
+#define KR_4_3_3 KC_NO
+#define KR_4_3_4 KC_NO
+#define KR_4_3_5 KC_NO
+//
+#define KR_4_3_6 KC_NO
+#define KR_4_3_7 KC_NO
+#define KR_4_3_8 KC_NO
+#define KR_4_3_9 KC_NO
+#define KR_4_3_10 KC_NO
+
+// Thumb cluster
+
+#define KR_4_4_1 KC_TRNS
+#define KR_4_4_2 KC_TRNS
+#define KR_4_4_3 KC_QUOT
+
+#define KR_4_4_4 KC_TRNS
+#define KR_4_4_5 KC_TRNS
+#define KR_4_4_6 KC_TRNS
 
 // ############################################
 // ##### Layer 2 NUM
@@ -183,7 +244,7 @@ combo_t key_combos[] = {
 #define KR_2_3_9 KC_NO
 #define KR_2_3_10 KC_NO
 
-// Thumb cluser
+// Thumb cluster
 
 
 #define KR_2_4_1 KC_TRNS
