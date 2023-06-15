@@ -151,6 +151,12 @@ menuHammerMenuList = {
 				  {cons.act.launcher, 'Finder'},
 				  {cons.act.keycombo, {'cmd', 'shift'}, 'l'},
 			}},
+			{cons.cat.action, '', 'P', 'Process', {
+				  {
+						cons.act.openfile,        -- Action type
+						"/Users/reinierladan/Library/Mobile Documents/com~apple~CloudDocs/__Process" -- File path
+				  },
+			}},
 			{cons.cat.action, '', 'I', "Activate Finder", {
 				  {cons.act.launcher, 'Finder'}
 			}},

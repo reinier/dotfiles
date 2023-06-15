@@ -5,7 +5,6 @@
 Inspired by the sixteen/eighteen keyboard of [Ben Vallack](https://www.youtube.com/@BenVallack)
 
 @TODO mouse layer (WER combo to enter mouse layer)
-@TODO split symbols layer for more typing comfort
 @TODO re-order layers so symbols layers are 1 and 2 instead of 1 and 4
 */
 
@@ -48,12 +47,12 @@ combo_t key_combos[] = {
 #define KR_0_1_7 RGUI_T(KC_U)
 #define KR_0_1_8 RALT_T(KC_I)
 #define KR_0_1_9 RCTL_T(KC_O)
-#define KR_0_1_10 KC_NO
+#define KR_0_1_10 KC_BSPC
 
 // Mid row
 
-#define KR_0_2_1 KC_A
-#define KR_0_2_2 LT(2,KC_S)
+#define KR_0_2_1 LT(2,KC_A)
+#define KR_0_2_2 LT(4,KC_S)
 #define KR_0_2_3 LT(1,KC_D)
 #define KR_0_2_4 LT(3,KC_F)
 #define KR_0_2_5 LSFT_T(KC_G)
@@ -61,8 +60,8 @@ combo_t key_combos[] = {
 #define KR_0_2_6 KC_H
 #define KR_0_2_7 LT(3,KC_J)
 #define KR_0_2_8 LT(1,KC_K)
-#define KR_0_2_9 LT(2,KC_L)
-#define KR_0_2_10 KC_P
+#define KR_0_2_9 LT(4,KC_L)
+#define KR_0_2_10 LT(2,KC_P)
 
 // Bottom row
 
@@ -73,8 +72,8 @@ combo_t key_combos[] = {
 #define KR_0_3_5 KC_B
 #define KR_0_3_6 KC_N
 #define KR_0_3_7 KC_M
-#define KR_0_3_8 KC_COMM_AMP
-#define KR_0_3_9 KC_DOT_ELIP
+#define KR_0_3_8 KC_COMM
+#define KR_0_3_9 KC_DOT
 #define KR_0_3_10 KC_SLASH
 
 // Thumb cluster
@@ -94,30 +93,30 @@ combo_t key_combos[] = {
 // Top row
 
 #define KR_1_1_1 KC_NO
-#define KR_1_1_2 KC_EXLM
-#define KR_1_1_3 KC_AT
-#define KR_1_1_4 KC_HASH
+#define KR_1_1_2 KC_NO
+#define KR_1_1_3 A(KC_2) // €
+#define KR_1_1_4 KC_NO
 #define KR_1_1_5 KC_NO
 
 #define KR_1_1_6 KC_NO
-#define KR_1_1_7 KC_LBRC
-#define KR_1_1_8 KC_RBRC
-#define KR_1_1_9 KC_SCLN
+#define KR_1_1_7 KC_NO
+#define KR_1_1_8 KC_CIRC
+#define KR_1_1_9 S(KC_SLASH) // ?
 #define KR_1_1_10 KC_NO
 
 // Mid row
 
-#define KR_1_2_1 KC_UNDS
-#define KR_1_2_2 KC_DLR_EUR
+#define KR_1_2_1 KC_NO
+#define KR_1_2_2 S(KC_F19)
 #define KR_1_2_3 KC_GRAVE
 #define KR_1_2_4 KC_DQUO
 #define KR_1_2_5 KC_NO
 //
 #define KR_1_2_6 KC_NO
-#define KR_1_2_7 KC_LPRN_LR
-#define KR_1_2_8 KC_LCBR_LR
-#define KR_1_2_9 KC_TILD_CIRC
-#define KR_1_2_10 KC_BSLS_PIPE
+#define KR_1_2_7 KC_HASH
+#define KR_1_2_8 KC_AT
+#define KR_1_2_9 KC_EXLM
+#define KR_1_2_10 A(KC_SCLN)
 
 // Lower row 
 
@@ -150,30 +149,30 @@ combo_t key_combos[] = {
 // Top row
 
 #define KR_4_1_1 KC_NO
-#define KR_4_1_2 KC_EXLM
-#define KR_4_1_3 KC_AT
-#define KR_4_1_4 KC_HASH
+#define KR_4_1_2 KC_TILD
+#define KR_4_1_3 KC_BSLS
+#define KR_4_1_4 KC_PIPE
 #define KR_4_1_5 KC_NO
 
 #define KR_4_1_6 KC_NO
-#define KR_4_1_7 KC_LBRC
+#define KR_4_1_7 KC_RPRN
 #define KR_4_1_8 KC_RBRC
-#define KR_4_1_9 KC_SCLN
+#define KR_4_1_9 KC_RCBR
 #define KR_4_1_10 KC_NO
 
 // Mid row
 
 #define KR_4_2_1 KC_UNDS
-#define KR_4_2_2 KC_DLR_EUR
-#define KR_4_2_3 KC_GRAVE
-#define KR_4_2_4 KC_DQUO
+#define KR_4_2_2 KC_DLR
+#define KR_4_2_3 KC_SLASH
+#define KR_4_2_4 KC_PERC
 #define KR_4_2_5 KC_NO
 //
 #define KR_4_2_6 KC_NO
-#define KR_4_2_7 KC_LPRN_LR
-#define KR_4_2_8 KC_LCBR_LR
-#define KR_4_2_9 KC_TILD_CIRC
-#define KR_4_2_10 KC_BSLS_PIPE
+#define KR_4_2_7 KC_LPRN
+#define KR_4_2_8 KC_LBRC
+#define KR_4_2_9 KC_LCBR
+#define KR_4_2_10 KC_SCLN
 
 // Lower row
 
@@ -193,7 +192,7 @@ combo_t key_combos[] = {
 
 #define KR_4_4_1 KC_TRNS
 #define KR_4_4_2 KC_TRNS
-#define KR_4_4_3 KC_QUOT
+#define KR_4_4_3 KC_AMPR
 
 #define KR_4_4_4 KC_TRNS
 #define KR_4_4_5 KC_TRNS
@@ -219,7 +218,7 @@ combo_t key_combos[] = {
 #define KR_2_1_10 KC_NO
 
 
-#define KR_2_2_1 KC_ASTR_PERC
+#define KR_2_2_1 KC_ASTR
 #define KR_2_2_2 KC_MINUS
 #define KR_2_2_3 KC_1
 #define KR_2_2_4 KC_2
@@ -266,7 +265,7 @@ combo_t key_combos[] = {
 #define KR_3_1_1 KC_NO
 #define KR_3_1_2 LCTL_T(KC_ESC)
 #define KR_3_1_3 LALT_T(KC_F18)
-#define KR_3_1_4 LSFT_T(KC_F19)
+#define KR_3_1_4 LSFT_T(KC_F23)
 #define KR_3_1_5 KC_NO
 //
 #define KR_3_1_6 KC_NO
