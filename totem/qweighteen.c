@@ -2,7 +2,7 @@
 
 # Qweighteen, a keymap with full QWERTY layout but with a focus on the eighteen most easiest reachable keys on the other layers. 
 
-Inspired by the sixteen/eighteen keyboard of [Ben Vallack](https://www.youtube.com/@BenVallack)
+Inspired by the sixteen/eighteen key keyboard of [Ben Vallack](https://www.youtube.com/@BenVallack)
 
 @TODO mouse layer (WER combo to enter mouse layer)
 @TODO re-order layers so symbols layers are 1 and 2 instead of 1 and 4
@@ -207,27 +207,27 @@ combo_t key_combos[] = {
 
 #define KR_2_1_1 KC_NO
 #define KR_2_1_2 KC_PLUS
-#define KR_2_1_3 KC_6
-#define KR_2_1_4 KC_7
+#define KR_2_1_3 KC_5
+#define KR_2_1_4 KC_6
 #define KR_2_1_5 KC_NO
 //
 #define KR_2_1_6 KC_NO
-#define KR_2_1_7 KC_8
-#define KR_2_1_8 KC_9
-#define KR_2_1_9 KC_0
+#define KR_2_1_7 KC_7
+#define KR_2_1_8 KC_8
+#define KR_2_1_9 KC_9
 #define KR_2_1_10 KC_NO
 
 
 #define KR_2_2_1 KC_ASTR
 #define KR_2_2_2 KC_MINUS
-#define KR_2_2_3 KC_1
-#define KR_2_2_4 KC_2
+#define KR_2_2_3 KC_0
+#define KR_2_2_4 KC_1
 #define KR_2_2_5 KC_NO
 //
 #define KR_2_2_6 KC_NO
-#define KR_2_2_7 KC_3
-#define KR_2_2_8 KC_4
-#define KR_2_2_9 KC_5
+#define KR_2_2_7 KC_2
+#define KR_2_2_8 KC_3
+#define KR_2_2_9 KC_4
 #define KR_2_2_10 KC_PEQL
 
 
@@ -258,18 +258,16 @@ combo_t key_combos[] = {
 // ##### Layer 3 EXTENDED
 // ############################################
 
-/* #define KR_3_1_3 G(S(KC_5)) // Screenshot with Cleanshot */
-
 // Top row
 
 #define KR_3_1_1 KC_NO
 #define KR_3_1_2 LCTL_T(KC_ESC)
-#define KR_3_1_3 LALT_T(KC_F18)
-#define KR_3_1_4 LSFT_T(KC_F23)
+#define KR_3_1_3 LALT_T(KC_F18) // Mapped to main screenshot action in Cleanshot
+#define KR_3_1_4 LSFT_T(KC_F17)
 #define KR_3_1_5 KC_NO
 //
 #define KR_3_1_6 KC_NO
-#define KR_3_1_7 KC_CCCV
+#define KR_3_1_7 KC_CCCV // copy on hold, paste on tap
 #define KR_3_1_8 KC_UP
 #define KR_3_1_9 KC_BSPC
 #define KR_3_1_10 KC_NO
@@ -279,7 +277,7 @@ combo_t key_combos[] = {
 #define KR_3_2_1 KC_TAB
 #define KR_3_2_2 KC_DELETE
 #define KR_3_2_3 LALT_T(KC_F20)
-#define KR_3_2_4 KC_F21
+#define KR_3_2_4 CW_TOGG
 #define KR_3_2_5 KC_NO
 //
 #define KR_3_2_6 KC_NO
