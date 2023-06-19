@@ -34,6 +34,7 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 - On Totem I've got extra pinky keys available, not sure what to do with them or if I even want to.
 - I can do a lot more on the Extend layer for Mouse + keyboard use.
 - Find a place for page up and page down, media controls and F keys. Probably need new layer.
+- Learn to get value out of a repeat key. Tried it once, didn't stick. Could replace the leader key on right thumb.
 
 ### The keymap and macros for use with the MEH-key
 
