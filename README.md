@@ -15,6 +15,8 @@ For keyboard firmware install you need [QMK](https://beta.docs.qmk.fm):
 
 After a couple of years experience with normal and low profile, I think I'm leaning towards sticking with low profile and ultra light switches (pink chocs, aka gchocs). My main keyboard right now is the Geist Totem with more keys then I need.
 
+I named my [keymap Qweighteen and wrote a blogpost about its genesis](https://reinierladan.nl/blog/2023/qweighteen-keymap/). @benvallack is the main inspiration for going 18-keys only on the non-base layers.
+
 With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of things:
 
 - Keep qwerty my main layout for now, except for P at right pinky
