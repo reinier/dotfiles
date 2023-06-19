@@ -3,7 +3,7 @@ menuHammerMenuList = {
 		parentMenu = nil,
 		menuHotkey = {{}, 'f19'},
 		menuItems =  {
-			{cons.cat.submenu, '', '/', 'More Apps', {
+			{cons.cat.submenu, '', 'O', 'More Apps', {
 				  {cons.act.menu, "applicationMenu"}
 			}},
 			{cons.cat.submenu, '', 'T', 'Audio', {
@@ -46,9 +46,6 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'P', "Craft", {
 				  {cons.act.launcher, 'Craft'}
 			}},
-			{cons.cat.action, '', 'O', "Obsidian", {
-				  {cons.act.launcher, 'Obsidian'}
-			}},
 			{cons.cat.action, '', 'Y', "1Password", {
 				  {cons.act.launcher, '1Password'}
 			}},
@@ -71,11 +68,11 @@ menuHammerMenuList = {
 					  hs.reload()
 				end }
 			}},
-			{cons.cat.action, '', 'B', "Show keymap", {
-				{cons.act.func, function()
-					  toggleKeymap()
-				end }
-			}, true},
+			-- {cons.cat.action, '', 'B', "Show keymap", {
+			-- 	{cons.act.func, function()
+			-- 		  toggleKeymap()
+			-- 	end }
+			-- }, true},
 			
 		}
 	},
@@ -101,6 +98,9 @@ menuHammerMenuList = {
 			}},
 			{cons.cat.action, '', 'S', "Slack", {
 				  {cons.act.launcher, 'Slack'}
+			}},
+			{cons.cat.action, '', 'O', "Obsidian", {
+				  {cons.act.launcher, 'Obsidian'}
 			}},
 		}
 	},

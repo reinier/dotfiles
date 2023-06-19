@@ -70,4 +70,4 @@ function toggleKeymap()
 	 end
 end
 
--- hs.hotkey.bind(reimod, "b", toggleKeymap)
+hs.hotkey.bind(reimod, "b", toggleKeymap)
