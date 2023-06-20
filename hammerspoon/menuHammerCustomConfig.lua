@@ -3,6 +3,10 @@ menuHammerMenuList = {
 		parentMenu = nil,
 		menuHotkey = {{}, 'f19'},
 		menuItems =  {
+			{cons.cat.exit, '', 'f19', 'Exit', {
+				{cons.act.func, function() self.menuManager:closeMenu() end }
+		    }},
+			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.submenu, '', 'O', 'More Apps', {
 				  {cons.act.menu, "applicationMenu"}
 			}},
@@ -12,6 +16,7 @@ menuHammerMenuList = {
 			{cons.cat.submenu, '', 'I', "Finder", {
 				  {cons.act.menu, 'finderMenu'}
 			}},
+			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'space', "Alfred", {
 				  {cons.act.keycombo, {'cmd'}, 'space'},
 			}},
