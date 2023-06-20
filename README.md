@@ -18,23 +18,24 @@ After a couple of years experience with normal and low profile, I think I'm lean
 With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of things:
 
 - Keep qwerty my main layout for now, except for P at right pinky
-- Only use 32 keys on base layer and focus on 18 keys on other layers for usability (and sometime in the future migrate to a 100% 18-key keyboard). This is still work in progress.
+- Only use 32 keys on base layer and focus on 18 keys on other layers for usability (and sometime in the future migrate to a 100% 18-key keyboard).
 - Minimal number of layers for usability
 - Dedicated CMD and SHIFT keys and [home row mods](https://precondition.github.io/home-row-mods) for all the mods
 - Easy sync between all my keyboards (but my main focus right now is the Totem, so other keymaps can be out of date)
 - Minimize pinky use on both sides for ergonomic reasons
 - No tap dances
-- Minimal use of combos (currently three in use)
+- Caps Word is a more convenient option compared to Capslock. After you typed a single word in all capital letters, the keyboard automatically returns to lowercase letters.
+- Minimal use of combos (currently two in use)
 - Base layer is always available by holding the spacebar
 - A CCCV key (called `CP` on keymap) to suck something into the key by holding, and spitting it out by tapping. (CMD-C hold, CMD-V tap)
 - I've tried working with a mouse layer, but it's not working for me right now. Will try again when absolutely comfortable with the current keymap.
 
 ### Todo's, needs and wants
 
-- On Totem I've got extra pinky keys available, not sure what to do with them or if I even want to.
 - I can do a lot more on the Extend layer for Mouse + keyboard use.
 - Find a place for page up and page down, media controls and F keys. Probably need new layer.
 - Learn to get value out of a repeat key. Tried it once, didn't stick. Could replace the leader key on right thumb.
+- Turn leader key in Layer Lock key on non-base layers.
 
 ### The keymap and macros for use with the MEH-key
 

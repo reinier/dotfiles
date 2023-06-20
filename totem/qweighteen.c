@@ -1,10 +1,9 @@
 /*
 
-# Qweighteen, a keymap with full QWERTY layout but with a focus on the eighteen most easiest reachable keys on the other layers. 
+# Qweighteen, a keymap with full QWERTY layout but with a focus on the eighteen most comfortable keys on the other layers. 
 
 Inspired by the sixteen/eighteen key keyboard of [Ben Vallack](https://www.youtube.com/@BenVallack)
 
-@TODO mouse layer (WER combo to enter mouse layer)
 @TODO re-order layers so symbols layers are 1 and 2 instead of 1 and 4
 */
 
@@ -17,7 +16,6 @@ Inspired by the sixteen/eighteen key keyboard of [Ben Vallack](https://www.youtu
 enum combos {
 	CBO_0,
 	CBO_1,
-	CBO_2,
 	COMBO_LENGTH
 };
 
@@ -25,12 +23,10 @@ uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM combo0[] = { KC_LEFT, KC_DOWN, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_CCCV, KC_UP, COMBO_END};
-const uint16_t PROGMEM combo2[] = { RGUI_T(KC_U), RALT_T(KC_I), RCTL_T(KC_O), COMBO_END};
 
 combo_t key_combos[] = {
 	[CBO_0] = COMBO(combo0, KC_BTN1),
 	[CBO_1] = COMBO(combo1, KC_BTN2),
-	[CBO_2] = COMBO(combo2, TT(3))
 };
 
 // # Layer 0
@@ -307,6 +303,6 @@ combo_t key_combos[] = {
 #define KR_3_4_3 TO(0)
 
 #define KR_3_4_4 KC_TRNS
-#define KR_3_4_5 KC_TRNS
+#define KR_3_4_5 LLOCK
 #define KR_3_4_6 KC_TRNS
 

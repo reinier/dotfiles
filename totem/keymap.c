@@ -1,9 +1,7 @@
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 #include "totem.h"
-
-/* Repeat key as described in: https://getreuer.info/posts/keyboards/repeat-key/ */
-#include "features/repeat_key.h"
+#include "features/layer_lock.h"
 #include "microhacks.c"
 #include "qweighteen.c"
 

@@ -1,6 +1,6 @@
 enum custom_keycodes {
-  KC_CCCV= SAFE_RANGE,
-  REPEAT,
+  LLOCK = SAFE_RANGE,
+  KC_CCCV,
   // Other custom keys...
 };
 
@@ -12,7 +12,7 @@ uint8_t mod_state;
 
 bool process_record_user(uint16_t keycode, keyrecord_t * record) {
 	
-	if (!process_repeat_key(keycode, record, REPEAT)) { return false; }
+	if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
 	
 	// Store the current modifier state in the variable for later reference
 	mod_state = get_mods();
