@@ -25,16 +25,17 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 - Dedicated CMD and SHIFT keys and [home row mods](https://precondition.github.io/home-row-mods) for all the mods
 - Easy sync between all my keyboards (but my main focus right now is the Totem, so other keymaps can be out of date)
 - Minimize pinky use on both sides for ergonomic reasons
-- No tap dances
+- No tap dances (can't get them to work comfortable)
 - Space without meh-key on hold is present on Extend layer to use when selection stuff in graphical editor or screenshot tool
 - Caps Word is a more convenient option compared to Capslock. After you typed a single word in all capital letters, the keyboard automatically returns to lowercase letters.
 - Minimal use of combos (currently two in use)
+- Lock layers with alternative right thumb key
 - Base layer is always available by tapping leader key position (when on base layer, hammerspoon will show the hammermenu so you know you are on the base layer)
 - A CCCV key (called `CP` on keymap) to suck something into the key by holding, and spitting it out by tapping. (CMD-C hold, CMD-V tap)
-- I've tried working with a mouse layer, but it's not working for me right now. Will try again when absolutely comfortable with the current keymap.
 
 ### Todo's, needs and wants
 
+- I've tried working with a mouse layer, but it's not working for me right now. Will try again when absolutely comfortable with the current keymap.
 - I can do a lot more on the Extend layer for Mouse + keyboard use.
 - Find a place for media controls and F keys. Probably need new layer.
 - Learn to get value out of a repeat key. Tried it once, didn't stick. Could replace the leader key on right thumb.
@@ -48,8 +49,8 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 
 ## Hammerspoon
 
-- To make scrolling easy with the Logi Ergo MX en Kensington mouse
-- To serve as my url dispatcher to open links with the correct browser
+- To make scrolling easy with the Logi Ergo MX en Kensington mouse. Hold right mouse key and move mouse to scroll.
+- To serve as my url dispatcher to open links with the correct browser (not in use for now)
 - Show my keymap with MEH-B
 - To do all kinds of other scripting
 - Handling of the leader key (F19)
@@ -58,11 +59,11 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 
 Invisible in this repo, but I also use the following apps to be more productive:
 
-- Keyboard Maestro (I make use of palettes quite heavily)
-- Drafts (to quickly jot down notes and script text)
-- Alfred (mostly used for searching through different services)
-- CleanShot X (the best screenshot app there is)
 - [Amethyst](https://ianyh.com/amethyst/) (for window management)
+- [Keyboard Maestro](https://www.keyboardmaestro.com/main/) (I make use of palettes quite heavily)
+- [Drafts](https://getdrafts.com/) (to quickly jot down notes and script text)
+- [Alfred](https://www.alfredapp.com/) (mostly used for searching through different services)
+- [CleanShot X](https://cleanshot.com/) (the best screenshot app there is)
 
 ## Install dotfiles on clean system
 
@@ -73,12 +74,16 @@ Symlink the config directories in the right place. Examples:
 - `ln -s ~/dev/dotfiles/.zshrc ~/.zshrc`
 - `ln -s ~/dev/dotfiles/karabiner ~/.config/karabiner`
 - `ln -s ~/dev/dotfiles/hammerspoon ~/.hammerspoon`
-- `ln -s ~/dev/dotfiles/technik ~/qmk_firmware/keyboards/boardsource/technik_o/keymaps/technik-reinier`
 - `ln -s ~/dev/dotfiles/totem ~/qmk_firmware/keyboards/totem/keymaps/reinier`
+- `ln -s ~/dev/dotfiles/technik ~/qmk_firmware/keyboards/boardsource/technik_o/keymaps/technik-reinier`
 - `ln -s ~/dev/dotfiles/microdox ~/qmk_firmware/keyboards/boardsource/microdox/keymaps/microdox-reinier`
 - `ln -s ~/dev/dotfiles/moonlander-mk3 ~/qmk_firmware/keyboards/moonlander/keymaps/moonlander-mk3`
 
-### Show invisible files in Finder
+### Build QMK keyboard firmware
+
+- `qmk compile -kb totem -km reinier`
+
+### Show / hide invisible files in Finder
 
 Hold down the Command, Shift and Period keys: `cmd + shift + .`
 
