@@ -27,10 +27,10 @@ menuHammerMenuList = {
 			{cons.cat.action, '', '.', "Terminal", {
 				  {cons.act.launcher, 'Terminal'}
 			}},
-			{cons.cat.action, '', ',', "Nova", {
+			{cons.cat.action, 'shift', ',', "Nova", {
 				  {cons.act.launcher, 'Nova'}
 			}},
-			{cons.cat.action, 'shift', ',', "VSCode", {
+			{cons.cat.action, '', ',', "VSCode", {
 				  {cons.act.launcher, 'Visual Studio Code'}
 			}},
 			{cons.cat.action, '', 'U', "Figma", {
