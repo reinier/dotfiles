@@ -257,9 +257,9 @@ combo_t key_combos[] = {
 // Top row
 
 #define KR_3_1_1 KC_NO
-#define KR_3_1_2 LCTL_T(KC_ESC)
-#define KR_3_1_3 LALT_T(KC_PGUP) 
-#define KR_3_1_4 LSFT_T(KC_F18) // Mapped to main screenshot action in Cleanshot
+#define KR_3_1_2 KC_ESC
+#define KR_3_1_3 KC_PGUP 
+#define KR_3_1_4 KC_F18 // Mapped to main screenshot action in Cleanshot
 #define KR_3_1_5 KC_NO
 //
 #define KR_3_1_6 KC_NO
@@ -271,7 +271,7 @@ combo_t key_combos[] = {
 // Mid row
 
 #define KR_3_2_1 KC_TAB
-#define KR_3_2_2 KC_DELETE
+#define KR_3_2_2 LCTL_T(KC_DELETE)
 #define KR_3_2_3 LALT_T(KC_PGDN)
 #define KR_3_2_4 CW_TOGG
 #define KR_3_2_5 KC_NO
