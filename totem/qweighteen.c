@@ -89,22 +89,22 @@ combo_t key_combos[] = {
 // Top row
 
 #define KR_1_1_1 KC_NO
-#define KR_1_1_2 KC_NO
+#define KR_1_1_2 KC_CIRC
 #define KR_1_1_3 A(KC_2) // €
-#define KR_1_1_4 KC_NO
+#define KR_1_1_4 S(KC_F19)
 #define KR_1_1_5 KC_NO
 
 #define KR_1_1_6 KC_NO
-#define KR_1_1_7 KC_NO
-#define KR_1_1_8 KC_CIRC
+#define KR_1_1_7 KC_AMPR
+#define KR_1_1_8 KC_PEQL
 #define KR_1_1_9 S(KC_SLASH) // ?
 #define KR_1_1_10 KC_NO
 
 // Mid row
 
 #define KR_1_2_1 KC_NO
-#define KR_1_2_2 S(KC_F19)
-#define KR_1_2_3 KC_GRAVE
+#define KR_1_2_2 KC_GRAVE
+#define KR_1_2_3 KC_QUOT
 #define KR_1_2_4 KC_DQUO
 #define KR_1_2_5 KC_NO
 //
@@ -132,10 +132,10 @@ combo_t key_combos[] = {
 
 #define KR_1_4_1 KC_TRNS
 #define KR_1_4_2 KC_TRNS
-#define KR_1_4_3 KC_QUOT
+#define KR_1_4_3 TO(0)
 
 #define KR_1_4_4 KC_TRNS
-#define KR_1_4_5 KC_TRNS
+#define KR_1_4_5 LLOCK
 #define KR_1_4_6 KC_TRNS
 
 // ############################################
@@ -188,10 +188,10 @@ combo_t key_combos[] = {
 
 #define KR_4_4_1 KC_TRNS
 #define KR_4_4_2 KC_TRNS
-#define KR_4_4_3 KC_AMPR
+#define KR_4_4_3 TO(0)
 
 #define KR_4_4_4 KC_TRNS
-#define KR_4_4_5 KC_TRNS
+#define KR_4_4_5 LLOCK
 #define KR_4_4_6 KC_TRNS
 
 // ############################################
@@ -214,8 +214,8 @@ combo_t key_combos[] = {
 #define KR_2_1_10 KC_NO
 
 
-#define KR_2_2_1 KC_ASTR
-#define KR_2_2_2 KC_MINUS
+#define KR_2_2_1 KC_MINUS
+#define KR_2_2_2 KC_ASTR
 #define KR_2_2_3 KC_0
 #define KR_2_2_4 KC_1
 #define KR_2_2_5 KC_NO
@@ -224,7 +224,7 @@ combo_t key_combos[] = {
 #define KR_2_2_7 KC_2
 #define KR_2_2_8 KC_3
 #define KR_2_2_9 KC_4
-#define KR_2_2_10 KC_PEQL
+#define KR_2_2_10 KC_COLN
 
 
 #define KR_2_3_1 KC_NO
@@ -244,10 +244,10 @@ combo_t key_combos[] = {
 
 #define KR_2_4_1 KC_TRNS
 #define KR_2_4_2 KC_TRNS
-#define KR_2_4_3 KC_COLN
+#define KR_2_4_3 TO(0)
 
 #define KR_2_4_4 KC_TRNS
-#define KR_2_4_5 KC_TRNS
+#define KR_2_4_5 LLOCK
 #define KR_2_4_6 KC_TRNS
 
 // ############################################
@@ -255,11 +255,10 @@ combo_t key_combos[] = {
 // ############################################
 
 // Top row
-
 #define KR_3_1_1 KC_NO
 #define KR_3_1_2 LCTL_T(KC_ESC)
-#define KR_3_1_3 LALT_T(KC_F18) // Mapped to main screenshot action in Cleanshot
-#define KR_3_1_4 LSFT_T(KC_F17)
+#define KR_3_1_3 LALT_T(KC_PGUP) 
+#define KR_3_1_4 LSFT_T(KC_F18) // Mapped to main screenshot action in Cleanshot
 #define KR_3_1_5 KC_NO
 //
 #define KR_3_1_6 KC_NO
@@ -272,7 +271,7 @@ combo_t key_combos[] = {
 
 #define KR_3_2_1 KC_TAB
 #define KR_3_2_2 KC_DELETE
-#define KR_3_2_3 LALT_T(KC_F20)
+#define KR_3_2_3 LALT_T(KC_PGDN)
 #define KR_3_2_4 CW_TOGG
 #define KR_3_2_5 KC_NO
 //
@@ -301,8 +300,6 @@ combo_t key_combos[] = {
 #define KR_3_4_1 KC_TRNS
 #define KR_3_4_2 KC_TRNS
 #define KR_3_4_3 TO(0)
-
 #define KR_3_4_4 KC_TRNS
 #define KR_3_4_5 LLOCK
 #define KR_3_4_6 KC_TRNS
-

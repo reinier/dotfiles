@@ -35,7 +35,7 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 ### Todo's, needs and wants
 
 - I can do a lot more on the Extend layer for Mouse + keyboard use.
-- Find a place for page up and page down, media controls and F keys. Probably need new layer.
+- Find a place for media controls and F keys. Probably need new layer.
 - Learn to get value out of a repeat key. Tried it once, didn't stick. Could replace the leader key on right thumb.
 - Turn leader key in Layer Lock key on non-base layers.
 
