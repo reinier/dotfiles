@@ -1,3 +1,5 @@
+-- https://github.com/FryJay/MenuHammer
+
 menuHammerMenuList = {
 	mainMenu = {
 		parentMenu = nil,
@@ -5,54 +7,54 @@ menuHammerMenuList = {
 		menuItems =  {
 			{cons.cat.exit, '', 'f19', 'Exit', {
 				{cons.act.func, function() self.menuManager:closeMenu() end }
-		    }},
+			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.submenu, '', 'O', 'More Apps', {
-				  {cons.act.menu, "applicationMenu"}
+				{cons.act.menu, "applicationMenu"}
 			}},
 			{cons.cat.submenu, '', 'T', 'Audio', {
-				  {cons.act.menu, "audioMenu"}
+				{cons.act.menu, "audioMenu"}
 			}},
 			{cons.cat.submenu, '', 'I', "Finder", {
-				  {cons.act.menu, 'finderMenu'}
+				{cons.act.menu, 'finderMenu'}
 			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'space', "Alfred", {
-				  {cons.act.keycombo, {'cmd'}, 'space'},
+				{cons.act.keycombo, {'cmd'}, 'space'},
 			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'H', "Arc", {
-				  {cons.act.launcher, 'Arc'}
+				{cons.act.launcher, 'Arc'}
 			}},
 			{cons.cat.action, '', '.', "Terminal", {
-				  {cons.act.launcher, 'Terminal'}
+				{cons.act.launcher, 'Terminal'}
 			}},
 			{cons.cat.action, 'shift', ',', "Nova", {
-				  {cons.act.launcher, 'Nova'}
+				{cons.act.launcher, 'Nova'}
 			}},
 			{cons.cat.action, '', ',', "VSCode", {
-				  {cons.act.launcher, 'Visual Studio Code'}
+				{cons.act.launcher, 'Visual Studio Code'}
 			}},
 			{cons.cat.action, '', 'U', "Figma", {
-				  {cons.act.launcher, 'Figma'}
+				{cons.act.launcher, 'Figma'}
 			}},
 			{cons.cat.action, '', 'K', "Drafts", {
-				  {cons.act.launcher, 'Drafts'}
+				{cons.act.launcher, 'Drafts'}
 			}},
 			{cons.cat.action, '', 'J', "Things", {
-				  {cons.act.launcher, 'Things3'}
+				{cons.act.launcher, 'Things3'}
 			}},
 			{cons.cat.action, '', 'L', "Fantastical", {
-				  {cons.act.launcher, 'Fantastical'}
+				{cons.act.launcher, 'Fantastical'}
 			}},
 			{cons.cat.action, '', 'M', "Mindnode", {
-				  {cons.act.launcher, 'Mindnode'}
+				{cons.act.launcher, 'Mindnode'}
 			}},
 			{cons.cat.action, '', 'P', "Craft", {
-				  {cons.act.launcher, 'Craft'}
+				{cons.act.launcher, 'Craft'}
 			}},
 			{cons.cat.action, '', 'Y', "1Password", {
-				  {cons.act.launcher, '1Password'}
+				{cons.act.launcher, '1Password'}
 			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'A', "Actions", {
@@ -65,12 +67,12 @@ menuHammerMenuList = {
 				{cons.act.keycombo, hyperkey, 'c'},
 			}},
 			{cons.cat.action, '', 'S', 'App actions', {
-				  {cons.act.keycombo, hyperkey, 's'},
+				{cons.act.keycombo, hyperkey, 's'},
 			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'R', "Reload HS", {
 				{cons.act.func, function()
-					  hs.reload()
+					hs.reload()
 				end }
 			}},
 			-- {cons.cat.action, '', 'B', "Show keymap", {
@@ -87,25 +89,35 @@ menuHammerMenuList = {
 		-- menuHotkey = {{"shift"}, 'f19'},
 		menuItems = {
 			{cons.cat.action, '', 'A', "App Store", {
-				  {cons.act.launcher, 'App Store'}
+				{cons.act.launcher, 'App Store'}
 			}},
 			{cons.cat.action, '', 'G', "Github", {
-				  {cons.act.launcher, 'Github Desktop'}
+				{cons.act.launcher, 'Github Desktop'}
 			}},
 			{cons.cat.action, '', 'K', "Keyboard Maestro", {
-				  {cons.act.launcher, 'Keyboard Maestro'}
+				{cons.act.launcher, 'Keyboard Maestro'}
 			}},
 			{cons.cat.action, '', 'N', "Numbers", {
-				  {cons.act.launcher, 'Numbers'}
+				{cons.act.launcher, 'Numbers'}
 			}},
 			{cons.cat.action, '', 'U', "Ulysses", {
-				  {cons.act.launcher, 'Ulysses'}
+				{cons.act.launcher, 'Ulysses'}
 			}},
 			{cons.cat.action, '', 'S', "Slack", {
-				  {cons.act.launcher, 'Slack'}
+				{cons.act.launcher, 'Slack'}
 			}},
 			{cons.cat.action, '', 'O', "Obsidian", {
-				  {cons.act.launcher, 'Obsidian'}
+				{cons.act.launcher, 'Obsidian'}
+			}},
+			{cons.cat.action, '', 'W', 'Wikipedia',
+			{
+				{cons.act.userinput,                                             -- Action type
+				"luckyWikipedia",                                               -- Value Identifier
+				"Lucky Wikipedia",                                              -- Message
+				"Google a Wikipedia article and hit I'm Feeling Lucky button"}, -- Informative Text
+				{cons.act.openurl,
+				"http://www.google.com/search?q=@@luckyWikipedia@@%20site:wikipedia.org&meta=&btnI"
+				}
 			}},
 		}
 	},
@@ -149,21 +161,21 @@ menuHammerMenuList = {
 		-- menuHotkey = {{"shift"}, 'f19'},
 		menuItems = {
 			{cons.cat.action, '', 'D', 'Desktop', {
-			  	{cons.act.launcher, 'Finder'},
-			  	{cons.act.keycombo, {'cmd', 'shift'}, 'd'},
+				{cons.act.launcher, 'Finder'},
+				{cons.act.keycombo, {'cmd', 'shift'}, 'd'},
 			}},
 			{cons.cat.action, '', 'L', 'Downloads', {
-				  {cons.act.launcher, 'Finder'},
-				  {cons.act.keycombo, {'cmd', 'shift'}, 'l'},
+				{cons.act.launcher, 'Finder'},
+				{cons.act.keycombo, {'cmd', 'shift'}, 'l'},
 			}},
 			{cons.cat.action, '', 'P', 'Process', {
-				  {
-						cons.act.openfile,        -- Action type
-						"/Users/reinierladan/Library/Mobile Documents/com~apple~CloudDocs/__Process" -- File path
-				  },
+				{
+					cons.act.openfile,        -- Action type
+					"/Users/reinierladan/Library/Mobile Documents/com~apple~CloudDocs/__Process" -- File path
+				},
 			}},
 			{cons.cat.action, '', 'I', "Activate Finder", {
-				  {cons.act.launcher, 'Finder'}
+				{cons.act.launcher, 'Finder'}
 			}},
 		}
 	}
