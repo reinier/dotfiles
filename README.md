@@ -26,9 +26,10 @@ With this [QMK](https://beta.docs.qmk.fm) keymap I try to accomplish a couple of
 - Easy sync between all my keyboards (but my main focus right now is the Totem, so other keymaps can be out of date)
 - Minimize pinky use on both sides for ergonomic reasons
 - No tap dances
+- Space without meh-key on hold is present on Extend layer to use when selection stuff in graphical editor or screenshot tool
 - Caps Word is a more convenient option compared to Capslock. After you typed a single word in all capital letters, the keyboard automatically returns to lowercase letters.
 - Minimal use of combos (currently two in use)
-- Base layer is always available by holding the spacebar
+- Base layer is always available by tapping leader key position (when on base layer, hammerspoon will show the hammermenu so you know you are on the base layer)
 - A CCCV key (called `CP` on keymap) to suck something into the key by holding, and spitting it out by tapping. (CMD-C hold, CMD-V tap)
 - I've tried working with a mouse layer, but it's not working for me right now. Will try again when absolutely comfortable with the current keymap.
 
