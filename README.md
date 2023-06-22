@@ -2,7 +2,7 @@
 
 My Mac and mechanical keyboard (QMK) configuration
 
-*Keymaps are moved to this repository:*
+## ‼️ Keymaps are moved to this repository
 
 🚚 [reinier/rlkeymaps](https://github.com/reinier/rlkeymaps)
 
