@@ -26,11 +26,12 @@ Invisible in this repo, but I also use the following apps to be more productive:
 
 ## Install dotfiles on clean system
 
-Symlink the config directories in the right place. Examples:
+Symlink the config directories in the right place.
 
 - `ln -s ~/dev/dotfiles/z.sh ~/z.sh`
 - `ln -s ~/dev/dotfiles/.zprofile ~/.zprofile`
 - `ln -s ~/dev/dotfiles/.zshrc ~/.zshrc`
+- `mkdir .config`
 - `ln -s ~/dev/dotfiles/karabiner ~/.config/karabiner`
 - `ln -s ~/dev/dotfiles/hammerspoon ~/.hammerspoon`
 

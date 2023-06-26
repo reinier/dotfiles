@@ -18,7 +18,13 @@ menuHammerMenuList = {
 			{cons.cat.submenu, '', 'I', "Finder", {
 				{cons.act.menu, 'finderMenu'}
 			}},
+			{cons.cat.submenu, '', 'D', "Browse", {
+				{cons.act.menu, 'browseMenu'}
+			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
+			{cons.cat.action, 'shift', 'space', "Alfred File Action", {
+				{cons.act.keycombo, {'cmd','shift','option','control'}, 'space'},
+			}},
 			{cons.cat.action, '', 'space', "Alfred", {
 				{cons.act.keycombo, {'cmd'}, 'space'},
 			}},
@@ -108,17 +114,7 @@ menuHammerMenuList = {
 			}},
 			{cons.cat.action, '', 'O', "Obsidian", {
 				{cons.act.launcher, 'Obsidian'}
-			}},
-			{cons.cat.action, '', 'W', 'Wikipedia',
-			{
-				{cons.act.userinput,                                             -- Action type
-				"luckyWikipedia",                                               -- Value Identifier
-				"Lucky Wikipedia",                                              -- Message
-				"Google a Wikipedia article and hit I'm Feeling Lucky button"}, -- Informative Text
-				{cons.act.openurl,
-				"http://www.google.com/search?q=@@luckyWikipedia@@%20site:wikipedia.org&meta=&btnI"
-				}
-			}},
+			}}
 		}
 	},
 	audioMenu = {
@@ -165,8 +161,10 @@ menuHammerMenuList = {
 				{cons.act.keycombo, {'cmd', 'shift'}, 'd'},
 			}},
 			{cons.cat.action, '', 'L', 'Downloads', {
-				{cons.act.launcher, 'Finder'},
-				{cons.act.keycombo, {'cmd', 'shift'}, 'l'},
+				{
+					cons.act.openfile,        -- Action type
+					"/Users/reinierladan/Downloads" -- File path
+				},
 			}},
 			{cons.cat.action, '', 'P', 'Process', {
 				{
@@ -177,6 +175,32 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'I', "Activate Finder", {
 				{cons.act.launcher, 'Finder'}
 			}},
+		}
+	},
+	browseMenu = {
+		parentMenu = "mainMenu",
+		menuHotkey = nil,
+		menuItems = {
+			{cons.cat.action, '', 'F', 'Fastmail', {
+				{cons.act.openurl,
+				"https://fastmail.com"
+				}
+			}},
+			{cons.cat.action, '', 'M', 'Moneybird', {
+				{cons.act.openurl,
+				"https://moneybird.com/265874186632693728/documents/filter/period:this_year"
+				}
+			}},
+			{cons.cat.action, '', 'W', 'Wikipedia',
+			{
+				{cons.act.userinput,                                             -- Action type
+				"luckyWikipedia",                                               -- Value Identifier
+				"Lucky Wikipedia",                                              -- Message
+				"Google a Wikipedia article and hit I'm Feeling Lucky button"}, -- Informative Text
+				{cons.act.openurl,
+				"http://www.google.com/search?q=@@luckyWikipedia@@%20site:wikipedia.org&meta=&btnI"
+				}
+			}}
 		}
 	}
 }
