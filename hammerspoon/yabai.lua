@@ -1,33 +1,35 @@
 -- ~/.hammerspoon/keyboard/yabai.lua
--- Send message(s) to a running instance of yabai.
-local function yabai(commands)
-	for _, cmd in ipairs(commands) do
-		os.execute("/opt/homebrew/bin/yabai -m " .. cmd)
+-- Yabai doesnt work great with focussing multiple monitors (sloooow) and configuring the shortcodes is finnicky and messy
+-- For cycling things you have to make your own script
+-- In short: Amethyst is far user friendlier.
+
+
+function yabai(args, completion)
+	local yabai_output = ""
+	local yabai_error = ""
+	-- Runs in background very fast
+	local yabai_task = hs.task.new("/opt/homebrew/bin/yabai",nil, function(task, stdout, stderr)
+		--print("stdout:"..stdout, "stderr:"..stderr)
+		if stdout ~= nil then yabai_output = yabai_output..stdout end
+		if stderr ~= nil then yabai_error = yabai_error..stderr end
+		return true
+	end, args)
+	if type(completion) == "function" then
+		yabai_task:setCallback(function() completion(yabai_output, yabai_error) end)
 	end
+	yabai_task:start()
 end
 
-local function yabaimod(key, commands)
-	hs.hotkey.bind(mehkey, key, function()
-		yabai(commands)
-	end)
-end
+-- function yabai_cycle_display()
+--     -- local yabai_task = hs.task.new("/opt/homebrew/bin/yabaiyabai -m space --focus next || /opt/homebrew/bin/yabaiyabai -m space --focus first")
+--     -- yabai_task:start()
+--     hs.execute("/opt/homebrew/bin/yabai -m display --focus next || /opt/homebrew/bin/yabai -m display --focus first");
+-- end
 
-yabaimod("j", { "window --focus next" })
-yabaimod("l", { "window --focus prev" })
-yabaimod("u", { "display --focus 3" })
-yabaimod("i", { "display --focus 1" })
-yabaimod("o", { "display --focus 2" })
+-- hs.hotkey.bind(mehkey, hs.keycodes.map["f"], function() yabai({"-m", "display", "--focus", "next"}) end)
+-- hs.hotkey.bind(mehkey, hs.keycodes.map["d"], function()
+--     print("Gaat het?")
+--     yabai_cycle_display()
+-- end)
 
-
--- alpha
--- yabaimod("f", { "window --toggle zoom-fullscreen" })
--- yabaimod("l", { "space --focus recent" })
--- yabaimod("m", { "space --toggle mission-control" })
--- yabaimod("p", { "window --toggle pip" })
--- yabaimod("g", { "space --toggle padding", "space --toggle gap" })
--- yabaimod("r", { "space --rotate 90" })
--- yabaimod("t", { "window --toggle float", "window --grid 4:4:1:1:2:2" })
-
-yabaimod("y", { "config layout bsp" })
-yabaimod("z", { "config layout float" })
--- yabaimod("tab", { "space --focus recent" })
+-- hs.hotkey.bind(mehkey, hs.keycodes.map["k"], function() yabai({"-m", "window", "--swap", "recent"}) end)
