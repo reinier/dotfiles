@@ -42,3 +42,8 @@ Hold down the Command, Shift and Period keys: `cmd + shift + .`
 ### Remove useless previews from icons in Finder
 
 `defaults write com.apple.finder  QLInlinePreviewMinimumSupportedSize -int 512`
+
+### Set Arc as 'Chrome browser' in Keyboard Maestro
+
+- `defaults write com.stairways.keyboardmaestro.engine AppleScriptGoogleChromeBundleID -string "company.thebrowser.Browser"`
+- `defaults write com.stairways.keyboardmaestro.engine BrowserGoogleChromeName -string "Arc"`
