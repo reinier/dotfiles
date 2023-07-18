@@ -21,14 +21,14 @@ menuHammerMenuList = {
 			{cons.cat.submenu, '', 'D', "Browse", {
 				{cons.act.menu, 'browseMenu'}
 			}},
-			{cons.cat.display,'Spacer',{function()return "-----"end}},
+			-- {cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, 'shift', 'space', "Alfred File Action", {
 				{cons.act.keycombo, {'cmd','shift','option','control'}, 'space'},
 			}},
 			{cons.cat.action, '', 'space', "Alfred", {
 				{cons.act.keycombo, {'cmd'}, 'space'},
 			}},
-			{cons.cat.display,'Spacer',{function()return "-----"end}},
+			-- {cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'H', "Arc", {
 				{cons.act.launcher, 'Arc'}
 			}},
@@ -58,6 +58,9 @@ menuHammerMenuList = {
 			}},
 			{cons.cat.action, '', 'P', "Craft", {
 				{cons.act.launcher, 'Craft'}
+			}},
+			{cons.cat.action, '', 'N', "Bear", {
+				{cons.act.launcher, 'Bear'}
 			}},
 			{cons.cat.action, '', 'Y', "1Password", {
 				{cons.act.launcher, '1Password'}
@@ -107,7 +110,7 @@ menuHammerMenuList = {
 				{cons.act.launcher, 'Numbers'}
 			}},
 			{cons.cat.action, '', 'U', "Ulysses", {
-				{cons.act.launcher, 'Ulysses'}
+				{cons.act.launcher, 'UlyssesMac'}
 			}},
 			{cons.cat.action, '', 'S', "Slack", {
 				{cons.act.launcher, 'Slack'}
