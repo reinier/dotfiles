@@ -56,8 +56,8 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'M', "Mindnode", {
 				{cons.act.launcher, 'Mindnode'}
 			}},
-			{cons.cat.action, '', 'P', "Craft", {
-				{cons.act.launcher, 'Craft'}
+			{cons.cat.action, '', 'P', "Obsidian", {
+				{cons.act.launcher, 'Obsidian'}
 			}},
 			{cons.cat.action, '', 'N', "Bear", {
 				{cons.act.launcher, 'Bear'}
@@ -114,9 +114,6 @@ menuHammerMenuList = {
 			}},
 			{cons.cat.action, '', 'S', "Slack", {
 				{cons.act.launcher, 'Slack'}
-			}},
-			{cons.cat.action, '', 'O', "Obsidian", {
-				{cons.act.launcher, 'Obsidian'}
 			}}
 		}
 	},
