@@ -83,12 +83,7 @@ menuHammerMenuList = {
 				{cons.act.func, function()
 					hs.reload()
 				end }
-			}},
-			-- {cons.cat.action, '', 'B', "Show keymap", {
-			-- 	{cons.act.func, function()
-			-- 		  toggleKeymap()
-			-- 	end }
-			-- }, true},
+			}}
 			
 		}
 	},
