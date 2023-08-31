@@ -29,15 +29,15 @@ menuHammerMenuList = {
 				{cons.act.keycombo, {'cmd'}, 'space'},
 			}},
 			-- {cons.cat.display,'Spacer',{function()return "-----"end}},
-			{cons.cat.action, '', 'H', "Arc", {
-				{cons.act.launcher, 'Arc'}
-			}},
+			-- {cons.cat.action, '', 'H', "Arc", {
+			-- 	{cons.act.launcher, 'Arc'}
+			-- }},
 			{cons.cat.action, '', '.', "Terminal", {
 				{cons.act.launcher, 'Terminal'}
 			}},
-			{cons.cat.action, 'shift', ',', "Nova", {
-				{cons.act.launcher, 'Nova'}
-			}},
+			-- {cons.cat.action, 'shift', ',', "Nova", {
+			-- 	{cons.act.launcher, 'Nova'}
+			-- }},
 			{cons.cat.action, '', ',', "VSCode", {
 				{cons.act.launcher, 'Visual Studio Code'}
 			}},
@@ -47,22 +47,22 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'K', "Drafts", {
 				{cons.act.launcher, 'Drafts'}
 			}},
-			{cons.cat.action, '', 'J', "Things", {
-				{cons.act.launcher, 'Things3'}
+			{cons.cat.action, '', 'J', "Obsidian", {
+				{cons.act.launcher, 'Obsidian'}
 			}},
 			{cons.cat.action, '', 'L', "Fantastical", {
 				{cons.act.launcher, 'Fantastical'}
 			}},
-			{cons.cat.action, '', 'M', "Mindnode", {
-				{cons.act.launcher, 'Mindnode'}
+			{cons.cat.action, '', 'M', "Arc", {
+				{cons.act.launcher, 'Arc'}
 			}},
-			{cons.cat.action, '', 'P', "Obsidian", {
-				{cons.act.launcher, 'Obsidian'}
-			}},
-			{cons.cat.action, '', 'N', "Bear", {
-				{cons.act.launcher, 'Bear'}
-			}},
-			{cons.cat.action, '', 'Y', "1Password", {
+			-- {cons.cat.action, '', 'P', "Obsidian", {
+			-- 	{cons.act.launcher, 'Obsidian'}
+			-- }},
+			-- {cons.cat.action, '', 'N', "Bear", {
+			-- 	{cons.act.launcher, 'Bear'}
+			-- }},
+			{cons.cat.action, '', 'P', "1Password", {
 				{cons.act.launcher, '1Password'}
 			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
