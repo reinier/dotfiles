@@ -65,6 +65,9 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'P', "1Password", {
 				{cons.act.launcher, '1Password'}
 			}},
+			{cons.cat.action, '', 'F', "OmniFocus", {
+				{cons.act.launcher, 'OmniFocus'}
+			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'A', "Actions", {
 				{cons.act.keycombo, hyperkey, 'a'},
