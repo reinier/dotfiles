@@ -47,3 +47,10 @@ Hold down the Command, Shift and Period keys: `cmd + shift + .`
 
 - `defaults write com.stairways.keyboardmaestro.engine AppleScriptGoogleChromeBundleID -string "company.thebrowser.Browser"`
 - `defaults write com.stairways.keyboardmaestro.engine BrowserGoogleChromeName -string "Arc"`
+
+## Get and set config for 3rd party apps
+
+For example [Amethyst](https://ianyh.com/amethyst/)
+
+- `defaults export com.amethyst.Amethyst ~/Desktop/Amethyst.plist`
+- `defaults import com.amethyst.Amethyst ~/Desktop/Amethyst.plist`

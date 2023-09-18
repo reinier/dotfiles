@@ -36,12 +36,8 @@ cask "font-menlo-for-powerline"
 cask "font-inconsolata"
 
 # Mac App Store
-mas "Things 3", id: 904280696
 mas "Drafts", id: 1435957248
-mas "Craft", id: 1487937127
-mas "MindNode", id: 1289197285
 mas "Fantastical", id: 975937182
-mas "Ulysses", id: 1225570693
 mas "Mela", id: 1568924476
 mas "Screens 4", id: 1224268771
 mas "Slack", id: 803453959
@@ -50,7 +46,7 @@ mas "GoodLinks", id: 1474335294
 mas "Pixelmator Pro", id: 1289583905
 mas "iA Writer", id: 775737590
 mas "Reeder", id: 1529448980
-mas "GoodNotes 5", id: 1444383602
+mas "GoodNotes 6", id: 1444383602
 mas "Text Workflow", id: 1600520682
 mas "Keynote", id: 409183694
 mas "Pages", id: 409201541
