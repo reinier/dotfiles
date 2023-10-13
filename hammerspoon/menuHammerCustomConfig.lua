@@ -87,7 +87,6 @@ menuHammerMenuList = {
 					hs.reload()
 				end }
 			}}
-			
 		}
 	},
 	applicationMenu = {
@@ -141,12 +140,27 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'S', "Play/Pause", {
 				{cons.act.mediakey, "playpause"}
 			}},
-			{cons.cat.action, '', 'I', "Brightness Down", {
-				{cons.act.mediakey, "brightness", -10}
-			},true},
-			{cons.cat.action, '', 'O', "Brightness Up", {
-				{cons.act.mediakey, "brightness", 10}
-			},true},
+			-- {cons.cat.action, '', 'I', "Brightness Down", {
+			-- 	{cons.act.mediakey, "brightness", -10}
+			-- },true},
+			-- {cons.cat.action, '', 'O', "Brightness Up", {
+			-- 	{cons.act.mediakey, "brightness", 10}
+			-- },true},
+			{cons.cat.action, '', 'W', "Homepod vol. low", {
+				{cons.act.func, function()
+					hs.shortcuts.run("Homepod kantoor volume laag")
+				end }
+			}},
+			{cons.cat.action, '', 'E', "Homepod vol. medium", {
+				{cons.act.func, function()
+					hs.shortcuts.run("Homepod kantoor volume medium")
+				end }
+			}},
+			{cons.cat.action, '', 'R', "Homepod vol. high", {
+				{cons.act.func, function()
+					hs.shortcuts.run("Homepod kantoor volume hoog")
+				end }
+			}}
 		}
 	},
 	finderMenu = {

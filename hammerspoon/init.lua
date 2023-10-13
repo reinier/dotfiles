@@ -10,7 +10,7 @@ mehkey = { "ctrl", "alt", "shift" }
 
 reimod = mehkey
 
-require('ergomouse')
+-- require('ergomouse')
 require('showkeymap')
 
 menuHammer = hs.loadSpoon("MenuHammer")
