@@ -22,22 +22,19 @@ menuHammerMenuList = {
 				{cons.act.menu, 'browseMenu'}
 			}},
 			-- {cons.cat.display,'Spacer',{function()return "-----"end}},
-			{cons.cat.action, 'shift', 'space', "Alfred File Action", {
-				{cons.act.keycombo, {'cmd','shift','option','control'}, 'space'},
-			}},
+			-- {cons.cat.action, 'shift', 'space', "Alfred File Action", {
+			-- 	{cons.act.keycombo, {'cmd','shift','option','control'}, 'space'},
+			-- }},
 			{cons.cat.action, '', 'space', "Alfred", {
 				{cons.act.keycombo, {'cmd'}, 'space'},
 			}},
 			-- {cons.cat.display,'Spacer',{function()return "-----"end}},
-			-- {cons.cat.action, '', 'H', "Arc", {
-			-- 	{cons.act.launcher, 'Arc'}
-			-- }},
+			{cons.cat.action, '', 'H', "Apple Music", {
+				{cons.act.launcher, 'Music'}
+			}},
 			{cons.cat.action, '', '.', "Terminal", {
 				{cons.act.launcher, 'Terminal'}
 			}},
-			-- {cons.cat.action, 'shift', ',', "Nova", {
-			-- 	{cons.act.launcher, 'Nova'}
-			-- }},
 			{cons.cat.action, '', ',', "VSCode", {
 				{cons.act.launcher, 'Visual Studio Code'}
 			}},
@@ -47,7 +44,7 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'K', "Drafts", {
 				{cons.act.launcher, 'Drafts'}
 			}},
-			{cons.cat.action, '', 'J', "Obsidian", {
+			{cons.cat.action, '', 'N', "Obsidian", {
 				{cons.act.launcher, 'Obsidian'}
 			}},
 			{cons.cat.action, '', 'L', "Fantastical", {
@@ -56,17 +53,11 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'M', "Arc", {
 				{cons.act.launcher, 'Arc'}
 			}},
-			-- {cons.cat.action, '', 'P', "Obsidian", {
-			-- 	{cons.act.launcher, 'Obsidian'}
-			-- }},
-			-- {cons.cat.action, '', 'N', "Bear", {
-			-- 	{cons.act.launcher, 'Bear'}
-			-- }},
 			{cons.cat.action, '', 'P', "1Password", {
 				{cons.act.launcher, '1Password'}
 			}},
-			{cons.cat.action, '', 'F', "OmniFocus", {
-				{cons.act.launcher, 'OmniFocus'}
+			{cons.cat.action, '', 'J', "Things3", {
+				{cons.act.launcher, 'Things3'}
 			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'A', "Actions", {
@@ -119,44 +110,44 @@ menuHammerMenuList = {
 		menuHotkey = nil,
 		-- menuHotkey = {{"shift"}, 'f19'},
 		menuItems = {
-			{cons.cat.action, '', 'A', "Music", {
+			{cons.cat.action, '', 'T', "Music", {
 				{cons.act.launcher, "Music"}
 			}},
-			{cons.cat.action, '', 'H', "Previous Track", {
-				{cons.act.mediakey, "previous"}
-			}},
-			{cons.cat.action, '', 'J', "Volume Down", {
-				{cons.act.mediakey, "adjustVolume", -10}
-			},true},
-			{cons.cat.action, '', 'K', "Volume Up", {
-				{cons.act.mediakey, "adjustVolume", 10}
-			},true},
-			{cons.cat.action, '', 'L', "Next Track", {
-				{cons.act.mediakey, "next"}
-			}},
-			{cons.cat.action, '', 'X', "Mute/Unmute", {
-				{cons.act.mediakey, "mute"}
-			}},
-			{cons.cat.action, '', 'S', "Play/Pause", {
-				{cons.act.mediakey, "playpause"}
-			}},
+			-- {cons.cat.action, '', 'H', "Previous Track", {
+			-- 	{cons.act.mediakey, "previous"}
+			-- }},
+			-- {cons.cat.action, '', 'J', "Volume Down", {
+			-- 	{cons.act.mediakey, "adjustVolume", -10}
+			-- },true},
+			-- {cons.cat.action, '', 'K', "Volume Up", {
+			-- 	{cons.act.mediakey, "adjustVolume", 10}
+			-- },true},
+			-- {cons.cat.action, '', 'L', "Next Track", {
+			-- 	{cons.act.mediakey, "next"}
+			-- }},
+			-- {cons.cat.action, '', 'X', "Mute/Unmute", {
+			-- 	{cons.act.mediakey, "mute"}
+			-- }},
+			-- {cons.cat.action, '', 'S', "Play/Pause", {
+			-- 	{cons.act.mediakey, "playpause"}
+			-- }},
 			-- {cons.cat.action, '', 'I', "Brightness Down", {
 			-- 	{cons.act.mediakey, "brightness", -10}
 			-- },true},
 			-- {cons.cat.action, '', 'O', "Brightness Up", {
 			-- 	{cons.act.mediakey, "brightness", 10}
 			-- },true},
-			{cons.cat.action, '', 'W', "Homepod vol. low", {
+			{cons.cat.action, '', 'X', "Homepod vol. low", {
 				{cons.act.func, function()
 					hs.shortcuts.run("Homepod kantoor volume laag")
 				end }
 			}},
-			{cons.cat.action, '', 'E', "Homepod vol. medium", {
+			{cons.cat.action, '', 'C', "Homepod vol. medium", {
 				{cons.act.func, function()
 					hs.shortcuts.run("Homepod kantoor volume medium")
 				end }
 			}},
-			{cons.cat.action, '', 'R', "Homepod vol. high", {
+			{cons.cat.action, '', 'V', "Homepod vol. high", {
 				{cons.act.func, function()
 					hs.shortcuts.run("Homepod kantoor volume hoog")
 				end }
@@ -193,6 +184,11 @@ menuHammerMenuList = {
 		parentMenu = "mainMenu",
 		menuHotkey = nil,
 		menuItems = {
+			{cons.cat.action, '', 'C', 'ChatGPT', {
+				{cons.act.openurl,
+				"https://chat.openai.com/"
+				}
+			}},
 			{cons.cat.action, '', 'F', 'Fastmail', {
 				{cons.act.openurl,
 				"https://fastmail.com"
