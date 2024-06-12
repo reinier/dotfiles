@@ -34,6 +34,7 @@ Symlink the config directories in the right place.
 - `mkdir .config`
 - `ln -s ~/dev/dotfiles/karabiner ~/.config/karabiner`
 - `ln -s ~/dev/dotfiles/hammerspoon ~/.hammerspoon`
+- `ln -s ~/dev/dotfiles/aerospace.toml ~/.aerospace.toml`
 
 ### Show / hide invisible files in Finder
 

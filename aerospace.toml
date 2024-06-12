@@ -1,0 +1,88 @@
+after-login-command = []
+after-startup-command = []
+start-at-login = true
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 30
+
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+key-mapping.preset = 'qwerty'
+
+[gaps]
+inner.horizontal = 0
+inner.vertical =   0
+outer.left =       0
+outer.bottom =     0
+outer.top =        0
+outer.right =      0
+
+
+[exec]
+inherit-env-vars = true
+[exec.env-vars]
+PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
+
+[mode.main.binding]
+
+
+
+alt-ctrl-shift-s = 'focus up'
+alt-ctrl-shift-a = 'focus left'
+alt-ctrl-shift-d = 'focus down'
+alt-ctrl-shift-f = 'focus right'
+
+alt-ctrl-shift-g = 'focus-monitor --wrap-around next'
+alt-ctrl-shift-t = 'workspace --wrap-around next'
+
+alt-ctrl-shift-j = 'workspace J'
+alt-ctrl-shift-k = 'workspace K'
+alt-ctrl-shift-l = 'workspace L'
+alt-ctrl-shift-u = 'workspace U'
+alt-ctrl-shift-i = 'workspace I'
+alt-ctrl-shift-o = 'workspace O'
+
+
+alt-ctrl-shift-x = 'move up'
+alt-ctrl-shift-z = 'move left'
+alt-ctrl-shift-c = 'move down'
+alt-ctrl-shift-v = 'move right'
+
+
+alt-ctrl-shift-e = 'resize smart -50'
+alt-ctrl-shift-r = 'resize smart +50'
+
+alt-ctrl-shift-backtick = 'mode service'
+alt-ctrl-shift-q = 'mode monitor'
+alt-ctrl-shift-w = 'mode workspace'
+
+# --- Mode Workspace Management
+[mode.workspace.binding]
+t = ['move-node-to-workspace  --wrap-around next','workspace --wrap-around next', 'mode main']
+j = ['move-node-to-workspace J','workspace J', 'mode main']
+k = ['move-node-to-workspace K','workspace K', 'mode main']
+l = ['move-node-to-workspace L','workspace L', 'mode main']
+u = ['move-node-to-workspace U','workspace U', 'mode main']
+i = ['move-node-to-workspace I','workspace I', 'mode main']
+o = ['move-node-to-workspace O','workspace O']
+
+z = ['join-with left', 'mode main']
+c = ['join-with down', 'mode main']
+x = ['join-with up', 'mode main']
+v = ['join-with right', 'mode main']
+
+# --- Mode Monitor Management
+[mode.monitor.binding]
+f = ['move-node-to-monitor --wrap-around next', 'mode main']
+g = ['move-workspace-to-monitor --wrap-around next', 'mode main']
+
+# --- MODE SERVICE
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main'] # reset layout
+f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+d = 'layout tiles horizontal vertical'
+s = 'layout accordion horizontal vertical'
+backspace = ['close-all-windows-but-current', 'mode main']
