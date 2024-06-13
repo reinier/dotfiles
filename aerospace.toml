@@ -27,7 +27,7 @@ PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 
 [mode.main.binding]
 
-
+# Focus
 
 alt-ctrl-shift-s = 'focus up'
 alt-ctrl-shift-a = 'focus left'
@@ -44,15 +44,17 @@ alt-ctrl-shift-u = 'workspace U'
 alt-ctrl-shift-i = 'workspace I'
 alt-ctrl-shift-o = 'workspace O'
 
+# Move / resize
 
 alt-ctrl-shift-x = 'move up'
 alt-ctrl-shift-z = 'move left'
 alt-ctrl-shift-c = 'move down'
 alt-ctrl-shift-v = 'move right'
 
-
 alt-ctrl-shift-e = 'resize smart -50'
 alt-ctrl-shift-r = 'resize smart +50'
+
+# Modes
 
 alt-ctrl-shift-backtick = 'mode service'
 alt-ctrl-shift-q = 'mode monitor'
