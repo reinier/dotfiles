@@ -34,8 +34,8 @@ alt-ctrl-shift-a = 'focus left'
 alt-ctrl-shift-d = 'focus down'
 alt-ctrl-shift-f = 'focus right'
 
-alt-ctrl-shift-g = 'focus-monitor --wrap-around next'
-alt-ctrl-shift-t = 'workspace --wrap-around next'
+alt-ctrl-shift-t = 'focus-monitor --wrap-around next'
+alt-ctrl-shift-g = 'workspace --wrap-around next'
 
 alt-ctrl-shift-j = 'workspace J'
 alt-ctrl-shift-k = 'workspace K'
