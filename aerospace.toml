@@ -56,7 +56,7 @@ alt-ctrl-shift-r = 'resize smart +50'
 
 # Modes
 
-alt-ctrl-shift-backtick = 'mode service'
+alt-ctrl-shift-1 = 'mode service'
 alt-ctrl-shift-q = 'mode monitor'
 alt-ctrl-shift-w = 'mode workspace'
 
@@ -87,4 +87,4 @@ r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 d = 'layout tiles horizontal vertical'
 s = 'layout accordion horizontal vertical'
-backspace = ['close-all-windows-but-current', 'mode main']
+# backspace = ['close-all-windows-but-current', 'mode main']
