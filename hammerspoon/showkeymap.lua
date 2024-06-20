@@ -69,5 +69,3 @@ function toggleKeymap()
 		 mapShown = 0
 	 end
 end
-
-hs.hotkey.bind(reimod, "b", toggleKeymap)

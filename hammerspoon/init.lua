@@ -12,6 +12,7 @@ reimod = mehkey
 
 -- require('ergomouse')
 require('showkeymap')
+hs.hotkey.bind(reimod, "=", toggleKeymap)
 
 menuHammer = hs.loadSpoon("MenuHammer")
 menuHammer:enter()

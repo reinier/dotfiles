@@ -36,6 +36,7 @@ alt-ctrl-shift-f = 'focus right'
 
 alt-ctrl-shift-t = 'focus-monitor --wrap-around next'
 alt-ctrl-shift-g = 'workspace --wrap-around next'
+alt-ctrl-shift-b = ['move-node-to-workspace --wrap-around next','workspace --wrap-around next', 'mode main']
 
 alt-ctrl-shift-j = 'workspace J'
 alt-ctrl-shift-k = 'workspace K'
@@ -56,13 +57,15 @@ alt-ctrl-shift-r = 'resize smart +50'
 
 # Modes
 
-alt-ctrl-shift-1 = 'mode service'
-alt-ctrl-shift-q = 'mode monitor'
+alt-ctrl-shift-q = 'mode service'
 alt-ctrl-shift-w = 'mode workspace'
 
 # --- Mode Workspace Management
 [mode.workspace.binding]
-t = ['move-node-to-workspace  --wrap-around next','workspace --wrap-around next', 'mode main']
+
+b = ['move-node-to-monitor --wrap-around next', 'mode main']
+g = ['move-workspace-to-monitor --wrap-around next', 'mode main']
+
 j = ['move-node-to-workspace J','workspace J', 'mode main']
 k = ['move-node-to-workspace K','workspace K', 'mode main']
 l = ['move-node-to-workspace L','workspace L', 'mode main']
@@ -70,15 +73,12 @@ u = ['move-node-to-workspace U','workspace U', 'mode main']
 i = ['move-node-to-workspace I','workspace I', 'mode main']
 o = ['move-node-to-workspace O','workspace O', 'mode main']
 
-z = ['join-with left', 'mode main']
-c = ['join-with down', 'mode main']
-x = ['join-with up', 'mode main']
-v = ['join-with right', 'mode main']
+a = ['join-with left', 'mode main']
+d = ['join-with down', 'mode main']
+s = ['join-with up', 'mode main']
+f = ['join-with right', 'mode main']
 
-# --- Mode Monitor Management
-[mode.monitor.binding]
-f = ['move-node-to-monitor --wrap-around next', 'mode main']
-g = ['move-workspace-to-monitor --wrap-around next', 'mode main']
+
 
 # --- MODE SERVICE
 [mode.service.binding]
