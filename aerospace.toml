@@ -19,7 +19,6 @@ outer.bottom =     0
 outer.top =        0
 outer.right =      0
 
-
 [exec]
 inherit-env-vars = true
 [exec.env-vars]
@@ -29,14 +28,15 @@ PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 
 # Focus
 
-alt-ctrl-shift-s = 'focus up'
 alt-ctrl-shift-a = 'focus left'
-alt-ctrl-shift-d = 'focus down'
+alt-ctrl-shift-s = 'focus down'
+alt-ctrl-shift-d = 'focus up'
 alt-ctrl-shift-f = 'focus right'
 
 alt-ctrl-shift-t = 'focus-monitor --wrap-around next'
 alt-ctrl-shift-g = 'workspace --wrap-around next'
 alt-ctrl-shift-b = ['move-node-to-workspace --wrap-around next','workspace --wrap-around next', 'mode main']
+alt-ctrl-shift-w = ['move-workspace-to-monitor --wrap-around next', 'mode main']
 
 alt-ctrl-shift-j = 'workspace J'
 alt-ctrl-shift-k = 'workspace K'
@@ -45,11 +45,17 @@ alt-ctrl-shift-u = 'workspace U'
 alt-ctrl-shift-i = 'workspace I'
 alt-ctrl-shift-o = 'workspace O'
 
+# Toggle window style
+
+alt-ctrl-shift-m = ['layout tiles horizontal vertical', 'mode main']
+alt-ctrl-shift-comma = ['layout accordion horizontal vertical', 'mode main']
+alt-ctrl-shift-period = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+
 # Move / resize
 
-alt-ctrl-shift-x = 'move up'
 alt-ctrl-shift-z = 'move left'
-alt-ctrl-shift-c = 'move down'
+alt-ctrl-shift-x = 'move down'
+alt-ctrl-shift-c = 'move up'
 alt-ctrl-shift-v = 'move right'
 
 alt-ctrl-shift-e = 'resize smart -50'
@@ -57,14 +63,12 @@ alt-ctrl-shift-r = 'resize smart +50'
 
 # Modes
 
-alt-ctrl-shift-q = 'mode service'
-alt-ctrl-shift-w = 'mode workspace'
+alt-ctrl-shift-q = 'mode advanced'
 
-# --- Mode Workspace Management
-[mode.workspace.binding]
+# --- Mode Advanced Management
+[mode.advanced.binding]
 
-b = ['move-node-to-monitor --wrap-around next', 'mode main']
-g = ['move-workspace-to-monitor --wrap-around next', 'mode main']
+g = ['move-node-to-monitor --wrap-around next', 'mode main']
 
 j = ['move-node-to-workspace J','workspace J', 'mode main']
 k = ['move-node-to-workspace K','workspace K', 'mode main']
@@ -74,17 +78,11 @@ i = ['move-node-to-workspace I','workspace I', 'mode main']
 o = ['move-node-to-workspace O','workspace O', 'mode main']
 
 a = ['join-with left', 'mode main']
-d = ['join-with down', 'mode main']
-s = ['join-with up', 'mode main']
+d = ['join-with up', 'mode main']
+s = ['join-with down', 'mode main']
 f = ['join-with right', 'mode main']
 
+q = ['reload-config', 'mode main']
+w = ['flatten-workspace-tree', 'mode main'] # reset layout
 
-
-# --- MODE SERVICE
-[mode.service.binding]
-esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
-d = 'layout tiles horizontal vertical'
-s = 'layout accordion horizontal vertical'
 # backspace = ['close-all-windows-but-current', 'mode main']
