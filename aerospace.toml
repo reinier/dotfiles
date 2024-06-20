@@ -35,8 +35,8 @@ alt-ctrl-shift-f = 'focus right'
 
 alt-ctrl-shift-t = 'focus-monitor --wrap-around next'
 alt-ctrl-shift-g = 'workspace --wrap-around next'
-alt-ctrl-shift-b = ['move-node-to-workspace --wrap-around next','workspace --wrap-around next', 'mode main']
-alt-ctrl-shift-w = ['move-workspace-to-monitor --wrap-around next', 'mode main']
+alt-ctrl-shift-b = ['move-workspace-to-monitor --wrap-around next', 'mode main']
+alt-ctrl-shift-w = ['move-node-to-workspace --wrap-around next','workspace --wrap-around next', 'mode main']
 
 alt-ctrl-shift-j = 'workspace J'
 alt-ctrl-shift-k = 'workspace K'
