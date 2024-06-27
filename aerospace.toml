@@ -5,7 +5,7 @@ start-at-login = true
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-accordion-padding = 30
+accordion-padding = 40
 
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
@@ -61,14 +61,6 @@ alt-ctrl-shift-v = 'move right'
 alt-ctrl-shift-e = 'resize smart -50'
 alt-ctrl-shift-r = 'resize smart +50'
 
-# https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
-# Assigned workspaces cannot be moved, so use O and L for workspaces to you want to move between monitors
-[workspace-to-monitor-force-assignment]
-U = '^built-in retina display$'
-I = '^built-in retina display$'
-J = ['main', '^dell$', '^lg$']
-K = ['main', '^dell$', '^lg$']
-
 # Modes
 
 alt-ctrl-shift-q = 'mode advanced'
@@ -94,3 +86,27 @@ q = ['reload-config', 'mode main']
 w = ['flatten-workspace-tree', 'mode main'] # reset layout
 
 # backspace = ['close-all-windows-but-current', 'mode main']
+
+# https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+# Assigned workspaces cannot be moved, so use O and L for workspaces to you want to move between monitors
+[workspace-to-monitor-force-assignment]
+U = '^built-in retina display$'
+I = '^built-in retina display$'
+J = ['main', '^dell$', '^lg$']
+K = ['main', '^dell$', '^lg$']
+
+[[on-window-detected]]
+if.app-id = 'com.figma.Desktop'
+run = 'move-node-to-workspace J'
+
+# [[on-window-detected]]
+# if.app-id = 'company.thebrowser.Browser'
+# run = 'move-node-to-workspace K'
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace U'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = 'move-node-to-workspace U'
