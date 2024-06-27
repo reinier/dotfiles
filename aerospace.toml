@@ -61,6 +61,14 @@ alt-ctrl-shift-v = 'move right'
 alt-ctrl-shift-e = 'resize smart -50'
 alt-ctrl-shift-r = 'resize smart +50'
 
+# https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+# Assigned workspaces cannot be moved, so use O and L for workspaces to you want to move between monitors
+[workspace-to-monitor-force-assignment]
+U = '^built-in retina display$'
+I = '^built-in retina display$'
+J = ['main', '^dell$', '^lg$']
+K = ['main', '^dell$', '^lg$']
+
 # Modes
 
 alt-ctrl-shift-q = 'mode advanced'
