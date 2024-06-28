@@ -92,8 +92,8 @@ w = ['flatten-workspace-tree', 'mode main'] # reset layout
 [workspace-to-monitor-force-assignment]
 U = '^built-in retina display$'
 I = '^built-in retina display$'
-J = ['main', '^dell$', '^lg$']
-K = ['main', '^dell$', '^lg$']
+J = ['^LG UltraFine$', '^dell$', 'main']
+K = ['^LG UltraFine$', '^dell$', 'main']
 
 [[on-window-detected]]
 if.app-id = 'com.figma.Desktop'
