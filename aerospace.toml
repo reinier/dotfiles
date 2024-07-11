@@ -47,9 +47,10 @@ alt-ctrl-shift-o = 'workspace O'
 
 # Toggle window style
 
-alt-ctrl-shift-m = ['layout tiles horizontal vertical', 'mode main']
-alt-ctrl-shift-comma = ['layout accordion horizontal vertical', 'mode main']
-alt-ctrl-shift-period = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+alt-ctrl-shift-m = 'layout h_tiles h_accordion' # Toggle horizontal layouts
+# alt-ctrl-shift-m = 'layout tiles horizontal vertical'
+# alt-ctrl-shift-comma = 'layout accordion horizontal vertical'
+# alt-ctrl-shift-period = 'layout floating tiling' # Toggle between floating and tiling layout
 
 # Move / resize
 
