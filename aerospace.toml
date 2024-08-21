@@ -2,6 +2,8 @@ after-login-command = []
 after-startup-command = []
 start-at-login = true
 
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
