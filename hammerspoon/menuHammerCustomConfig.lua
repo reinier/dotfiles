@@ -12,6 +12,9 @@ menuHammerMenuList = {
 			{cons.cat.submenu, '', 'O', 'More Apps', {
 				{cons.act.menu, "applicationMenu"}
 			}},
+			{cons.cat.submenu, '', 'W', 'Window', {
+				{cons.act.menu, "windowMenu"}
+			}},
 			{cons.cat.submenu, '', 'T', 'Audio', {
 				{cons.act.menu, "audioMenu"}
 			}},
@@ -178,6 +181,25 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'I', "Activate Finder", {
 				{cons.act.launcher, 'Finder'}
 			}},
+		}
+	},
+	windowMenu = {
+		parentMenu = "mainMenu",
+		menuHotkey = nil,
+		menuHotkey = {mehkey, 'f19'},
+		menuItems = {
+			{cons.cat.action, '', 'Z', 'Move node to workspace 1', {
+				{cons.act.shellcommand, "zsh -c '/opt/homebrew/bin/aerospace move-node-to-workspace 1' && zsh -c '/opt/homebrew/bin/aerospace workspace 1'"},
+		  	}},
+			{cons.cat.action, '', 'X', 'Move node to workspace 2', {
+				{cons.act.shellcommand, "zsh -c '/opt/homebrew/bin/aerospace move-node-to-workspace 2' && zsh -c '/opt/homebrew/bin/aerospace workspace 2'"},
+		  	}},
+			{cons.cat.action, '', 'C', 'Move node to workspace 3', {
+				{cons.act.shellcommand, "zsh -c '/opt/homebrew/bin/aerospace move-node-to-workspace 3' && zsh -c '/opt/homebrew/bin/aerospace workspace 3'"},
+		  	}},
+			{cons.cat.action, '', 'V', 'Move node to workspace 4', {
+				{cons.act.shellcommand, "zsh -c '/opt/homebrew/bin/aerospace move-node-to-workspace 4' && zsh -c '/opt/homebrew/bin/aerospace workspace 4'"},
+		  	}},
 		}
 	},
 	browseMenu = {
