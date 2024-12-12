@@ -30,10 +30,10 @@ PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 
 # Focus
 
-alt-ctrl-shift-a = 'focus left'
+alt-ctrl-shift-a = 'focus --boundaries-action wrap-around-the-workspace left'
 alt-ctrl-shift-s = 'focus up'
 alt-ctrl-shift-d = 'focus down'
-alt-ctrl-shift-f = 'focus right'
+alt-ctrl-shift-f = 'focus --boundaries-action wrap-around-the-workspace right'
 
 alt-ctrl-shift-z = 'workspace 1'
 alt-ctrl-shift-x = 'workspace 2'
@@ -52,8 +52,8 @@ alt-ctrl-shift-r = 'resize smart +50'
 # Move
 
 alt-ctrl-shift-m = 'move-workspace-to-monitor --wrap-around next'
-alt-ctrl-shift-comma = ['move-node-to-workspace --wrap-around next','workspace --wrap-around next']
-alt-ctrl-shift-period = ['move-node-to-monitor --wrap-around next','focus-monitor --wrap-around next']
+alt-ctrl-shift-comma = 'move-node-to-workspace --focus-follows-window --wrap-around next'
+alt-ctrl-shift-period = 'move-node-to-monitor --focus-follows-window --wrap-around next'
 
 alt-ctrl-shift-j = 'move left'
 alt-ctrl-shift-k = 'move down'
