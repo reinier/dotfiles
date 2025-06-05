@@ -2,9 +2,9 @@
 -- Inspiration: https://github.com/evantravers/hammerspoon-config/blob/master/secrets.lua
 -- Really stupid simple loading of secrets into `hs.settings`.
 
-module = {}
+local M = {}
 
-module.start = function(filename)
+function M.start(filename)
 	if hs.fs.attributes(filename) then
 		hs.settings.set("secrets", hs.json.read(filename))
 	else
@@ -12,4 +12,4 @@ module.start = function(filename)
 	end
 end
 
-return module
+return M

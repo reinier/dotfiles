@@ -3,10 +3,11 @@
 -- For cycling things you have to make your own script
 -- In short: Amethyst is far user friendlier.
 
+local M = {}
 
-function yabai(args, completion)
-	local yabai_output = ""
-	local yabai_error = ""
+function M.yabai(args, completion)
+        local yabai_output = ""
+        local yabai_error = ""
 	-- Runs in background very fast
 	local yabai_task = hs.task.new("/opt/homebrew/bin/yabai",nil, function(task, stdout, stderr)
 		--print("stdout:"..stdout, "stderr:"..stderr)
@@ -17,8 +18,10 @@ function yabai(args, completion)
 	if type(completion) == "function" then
 		yabai_task:setCallback(function() completion(yabai_output, yabai_error) end)
 	end
-	yabai_task:start()
+        yabai_task:start()
 end
+
+return M
 
 -- function yabai_cycle_display()
 --     -- local yabai_task = hs.task.new("/opt/homebrew/bin/yabaiyabai -m space --focus next || /opt/homebrew/bin/yabaiyabai -m space --focus first")
