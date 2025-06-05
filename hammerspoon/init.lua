@@ -11,8 +11,8 @@ mehkey = { "ctrl", "alt", "shift" }
 reimod = mehkey
 
 -- require('ergomouse')
-require('showkeymap')
-hs.hotkey.bind(reimod, "=", toggleKeymap)
+local showkeymap = require('showkeymap')
+hs.hotkey.bind(reimod, "=", showkeymap.toggleKeymap)
 
 menuHammer = hs.loadSpoon("MenuHammer")
 menuHammer:enter()

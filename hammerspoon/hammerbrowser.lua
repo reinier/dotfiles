@@ -1,7 +1,7 @@
 -- https://zzamboni.org/post/my-hammerspoon-configuration-with-commentary/
 
-function appID(app)
-	return hs.application.infoForBundlePath(app)['CFBundleIdentifier']
+local function appID(app)
+        return hs.application.infoForBundlePath(app)['CFBundleIdentifier']
 end
 
 safariBrowser = appID('/Applications/Safari.app')

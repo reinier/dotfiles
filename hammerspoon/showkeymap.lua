@@ -1,4 +1,9 @@
-showKeymap = function()
+local M = {}
+
+local modalCanvas
+local mapShown = 0
+
+function M.showKeymap()
 	local frame = hs.screen.mainScreen():frame()
 	local currentScreen = hs.screen.mainScreen():name()
 	-- if (currentScreen == 'LG UltraFine') then
@@ -22,11 +27,11 @@ showKeymap = function()
 	modalCanvas:show(0.1)
 end
 
-function hideKeymap()
+function M.hideKeymap()
 	 modalCanvas:hide(0.1)
 end
 
-showReimod = function()
+function M.showReimod()
 	local frame = hs.screen.mainScreen():frame()
 	local currentScreen = hs.screen.mainScreen():name()
 	-- if (currentScreen == 'LG UltraFine') then
@@ -50,22 +55,22 @@ showReimod = function()
 	modalCanvas:show(0.1)
 end
 
-function hideReimod()
+function M.hideReimod()
 	 modalCanvas:hide(0.1)
 end
 
-mapShown = 0
-
-function toggleKeymap()
-	 if mapShown == 0 then
-		 showKeymap()
-		 mapShown = 1
-	 elseif mapShown == 1 then
-		 hideKeymap()
-		 showReimod()
-		 mapShown = 2
-	 else
-		 hideReimod()
-		 mapShown = 0
-	 end
+function M.toggleKeymap()
+         if mapShown == 0 then
+                 M.showKeymap()
+                 mapShown = 1
+         elseif mapShown == 1 then
+                 M.hideKeymap()
+                 M.showReimod()
+                 mapShown = 2
+         else
+                 M.hideReimod()
+                 mapShown = 0
+         end
 end
+
+return M
