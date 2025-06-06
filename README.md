@@ -24,17 +24,37 @@ Invisible in this repo, but I also use the following apps to be more productive:
 - [Alfred](https://www.alfredapp.com/) (mostly used for searching through different services)
 - [CleanShot X](https://cleanshot.com/) (the best screenshot app there is)
 
-## Install dotfiles on clean system
+## Repository structure
 
-Symlink the config directories in the right place.
+This repository contains configuration for a couple of tools:
 
-- `ln -s ~/dev/dotfiles/z.sh ~/z.sh`
-- `ln -s ~/dev/dotfiles/.zprofile ~/.zprofile`
-- `ln -s ~/dev/dotfiles/.zshrc ~/.zshrc`
-- `mkdir .config`
-- `ln -s ~/dev/dotfiles/karabiner ~/.config/karabiner`
-- `ln -s ~/dev/dotfiles/hammerspoon ~/.hammerspoon`
-- `ln -s ~/dev/dotfiles/aerospace.toml ~/.aerospace.toml`
+- `hammerspoon` – Lua scripts for [Hammerspoon](https://www.hammerspoon.org/) used for automation and window management.
+- `karabiner` – JSON configuration for [Karabiner‑Elements](https://karabiner-elements.pqrs.org/).
+- `aerospace.toml` – Configuration for the [Aerospace](https://aerospace.app/) tiling window manager.
+- `yabairc` – Settings for the [Yabai](https://github.com/koekeishiya/yabai) window manager.
+- `Brewfile` – Homebrew bundle listing applications and command line tools.
+
+## Install dotfiles on a clean system
+
+Run the provided script to create the necessary symlinks:
+
+```bash
+./install.sh
+```
+
+This will place all configuration files in your `$HOME` directory. You can also
+inspect the script and link them manually if you prefer.
+
+### Dependencies
+
+Make sure the following applications are installed:
+
+- [Hammerspoon](https://www.hammerspoon.org/)
+- [Karabiner‑Elements](https://karabiner-elements.pqrs.org/)
+- [Yabai](https://github.com/koekeishiya/yabai) (optional)
+- [Aerospace](https://aerospace.app/) (optional)
+
+All other software I install via Homebrew is listed in `Brewfile`.
 
 ### Show / hide invisible files in Finder
 
