@@ -21,6 +21,5 @@ link .zshrc .zshrc
 link karabiner .config/karabiner
 link hammerspoon .hammerspoon
 link aerospace.toml .aerospace.toml
-link yabairc .yabairc
 
 echo "Dotfiles installed."
