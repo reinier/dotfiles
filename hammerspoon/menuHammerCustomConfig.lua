@@ -105,6 +105,9 @@ menuHammerMenuList = {
 			}},
 			{cons.cat.action, '', 'S', "Slack", {
 				{cons.act.launcher, 'Slack'}
+			}},
+			{cons.cat.action, '', 'M', "MS Outlook", {
+				{cons.act.launcher, 'Microsoft Outlook'}
 			}}
 		}
 	},
