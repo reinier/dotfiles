@@ -10,7 +10,6 @@ mehkey = { "ctrl", "alt", "shift" }
 
 reimod = mehkey
 
--- require('ergomouse')
 require('showkeymap')
 hs.hotkey.bind(reimod, "=", toggleKeymap)
 
