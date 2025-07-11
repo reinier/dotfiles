@@ -15,16 +15,19 @@ This is a personal dotfiles repository for macOS productivity and automation set
 ## Key Components
 
 ### Hammerspoon Configuration (`hammerspoon/`)
-- **Main entry point**: `hammerspoon/init.lua` - loads core modules and sets up global keybindings
+- **Main entry point**: `hammerspoon/init.lua` - streamlined configuration loading only active components
 - **Key modifier combinations**:
   - `hyperkey` = {"ctrl", "alt", "shift", "cmd"}
   - `mehkey` = {"ctrl", "alt", "shift"}
   - `reimod` = mehkey (user's custom modifier)
-- **Core modules**:
-  - MenuHammer: Menu-driven application launcher and action system (F19 key)
-  - FadeLogo: Visual feedback spoon
-  - Custom keymap display (MEH-= to toggle)
+- **Active components only**:
+  - **MenuHammer.spoon**: Menu-driven application launcher and action system (F19 key)
+  - **FadeLogo.spoon**: Startup visual feedback
+  - **SpoonInstall.spoon**: Spoon package manager
+  - **showkeymap.lua**: Custom keymap display (MEH-= to toggle between keymap and mehmap)
+  - **secrets.lua**: Secure credential management (requires `.secrets.json`)
 - **Configuration**: `menuHammerCustomConfig.lua` defines the complete menu structure with app launchers, window management, audio controls, and system actions
+- **Optimized**: Removed unused components (ergomouse, windowmanagement, yabai, appswitcher, etc.) for cleaner configuration
 
 ### Window Management
 - Uses Aerospace tiling window manager (`aerospace.toml`)
@@ -51,11 +54,13 @@ Since this is a configuration repository, there are no traditional build/test co
 
 ## Architecture Notes
 
-- **Hammerspoon Spoons**: Modular components in `hammerspoon/Spoons/` directory
-- **MenuHammer Integration**: Custom menu configuration drives most user interactions
+- **Hammerspoon Spoons**: Only essential spoons remain in `hammerspoon/Spoons/` directory (MenuHammer, FadeLogo, SpoonInstall)
+- **MenuHammer Integration**: Custom menu configuration drives most user interactions via F19 key
 - **Secrets Management**: Uses secrets.lua for sensitive configuration (requires `.secrets.json`)
 - **Workspace Management**: Aerospace window manager with 4 workspaces, menu-driven controls
 - **Application Launching**: Consistent naming scheme for app launchers in MenuHammer config
+- **Optimized Configuration**: Cleaned up unused components for better performance and maintainability
+- **Single Window Manager**: Uses Aerospace exclusively (removed conflicting Amethyst/Yabai references)
 
 ## Key File Locations After Installation
 
