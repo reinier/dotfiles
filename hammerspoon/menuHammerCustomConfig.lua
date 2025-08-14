@@ -69,9 +69,6 @@ menuHammerMenuList = {
 				{cons.act.launcher, 'Claude'}
 			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
-			-- {cons.cat.action, '', 'A', "Actions", {
-			-- 	{cons.act.keycombo, hyperkey, 'a'},
-			-- }},
 			{cons.cat.action, '', 'V', "Templates", {
 				{cons.act.keycombo, hyperkey, 'v'},
 			}},
@@ -79,7 +76,6 @@ menuHammerMenuList = {
 				{cons.act.func, function()
 					hs.eventtap.keyStroke({"cmd","alt","ctrl"}, "1")
 				end }
-				-- {cons.act.keycombo, hyperkey, 'c'},
 			}},
 			{cons.cat.action, '', 'S', 'App actions', {
 				{cons.act.keycombo, hyperkey, 's'},
@@ -124,9 +120,6 @@ menuHammerMenuList = {
 		parentMenu = "mainMenu",
 		menuHotkey = nil,
 		menuItems = {
-			-- {cons.cat.action, '', 'T', "Music", {
-			-- 	{cons.act.launcher, "Music"}
-			-- }},
 			{cons.cat.action, '', 'C', "cooperatie", {
 				{cons.act.func, function()
 					local text = "coöperatie"
@@ -160,15 +153,6 @@ menuHammerMenuList = {
 					hs.eventtap.keyStrokes(dateString)
 				end }
 			}},
-			
-
-
-
-			-- {cons.cat.action, '', 'V', "Homepod vol. high", {
-			-- 	{cons.act.func, function()
-			-- 		hs.shortcuts.run("Homepod kantoor volume hoog")
-			-- 	end }
-			-- }}
 		}
 	},
 	finderMenu = {
