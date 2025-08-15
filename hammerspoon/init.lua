@@ -12,6 +12,7 @@ reimod = mehkey
 
 require('showkeymap')
 hs.hotkey.bind(reimod, "=", toggleKeymap)
+hs.hotkey.bind('', "F18", toggleKeymap)
 
 menuHammer = hs.loadSpoon("MenuHammer")
 menuHammer:enter()

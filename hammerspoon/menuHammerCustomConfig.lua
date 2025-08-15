@@ -12,10 +12,10 @@ menuHammerMenuList = {
 			{cons.cat.submenu, '', 'O', 'More Apps', {
 				{cons.act.menu, "applicationMenu"}
 			}},
-			{cons.cat.submenu, '', 'W', 'Window', {
+			{cons.cat.submenu, '', 'S', 'Window', {
 				{cons.act.menu, "windowMenu"}
 			}},
-			{cons.cat.submenu, '', 'V', 'Paste stuff', {
+			{cons.cat.submenu, '', 'F', 'Paste stuff', {
 				{cons.act.menu, "textMenu"}
 			}},
 			{cons.cat.submenu, '', 'I', "Finder", {
@@ -33,8 +33,8 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'H', "Apple Music", {
 				{cons.act.launcher, 'Music'}
 			}},
-			{cons.cat.action, '', '.', "Terminal", {
-				{cons.act.launcher, 'Terminal'}
+			{cons.cat.action, '', '.', "Ghostty", {
+				{cons.act.launcher, 'Ghostty'}
 			}},
 			{cons.cat.action, '', ',', "VSCode", {
 				{cons.act.launcher, 'Visual Studio Code'}
@@ -67,7 +67,7 @@ menuHammerMenuList = {
 			{cons.cat.action, '', 'space', "Alfred", {
 				{cons.act.keycombo, {'cmd'}, 'space'},
 			}},
-			{cons.cat.action, '', 'C', "Clipboard", {
+			{cons.cat.action, '', 'D', "Clipboard", {
 				{cons.act.func, function()
 					hs.eventtap.keyStroke({"cmd","alt","ctrl"}, "1")
 				end }
@@ -82,7 +82,6 @@ menuHammerMenuList = {
 	applicationMenu = {
 		parentMenu = "mainMenu",
 		menuHotkey = nil,
-		-- menuHotkey = {{"shift"}, 'f19'},
 		menuItems = {
 			{cons.cat.action, '', 'A', "App Store", {
 				{cons.act.launcher, 'App Store'}
@@ -188,6 +187,15 @@ menuHammerMenuList = {
 		  	}},
 			{cons.cat.action, '', 'Z', 'Move node to workspace 4', {
 				{cons.act.shellcommand, "zsh -c '/opt/homebrew/bin/aerospace move-node-to-workspace 4' && zsh -c '/opt/homebrew/bin/aerospace workspace 4'"},
+		  	}},
+			{cons.cat.action, '', 'S', 'Move workspace to other monitor', {
+				{cons.act.shellcommand, "zsh -c '/opt/homebrew/bin/aerospace move-workspace-to-monitor --wrap-around next'"},
+		  	}},
+			{cons.cat.action, '', 'D', 'Move node to next workspace', {
+				{cons.act.shellcommand, "zsh -c '/opt/homebrew/bin/aerospace move-node-to-workspace --focus-follows-window --wrap-around next'"},
+		  	}}, 
+			{cons.cat.action, '', 'F', 'Move node to other monitor', {
+				{cons.act.shellcommand, "zsh -c '/opt/homebrew/bin/aerospace move-node-to-monitor --focus-follows-window --wrap-around next'"},
 		  	}},
 		}
 	},

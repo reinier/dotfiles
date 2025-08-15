@@ -7,8 +7,8 @@ link() {
   src="$REPO_DIR/$1"
   dest="$HOME/$2"
   mkdir -p "$(dirname "$dest")"
-  if [ -e "$dest" ] && [ ! -L "$dest" ]; then
-    echo "Skipping $dest (already exists and not a symlink)" >&2
+  if [ -e "$dest" ]; then
+    echo "Skipping $dest (already exists)" >&2
   else
     ln -sf "$src" "$dest"
     echo "Linked $dest -> $src"
@@ -21,5 +21,6 @@ link .zshrc .zshrc
 link karabiner .config/karabiner
 link hammerspoon .hammerspoon
 link aerospace.toml .aerospace.toml
+link ghostty .config/ghostty/config
 
 echo "Dotfiles installed."
