@@ -15,25 +15,20 @@ menuHammerMenuList = {
 			{cons.cat.submenu, '', 'W', 'Window', {
 				{cons.act.menu, "windowMenu"}
 			}},
-			{cons.cat.submenu, '', 'T', 'Text', {
+			{cons.cat.submenu, '', 'V', 'Paste stuff', {
 				{cons.act.menu, "textMenu"}
 			}},
 			{cons.cat.submenu, '', 'I', "Finder", {
 				{cons.act.menu, 'finderMenu'}
 			}},
-			{cons.cat.submenu, '', 'D', "Browse", {
-				{cons.act.menu, 'browseMenu'}
-			}},
 			{cons.cat.submenu, '', 'A', "Scripts", {
 				{cons.act.menu, 'scriptMenu'}
 			}},
+			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			-- {cons.cat.display,'Spacer',{function()return "-----"end}},
 			-- {cons.cat.action, 'shift', 'space', "Alfred File Action", {
 			-- 	{cons.act.keycombo, {'cmd','shift','option','control'}, 'space'},
 			-- }},
-			{cons.cat.action, '', 'space', "Alfred", {
-				{cons.act.keycombo, {'cmd'}, 'space'},
-			}},
 			-- {cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'H', "Apple Music", {
 				{cons.act.launcher, 'Music'}
@@ -69,18 +64,14 @@ menuHammerMenuList = {
 				{cons.act.launcher, 'Claude'}
 			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
-			{cons.cat.action, '', 'V', "Templates", {
-				{cons.act.keycombo, hyperkey, 'v'},
+			{cons.cat.action, '', 'space', "Alfred", {
+				{cons.act.keycombo, {'cmd'}, 'space'},
 			}},
 			{cons.cat.action, '', 'C', "Clipboard", {
 				{cons.act.func, function()
 					hs.eventtap.keyStroke({"cmd","alt","ctrl"}, "1")
 				end }
 			}},
-			{cons.cat.action, '', 'S', 'App actions', {
-				{cons.act.keycombo, hyperkey, 's'},
-			}},
-			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'R', "Reload HS", {
 				{cons.act.func, function()
 					hs.reload()
@@ -273,38 +264,12 @@ menuHammerMenuList = {
 					hs.pasteboard.setContents(string.format("[%s](%s)", title or "", url or ""))
 					hs.alert.show("Copied Markdown link")
 				end }
-			}}
-		}
-	},
-	browseMenu = {
-		parentMenu = "mainMenu",
-		menuHotkey = nil,
-		menuItems = {
-			{cons.cat.action, '', 'C', 'ChatGPT', {
-				{cons.act.openurl,
-				"https://chat.openai.com/"
-				}
 			}},
-			{cons.cat.action, '', 'F', 'Fastmail', {
-				{cons.act.openurl,
-				"https://fastmail.com"
-				}
+			{cons.cat.action, '', 'K', "Show keymap", {
+				{cons.act.func, function()
+					toggleKeymap()
+				end }
 			}},
-			{cons.cat.action, '', 'M', 'Moneybird', {
-				{cons.act.openurl,
-				"https://moneybird.com/265874186632693728/documents/filter/period:this_year"
-				}
-			}},
-			{cons.cat.action, '', 'W', 'Wikipedia',
-			{
-				{cons.act.userinput,                                             -- Action type
-				"luckyWikipedia",                                               -- Value Identifier
-				"Lucky Wikipedia",                                              -- Message
-				"Google a Wikipedia article and hit I'm Feeling Lucky button"}, -- Informative Text
-				{cons.act.openurl,
-				"http://www.google.com/search?q=@@luckyWikipedia@@%20site:wikipedia.org&meta=&btnI"
-				}
-			}}
 		}
 	}
 }
