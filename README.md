@@ -1,28 +1,24 @@
 # Dot files
 
-My Mac and mechanical keyboard (QMK) configuration
-
-## ‼️ Keymaps are moved to this repository
-
-🚚 [reinier/rlkeymaps](https://github.com/reinier/rlkeymaps)
+Configuration for my Mac and supported applications
 
 ## Hammerspoon
 
-- To make scrolling easy with the Logi Ergo MX en Kensington mouse. Hold right mouse key and move mouse to scroll. (not in use for now)
-- To serve as my url dispatcher to open links with the correct browser (not in use for now)
 - Show my keymap with MEH-=
 - To do all kinds of other scripting
-- Handling of the leader key (F19)
+- Handling of the leader key (F19) to activate apps, scripts, etc.
+- To make scrolling easy with the Logi Ergo MX en Kensington mouse. Hold right mouse key and move mouse to scroll. (not in use for now)
+- To serve as my url dispatcher to open links with the correct browser (not in use for now)
 
 ## Other productivity apps
 
 Invisible in this repo, but I also use the following apps to be more productive:
 
-- [Aerospace](https://github.com/nikitabobko/AeroSpace) (for window management)
-- [Drafts](https://getdrafts.com/) (to quickly jot down notes and script text)
-- [Alfred](https://www.alfredapp.com/) (mostly used for searching through different services)
-- [CleanShot X](https://cleanshot.com/) (the best screenshot app there is)
-- [Homerow](https://www.homerow.app/) (to be less dependent on mouse)
+- [Drafts](https://getdrafts.com/) - to quickly jot down notes and script text
+- [Alfred](https://www.alfredapp.com/) - mostly used for searching through different services
+- [CleanShot X](https://cleanshot.com/) - the best screenshot app there is
+- [Homerow](https://www.homerow.app/)- to be less dependent on mouse
+- [Barbee](https://apps.apple.com/us/app/barbee-hide-menu-bar-items/id1548711022) - To manage menubar icons
 
 ## Repository structure
 
@@ -53,6 +49,8 @@ Make sure the following applications are installed:
 - [Aerospace](https://aerospace.app/)
 
 All other software I install via Homebrew is listed in `Brewfile`.
+
+## Need to know after a Mac formatting session
 
 ### Show / hide invisible files in Finder
 
