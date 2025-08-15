@@ -4,7 +4,7 @@ Configuration for my Mac and supported applications
 
 ## Hammerspoon
 
-- Show my keymap with MEH-=
+- Show my keymap with `MEH-=`
 - To do all kinds of other scripting
 - Handling of the leader key (F19) to activate apps, scripts, etc.
 - To make scrolling easy with the Logi Ergo MX en Kensington mouse. Hold right mouse key and move mouse to scroll. (not in use for now)
