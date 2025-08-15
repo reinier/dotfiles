@@ -1,4 +1,6 @@
 keybind = shift+enter=text:\n
 font-size = 21
-theme = CutiePro
+theme = "Monokai Pro Spectrum"
+# theme = catppuccin-mocha
+# theme = CutiePro
 font-family = "Menlo"
