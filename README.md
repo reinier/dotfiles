@@ -59,3 +59,17 @@ Hold down the Command, Shift and Period keys: `cmd + shift + .`
 ### Remove useless previews from icons in Finder
 
 `defaults write com.apple.finder  QLInlinePreviewMinimumSupportedSize -int 512`
+
+## Keyboards
+
+I've used multiple (split) ortholineair keyboards recently (since 2022), including a Moonlander, Keychron Q15, Microdox, Geist Totem, and the Glove80.
+
+The Glove80 seemed to be my endgame, but in the end the thing is just too big. I only use a portion of the keys (something like 34), so the space it takes up on my desk feels a bit absurd.
+
+Right now I've settled on the Ferris (the [Halcyon Ferris](https://splitkb.com/collections/keyboard-kits/products/halcyon-ferris) to be precise), which fulfills my needs pretty well.
+
+I'm using VIAL to configure the keyboard, but you can take a look at my keymap in the `hammerspoon/keyboard` directory, where I keep a visual overview of the keymap.
+
+### Learnings
+
+- Combo keys can work for less-used keys, but don't put them on roll-overs like `w`+`e` and `e`+`r`. The `f`+`d` keys are kind of a hidden roll-over because of the heavy use of the `ext` layer in combination with the alt-key.

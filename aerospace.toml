@@ -29,25 +29,22 @@ PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 [mode.main.binding]
 
 # Focus
-
-alt-ctrl-shift-a = 'focus --boundaries-action wrap-around-the-workspace left'
-alt-ctrl-shift-s = 'focus up'
-alt-ctrl-shift-d = 'focus down'
-alt-ctrl-shift-f = 'focus --boundaries-action wrap-around-the-workspace right'
+alt-ctrl-shift-f = 'focus --boundaries-action wrap-around-the-workspace dfs-next'
+alt-ctrl-shift-d = 'workspace --wrap-around next'
+alt-ctrl-shift-s = 'focus-monitor --wrap-around next'
 
 alt-ctrl-shift-z = 'workspace 4'
 alt-ctrl-shift-x = 'workspace 3'
 alt-ctrl-shift-c = 'workspace 2'
 alt-ctrl-shift-v = 'workspace 1'
 
-alt-ctrl-shift-b = 'workspace --wrap-around next'
-alt-ctrl-shift-g = 'focus-monitor --wrap-around next'
 
 # Change structure
 
-alt-ctrl-shift-t = 'layout h_tiles h_accordion' # Toggle horizontal layouts
-alt-ctrl-shift-e = 'resize smart -50'
-alt-ctrl-shift-r = 'resize smart +50'
+alt-ctrl-shift-r = 'layout h_tiles h_accordion' # Toggle layouts horizontal
+alt-ctrl-shift-e = 'layout v_tiles v_accordion' # Toggle layouts vertical
+alt-ctrl-shift-u = 'resize smart -50'
+alt-ctrl-shift-o = 'resize smart +50'
 
 # Move
 
@@ -57,8 +54,5 @@ alt-ctrl-shift-period = 'move-node-to-monitor --focus-follows-window --wrap-arou
 
 alt-ctrl-shift-j = 'move left'
 alt-ctrl-shift-k = 'move down'
-alt-ctrl-shift-l = 'move up'
-alt-ctrl-shift-p = 'move right'
-
-alt-ctrl-shift-o = 'reload-config'
-alt-ctrl-shift-i = 'flatten-workspace-tree'
+alt-ctrl-shift-i = 'move up'
+alt-ctrl-shift-l = 'move right'

@@ -28,6 +28,15 @@ function M.getMenu(cons)
             {cons.cat.action, '', 'F', 'Move node to other monitor', {
                 {cons.act.shellcommand, "zsh -c '/opt/homebrew/bin/aerospace move-node-to-monitor --focus-follows-window --wrap-around next'"},
             }},
+            {cons.cat.action, '', 'T', 'Swap orientation', {
+                {cons.act.shellcommand, "zsh -c '/opt/homebrew/bin/aerospace layout horizontal vertical'"},
+            }},
+            {cons.cat.action, '', 'R', 'Reload aerospace config', {
+                {cons.act.shellcommand, "zsh -c '/opt/homebrew/bin/aerospace reload-config'"},
+            }},
+            {cons.cat.action, '', 'E', 'Flatten workspace tree', {
+                {cons.act.shellcommand, "zsh -c '/opt/homebrew/bin/aerospace flatten-workspace-tree'"},
+            }},
         }
     }
 end
