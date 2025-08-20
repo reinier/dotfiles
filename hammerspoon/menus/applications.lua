@@ -22,6 +22,9 @@ function M.getMenu(cons)
             }},
             {cons.cat.action, '', 'M', "MS Outlook", {
                 {cons.act.launcher, 'Microsoft Outlook'}
+            }},
+            {cons.cat.action, '', 'I', "Miro", {
+                {cons.act.launcher, 'Miro'}
             }}
         }
     }
