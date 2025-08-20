@@ -29,6 +29,7 @@ PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 [mode.main.binding]
 
 # Focus
+alt-ctrl-shift-a = 'focus --boundaries-action wrap-around-the-workspace dfs-prev'
 alt-ctrl-shift-f = 'focus --boundaries-action wrap-around-the-workspace dfs-next'
 alt-ctrl-shift-d = 'workspace --wrap-around next'
 alt-ctrl-shift-s = 'focus-monitor --wrap-around next'

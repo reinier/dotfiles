@@ -20,7 +20,7 @@ menuHammerMenuList = {
 			{cons.cat.submenu, '', 'O', 'More Apps', {
 				{cons.act.menu, "applicationMenu"}
 			}},
-			{cons.cat.submenu, '', 'S', 'Window', {
+			{cons.cat.submenu, '', 'S', 'Aerospace', {
 				{cons.act.menu, "windowMenu"}
 			}},
 			{cons.cat.submenu, '', 'F', 'Paste stuff', {
