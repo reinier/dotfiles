@@ -19,6 +19,12 @@ function M.getMenu(cons)
                     hs.eventtap.keyStrokes(text)
                 end }
             }},
+            {cons.cat.action, '', 'J', "PO Werkzaamheden", {
+                {cons.act.func, function()
+                    local text = "Description according to refinement sessions:"
+                    hs.eventtap.keyStrokes(text)
+                end }
+            }},
             {cons.cat.action, '', 'D', "Date long", {
                 {cons.act.func, function()
                     hs.eventtap.keyStrokes(dateUtils.getLongDate())
