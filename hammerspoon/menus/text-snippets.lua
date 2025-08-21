@@ -19,7 +19,7 @@ function M.getMenu(cons)
                     hs.eventtap.keyStrokes(text)
                 end }
             }},
-            {cons.cat.action, '', 'J', "PO Werkzaamheden", {
+            {cons.cat.action, '', 'J', "Desc acc to refinement", {
                 {cons.act.func, function()
                     local text = "Description according to refinement sessions:"
                     hs.eventtap.keyStrokes(text)
