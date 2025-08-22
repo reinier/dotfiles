@@ -28,6 +28,7 @@ This repository contains configuration for a couple of tools:
 - `karabiner` – JSON configuration for [Karabiner‑Elements](https://karabiner-elements.pqrs.org/).
 - `aerospace.toml` – Configuration for the [Aerospace](https://aerospace.app/) tiling window manager.
 - `Brewfile` – Homebrew bundle listing applications and command line tools.
+- `backlog` – Planned improvements and refactoring tasks with detailed implementation plans.
 
 ## Install dotfiles on a clean system
 

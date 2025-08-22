@@ -6,7 +6,7 @@ function M.getMenu(cons)
 		menuHotkey = {{}, 'f19'},
 		menuItems =  {
 			{cons.cat.exit, '', 'f19', 'Exit', {
-				{cons.act.func, function() self.menuManager:closeMenu() end }
+				{cons.act.func, function() menuHammer.menuManager:closeMenu() end }
 			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.submenu, '', 'O', 'More Apps', {

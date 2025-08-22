@@ -62,6 +62,18 @@ Since this is a configuration repository, there are no traditional build/test co
 - **Optimized Configuration**: Cleaned up unused components for better performance and maintainability
 - **Single Window Manager**: Uses Aerospace exclusively (removed conflicting Amethyst/Yabai references)
 
+## Backlog & Future Improvements
+
+The `backlog/` directory contains planned improvements and refactoring tasks:
+
+- **Purpose**: Organized storage for enhancement plans, technical debt items, and future feature ideas
+- **Format**: Markdown files with structured plans including problem statements, proposed solutions, and implementation strategies
+- **Usage**: When suggesting improvements or picking up development work, reference backlog items to understand context and priorities
+- **Current Items**: 
+  - `timer-api-refactor.md` - Plan to refactor the monolithic timer-api.lua into modular components
+
+When working on this repository, check the backlog directory for relevant planned improvements that could be implemented alongside current tasks.
+
 ## Key File Locations After Installation
 
 - Hammerspoon: `~/.hammerspoon/`
