@@ -65,6 +65,11 @@ function M.getMenu(cons)
                     hs.alert.show("Computer name copied: " .. computerName, 3)
                 end }
             }},
+            {cons.cat.action, '', 'O', "Open Console", {
+                {cons.act.func, function()
+                    hs.console.hswindow():focus()
+                end }
+            }},
             {cons.cat.action, '', 'S', "Directory Watcher Status", {
                 {cons.act.func, function()
                     directoryWatchers.status()

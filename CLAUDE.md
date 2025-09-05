@@ -41,11 +41,12 @@ This is a personal dotfiles repository for macOS productivity and automation set
 - Complex modifications stored in `karabiner/assets/complex_modifications/`
 
 ### Directory Watcher System
-- **Configuration**: `directory-watchers-config.yaml` - YAML-based configuration for automated file organization
+- **Configuration**: Integrated with Hammerspoon secrets system (`.secrets.json`)
 - **Computer-specific targeting**: Each watcher configuration specifies which computer it applies to
 - **Path expansion**: Supports `~` (home directory) and relative paths
 - **MenuHammer integration**: 
   - **F19 → Scripts → C**: Copy Computer Name (needed for configuration)
+  - **F19 → Scripts → M**: Migrate YAML to JSON format (one-time helper)
   - **F19 → Scripts → S**: Show Directory Watcher Status
   - **F19 → Scripts → L**: Reload Directory Watchers
 - **Features**:
@@ -55,6 +56,7 @@ This is a personal dotfiles repository for macOS productivity and automation set
   - Provides notifications and console logging
   - Handles errors gracefully
   - Multi-computer safe (only processes watchers for current computer)
+  - Secure configuration storage in gitignored secrets file
 
 ### Shell Configuration
 - Zsh setup with `.zshrc` and `.zprofile`
@@ -107,21 +109,36 @@ When working on this repository, check the backlog directory for relevant planne
 
 ### Setup Process
 1. **Get Computer Name**: Use F19 → Scripts → C to copy your computer's identifier
-2. **Edit Configuration**: Modify `hammerspoon/directory-watchers-config.yaml`
+2. **Edit Secrets File**: Add configuration to `.secrets.json` in the `directoryWatchers` section
 3. **Reload Watchers**: Use F19 → Scripts → L to apply changes
 
 ### Configuration Example
-```yaml
-watchers:
-  - source: "~/Downloads"
-    target: "~/Documents/Auto-Sorted"
-    computer: "Your-Computer-Name"
-    enabled: true
-    description: "Auto-sort downloads"
+Add this structure to your `.secrets.json` file:
+```json
+{
+  "directoryWatchers": {
+    "watchers": [
+      {
+        "source": "~/Downloads",
+        "target": "~/Documents/Auto-Sorted",
+        "computer": "Your-Computer-Name",
+        "enabled": true,
+        "description": "Auto-sort downloads"
+      }
+    ]
+  }
+}
 ```
+
+### Migration from YAML
+If upgrading from the previous YAML configuration:
+1. Use F19 → Scripts → M to convert existing YAML to JSON format
+2. Copy the generated JSON and merge it into your `.secrets.json` file
+3. Remove the old YAML file if desired
 
 ### Management Commands
 - **F19 → Scripts → C**: Copy Computer Name for configuration
+- **F19 → Scripts → M**: Migrate YAML to JSON format (one-time helper)
 - **F19 → Scripts → S**: Show active watcher status in console
 - **F19 → Scripts → L**: Reload directory watcher configuration
 
@@ -129,6 +146,7 @@ watchers:
 - Each watcher specifies a `computer` field matching the computer name
 - Only watchers for the current computer are activated
 - Safe to share configuration across multiple machines via dotfiles
+- Configuration stored securely in gitignored `.secrets.json` file
 
 ## Key File Locations After Installation
 

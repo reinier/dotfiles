@@ -28,73 +28,14 @@ local function ensureDirectoryExists(path)
     return true
 end
 
-local function parseYAMLConfig(filePath)
-    local file = io.open(filePath, "r")
-    if not file then
-        log("Configuration file not found: " .. filePath)
+local function loadSecretsConfig()
+    local secrets = hs.settings.get("secrets")
+    if not secrets or not secrets.directoryWatchers or not secrets.directoryWatchers.watchers then
+        log("No directory watchers found in secrets configuration")
         return {}
     end
     
-    local content = file:read("*all")
-    file:close()
-    
-    local watchers = {}
-    local currentWatcher = nil
-    
-    for line in content:gmatch("[^\r\n]+") do
-        line = line:gsub("^%s+", ""):gsub("%s+$", "")
-        
-        if line:match("^#") or line == "" then
-            goto continue
-        end
-        
-        if line == "watchers:" then
-            goto continue
-        end
-        
-        if line:match("^%- source:") then
-            if currentWatcher then
-                table.insert(watchers, currentWatcher)
-            end
-            currentWatcher = {}
-            local source = line:match("^%- source:%s*[\"']?([^\"']+)[\"']?")
-            if source then
-                currentWatcher.source = source
-            end
-        elseif currentWatcher then
-            local target = line:match("^target:%s*[\"']?([^\"']+)[\"']?")
-            if target then
-                currentWatcher.target = target
-                goto continue
-            end
-            
-            local computer = line:match("^computer:%s*[\"']?([^\"']+)[\"']?")
-            if computer then
-                currentWatcher.computer = computer
-                goto continue
-            end
-            
-            local enabled = line:match("^enabled:%s*(%w+)")
-            if enabled then
-                currentWatcher.enabled = (enabled:lower() == "true")
-                goto continue
-            end
-            
-            local description = line:match("^description:%s*[\"']?([^\"']*)[\"']?")
-            if description then
-                currentWatcher.description = description
-                goto continue
-            end
-        end
-        
-        ::continue::
-    end
-    
-    if currentWatcher then
-        table.insert(watchers, currentWatcher)
-    end
-    
-    return watchers
+    return secrets.directoryWatchers.watchers
 end
 
 function M.getCurrentComputer()
@@ -123,10 +64,9 @@ function M.filterConfigForCurrentComputer(allWatchers)
 end
 
 function M.loadConfig()
-    local configPath = hs.configdir .. "/directory-watchers-config.yaml"
-    local allWatchers = parseYAMLConfig(configPath)
+    local allWatchers = loadSecretsConfig()
     config = M.filterConfigForCurrentComputer(allWatchers)
-    log("Loaded " .. #config .. " watchers from configuration")
+    log("Loaded " .. #config .. " watchers from secrets configuration")
     return config
 end
 
@@ -149,9 +89,9 @@ function M.createWatcher(watcherConfig)
         for i, file in ipairs(files) do
             local flags = flagTables[i]
             
-            if flags.itemCreated and not flags.itemIsDir then
+            if (flags.itemCreated or flags.itemRenamed) and not flags.itemIsDir then
                 local fileName = file:match("([^/]+)$")
-                if fileName then
+                if fileName and fileName ~= ".DS_Store" then
                     local targetPath = target .. "/" .. fileName
                     
                     hs.timer.doAfter(0.1, function()
