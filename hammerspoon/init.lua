@@ -19,3 +19,7 @@ menuHammer:enter()
 
 hsImage = hs.loadSpoon('FadeLogo')
 hsImage:start()
+
+-- Initialize directory watchers
+local directoryWatchers = require('functions.directory-watchers')
+directoryWatchers.start()

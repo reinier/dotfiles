@@ -5,6 +5,36 @@ local M = {}
 local apiClient = require("functions.timer-api.api-client")
 local userManager = require("functions.timer-api.user-manager")
 
+-- Utility Functions
+
+local function buildFilterParam(filters)
+    if not filters or #filters == 0 then return "" end
+    return "?filter=" .. table.concat(filters, ",")
+end
+
+local function getLast21DaysFilter()
+    local today = os.date("!%Y%m%d")
+    local twentyOneDaysAgo = os.date("!%Y%m%d", os.time() - (21 * 24 * 60 * 60))
+    return twentyOneDaysAgo .. ".." .. today
+end
+
+local function getDateRangeFilter(startDate, endDate)
+    -- Accepts dates in YYYY-MM-DD format or timestamp
+    if type(startDate) == "number" then
+        startDate = os.date("!%Y%m%d", startDate)
+    else
+        startDate = startDate:gsub("-", "")
+    end
+    
+    if type(endDate) == "number" then
+        endDate = os.date("!%Y%m%d", endDate)
+    else
+        endDate = endDate:gsub("-", "")
+    end
+    
+    return startDate .. ".." .. endDate
+end
+
 -- Public API Functions
 
 function M.createTimeEntry(config, adminId, projectId, clientId, description, callback)
@@ -55,6 +85,69 @@ function M.createTimeEntry(config, adminId, projectId, clientId, description, ca
     end)
 end
 
+function M.getActiveTimers(config, adminId, options, callback)
+    -- Handle optional options parameter
+    if type(options) == "function" then
+        callback = options
+        options = {}
+    end
+    options = options or {}
+    
+    local headers = {
+        ["Authorization"] = "Bearer " .. config.API_AUTH_TOKEN,
+        ["Accept"] = "application/json"
+    }
+    
+    -- Build filter parameters
+    local filters = {"include_active:true"}
+    
+    if options.includePeriod then
+        if options.includePeriod == "last_21_days" then
+            local today = os.date("!%Y%m%d")
+            local twentyOneDaysAgo = os.date("!%Y%m%d", os.time() - (21 * 24 * 60 * 60))
+            table.insert(filters, "period:" .. twentyOneDaysAgo .. ".." .. today)
+        elseif options.includePeriod == "this_month" then
+            table.insert(filters, "period:this_month")
+        elseif type(options.includePeriod) == "string" then
+            table.insert(filters, "period:" .. options.includePeriod)
+        end
+    end
+    
+    local filterParam = "?filter=" .. table.concat(filters, ",")
+    if options.perPage then
+        filterParam = filterParam .. "&per_page=" .. options.perPage
+    end
+    
+    local url = "https://moneybird.com/api/v2/" .. adminId .. "/time_entries.json" .. filterParam
+    
+    hs.http.doAsyncRequest(url, "GET", nil, headers, function(status, responseBody, responseHeaders)
+        if status ~= 200 then
+            local errorMsg = "❌ Failed to get active timers. Status: " .. status
+            if responseBody then
+                errorMsg = errorMsg .. "\n" .. responseBody
+            end
+            callback(nil, errorMsg)
+            return
+        end
+        
+        local success, timeEntries = pcall(hs.json.decode, responseBody)
+        if not success or not timeEntries then
+            callback(nil, "❌ Invalid response from active timers API")
+            return
+        end
+        
+        -- Filter for truly active timers (started but not ended)
+        local activeTimers = {}
+        for _, entry in ipairs(timeEntries) do
+            if entry.started_at and not entry.ended_at then
+                table.insert(activeTimers, entry)
+            end
+        end
+        
+        callback(activeTimers, nil)
+    end)
+end
+
 function M.debugActiveTimers(config, adminId, callback)
     hs.alert.show("ℹ️ Fetching active timers for debugging...", 2)
     
@@ -63,17 +156,26 @@ function M.debugActiveTimers(config, adminId, callback)
         ["Accept"] = "application/json"
     }
     
-    -- Try different URL parameter approaches
+    -- Helper function to get last 21 days range
+    local function getLast21DaysFilter()
+        local today = os.date("!%Y%m%d")
+        local twentyOneDaysAgo = os.date("!%Y%m%d", os.time() - (21 * 24 * 60 * 60))
+        return twentyOneDaysAgo .. ".." .. today
+    end
+    
+    -- Try different URL parameter approaches with correct filter format
+    local last21Days = getLast21DaysFilter()
     local urls = {
         -- Basic without filters
         "https://moneybird.com/api/v2/" .. adminId .. "/time_entries.json",
-        -- With include_active only
-        "https://moneybird.com/api/v2/" .. adminId .. "/time_entries.json?include_active=true",
-        -- With different date formats
-        "https://moneybird.com/api/v2/" .. adminId .. "/time_entries.json?include_active=true&day=" .. os.date("!%Y-%m-%d"),
-        "https://moneybird.com/api/v2/" .. adminId .. "/time_entries.json?include_active=true&day=" .. os.date("!%Y%m%d"),
-        -- With limit to reduce results
-        "https://moneybird.com/api/v2/" .. adminId .. "/time_entries.json?include_active=true&per_page=10",
+        -- With include_active only (CORRECT FORMAT)
+        "https://moneybird.com/api/v2/" .. adminId .. "/time_entries.json?filter=include_active:true",
+        -- With this month + active (CORRECT FORMAT)
+        "https://moneybird.com/api/v2/" .. adminId .. "/time_entries.json?filter=period:this_month,include_active:true",
+        -- With last 21 days + active (CORRECT FORMAT)
+        "https://moneybird.com/api/v2/" .. adminId .. "/time_entries.json?filter=period:" .. last21Days .. ",include_active:true",
+        -- With limit to reduce results + active
+        "https://moneybird.com/api/v2/" .. adminId .. "/time_entries.json?filter=include_active:true&per_page=10",
     }
     
     local function testUrl(index)
@@ -124,6 +226,12 @@ function M.debugActiveTimers(config, adminId, callback)
     
     testUrl(1)
 end
+
+-- Utility Functions (exported)
+
+M.buildFilterParam = buildFilterParam
+M.getLast21DaysFilter = getLast21DaysFilter
+M.getDateRangeFilter = getDateRangeFilter
 
 -- Constants
 

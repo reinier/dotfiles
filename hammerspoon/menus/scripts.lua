@@ -4,6 +4,7 @@ function M.getMenu(cons)
     local dateUtils = require('functions.date-utils')
     local markdownUtils = require('functions.markdown-utils')
     local timerApi = require('functions.timer-api')
+    local directoryWatchers = require('functions.directory-watchers')
     
     return {
         parentMenu = "mainMenu",
@@ -44,6 +45,40 @@ function M.getMenu(cons)
             {cons.cat.action, '', 'R', "Reset Timer Settings", {
                 {cons.act.func, function()
                     timerApi.resetTimerSettings()
+                end }
+            }},
+            {cons.cat.action, '', 'D', "Debug Active Timers", {
+                {cons.act.func, function()
+                    timerApi.debugActiveTimers(function(result, message)
+                        if result then
+                            hs.alert.show("✅ Debug completed - check console", 3)
+                        else
+                            hs.alert.show("❌ Debug failed: " .. (message or "Unknown error"), 5)
+                        end
+                    end)
+                end }
+            }},
+            {cons.cat.action, '', 'C', "Copy Computer Name", {
+                {cons.act.func, function()
+                    local computerName = directoryWatchers.getCurrentComputer()
+                    hs.pasteboard.setContents(computerName)
+                    hs.alert.show("Computer name copied: " .. computerName, 3)
+                end }
+            }},
+            {cons.cat.action, '', 'S', "Directory Watcher Status", {
+                {cons.act.func, function()
+                    directoryWatchers.status()
+                    hs.alert.show("Directory watcher status - check console", 2)
+                end }
+            }},
+            {cons.cat.action, '', 'L', "Reload Directory Watchers", {
+                {cons.act.func, function()
+                    local success = directoryWatchers.reload()
+                    if success then
+                        hs.alert.show("✅ Directory watchers reloaded", 3)
+                    else
+                        hs.alert.show("❌ Failed to reload directory watchers", 3)
+                    end
                 end }
             }},
         }
