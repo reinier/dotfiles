@@ -28,6 +28,52 @@ local function ensureDirectoryExists(path)
     return true
 end
 
+local function moveFile(sourcePath, targetPath)
+    local success, error = os.rename(sourcePath, targetPath)
+    if success then
+        return true, nil
+    end
+    
+    if error and error:match("Cross%-device link") then
+        log("Cross-device move detected, using copy+delete fallback")
+        
+        local sourceFile, sourceErr = io.open(sourcePath, "rb")
+        if not sourceFile then
+            return false, "Cannot open source file: " .. (sourceErr or "unknown error")
+        end
+        
+        local sourceContent = sourceFile:read("*all")
+        sourceFile:close()
+        
+        if not sourceContent then
+            return false, "Failed to read source file content"
+        end
+        
+        local targetFile, targetErr = io.open(targetPath, "wb")
+        if not targetFile then
+            return false, "Cannot create target file: " .. (targetErr or "unknown error")
+        end
+        
+        local writeSuccess = targetFile:write(sourceContent)
+        targetFile:close()
+        
+        if not writeSuccess then
+            os.remove(targetPath)
+            return false, "Failed to write to target file"
+        end
+        
+        local removeSuccess = os.remove(sourcePath)
+        if not removeSuccess then
+            log("Warning: Target file created but failed to remove source file: " .. sourcePath)
+            return true, "File copied but source not removed"
+        end
+        
+        return true, nil
+    end
+    
+    return false, error or "unknown error"
+end
+
 local function loadSecretsConfig()
     local secrets = hs.settings.get("secrets")
     if not secrets or not secrets.directoryWatchers or not secrets.directoryWatchers.watchers then
@@ -95,7 +141,7 @@ function M.createWatcher(watcherConfig)
                     local targetPath = target .. "/" .. fileName
                     
                     hs.timer.doAfter(0.1, function()
-                        local success, error = os.rename(file, targetPath)
+                        local success, error = moveFile(file, targetPath)
                         if success then
                             log("Moved: " .. fileName .. " -> " .. target)
                             hs.notify.new({
