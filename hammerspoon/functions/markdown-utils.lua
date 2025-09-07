@@ -41,11 +41,9 @@ end
 function M.getBrowserMarkdownLink()
     local as = [[
     try
-        tell application "Arc"
-        tell front window to tell active tab
-            set t to title
-            set u to URL
-        end tell
+        tell application "Orion"
+            set t to name of current tab of window 1
+            set u to URL of current tab of window 1
         end tell
         return t & "¶" & u
     on error errMsg
@@ -54,7 +52,7 @@ function M.getBrowserMarkdownLink()
     ]]
     local ok, result = hs.osascript.applescript(as)
     if not ok or result:match("^ERROR:") then
-        hs.alert.show("Arc script failed")
+        hs.alert.show("Orion script failed")
         return
     end
     local title, url = result:match("^(.*)¶(.*)$")
