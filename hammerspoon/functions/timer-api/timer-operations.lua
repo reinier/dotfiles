@@ -227,6 +227,108 @@ function M.debugActiveTimers(config, adminId, callback)
     testUrl(1)
 end
 
+-- Active Timer Utility Functions
+
+function M.parseMoneybirdTimestamp(timestamp)
+    if not timestamp then return nil end
+    
+    -- Parse Moneybird timestamp formats
+    local year, month, day, hour, min, sec = nil, nil, nil, nil, nil, nil
+    
+    -- ISO 8601 with Z: "2025-09-08T14:30:00.000Z"
+    year, month, day, hour, min, sec = timestamp:match("(%d+)-(%d+)-(%d+)T(%d+):(%d+):(%d+)")
+    
+    -- UTC format: "2025-09-08 14:30:00 UTC"  
+    if not year then
+        year, month, day, hour, min, sec = timestamp:match("(%d+)-(%d+)-(%d+) (%d+):(%d+):(%d+)")
+    end
+    
+    -- ISO with timezone: "2025-09-08T14:30:00+00:00"
+    if not year then
+        year, month, day, hour, min, sec = timestamp:match("(%d+)-(%d+)-(%d+)T(%d+):(%d+):(%d+)[%+%-]")
+    end
+    
+    if not year then return nil end
+    
+    -- Convert UTC to Amsterdam time with DST detection
+    -- Amsterdam: CET (UTC+1 winter), CEST (UTC+2 summer)
+    
+    -- Detect DST status for the timestamp date
+    local testDate = {
+        year = tonumber(year),
+        month = tonumber(month),
+        day = tonumber(day),
+        hour = 12, min = 0, sec = 0
+    }
+    
+    local testTimestamp = os.time(testDate)
+    local testDateInfo = os.date("*t", testTimestamp)
+    local isDST = testDateInfo.isdst
+    
+    -- Calculate Amsterdam offset
+    local amsterdamOffset
+    if isDST == true then
+        amsterdamOffset = 2  -- CEST = UTC+2
+    elseif isDST == false then
+        amsterdamOffset = 1  -- CET = UTC+1
+    else
+        -- Fallback to current DST status if unknown
+        local currentDST = os.date("*t", os.time()).isdst
+        amsterdamOffset = currentDST and 2 or 1
+    end
+    
+    local utcHour = tonumber(hour)
+    local amsterdamHour = utcHour + amsterdamOffset
+    
+    -- Handle day rollover
+    local amsterdamDay = tonumber(day)
+    if amsterdamHour >= 24 then
+        amsterdamHour = amsterdamHour - 24
+        amsterdamDay = amsterdamDay + 1
+    end
+    
+    -- Create Amsterdam timestamp
+    local amsterdamComponents = {
+        year = tonumber(year),
+        month = tonumber(month), 
+        day = amsterdamDay,
+        hour = amsterdamHour,
+        min = tonumber(min),
+        sec = tonumber(sec)
+    }
+    
+    return os.time(amsterdamComponents)
+end
+
+function M.formatDuration(seconds)
+    if not seconds or seconds < 0 then return "0m" end
+    
+    local hours = math.floor(seconds / 3600)
+    local minutes = math.floor((seconds % 3600) / 60)
+    
+    if hours > 0 then
+        return string.format("%dh %dm", hours, minutes)
+    else
+        return string.format("%dm", minutes)
+    end
+end
+
+function M.calculateRunningDuration(startTime)
+    local start = M.parseMoneybirdTimestamp(startTime)
+    if not start then return "Unknown" end
+    
+    local now = os.time()
+    local duration = now - start
+    return M.formatDuration(duration)
+end
+
+function M.formatStartTime(timestamp)
+    local parsed = M.parseMoneybirdTimestamp(timestamp)
+    if not parsed then return "Unknown time" end
+    
+    return os.date("%H:%M on %d/%m", parsed)
+end
+
 -- Utility Functions (exported)
 
 M.buildFilterParam = buildFilterParam

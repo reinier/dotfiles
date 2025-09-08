@@ -1,3 +1,9 @@
+---
+status: done
+date_created: 2025-08-25
+date_modified: 2025-09-08
+---
+
 # Active Timer Check Before Starting New Timer
 
 ## Problem Statement

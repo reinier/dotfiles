@@ -1,3 +1,9 @@
+---
+status: done
+date_created: 2025-08-25
+date_modified: 2025-08-25
+---
+
 # Fix Moneybird Active Timers API Parameter Format
 
 ## Problem Statement
