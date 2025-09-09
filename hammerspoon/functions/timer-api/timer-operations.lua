@@ -44,6 +44,10 @@ function M.createTimeEntry(config, adminId, projectId, clientId, description, ca
             return
         end
         
+        -- Debug logging
+        local timestamp = os.date("%Y-%m-%d %H:%M:%S")
+        print(string.format("[%s] Moneybird Timer: Creating time entry with user ID %s", timestamp, tostring(userId)))
+        
         local headers = {
             ["Authorization"] = "Bearer " .. config.API_AUTH_TOKEN,
             ["Content-Type"] = "application/json",
@@ -119,6 +123,10 @@ function M.getActiveTimers(config, adminId, options, callback)
     end
     
     local url = "https://moneybird.com/api/v2/" .. adminId .. "/time_entries.json" .. filterParam
+    
+    -- Debug logging
+    local timestamp = os.date("%Y-%m-%d %H:%M:%S")
+    print(string.format("[%s] Moneybird Timer: Getting active timers (no specific user context) - URL: %s", timestamp, url))
     
     hs.http.doAsyncRequest(url, "GET", nil, headers, function(status, responseBody, responseHeaders)
         if status ~= 200 then
@@ -327,6 +335,50 @@ function M.formatStartTime(timestamp)
     if not parsed then return "Unknown time" end
     
     return os.date("%H:%M on %d/%m", parsed)
+end
+
+function M.stopTimer(config, adminId, timerId, callback)
+    -- Debug logging
+    local timestamp = os.date("%Y-%m-%d %H:%M:%S")
+    print(string.format("[%s] Moneybird Timer: Stopping timer ID %s", timestamp, tostring(timerId)))
+    
+    local headers = {
+        ["Authorization"] = "Bearer " .. config.API_AUTH_TOKEN,
+        ["Content-Type"] = "application/json",
+        ["Accept"] = "application/json"
+    }
+    
+    local timeEntry = {
+        time_entry = {
+            ended_at = apiClient.getCurrentUTCTimestamp()
+        }
+    }
+    
+    local url = "https://moneybird.com/api/v2/" .. adminId .. "/time_entries/" .. timerId .. ".json"
+    local body = hs.json.encode(timeEntry)
+    
+    hs.http.doAsyncRequest(url, "PATCH", body, headers, function(status, responseBody, responseHeaders)
+        if status ~= 200 then
+            local errorMsg = "❌ Failed to stop timer. Status: " .. status
+            if responseBody then
+                errorMsg = errorMsg .. "\n" .. responseBody
+            end
+            callback(nil, errorMsg)
+            return
+        end
+        
+        local success, response = pcall(hs.json.decode, responseBody)
+        if not success or not response then
+            callback(nil, "❌ Invalid response from stop timer API")
+            return
+        end
+        
+        -- Debug logging
+        local timestamp = os.date("%Y-%m-%d %H:%M:%S")
+        print(string.format("[%s] Moneybird Timer: Successfully stopped timer ID %s", timestamp, tostring(timerId)))
+        
+        callback(response, nil)
+    end)
 end
 
 -- Utility Functions (exported)

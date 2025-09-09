@@ -3,6 +3,7 @@ local M = {}
 
 -- Dependencies 
 local cache = require("functions.timer-api.cache")
+local timerOperations = require("functions.timer-api.timer-operations")
 
 -- Public API Functions
 
@@ -209,6 +210,52 @@ function M.showDescriptionInput(callback)
         end
     end)
     
+    chooser:show()
+end
+
+function M.showTimerActionChooser(activeTimer, callback)
+    local chooser = hs.chooser.new(function(choice)
+        if choice then
+            callback(choice.action, nil)
+        else
+            callback(nil, "❌ Timer action cancelled")
+        end
+    end)
+    
+    -- Prepare timer details for display
+    local startTime = activeTimer.started_at or "Unknown"
+    local description = activeTimer.description or "No description"
+    local duration = timerOperations.calculateRunningDuration(startTime)
+    local startTimeFormatted = timerOperations.formatStartTime(startTime)
+    
+    -- Build chooser options in the requested order
+    local choices = {
+        {
+            text = "Stop current & start new timer",
+            subText = "Stop and immediately create a new timer",
+            action = "stop_and_start"
+        },
+        {
+            text = "Stop current timer (no new timer)",
+            subText = "Stop the timer and return to menu",
+            action = "stop_only"
+        },
+        {
+            text = "View timer details",
+            subText = "Show detailed information about the running timer",
+            action = "view_details"
+        },
+        {
+            text = "Cancel (keep timer running)",
+            subText = "Return to menu without changing anything",
+            action = "cancel"
+        }
+    }
+    
+    -- Set up the chooser
+    chooser:choices(choices)
+    chooser:placeholderText(string.format("⏱️ Active Timer: %s (Duration: %s)", description, duration))
+    chooser:selectedRow(1) -- Default to first option
     chooser:show()
 end
 

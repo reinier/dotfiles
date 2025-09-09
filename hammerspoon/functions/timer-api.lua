@@ -7,27 +7,50 @@ local apiClient = require("functions.timer-api.api-client")
 local userManager = require("functions.timer-api.user-manager")
 local uiChoosers = require("functions.timer-api.ui-choosers")
 local timerOperations = require("functions.timer-api.timer-operations")
+local utils = require("functions.timer-api.utils")
 
 -- Private helper functions
 
-function M.handleActiveTimerFound(activeTimer, callback)
-    local startTime = activeTimer.started_at or "Unknown"
-    local description = activeTimer.description or "No description"
-    local duration = timerOperations.calculateRunningDuration(startTime)
-    
-    local message = string.format(
-        "⏱️ Timer already running!\n\n" ..
-        "Description: %s\n" ..
-        "Started: %s\n" ..
-        "Duration: %s\n\n" ..
-        "Stop the current timer before starting a new one.",
-        description,
-        timerOperations.formatStartTime(startTime),
-        duration
-    )
-    
-    -- Only show the message via callback - MenuHammer will display it
-    callback(nil, message)
+function M.handleActiveTimerFound(activeTimer, apiConfig, adminId, callback)
+    -- Show interactive chooser for timer actions
+    uiChoosers.showTimerActionChooser(activeTimer, function(action, actionError)
+        if actionError then
+            callback(nil, actionError)
+            return
+        end
+        
+        -- Handle the selected action
+        if action == "stop_and_start" then
+            M.stopAndStartNewTimer(apiConfig, adminId, activeTimer, callback)
+        elseif action == "stop_only" then
+            M.stopTimerOnly(apiConfig, adminId, activeTimer, callback)
+        elseif action == "view_details" then
+            -- Show detailed timer information
+            local startTime = activeTimer.started_at or "Unknown"
+            local description = activeTimer.description or "No description"
+            local duration = timerOperations.calculateRunningDuration(startTime)
+            local startTimeFormatted = timerOperations.formatStartTime(startTime)
+            
+            local detailMessage = string.format(
+                "⏱️ Timer Details\n\n" ..
+                "Description: %s\n" ..
+                "Started: %s\n" ..
+                "Duration: %s\n" ..
+                "Timer ID: %s",
+                description,
+                startTimeFormatted,
+                duration,
+                activeTimer.id or "Unknown"
+            )
+            
+            callback(nil, detailMessage)
+        elseif action == "cancel" then
+            -- Just return with a cancel message
+            callback(nil, "Timer start cancelled. Current timer continues running.")
+        else
+            callback(nil, "❌ Unknown action selected")
+        end
+    end)
 end
 
 function M.proceedWithTimerStart(apiConfig, adminId, callback)
@@ -38,40 +61,92 @@ function M.proceedWithTimerStart(apiConfig, adminId, callback)
             return
         end
         
-        -- Don't show loading message here - getClients will show appropriate message
+        -- Debug logging
+        local timestamp = os.date("%Y-%m-%d %H:%M:%S")
+        print(string.format("[%s] Moneybird Timer: Using user ID %s for timer operations", timestamp, tostring(userId)))
         
-        uiChoosers.showClientChooser(apiConfig, adminId, function(clientId, clientError)
-            if clientError then
-                callback(nil, clientError)
-                return
+        -- NOW: Check for active timers AFTER user selection (with proper user context)
+        timerOperations.getActiveTimers(apiConfig, adminId, {perPage = 1}, function(activeTimers, activeError)
+            -- If active timer check fails, proceed with normal flow (graceful degradation)
+            if activeError then
+                local timestamp = os.date("%Y-%m-%d %H:%M:%S")
+                print(string.format("[%s] Moneybird Timer Warning: Active timer check failed, proceeding with timer start: %s", timestamp, activeError))
+            else
+                -- If active timers found, show interactive chooser
+                if activeTimers and #activeTimers > 0 then
+                    M.handleActiveTimerFound(activeTimers[1], apiConfig, adminId, callback)
+                    return
+                end
             end
             
-            -- Don't show loading message here - getProjects will show appropriate message
-            
-            uiChoosers.showProjectChooser(apiConfig, adminId, function(projectId, projectError)
-                if projectError then
-                    callback(nil, projectError)
+            -- No active timers (or check failed) - proceed with normal timer creation
+            uiChoosers.showClientChooser(apiConfig, adminId, function(clientId, clientError)
+                if clientError then
+                    callback(nil, clientError)
                     return
                 end
                 
-                uiChoosers.showDescriptionInput(function(description, descriptionError)
-                    if descriptionError then
-                        callback(nil, descriptionError)
+                -- Don't show loading message here - getProjects will show appropriate message
+                
+                uiChoosers.showProjectChooser(apiConfig, adminId, function(projectId, projectError)
+                    if projectError then
+                        callback(nil, projectError)
                         return
                     end
                     
-                    timerOperations.createTimeEntry(apiConfig, adminId, projectId, clientId, description, function(timeEntry, entryError)
-                        if entryError then
-                            callback(nil, entryError)
+                    uiChoosers.showDescriptionInput(function(description, descriptionError)
+                        if descriptionError then
+                            callback(nil, descriptionError)
                             return
                         end
                         
-                        local successMsg = "✅ Timer started!"
-                        callback(timeEntry, successMsg)
+                        timerOperations.createTimeEntry(apiConfig, adminId, projectId, clientId, description, function(timeEntry, entryError)
+                            if entryError then
+                                callback(nil, entryError)
+                                return
+                            end
+                            
+                            local successMsg = "✅ Timer started!"
+                            callback(timeEntry, successMsg)
+                        end)
                     end)
                 end)
             end)
         end)
+    end)
+end
+
+function M.stopAndStartNewTimer(apiConfig, adminId, activeTimer, callback)
+    -- Stop the current timer first
+    timerOperations.stopTimer(apiConfig, adminId, activeTimer.id, function(stoppedTimer, stopError)
+        if stopError then
+            callback(nil, stopError)
+            return
+        end
+        
+        -- Debug logging
+        local timestamp = os.date("%Y-%m-%d %H:%M:%S")
+        print(string.format("[%s] Moneybird Timer: Timer stopped, proceeding with new timer creation", timestamp))
+        
+        -- Proceed with normal timer creation flow
+        M.proceedWithTimerStart(apiConfig, adminId, callback)
+    end)
+end
+
+function M.stopTimerOnly(apiConfig, adminId, activeTimer, callback)
+    -- Stop the timer and complete
+    timerOperations.stopTimer(apiConfig, adminId, activeTimer.id, function(stoppedTimer, stopError)
+        if stopError then
+            callback(nil, stopError)
+            return
+        end
+        
+        local duration = timerOperations.calculateRunningDuration(activeTimer.started_at)
+        local successMsg = string.format("✅ Timer stopped!\n\nDescription: %s\nDuration: %s", 
+            activeTimer.description or "No description", 
+            duration)
+        
+        callback(stoppedTimer, successMsg)
     end)
 end
 
@@ -118,24 +193,8 @@ function M.startTimer(callback)
                 return
             end
             
-            -- NEW: Check for active timers first
-            timerOperations.getActiveTimers(apiConfig, adminId, {perPage = 1}, function(activeTimers, activeError)
-                -- If active timer check fails, proceed with normal flow (graceful degradation)
-                if activeError then
-                    print("Warning: Active timer check failed, proceeding with timer start:", activeError)
-                    M.proceedWithTimerStart(apiConfig, adminId, callback)
-                    return
-                end
-                
-                -- If active timers found, abort and show info
-                if activeTimers and #activeTimers > 0 then
-                    M.handleActiveTimerFound(activeTimers[1], callback)
-                    return
-                end
-                
-                -- No active timers - proceed with normal timer start flow
-                M.proceedWithTimerStart(apiConfig, adminId, callback)
-            end)
+            -- Proceed with timer start flow (active timer check now happens after user selection)
+            M.proceedWithTimerStart(apiConfig, adminId, callback)
         end)
     end)
 end

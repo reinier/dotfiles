@@ -4,6 +4,7 @@ function M.getMenu(cons)
     local dateUtils = require('functions.date-utils')
     local markdownUtils = require('functions.markdown-utils')
     local timerApi = require('functions.timer-api')
+    local timerUtils = require('functions.timer-api.utils')
     local directoryWatchers = require('functions.directory-watchers')
     
     return {
@@ -35,9 +36,9 @@ function M.getMenu(cons)
                 {cons.act.func, function()
                     timerApi.startTimer(function(result, message)
                         if result then
-                            hs.alert.show(message, 3)
+                            timerUtils.logSuccess(message, 3)
                         else
-                            hs.alert.show(message, 5)
+                            timerUtils.logError(message, 5)
                         end
                     end)
                 end }
@@ -51,9 +52,9 @@ function M.getMenu(cons)
                 {cons.act.func, function()
                     timerApi.debugActiveTimers(function(result, message)
                         if result then
-                            hs.alert.show("✅ Debug completed - check console", 3)
+                            timerUtils.logSuccess("✅ Debug completed - check console", 3)
                         else
-                            hs.alert.show("❌ Debug failed: " .. (message or "Unknown error"), 5)
+                            timerUtils.logError("❌ Debug failed: " .. (message or "Unknown error"), 5)
                         end
                     end)
                 end }
