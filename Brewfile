@@ -1,64 +1,117 @@
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "homebrew/services"
+tap "nikitabobko/tap"
 
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+
+# GitHub command-line tool
+brew "gh"
+
+# Mac App Store command-line interface
 brew "mas"
+
+# Platform built on V8 to build network applications
+brew "node"
+
+# Manage multiple Node.js versions
+brew "nvm"
+
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+
+# Feature-rich command-line audio/video downloader
 brew "yt-dlp"
 
-cask "alfred"
-cask "amethyst"
-cask "arc"
-cask "arq"
-cask "bartender"
-cask "cleanshot"
-cask "devonthink"
-cask "figma"
-cask "firefox"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "aerospace"
 
+# Application launcher and productivity software
+cask "alfred"
+
+# Chromium based browser
+cask "arc"
+
+# Multi-cloud backup application
+cask "arq"
+
+# App to create, design, edit and browse SQLite 3 database files
+cask "base"
+
+# E-books management software
+cask "calibre"
+
+# Screen capturing tool
+cask "cleanshot"
+
+# Collect, organise, edit and annotate documents
+cask "devonthink"
+
+# Collaborative team software
+cask "figma"
+
+cask "font-ia-writer-duo"
+cask "font-ia-writer-mono"
+cask "font-ia-writer-quattro"
 cask "font-inconsolata-for-powerline"
 cask "font-menlo-for-powerline"
 cask "font-monaspace"
+cask "font-noto-sans-display"
 
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+
+# Desktop automation application
 cask "hammerspoon"
-cask "hazel"
-cask "karabiner-elements"
-cask "keyboard-maestro"
-cask "logi-options-plus"
-cask "marked"
-cask "obsidian"
-cask "orbstack"
-cask "remarkable"
-cask "soulver"
-cask "transmit"
-cask "visual-studio-code"
-cask "xscope"
 
+# Keyboard customiser
+cask "karabiner-elements"
+
+# Tool to create text-based art
+cask "monodraw"
+
+# App to write, plan, collaborate, and get organised
+cask "notion"
+
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+
+# Replacement for Docker Desktop
+cask "orbstack"
+
+# Notepad with a built-in calculator
+cask "soulver"
+
+# File transfer application
+cask "transmit"
+
+# Configurator of compatible keyboards in real time
+cask "vial"
+
+# Open-source code editor
+cask "visual-studio-code"
+
+# Gecko based web browser
+cask "zen"
+
+mas "Acorn", id: 6737921844
+mas "Barbee", id: 1548711022
 mas "BBEdit", id: 404009241
 mas "Brother P-touch Editor", id: 1453365242
 mas "Drafts", id: 1435957248
+mas "Draw Things", id: 6444050820
 mas "Fantastical", id: 975937182
 mas "Gestimer", id: 6447125648
-mas "GoodLinks", id: 1474335294
-mas "Goodnotes", id: 1444383602
+mas "Keynote", id: 409183694
 mas "Mela", id: 1568924476
-mas "Pixelmator Pro", id: 1289583905
-mas "Reeder", id: 1529448980
+mas "Microsoft Outlook", id: 985367838
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "reMarkable", id: 1276493162
 mas "Screens 5", id: 1663047912
 mas "Slack", id: 803453959
-mas "Tailscale", id: 1475387142
 mas "Text Workflow", id: 1600520682
 mas "Things", id: 904280696
 mas "Ulysses", id: 1225570693
 
-vscode "bradlc.vscode-tailwindcss"
-vscode "Compulim.compulim-vscode-closetag"
-vscode "csstools.postcss"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode-remote.remote-ssh"
-vscode "ms-vscode-remote.remote-ssh-edit"
-vscode "ms-vscode.makefile-tools"
-vscode "ms-vscode.remote-explorer"
-vscode "ronnidc.nunjucks"
-vscode "vscode-icons-team.vscode-icons"
-vscode "wayou.vscode-icons-mac"
+vscode "anthropic.claude-code"
