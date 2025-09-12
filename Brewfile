@@ -61,9 +61,6 @@ cask "font-noto-sans-display"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 
-# Desktop automation application
-cask "hammerspoon"
-
 # Keyboard customiser
 cask "karabiner-elements"
 
