@@ -61,9 +61,6 @@ cask "font-noto-sans-display"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 
-# Keyboard customiser
-cask "karabiner-elements"
-
 # Tool to create text-based art
 cask "monodraw"
 
