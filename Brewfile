@@ -23,9 +23,6 @@ brew "python@3.13"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
 
-# AeroSpace is an i3-like tiling window manager for macOS
-cask "aerospace"
-
 # Application launcher and productivity software
 cask "alfred"
 
@@ -88,8 +85,10 @@ cask "visual-studio-code"
 # Gecko based web browser
 cask "zen"
 
+# Microsoft Teams (not available in MAS)
+cask "microsoft-teams"
+
 mas "Acorn", id: 6737921844
-mas "Barbee", id: 1548711022
 mas "BBEdit", id: 404009241
 mas "Brother P-touch Editor", id: 1453365242
 mas "Drafts", id: 1435957248
