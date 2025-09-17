@@ -1,5 +1,5 @@
 ---
-status: todo
+status: done
 date_created: 2025-09-17
 date_modified: 2025-09-17
 ---
