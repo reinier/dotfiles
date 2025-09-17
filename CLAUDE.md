@@ -98,6 +98,8 @@ The `backlog/` directory contains planned improvements and refactoring tasks:
 
 - **Purpose**: Organized storage for enhancement plans, technical debt items, and future feature ideas
 - **Format**: Markdown files with structured plans including problem statements, proposed solutions, and implementation strategies
+- **Front Matter**: All backlog items MUST include YAML front matter with `status` (todo|in progress|done), `date_created`, and `date_modified` fields
+- **Template**: Use `backlog/_template.md` as a starting point for new backlog items to ensure consistent structure and required front matter
 - **Usage**: When suggesting improvements or picking up development work, reference backlog items to understand context and priorities
 - **Current Items**: 
   - `timer-api-refactor.md` - Plan to refactor the monolithic timer-api.lua into modular components

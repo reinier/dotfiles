@@ -41,9 +41,9 @@ end
 function M.getBrowserMarkdownLink()
     local as = [[
     try
-        tell application "Orion"
-            set t to name of current tab of window 1
-            set u to URL of current tab of window 1
+        tell application "Safari"
+            set t to name of front document
+            set u to URL of front document
         end tell
         return t & "¶" & u
     on error errMsg
@@ -52,12 +52,18 @@ function M.getBrowserMarkdownLink()
     ]]
     local ok, result = hs.osascript.applescript(as)
     if not ok or result:match("^ERROR:") then
-        hs.alert.show("Orion script failed")
+        hs.alert.show("Safari script failed")
         return
     end
     local title, url = result:match("^(.*)¶(.*)$")
-    hs.pasteboard.setContents(string.format("[%s](%s)", title or "", url or ""))
-    hs.alert.show("Copied Markdown link")
+    if not title or not url then
+        hs.alert.show("Could not parse Safari data")
+        return
+    end
+    local function escText(s) return s:gsub("%[","\\["):gsub("%]","\\]") end
+    local function escURL(u) return u:gsub("%(","%%28"):gsub("%)","%%29"):gsub(" ", "%%20") end
+    hs.pasteboard.setContents(string.format("[%s](%s)", escText(title), escURL(url)))
+    hs.alert.show("Copied Safari Markdown link")
 end
 
 return M

@@ -46,8 +46,8 @@ function M.getMenu(cons)
 			{cons.cat.action, '', 'L', "Fantastical", {
 				{cons.act.launcher, 'Fantastical'}
 			}},
-			{cons.cat.action, '', 'M', "Arc", {
-				{cons.act.launcher, 'Arc'}
+			{cons.cat.action, '', 'M', "Zen Browser", {
+				{cons.act.launcher, 'Zen Browser'}
 			}},
 			{cons.cat.action, '', 'P', "1Password", {
 				{cons.act.launcher, '1Password'}
