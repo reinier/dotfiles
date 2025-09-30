@@ -64,7 +64,10 @@ function M.getMenu(cons)
 			}},
 			{cons.cat.action, '', 'D', "Clipboard", {
 				{cons.act.func, function()
-					hs.eventtap.keyStroke({"cmd","alt","ctrl"}, "1")
+					hs.eventtap.keyStroke({"cmd"}, "space")
+					hs.timer.doAfter(0.05, function()
+						hs.eventtap.keyStroke({"cmd"}, "4")
+					end)
 				end }
 			}},
 			{cons.cat.action, '', 'R', "Reload HS", {
