@@ -25,6 +25,12 @@ function M.getMenu(cons)
             }},
             {cons.cat.action, '', 'I', "Miro", {
                 {cons.act.launcher, 'Miro'}
+            }},
+            {cons.cat.action, '', 'J', "NS TRACTIE Jira", {
+                {cons.act.launcher, '/Users/reinierladan/Applications/NS TRACTIE Jira.app'}
+            }},
+            {cons.cat.action, '', 'K', "Microsoft Teams", {
+                {cons.act.launcher, 'Microsoft Teams'}
             }}
         }
     }
