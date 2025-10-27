@@ -18,7 +18,7 @@ function M.getMenu(cons)
             {cons.cat.action, '', 'P', 'Process', {
                 {
                     cons.act.openfile,
-                    "/Users/reinierladan/Library/Mobile Documents/com~apple~CloudDocs/__Process"
+                    "/Users/reinierladan/Documents/__Process"
                 },
             }},
             {cons.cat.action, '', 'I', "Activate Finder", {
