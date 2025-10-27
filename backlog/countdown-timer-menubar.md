@@ -24,7 +24,7 @@ Key improvements:
 1. **Menu Bar Integration**: Visible countdown display using `hs.menubar` API
 2. **Simple Input**: Native Hammerspoon dialog for entering minutes
 3. **Visual Feedback**: Timer updates every second in menu bar (MM:SS format)
-4. **Audio/Visual Alert**: Notification when timer completes
+4. **Visual Alert**: Silent notification when timer completes
 5. **Timer Controls**: Start, pause, resume, cancel functionality
 
 ## Technical Architecture
@@ -106,9 +106,9 @@ System:
    - Handle cancel/empty input gracefully
 
 4. **Implement completion notification**
-   - Use `hs.notify.new()` for completion alert
-   - Play system sound (optional)
+   - Use `hs.notify.new()` for silent completion alert
    - Flash menu bar or show alert
+   - No sound (intentionally silent for non-disruptive notification)
 
 ### Phase 2: Enhanced Controls
 5. **Add menu bar click actions**
@@ -157,10 +157,10 @@ System:
 ## User Experience Enhancements
 
 ### Completion Alert
-- **Description**: Multi-modal alert when timer reaches 00:00
-- **Benefit**: Ensures user notices completion even when focused
+- **Description**: Visual alert when timer reaches 00:00
+- **Benefit**: Non-disruptive notification that user can notice when ready
 - **Implementation**:
-  - System notification with sound
+  - Silent system notification (no sound)
   - Menu bar flash/animation
   - Optional: Keep "⏱ 00:00" visible briefly before removing
 
@@ -256,7 +256,7 @@ Since standalone Lua runtime is not available, all testing must be done through 
 ### User Experience Goals
 - < 5 seconds from F19 to timer running (including input)
 - Clear, readable menu bar display
-- Obvious completion notification (sound + visual)
+- Non-disruptive visual notification on completion
 - Intuitive pause/resume/cancel controls
 
 ### Maintainability Goals
@@ -300,7 +300,7 @@ local countdownTimer = require('functions.countdown-timer')
 3. User types: "25"
 4. Menu bar shows: ⏱ 25:00
 5. Timer counts down: ⏱ 24:59, ⏱ 24:58, ...
-6. At 00:00: Notification + Sound + Brief flash
+6. At 00:00: Silent notification + Brief flash
 7. Menu bar item removed
 ```
 
