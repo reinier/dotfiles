@@ -6,6 +6,7 @@ function M.getMenu(cons)
     local timerApi = require('functions.timer-api')
     local timerUtils = require('functions.timer-api.utils')
     local directoryWatchers = require('functions.directory-watchers')
+    local countdownTimer = require('functions.countdown-timer')
     
     return {
         parentMenu = "mainMenu",
@@ -57,6 +58,11 @@ function M.getMenu(cons)
                             timerUtils.logError("❌ Debug failed: " .. (message or "Unknown error"), 5)
                         end
                     end)
+                end }
+            }},
+            {cons.cat.action, '', 'N', "Start Countdown Timer", {
+                {cons.act.func, function()
+                    countdownTimer.promptAndStart()
                 end }
             }},
             {cons.cat.action, '', 'C', "Copy Computer Name", {
