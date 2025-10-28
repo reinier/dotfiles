@@ -19,14 +19,18 @@ local function formatTime(seconds)
     return string.format("%02d:%02d", mins, secs)
 end
 
--- Update menu bar display
+-- Update menu bar display with fixed-width font
 local function updateDisplay()
     if menubarItem then
-        if isPaused then
-            menubarItem:setTitle("⏸ " .. formatTime(remainingSeconds))
-        else
-            menubarItem:setTitle("⏱ " .. formatTime(remainingSeconds))
-        end
+        local timeText = formatTime(remainingSeconds)
+        local icon = isPaused and "⏸ " or "⏱ "
+
+        -- Use styled text with monospace font for consistent width
+        local styledText = hs.styledtext.new(icon .. timeText, {
+            font = { name = "Menlo", size = 12 },  -- Menlo is a monospace font included with macOS
+        })
+
+        menubarItem:setTitle(styledText)
     end
 end
 
@@ -251,36 +255,6 @@ local function addToHistory(minutes)
     saveHistory(history)
 end
 
--- Show custom input dialog
-local function showCustomInput(callback)
-    local button, minutes = hs.dialog.textPrompt(
-        "Custom Timer Duration",
-        "Enter timer duration in minutes:",
-        "",
-        "Start",
-        "Cancel"
-    )
-
-    -- Handle cancel or empty input
-    if button ~= "Start" or not minutes or minutes == "" then
-        callback(nil)
-        return
-    end
-
-    -- Convert to number and validate
-    local minutesNum = tonumber(minutes)
-    if not minutesNum or minutesNum <= 0 then
-        hs.alert.show("❌ Please enter a valid positive number", 2)
-        -- Re-prompt after a brief delay
-        hs.timer.doAfter(0.5, function()
-            showCustomInput(callback)
-        end)
-        return
-    end
-
-    callback(minutesNum)
-end
-
 -- Build chooser items from history
 local function buildChooserItems()
     local history = loadHistory()
@@ -291,29 +265,9 @@ local function buildChooserItems()
         table.insert(items, {
             text = string.format("%d minutes", minutes),
             subText = string.format("⏱ %02d:00", minutes),
-            minutes = minutes,
-            isCustom = false
+            minutes = minutes
         })
     end
-
-    -- Add separator if we have history
-    if #items > 0 then
-        table.insert(items, {
-            text = "────────────────",
-            subText = "",
-            minutes = nil,
-            isCustom = false,
-            disabled = true
-        })
-    end
-
-    -- Add custom option at the end
-    table.insert(items, {
-        text = "Custom duration...",
-        subText = "Enter a custom timer duration",
-        minutes = nil,
-        isCustom = true
-    })
 
     return items
 end
@@ -341,23 +295,18 @@ function M.promptAndStart()
     -- Create chooser for timer selection
     local chooser = hs.chooser.new(function(choice)
         if not choice then
-            -- User cancelled
-            return
-        end
-
-        -- Check if separator was somehow selected
-        if choice.disabled then
-            return
-        end
-
-        -- Handle custom input
-        if choice.isCustom then
-            showCustomInput(function(minutes)
-                if minutes then
-                    addToHistory(minutes)
-                    M.startTimer(minutes)
+            -- Check if user typed a number directly
+            local query = chooser:query()
+            if query and query ~= "" then
+                local minutesNum = tonumber(query)
+                if minutesNum and minutesNum > 0 then
+                    -- Valid number entered directly
+                    addToHistory(minutesNum)
+                    M.startTimer(minutesNum)
+                    return
                 end
-            end)
+            end
+            -- User cancelled or invalid input
             return
         end
 
@@ -369,7 +318,7 @@ function M.promptAndStart()
     end)
 
     -- Configure chooser
-    chooser:placeholderText("Select timer duration or choose custom...")
+    chooser:placeholderText("Enter minutes or select from history...")
     chooser:searchSubText(true)
     chooser:choices(buildChooserItems())
 
