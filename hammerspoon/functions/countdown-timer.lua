@@ -292,35 +292,61 @@ function M.promptAndStart()
         end
     end
 
+    -- Get initial history choices
+    local historyChoices = buildChooserItems()
+
     -- Create chooser for timer selection
     local chooser = hs.chooser.new(function(choice)
         if not choice then
-            -- Check if user typed a number directly
-            local query = chooser:query()
-            if query and query ~= "" then
-                local minutesNum = tonumber(query)
-                if minutesNum and minutesNum > 0 then
-                    -- Valid number entered directly
-                    addToHistory(minutesNum)
-                    M.startTimer(minutesNum)
-                    return
-                end
-            end
-            -- User cancelled or invalid input
+            -- User cancelled
             return
         end
 
-        -- Handle history selection
-        if choice.minutes then
-            addToHistory(choice.minutes)
-            M.startTimer(choice.minutes)
+        -- Extract minutes from the selected choice
+        local minutesNum = choice.minutes
+
+        if minutesNum and minutesNum > 0 then
+            addToHistory(minutesNum)
+            M.startTimer(minutesNum)
+        else
+            hs.alert.show("❌ Invalid timer duration", 2)
         end
     end)
 
-    -- Configure chooser
+    -- Configure chooser with dynamic query handling
+    chooser:choices(historyChoices)
     chooser:placeholderText("Enter minutes or select from history...")
     chooser:searchSubText(true)
-    chooser:choices(buildChooserItems())
+
+    -- Handle custom input as user types
+    chooser:queryChangedCallback(function(query)
+        if query and query ~= "" then
+            local minutesNum = tonumber(query)
+            local newChoices = {}
+
+            -- If query is a valid number, show it as first option
+            if minutesNum and minutesNum > 0 then
+                table.insert(newChoices, {
+                    text = string.format("%d minutes", minutesNum),
+                    subText = "⏱ " .. string.format("%02d:00", minutesNum) .. " - Press Enter to start",
+                    minutes = minutesNum
+                })
+            end
+
+            -- Add matching history items
+            for _, choice in ipairs(historyChoices) do
+                if string.find(tostring(choice.minutes), query, 1, true) or
+                   string.find(choice.text, query, 1, true) then
+                    table.insert(newChoices, choice)
+                end
+            end
+
+            chooser:choices(newChoices)
+        else
+            -- No query, show all history
+            chooser:choices(historyChoices)
+        end
+    end)
 
     -- Show the chooser
     chooser:show()
