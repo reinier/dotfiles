@@ -23,7 +23,7 @@ function M.getMenu(cons)
                     markdownUtils.pasteOverTextForLink()
                 end }
             }},
-            {cons.cat.action, '', 'U', "Get MD link browser", {
+            {cons.cat.action, '', 'U', "Get MD link from Safari", {
                 {cons.act.func, function()
                     markdownUtils.getBrowserMarkdownLink()
                 end }

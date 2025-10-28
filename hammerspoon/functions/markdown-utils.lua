@@ -321,60 +321,34 @@ local function createMarkdownLink(url, title)
     return string.format("[%s](%s)", escText(title), escURL(url))
 end
 
--- Main browser chooser function
+-- Get markdown link from Safari
 function M.getBrowserMarkdownLink()
-    local browsers = {
-        {text = "Safari", subText = "Native AppleScript support", browserName = "Safari"},
-        {text = "Arc", subText = "JavaScript execution via AppleScript", browserName = "Arc"},
-        {text = "Orion", subText = "Native AppleScript support", browserName = "Orion"},
-        {text = "Zen Browser", subText = "GUI automation fallback", browserName = "zen"}
-    }
+    local browserName = "Safari"
 
-    -- Filter to only show available browsers
-    local availableBrowsers = {}
-    for _, browser in ipairs(browsers) do
-        if isBrowserAvailable(browser.browserName) then
-            table.insert(availableBrowsers, browser)
-        end
-    end
-
-    if #availableBrowsers == 0 then
-        hs.alert.show("No supported browsers are currently running")
+    -- Check if Safari is available
+    if not isBrowserAvailable(browserName) then
+        hs.alert.show("Safari is not currently running")
         return
     end
 
-    -- Create and show browser chooser
-    local chooser = hs.chooser.new(function(choice)
-        if not choice then return end
+    -- Get Safari handler
+    local handler = browserHandlers[browserName]
 
-        local browserName = choice.browserName
-        local handler = browserHandlers[browserName]
+    -- Extract both URL and title from Safari
+    local result = handler()
+    if not result or not result.success then
+        hs.alert.show("Failed to get data from Safari")
+        return
+    end
 
-        if not handler then
-            hs.alert.show("No handler for browser: " .. browserName)
-            return
-        end
+    -- Decode HTML entities in browser-provided title and remove problematic characters
+    local cleanTitle = decodeHexEntities(hs.http.convertHtmlEntities(result.title))
+    cleanTitle = cleanTitle:gsub('[%[%]]', '') -- remove square brackets that interfere with markdown
 
-        -- Extract both URL and title from browser
-        local result = handler()
-        if not result or not result.success then
-            hs.alert.show("Failed to get data from " .. browserName)
-            return
-        end
-
-        -- Decode HTML entities in browser-provided title and remove problematic characters
-        local cleanTitle = decodeHexEntities(hs.http.convertHtmlEntities(result.title))
-        cleanTitle = cleanTitle:gsub('[%[%]]', '') -- remove square brackets that interfere with markdown
-
-        -- Create markdown link
-        local markdownLink = createMarkdownLink(result.url, cleanTitle)
-        hs.pasteboard.setContents(markdownLink)
-        hs.alert.show("Copied: " .. cleanTitle .. " (from " .. browserName .. ")")
-    end)
-
-    chooser:choices(availableBrowsers)
-    chooser:searchSubText(true)
-    chooser:show()
+    -- Create markdown link
+    local markdownLink = createMarkdownLink(result.url, cleanTitle)
+    hs.pasteboard.setContents(markdownLink)
+    hs.alert.show("Copied: " .. cleanTitle)
 end
 
 return M
