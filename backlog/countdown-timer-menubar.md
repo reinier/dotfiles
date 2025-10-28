@@ -1,7 +1,7 @@
 ---
-status: todo
+status: in progress
 date_created: 2025-10-27
-date_modified: 2025-10-27
+date_modified: 2025-10-28
 ---
 
 # Countdown Timer with Menu Bar Display
@@ -22,10 +22,11 @@ Create a standalone countdown timer module that displays remaining time in the m
 
 Key improvements:
 1. **Menu Bar Integration**: Visible countdown display using `hs.menubar` API
-2. **Simple Input**: Native Hammerspoon dialog for entering minutes
-3. **Visual Feedback**: Timer updates every second in menu bar (MM:SS format)
-4. **Visual Alert**: Silent notification when timer completes
-5. **Timer Controls**: Start, pause, resume, cancel functionality
+2. **Chooser Interface**: Hammerspoon chooser showing history of last 10 durations + custom input
+3. **History Management**: Persistent storage of recent timer durations for quick access
+4. **Visual Feedback**: Timer updates every second in menu bar (MM:SS format)
+5. **Visual Alert**: Silent notification when timer completes
+6. **Timer Controls**: Start, pause, resume, cancel functionality
 
 ## Technical Architecture
 
@@ -76,13 +77,16 @@ return M
 ```
 User: F19 → Scripts → Start Countdown Timer
   ↓
-System: Shows input dialog "Enter minutes:"
+System: Shows chooser with recent durations + "Custom duration..."
   ↓
-User: Types "25" and presses Enter
+User: Selects from history (e.g., "25 minutes") OR chooses "Custom duration..."
+  ↓
+If Custom: Shows input dialog "Enter minutes:"
   ↓
 System:
   - Creates menu bar item showing "⏱ 25:00"
   - Updates every second
+  - Adds duration to history
   - Shows notification when complete
 ```
 
@@ -100,10 +104,14 @@ System:
    - Update display every second
    - Remove from menu bar when done
 
-3. **Add input dialog**
-   - Use `hs.dialog.textPrompt()` for minute input
+3. **Add chooser interface with history**
+   - Use `hs.chooser` to show recent durations
+   - Load history from `hs.settings` (last 10 used durations)
+   - Add "Custom duration..." option for new values
+   - Use `hs.dialog.textPrompt()` for custom input
    - Validate input (positive integers only)
    - Handle cancel/empty input gracefully
+   - Save selected/entered duration to history
 
 4. **Implement completion notification**
    - Use `hs.notify.new()` for silent completion alert
@@ -305,3 +313,54 @@ local countdownTimer = require('functions.countdown-timer')
 ```
 
 This feature complements the existing Moneybird time tracking system by providing a simple, visual countdown for time-boxing work, completely independent of project/client tracking.
+
+## Implementation Status
+
+### Completed Features ✅
+- **Core countdown functionality** - Timer state management and countdown logic
+- **Menu bar display** - Real-time MM:SS format with pause indicator
+- **Chooser interface** - Shows history of last 10 durations
+- **History management** - Persistent storage using `hs.settings`
+- **Custom input** - Text prompt for entering new durations
+- **Pause/resume** - Right-click menu bar controls
+- **Cancel timer** - Clean resource management
+- **Mac native notification** - Silent, persistent notification on completion
+- **MenuHammer integration** - F19 → Scripts → N
+
+### Implementation Details
+
+**Chooser Interface:**
+```
+25 minutes          ⏱ 25:00
+15 minutes          ⏱ 15:00
+5 minutes           ⏱ 05:00
+────────────────
+Custom duration...  Enter a custom timer duration
+```
+
+**History Management:**
+- Stored in Hammerspoon settings: `countdownTimerHistory`
+- Maximum 10 items (oldest removed when limit reached)
+- Deduplicates: selecting existing duration moves it to top
+- Persists across Hammerspoon restarts
+
+**User Workflow:**
+1. F19 → Scripts → N
+2. Chooser appears with recent durations
+3. Select from history or choose "Custom duration..."
+4. If custom: Enter minutes in dialog
+5. Timer starts, shows in menu bar
+6. Duration added to history for future use
+
+### Testing Checklist
+- [ ] Chooser displays on F19 → Scripts → N
+- [ ] First use shows only "Custom duration..." option
+- [ ] Custom input dialog appears when selected
+- [ ] Timer starts and displays in menu bar
+- [ ] Duration appears in history on next use
+- [ ] Selecting history item starts timer immediately
+- [ ] History limited to 10 items
+- [ ] Duplicate selections move item to top
+- [ ] History persists after Hammerspoon reload
+- [ ] Pause/resume/cancel work from menu bar
+- [ ] Silent notification on completion

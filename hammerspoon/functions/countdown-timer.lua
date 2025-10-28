@@ -8,6 +8,10 @@ local remainingSeconds = 0
 local isPaused = false
 local initialMinutes = 0
 
+-- History management
+local HISTORY_KEY = "countdownTimerHistory"
+local MAX_HISTORY = 10
+
 -- Helper function to format seconds as MM:SS
 local function formatTime(seconds)
     local mins = math.floor(seconds / 60)
@@ -210,7 +214,111 @@ function M.getStatus()
     }
 end
 
--- Prompt user for minutes and start timer
+-- Load timer history from settings
+local function loadHistory()
+    local history = hs.settings.get(HISTORY_KEY)
+    if not history then
+        return {}
+    end
+    return history
+end
+
+-- Save timer history to settings
+local function saveHistory(history)
+    hs.settings.set(HISTORY_KEY, history)
+end
+
+-- Add a duration to history (deduplicate and limit to MAX_HISTORY)
+local function addToHistory(minutes)
+    local history = loadHistory()
+
+    -- Remove if already exists (we'll add it to the front)
+    for i, value in ipairs(history) do
+        if value == minutes then
+            table.remove(history, i)
+            break
+        end
+    end
+
+    -- Add to front
+    table.insert(history, 1, minutes)
+
+    -- Limit to MAX_HISTORY items
+    while #history > MAX_HISTORY do
+        table.remove(history)
+    end
+
+    saveHistory(history)
+end
+
+-- Show custom input dialog
+local function showCustomInput(callback)
+    local button, minutes = hs.dialog.textPrompt(
+        "Custom Timer Duration",
+        "Enter timer duration in minutes:",
+        "",
+        "Start",
+        "Cancel"
+    )
+
+    -- Handle cancel or empty input
+    if button ~= "Start" or not minutes or minutes == "" then
+        callback(nil)
+        return
+    end
+
+    -- Convert to number and validate
+    local minutesNum = tonumber(minutes)
+    if not minutesNum or minutesNum <= 0 then
+        hs.alert.show("❌ Please enter a valid positive number", 2)
+        -- Re-prompt after a brief delay
+        hs.timer.doAfter(0.5, function()
+            showCustomInput(callback)
+        end)
+        return
+    end
+
+    callback(minutesNum)
+end
+
+-- Build chooser items from history
+local function buildChooserItems()
+    local history = loadHistory()
+    local items = {}
+
+    -- Add history items
+    for _, minutes in ipairs(history) do
+        table.insert(items, {
+            text = string.format("%d minutes", minutes),
+            subText = string.format("⏱ %02d:00", minutes),
+            minutes = minutes,
+            isCustom = false
+        })
+    end
+
+    -- Add separator if we have history
+    if #items > 0 then
+        table.insert(items, {
+            text = "────────────────",
+            subText = "",
+            minutes = nil,
+            isCustom = false,
+            disabled = true
+        })
+    end
+
+    -- Add custom option at the end
+    table.insert(items, {
+        text = "Custom duration...",
+        subText = "Enter a custom timer duration",
+        minutes = nil,
+        isCustom = true
+    })
+
+    return items
+end
+
+-- Prompt user for minutes and start timer using chooser
 function M.promptAndStart()
     -- Check if timer is already running
     local status = M.getStatus()
@@ -230,33 +338,43 @@ function M.promptAndStart()
         end
     end
 
-    -- Show input dialog for minutes
-    local button, minutes = hs.dialog.textPrompt(
-        "Start Countdown Timer",
-        "Enter timer duration in minutes:",
-        "",
-        "Start",
-        "Cancel"
-    )
+    -- Create chooser for timer selection
+    local chooser = hs.chooser.new(function(choice)
+        if not choice then
+            -- User cancelled
+            return
+        end
 
-    -- Handle cancel or empty input
-    if button ~= "Start" or not minutes or minutes == "" then
-        return false
-    end
+        -- Check if separator was somehow selected
+        if choice.disabled then
+            return
+        end
 
-    -- Convert to number and validate
-    local minutesNum = tonumber(minutes)
-    if not minutesNum or minutesNum <= 0 then
-        hs.alert.show("❌ Please enter a valid positive number", 2)
-        -- Re-prompt
-        hs.timer.doAfter(0.5, function()
-            M.promptAndStart()
-        end)
-        return false
-    end
+        -- Handle custom input
+        if choice.isCustom then
+            showCustomInput(function(minutes)
+                if minutes then
+                    addToHistory(minutes)
+                    M.startTimer(minutes)
+                end
+            end)
+            return
+        end
 
-    -- Start the timer
-    return M.startTimer(minutesNum)
+        -- Handle history selection
+        if choice.minutes then
+            addToHistory(choice.minutes)
+            M.startTimer(choice.minutes)
+        end
+    end)
+
+    -- Configure chooser
+    chooser:placeholderText("Select timer duration or choose custom...")
+    chooser:searchSubText(true)
+    chooser:choices(buildChooserItems())
+
+    -- Show the chooser
+    chooser:show()
 end
 
 return M
