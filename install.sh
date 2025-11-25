@@ -23,4 +23,8 @@ link hammerspoon .hammerspoon
 link aerospace.toml .aerospace.toml
 link ghostty .config/ghostty/config
 
+# macOS System Settings
+echo "Configuring macOS system settings..."
+defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
+
 echo "Dotfiles installed."
