@@ -8,7 +8,7 @@ function M.getLongDate()
 end
 
 function M.getShortDate()
-    return os.date("%y-%m-%d")
+    return os.date("%Y-%m-%d")
 end
 
 function M.getDatePrefix()
