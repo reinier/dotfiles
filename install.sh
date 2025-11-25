@@ -25,6 +25,27 @@ link ghostty .config/ghostty/config
 
 # macOS System Settings
 echo "Configuring macOS system settings..."
-defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
+
+# Finder
+defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowStatusBar -bool true
+killall Finder
+
+# Dock
+defaults write com.apple.dock autohide -bool true
+killall Dock
+
+# Trackpad
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+
+# Global settings
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+# Spaces
+defaults write com.apple.spaces spans-displays -bool true
+killall SystemUIServer
 
 echo "Dotfiles installed."
