@@ -24,14 +24,15 @@
                         ]
                     },
                     {
-                        "description": "Right CMD to f19",
+                        "description": "Right CMD: hold for CMD, tap for F19",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "right_command",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "f19" }],
+                                "to": [{ "key_code": "right_command" }],
+                                "to_if_alone": [{ "key_code": "f19" }],
                                 "type": "basic"
                             }
                         ]
