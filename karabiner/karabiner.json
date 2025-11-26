@@ -36,6 +36,18 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Map § key to backspace",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "non_us_backslash"
+                                },
+                                "to": [{ "key_code": "delete_or_backspace" }],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
