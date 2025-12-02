@@ -15,6 +15,7 @@ reimod = mehkey
 require('showkeymap')
 hs.hotkey.bind(reimod, "=", toggleKeymap)
 hs.hotkey.bind('', "F18", toggleKeymap)
+hs.hotkey.bind({'cmd'}, "F18", toggleSvalboardKeymap)
 
 Install:installSpoonFromZipURL('https://github.com/reinier/MenuHammer/raw/master/Spoons/MenuHammer.spoon.zip')
 local menuHammer = hs.loadSpoon("MenuHammer")
