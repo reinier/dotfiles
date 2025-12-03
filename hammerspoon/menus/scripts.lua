@@ -7,6 +7,7 @@ function M.getMenu(cons)
     local timerUtils = require('functions.timer-api.utils')
     local directoryWatchers = require('functions.directory-watchers')
     local countdownTimer = require('functions.countdown-timer')
+    local ai = require('menus.ai')
     
     return {
         parentMenu = "mainMenu",
@@ -91,6 +92,11 @@ function M.getMenu(cons)
                     else
                         hs.alert.show("❌ Failed to reload directory watchers", 3)
                     end
+                end }
+            }},
+            {cons.cat.action, '', 'I', "AI Actions", {
+                {cons.act.func, function()
+                    ai.showChooser()
                 end }
             }},
         }
