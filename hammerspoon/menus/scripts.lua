@@ -29,11 +29,6 @@ function M.getMenu(cons)
                     markdownUtils.getBrowserMarkdownLink()
                 end }
             }},
-            {cons.cat.action, '', 'K', "Show keymap", {
-                {cons.act.func, function()
-                    toggleKeymap()
-                end }
-            }},
             {cons.cat.action, '', 'T', "Start Timer", {
                 {cons.act.func, function()
                     timerApi.startTimer(function(result, message)
