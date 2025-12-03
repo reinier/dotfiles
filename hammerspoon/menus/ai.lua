@@ -12,6 +12,20 @@ local function getChooserItems()
                 hs.eventtap.keyStroke(mehkey, "1")
             end
         },
+        {
+            text = "Screenshot Chat",
+            subText = "Take a screenshot and chat about it in BoltAI",
+            action = function()
+                hs.eventtap.keyStroke(mehkey, "2")
+            end
+        },
+        {
+            text = "Open Chat Bar",
+            subText = "Open BoltAI Chat Bar",
+            action = function()
+                hs.eventtap.keyStroke(mehkey, "3")
+            end
+        },
     }
 end
 

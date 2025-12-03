@@ -55,8 +55,8 @@ function M.getMenu(cons)
 			{cons.cat.action, '', 'J', "Things3", {
 				{cons.act.launcher, 'Things3'}
 			}},
-			{cons.cat.action, '', '/', "Claude", {
-				{cons.act.launcher, 'Claude'}
+			{cons.cat.action, '', '/', "BoltAI 2", {
+				{cons.act.launcher, 'BoltAI 2'}
 			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'space', "Alfred", {
