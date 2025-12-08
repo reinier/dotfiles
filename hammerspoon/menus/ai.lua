@@ -9,21 +9,28 @@ local function getChooserItems()
             text = "Check Spelling",
             subText = "Invoke BoltAI spell checker on selected text",
             action = function()
-                hs.eventtap.keyStroke(mehkey, "1")
+                hs.eventtap.keyStroke(reimod, "1")
             end
         },
         {
             text = "Screenshot Chat",
             subText = "Take a screenshot and chat about it in BoltAI",
             action = function()
-                hs.eventtap.keyStroke(mehkey, "2")
+                hs.eventtap.keyStroke(reimod, "2")
             end
         },
         {
             text = "Open Chat Bar",
             subText = "Open BoltAI Chat Bar",
             action = function()
-                hs.eventtap.keyStroke(mehkey, "3")
+                hs.eventtap.keyStroke(reimod, "3")
+            end
+        },
+        {
+            text = "Other Bolt workflows",
+            subText = "Open Bolt workflow list",
+            action = function()
+                hs.eventtap.keyStroke(reimod, "4")
             end
         },
     }
