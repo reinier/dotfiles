@@ -15,7 +15,7 @@ reimod = mehkey
 require('showkeymap')
 hs.hotkey.bind(reimod, "=", toggleKeymap)
 hs.hotkey.bind('', "F18", toggleKeymap)
-hs.hotkey.bind(mehkey, "F18", toggleSvalboardKeymap)
+hs.hotkey.bind(reimod, "F18", toggleSvalboardKeymap)
 
 Install:installSpoonFromZipURL('https://github.com/reinier/MenuHammer/raw/master/Spoons/MenuHammer.spoon.zip')
 local menuHammer = hs.loadSpoon("MenuHammer")
@@ -26,4 +26,4 @@ local directoryWatchers = require('functions.directory-watchers')
 directoryWatchers.start()
 
 -- Show reload confirmation message
-hs.alert.show("✅ Hammerspoon loaded", 2)
+hs.alert.show("✅ Hammerspoon loaded", 0.5)
