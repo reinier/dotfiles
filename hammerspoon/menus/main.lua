@@ -40,8 +40,13 @@ function M.getMenu(cons)
 			{cons.cat.action, '', 'K', "Drafts", {
 				{cons.act.launcher, 'Drafts'}
 			}},
-			{cons.cat.action, '', 'N', "Obsidian", {
-				{cons.act.launcher, 'Obsidian'}
+			{cons.cat.submenu, '', 'N', "Obsidian", {
+				{cons.cat.action, '', 'T', "Tweede Brein", {
+					{cons.act.func, function() hs.urlevent.openURL("obsidian://open/?vault=TweedeBrein") end}
+				}},
+				{cons.cat.action, '', 'N', "NS", {
+					{cons.act.func, function() hs.urlevent.openURL("obsidian://open/?vault=ns-obsidian") end}
+				}}
 			}},
 			{cons.cat.action, '', 'L', "Fantastical", {
 				{cons.act.launcher, 'Fantastical'}
