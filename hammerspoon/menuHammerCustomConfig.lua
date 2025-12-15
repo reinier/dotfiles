@@ -8,6 +8,7 @@ local textMenu = require('menus.text-snippets')
 local finderMenu = require('menus.finder')
 local windowMenu = require('menus.window-management')
 local scriptMenu = require('menus.scripts')
+local obsidianVaultsMenu = require('menus.obsidian-vaults')
 
 menuHammerMenuList = {
 	-- Load modular menu definitions
@@ -16,5 +17,6 @@ menuHammerMenuList = {
 	textMenu = textMenu.getMenu(cons),
 	finderMenu = finderMenu.getMenu(cons),
 	windowMenu = windowMenu.getMenu(cons),
-	scriptMenu = scriptMenu.getMenu(cons)
+	scriptMenu = scriptMenu.getMenu(cons),
+	obsidianVaultsMenu = obsidianVaultsMenu.getMenu(cons)
 }
