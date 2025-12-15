@@ -14,6 +14,11 @@ function M.getMenu(cons)
                 {cons.act.func, function()
                     hs.urlevent.openURL("obsidian://open/?vault=ns-obsidian")
                 end }
+            }},
+            {cons.cat.action, '', 'F', "FYI", {
+                {cons.act.func, function()
+                    hs.urlevent.openURL("obsidian://open/?vault=FYI")
+                end }
             }}
         }
     }
