@@ -40,8 +40,8 @@ function M.getMenu(cons)
 			{cons.cat.action, '', 'K', "Drafts", {
 				{cons.act.launcher, 'Drafts'}
 			}},
-			{cons.cat.action, '', 'N', "Obsidian", {
-				{cons.act.launcher, 'Obsidian'}
+			{cons.cat.submenu, '', 'N', "Obsidian", {
+				{cons.act.menu, "obsidianVaultsMenu"}
 			}},
 			{cons.cat.action, '', 'L', "Fantastical", {
 				{cons.act.launcher, 'Fantastical'}
