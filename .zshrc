@@ -23,6 +23,10 @@ alias weer="curl 'wttr.in/Zaandam?m2&lang=nl'"
 # init z! (https://github.com/rupa/z)
 . ~/z.sh
 
+# Go to Claude Code plaiground
+
+alias plaiground = "cd ~/dev/plaiground/ && devcontainer up --workspace-folder ./ && devcontainer exec --workspace-folder ./ claude"
+alias dcbash = "devcontainer up --workspace-folder ./ && devcontainer exec --workspace-folder ./  /bin/bash"
 # . /usr/local/opt/asdf/asdf.sh
 
 export NVM_DIR="$HOME/.nvm"
