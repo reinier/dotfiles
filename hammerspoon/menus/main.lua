@@ -31,8 +31,8 @@ function M.getMenu(cons)
 			{cons.cat.action, '', '.', "Ghostty", {
 				{cons.act.launcher, 'Ghostty'}
 			}},
-			{cons.cat.action, '', ',', "VSCode", {
-				{cons.act.launcher, 'Visual Studio Code'}
+			{cons.cat.action, '', ',', "Nova", {
+				{cons.act.launcher, 'Nova'}
 			}},
 			{cons.cat.action, '', 'U', "Figma", {
 				{cons.act.launcher, 'Figma'}
@@ -55,8 +55,8 @@ function M.getMenu(cons)
 			{cons.cat.action, '', 'J', "Things3", {
 				{cons.act.launcher, 'Things3'}
 			}},
-			{cons.cat.action, '', '/', "BoltAI 2", {
-				{cons.act.launcher, 'BoltAI 2'}
+			{cons.cat.action, '', '/', "Claude", {
+				{cons.act.launcher, 'Claude'}
 			}},
 			{cons.cat.display,'Spacer',{function()return "-----"end}},
 			{cons.cat.action, '', 'space', "Alfred", {
