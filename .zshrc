@@ -25,7 +25,7 @@ alias weer="curl 'wttr.in/Zaandam?m2&lang=nl'"
 
 # Go to Claude Code plaiground
 
-alias plaiground="cd ~/dev/plaiground/ && devcontainer up --workspace-folder ./ && devcontainer exec --workspace-folder ./ claude"
+alias plaiground="cd ~/dev/plaiground/ && devcontainer up --workspace-folder ./ && devcontainer exec --workspace-folder ./ claude --dangerously-skip-permissions"
 alias dcbash="devcontainer up --workspace-folder ./ && devcontainer exec --workspace-folder ./ /bin/bash"
 # . /usr/local/opt/asdf/asdf.sh
 
