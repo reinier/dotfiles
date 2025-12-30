@@ -34,10 +34,10 @@ alt-ctrl-shift-f = 'focus --boundaries-action wrap-around-the-workspace dfs-next
 alt-ctrl-shift-d = 'workspace --wrap-around next'
 alt-ctrl-shift-s = 'focus-monitor --wrap-around next'
 
-alt-ctrl-shift-z = 'workspace 4'
-alt-ctrl-shift-x = 'workspace 3'
-alt-ctrl-shift-c = 'workspace 2'
-alt-ctrl-shift-v = 'workspace 1'
+alt-ctrl-shift-z = 'workspace z'
+alt-ctrl-shift-x = 'workspace x'
+alt-ctrl-shift-c = 'workspace c'
+alt-ctrl-shift-v = 'workspace v'
 
 
 # Change structure
