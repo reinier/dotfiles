@@ -57,3 +57,7 @@ alt-ctrl-shift-j = 'move left'
 alt-ctrl-shift-k = 'move down'
 alt-ctrl-shift-i = 'move up'
 alt-ctrl-shift-l = 'move right'
+
+# In test
+
+alt-ctrl-shift-w = 'flatten-workspace-tree'
